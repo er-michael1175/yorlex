@@ -95,7 +95,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 15 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute left-[-240px] top-full mt-2 w-[760px] p-8 shadow-2xl border z-50 grid grid-cols-12 gap-8 rounded-2xl bg-white/95 backdrop-blur-md border-slate-200 text-slate-800"
+                    className="absolute left-[-240px] top-full mt-2 w-[760px] p-8 shadow-2xl border z-50 grid grid-cols-12 gap-8 rounded-none bg-white/95 backdrop-blur-md border-slate-200 text-slate-800"
                   >
                     {/* Column 1: Solutions */}
                     <div className="col-span-5 space-y-4">
@@ -107,9 +107,9 @@ export default function Header() {
                           <Link
                             key={svc.slug}
                             href={`/services/${svc.slug}`}
-                            className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 text-slate-700 transition-all duration-250 group/item"
+                            className="flex items-start gap-3 p-2.5 rounded-none hover:bg-slate-50 text-slate-700 transition-all duration-250 group/item"
                           >
-                            <div className="p-2 rounded-lg bg-slate-100 text-slate-600 group-hover/item:bg-brand-purple/10 group-hover/item:text-brand-purple transition-colors">
+                            <div className="p-2 rounded-none bg-slate-100 text-slate-600 group-hover/item:bg-brand-purple/10 group-hover/item:text-brand-purple border border-transparent group-hover/item:border-brand-purple/10 transition-colors">
                               <svc.icon className="h-4 w-4" />
                             </div>
                             <div>
@@ -135,7 +135,7 @@ export default function Header() {
                           <Link
                             key={ind.name}
                             href={ind.href}
-                            className="block p-2 rounded-lg text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-brand-purple transition-all hover:translate-x-1"
+                            className="block p-2 rounded-none text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-brand-purple transition-all hover:translate-x-1"
                           >
                             {ind.name}
                           </Link>
@@ -150,7 +150,7 @@ export default function Header() {
                       </p>
                       <Link 
                         href="/success-stories/revenue-optimization"
-                        className="block p-4 rounded-2xl border bg-slate-50 border-slate-200/60 hover:border-brand-purple/40 hover:bg-slate-100/50 transition-all duration-300 group/feat"
+                        className="block p-4 rounded-none border bg-slate-50 border-slate-200/60 hover:border-brand-purple/40 hover:bg-slate-100/50 transition-all duration-300 group/feat"
                       >
                         <div className="flex items-center gap-1 text-[9px] font-bold text-brand-purple uppercase tracking-widest mb-2">
                           <Star className="h-3 w-3 fill-current" />
@@ -190,7 +190,7 @@ export default function Header() {
                 {hoveredLink === link.name && (
                   <motion.span
                     layoutId="navHover"
-                    className="absolute inset-0 bg-brand-purple/10 rounded-xl z-[-1] shadow-[0_0_15px_rgba(161,0,255,0.15)]"
+                    className="absolute inset-0 bg-brand-purple/10 rounded-none z-[-1] shadow-[0_0_15px_rgba(161,0,255,0.15)]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -214,30 +214,25 @@ export default function Header() {
             {/* Shrunk Search Button */}
             <button 
               onClick={() => setIsSearchOpen(true)}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 border text-[10px] font-medium rounded-xl bg-slate-50 border-slate-200 text-slate-400 hover:bg-slate-100 hover:text-slate-650 transition-all"
+              className="flex items-center gap-1.5 px-3 py-2 border text-[10px] font-bold uppercase tracking-wider rounded-none bg-white border-brand-border-light text-slate-650 hover:border-black transition-all"
             >
-              <Search className="h-3 w-3" />
+              <Search className="h-3.5 w-3.5" />
               <span className="truncate max-w-[55px]">Search...</span>
-              <kbd className="ml-1 px-1 py-0.5 text-[8px] font-semibold border rounded bg-white border-slate-200 text-slate-400">
+              <kbd className="ml-1 px-1 py-0.5 text-[8px] font-semibold border rounded-none bg-brand-bg border-brand-border-light text-slate-400">
                 Ctrl K
               </kbd>
             </button>
 
             {/* Premium CTA Button */}
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
+            <Link
+              href="/contact"
+              className="relative overflow-hidden inline-flex items-center gap-1.5 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-5 py-2.5 rounded-none border border-black hover:bg-brand-purple hover:border-brand-purple transition-all duration-300 group"
             >
-              <Link
-                href="/contact"
-                className="relative overflow-hidden inline-flex items-center gap-1.5 bg-gradient-to-r from-[#a100ff] to-[#007aff] text-white text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-2xl shadow-[0_4px_20px_rgba(161,0,255,0.25)] hover:shadow-[0_4px_30px_rgba(161,0,255,0.45)] transition-all duration-300 group"
-              >
-                Talk to an Expert
-                <motion.span className="inline-block transition-transform group-hover:translate-x-1 duration-200">
-                  →
-                </motion.span>
-              </Link>
-            </motion.div>
+              Talk to an Expert
+              <span className="inline-block transition-transform group-hover:translate-x-1 duration-200">
+                →
+              </span>
+            </Link>
           </div>
 
           {/* Mobile Hamburger */}
@@ -313,7 +308,7 @@ export default function Header() {
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              className="relative w-full max-w-lg bg-[#0d0d0e] border border-white/10 text-white shadow-2xl p-6 overflow-hidden rounded-2xl"
+              className="relative w-full max-w-lg bg-[#0d0d0e] border border-white/10 text-white shadow-2xl p-6 overflow-hidden rounded-none"
             >
               <div className="flex items-center gap-3 border-b border-white/10 pb-4 mb-4">
                 <Search className="h-5 w-5 text-gray-400" />
@@ -332,16 +327,16 @@ export default function Header() {
               </div>
               <div className="space-y-2 text-xs text-gray-400">
                 <p className="font-semibold text-gray-500 uppercase tracking-wider text-[9px]">Suggested Pages</p>
-                <Link href="/services/technology" onClick={() => setIsSearchOpen(false)} className="block p-2 hover:bg-white/5 hover:text-white rounded">
+                <Link href="/services/technology" onClick={() => setIsSearchOpen(false)} className="block p-2 hover:bg-white/5 hover:text-white rounded-none">
                   Technology Solutions
                 </Link>
-                <Link href="/services/finance" onClick={() => setIsSearchOpen(false)} className="block p-2 hover:bg-white/5 hover:text-white rounded">
+                <Link href="/services/finance" onClick={() => setIsSearchOpen(false)} className="block p-2 hover:bg-white/5 hover:text-white rounded-none">
                   Finance Solutions
                 </Link>
-                <Link href="/services/marketing" onClick={() => setIsSearchOpen(false)} className="block p-2 hover:bg-white/5 hover:text-white rounded">
+                <Link href="/services/marketing" onClick={() => setIsSearchOpen(false)} className="block p-2 hover:bg-white/5 hover:text-white rounded-none">
                   Marketing Solutions
                 </Link>
-                <Link href="/services/management" onClick={() => setIsSearchOpen(false)} className="block p-2 hover:bg-white/5 hover:text-white rounded">
+                <Link href="/services/management" onClick={() => setIsSearchOpen(false)} className="block p-2 hover:bg-white/5 hover:text-white rounded-none">
                   Management Solutions
                 </Link>
               </div>
