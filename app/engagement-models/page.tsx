@@ -2,7 +2,115 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Clock, FileText, TrendingUp, ShieldCheck, CheckSquare, Send, Check, ArrowRight } from "lucide-react";
+import { Clock, FileText, TrendingUp, ShieldCheck, CheckSquare, Send, Check, ArrowRight, Activity, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
+import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+
+// Interactive Engagement Simulator for Hero Right Side
+function HeroEngagementSimulator() {
+  const [activeModel, setActiveModel] = useState<"t_m" | "fixed" | "success">("fixed");
+
+  const modelSpecs = {
+    t_m: {
+      name: "Time & Materials",
+      risk: "Shared Risk",
+      flexibility: "100% Dynamic Scope",
+      billing: "Monthly Sprint Iterations",
+      sla: "Continuous Agile Delivery",
+      color: "text-blue-400",
+    },
+    fixed: {
+      name: "Fixed Price",
+      risk: "Capped Client Risk",
+      flexibility: "Strict Phase Parameters",
+      billing: "Milestone-Based Gates",
+      sla: "Guaranteed 45-Day Delivery",
+      color: "text-brand-purple",
+    },
+    success: {
+      name: "Success Fees",
+      risk: "Venture Aligned",
+      flexibility: "KPI Dependent Scope",
+      billing: "Coordinated Revenue Shares",
+      sla: "Performance Matched Metrics",
+      color: "text-green-400",
+    },
+  };
+
+  return (
+    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl h-[320px] flex flex-col justify-between">
+      {/* Window Title Bar */}
+      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
+        <div className="flex gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+        </div>
+        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+          YORLEX // PARTNERSHIP_CONFIG
+        </span>
+      </div>
+
+      {/* Selectors */}
+      <div className="flex gap-1.5 border border-brand-border-light/5 bg-slate-900/40 p-1.5 mb-3 relative">
+        {(["t_m", "fixed", "success"] as const).map((model) => (
+          <button
+            key={model}
+            onClick={() => setActiveModel(model)}
+            className="flex-1 py-1.5 text-[8px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none relative z-10 text-gray-555 hover:text-white"
+          >
+            <span className={activeModel === model ? "text-white" : ""}>
+              {model === "t_m" ? "T&M" : model === "fixed" ? "Fixed" : "Success"}
+            </span>
+            {activeModel === model && (
+              <motion.div
+                layoutId="activeEngagementTab"
+                className="absolute inset-0 bg-brand-purple -z-10"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Detail Block */}
+      <div className="flex-1 flex flex-col gap-2.5 justify-center">
+        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1 flex justify-between">
+          <span>// PIPELINE STAGES READY</span>
+          <span className="text-green-500 animate-pulse">● CONFIG_ACTIVE</span>
+        </div>
+
+        <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 min-h-[110px] justify-center">
+          <div className="text-white font-bold text-[10px] uppercase">
+            {modelSpecs[activeModel].name} Model
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-gray-400 mt-1 font-mono text-[8px] leading-relaxed">
+            <div className="flex flex-col">
+              <span className="text-[7px] text-gray-550">FINANCIAL RISK</span>
+              <span className={`font-bold mt-0.5 ${modelSpecs[activeModel].color}`}>{modelSpecs[activeModel].risk}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[7px] text-gray-550">SCOPE FLEXIBILITY</span>
+              <span className="font-bold text-white mt-0.5">{modelSpecs[activeModel].flexibility}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[7px] text-gray-555">BILLING GATE</span>
+              <span className="font-bold text-white mt-0.5">{modelSpecs[activeModel].billing}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[7px] text-gray-555">SLA COMMITMENT</span>
+              <span className="font-bold text-white mt-0.5">{modelSpecs[activeModel].sla}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-[7px] text-gray-450 border-t border-brand-border-light/10 pt-2">
+        MUTUAL_IP_PROTECTION: ACTIVE // Zero-Downtime Guarantee
+      </div>
+    </div>
+  );
+}
 
 export default function EngagementModels() {
   const [submitted, setSubmitted] = useState(false);
@@ -20,17 +128,19 @@ export default function EngagementModels() {
       desc: "Maximum flexibility for evolving architectures. Ideal for exploratory phases and dynamic R&D environments where scope requires continuous recalibration.",
       borderClass: "border-brand-border hover:border-brand-purple",
       bgClass: "bg-white text-black",
-      badgeClass: "text-gray-400 border-gray-200",
+      badgeClass: "text-gray-400 border-brand-border-light",
+      bullets: ["Dynamic sprints", "Continuous integration", "Agile scoping iterations"],
     },
     {
       name: "Model Beta",
       title: "Fixed Price",
       icon: FileText,
       desc: "Absolute financial predictability. Engineered for projects with strictly defined parameters, rigid compliance requirements, and unyielding deadlines.",
-      borderClass: "border-black shadow-2xl",
-      bgClass: "bg-black text-white",
-      badgeClass: "text-gray-400 border-gray-800",
+      borderClass: "border-slate-800 hover:border-brand-purple shadow-2xl",
+      bgClass: "bg-slate-950 text-white",
+      badgeClass: "text-gray-400 border-white/10",
       isHighContrast: true,
+      bullets: ["Capped budget guarantee", "Strict delivery deadlines", "Clear milestone gates"],
     },
     {
       name: "Model Gamma",
@@ -39,69 +149,93 @@ export default function EngagementModels() {
       desc: "Venture-aligned partnerships. We tie a percentage of our compensation directly to measurable KPIs, revenue milestones, or cost-reduction metrics.",
       borderClass: "border-brand-border hover:border-brand-purple",
       bgClass: "bg-white text-black",
-      badgeClass: "text-gray-400 border-gray-200",
+      badgeClass: "text-gray-400 border-brand-border-light",
+      bullets: ["Venture-aligned risk", "SLA performance milestones", "Revenue/Cost KPI sharing"],
     },
   ];
 
   return (
-    <div className="flex-1 bg-brand-bg font-sans pt-32 pb-24">
-      
+    <div className="flex-grow bg-brand-bg font-sans pt-0 pb-0">
       {/* Hero Section */}
-      <section className="bg-black text-white py-24 px-6 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-multiply pointer-events-none"
-          style={{
-            backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSbOCKJ0LBVIRNOyjG8PYlYV7ShUNUZ-yY4AF99Xof9EsoVKg6Y3uGZhSEot8aDCYeKpocStPAWxI6EP5AUjMXN1Jq58hQqH2R7n-FSaaotTgBkk6RPdkqYkxO3ibWrcAjPYi-PJmdwo0Fp6oVebuwCxuRwVM4bWtab4VFFQDpq4YzvplHiJosVnur2g25KOXvklbBNVKnN8vWRrMrpY7KZN1IqJDiRVngZg8I2YWLDK1shfZyevp1cnVcglPSKM81Jh1c7KCDpQk')",
-          }}
-        />
-        <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-8 flex flex-col gap-4">
-            <h1 className="font-plus-jakarta text-5xl md:text-7xl font-black text-white uppercase leading-tight">
-              Strategic <br />
-              Engagements.
+      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 flex flex-col gap-3">
+            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+              <CheckSquare className="h-4 w-4 text-brand-purple shrink-0" />
+              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+                Partnership Frameworks
+              </span>
+            </div>
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+              Strategic Engagements
             </h1>
-            <p className="font-inter text-gray-400 text-lg max-w-2xl mt-4">
+            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
               Transformative partnerships begin with absolute clarity. Yorlex does not operate on ambiguity. Discover our precision engagement models and initiate your enterprise transformation.
             </p>
+            <div className="flex flex-wrap gap-4 mt-1">
+              <PremiumButton
+                variant="gradient"
+                size="md"
+                href="#briefing"
+                icon={<ArrowRight className="h-4 w-4" />}
+              >
+                Request Briefing
+              </PremiumButton>
+              <PremiumButton
+                variant="secondary"
+                size="md"
+                href="/services"
+              >
+                Explore Services
+              </PremiumButton>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 relative">
+            <HeroEngagementSimulator />
           </div>
         </div>
-      </section>
+      </SectionWrapper>
 
       {/* Digital Maturity Audit (Entry Point) */}
-      <section className="py-24 px-6 bg-white border-b border-brand-border">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col gap-4">
-            <div className="font-inter font-bold text-xs text-brand-purple uppercase tracking-widest">Entry Point</div>
-            <h2 className="font-plus-jakarta text-4xl font-black text-black uppercase">The Digital Maturity Audit</h2>
-            <p className="font-inter text-gray-600 text-sm leading-relaxed">
+      <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light relative z-10" animate>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 flex flex-col gap-4">
+            <div className="inline-flex items-center gap-1.5 bg-brand-bg border border-brand-border px-3.5 py-1 text-black w-max font-mono text-[9px] font-bold uppercase tracking-wider">
+              <Activity className="h-3.5 w-3.5 text-brand-purple shrink-0" /> Mandatory Baseline Entry Point
+            </div>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">
+              The Digital Maturity Audit
+            </h2>
+            <p className="font-inter text-gray-650 text-xs md:text-sm leading-relaxed max-w-xl">
               Before committing to structural change, we must establish the baseline. Our proprietary Digital Maturity Audit is the mandatory first step for all high-level engagements, providing a ruthless, data-driven assessment of your current technological and operational architecture.
             </p>
-            <div className="mt-4">
-              <a
+            <div className="mt-2">
+              <Link
                 href="#briefing"
                 className="inline-flex items-center gap-2 font-inter font-bold text-xs uppercase text-black border-b-2 border-black pb-1 hover:text-brand-purple hover:border-brand-purple transition-all"
               >
                 Initiate Audit <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </div>
           </div>
           
-          <div className="relative h-[380px] w-full bg-brand-bg border border-brand-border rounded-none overflow-hidden">
+          <div className="lg:col-span-5 relative h-[280px] w-full bg-brand-bg border border-brand-border rounded-none overflow-hidden">
             <img
-              className="w-full h-full object-cover grayscale"
+              className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all duration-300"
               alt="Analytical model visualization"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCvWssENLIBkulyPyxN6ymGGMXbx1DX_a8VmX8tB-mPVOEvlU6nQCgQwFLILlf1Am7y6ELGAVIwxfA8bwRwbsZvtVHiJU5fU0bzh6uy35PuN3w2wLMcavb1DThfOCX8Hy9KQnuDO5QWjaTBM5i4XaE-9xtzdcfIfSNDxDh4DgNZufibMal3C2rBcqqV5lAcBywUJCce5zDodQJFnAa8bKuT9XuuHGDNJrwgD-uNzFGpsAHA70tEF7oOiN6DMOuGdY8TNV9i7JUWfQ"
             />
           </div>
         </div>
-      </section>
+      </SectionWrapper>
 
-      {/* Engagement Models (Bento Grid) */}
-      <section className="py-24 px-6 bg-brand-bg">
+      {/* Engagement Models (Grid) */}
+      <SectionWrapper background="default" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="font-plus-jakarta text-4xl font-black text-black uppercase">Engagement Models</h2>
+          <div className="text-center mb-12">
+            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// ENGAGEMENT FRAMEWORKS</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">Engagement Models</h2>
             <p className="font-inter text-gray-500 text-xs mt-2 uppercase tracking-wider">Tailored financial structures for enterprise integration.</p>
           </div>
           
@@ -111,51 +245,74 @@ export default function EngagementModels() {
               return (
                 <div
                   key={model.name}
-                  className={`border p-8 flex flex-col justify-between min-h-[300px] rounded-none ${
+                  className={`border p-8 flex flex-col justify-between min-h-[300px] rounded-none hover:border-brand-purple transition-all duration-250 relative group shadow-sm ${
                     model.borderClass
                   } ${model.bgClass}`}
                 >
+                  {/* Top hover accent bar */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />
+                  
                   <div className="flex justify-between items-start mb-6">
-                    <Icon className={`h-8 w-8 ${model.isHighContrast ? "text-brand-purple" : "text-black"}`} />
-                    <span className={`font-inter font-bold text-[10px] uppercase border px-2 py-0.5 ${model.badgeClass}`}>
+                    <div className={`w-10 h-10 border flex items-center justify-center shrink-0 transition-colors duration-250 ${
+                      model.isHighContrast 
+                        ? "bg-slate-900 border-white/10 text-white group-hover:bg-brand-purple group-hover:text-white" 
+                        : "bg-brand-bg border-brand-border text-black group-hover:bg-brand-purple group-hover:text-white"
+                    }`}>
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className={`font-inter font-bold text-[8px] uppercase border px-2 py-0.5 ${model.badgeClass}`}>
                       {model.name}
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-plus-jakarta text-xl font-bold uppercase mb-2">
+                    <h3 className="font-plus-jakarta text-lg font-bold uppercase mb-2">
                       {model.title}
                     </h3>
-                    <p className={`font-inter text-xs leading-relaxed ${model.isHighContrast ? "text-gray-400" : "text-gray-500"}`}>
+                    <p className={`font-inter text-xs leading-relaxed mb-6 ${model.isHighContrast ? "text-gray-400" : "text-gray-650"}`}>
                       {model.desc}
                     </p>
+
+                    <ul className="space-y-2 border-t border-brand-border-light/40 pt-4">
+                      {model.bullets.map((bullet, bIdx) => (
+                        <li key={bIdx} className="flex items-center gap-2">
+                          <Check className="h-3.5 w-3.5 text-brand-purple shrink-0" />
+                          <span className={`text-[10px] uppercase font-mono font-medium ${model.isHighContrast ? "text-gray-400" : "text-gray-500"}`}>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               );
             })}
           </div>
         </div>
-      </section>
+      </SectionWrapper>
 
       {/* Minimalist Contact Form (Strategy Briefing) */}
-      <section className="py-24 px-6 bg-white border-t border-brand-border" id="briefing">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light" id="briefing" animate>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="lg:col-span-5 flex flex-col justify-center">
-            <h2 className="font-plus-jakarta text-4xl font-black text-black uppercase mb-4">Request a Briefing.</h2>
-            <p className="font-inter text-gray-600 text-sm leading-relaxed mb-8">
+          <div className="lg:col-span-5 flex flex-col justify-center gap-4">
+            <div className="inline-flex items-center gap-2 bg-brand-bg border border-brand-border px-3.5 py-1 text-black w-max font-mono text-[9px] font-bold uppercase tracking-wider">
+              <Calendar className="h-3.5 w-3.5 text-brand-purple shrink-0" /> Strategy Briefing
+            </div>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">
+              Request a Briefing
+            </h2>
+            <p className="font-inter text-gray-650 text-xs md:text-sm leading-relaxed max-w-xl">
               Submit your enterprise parameters. Our qualification team will review your requirements and schedule a preliminary strategy briefing within 24 hours.
             </p>
-            <div className="flex flex-col gap-4 font-inter text-xs font-bold uppercase tracking-wider text-gray-500">
+            <div className="flex flex-col gap-3 font-inter text-[10px] font-bold uppercase tracking-wider text-gray-500 mt-2">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-black" /> Secure &amp; Confidential Processing
+                <ShieldCheck className="h-4.5 w-4.5 text-black" /> Secure &amp; Confidential Processing
               </div>
               <div className="flex items-center gap-2">
-                <CheckSquare className="h-4 w-4 text-black" /> For Enterprise Clients Only
+                <CheckSquare className="h-4.5 w-4.5 text-black" /> For Enterprise Clients Only
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-7 bg-brand-bg p-8 border border-brand-border rounded-none">
+          <div className="lg:col-span-7 bg-brand-bg p-8 border border-brand-border rounded-none shadow-xl">
             {submitted ? (
               <div className="text-center py-12 flex flex-col items-center justify-center">
                 <div className="w-12 h-12 rounded-none bg-brand-purple text-white flex items-center justify-center mb-4">
@@ -211,17 +368,16 @@ export default function EngagementModels() {
 
                 <button
                   type="submit"
-                  className="w-full bg-black text-white hover:bg-brand-purple py-3.5 text-xs font-bold uppercase tracking-widest rounded-none transition-colors mt-4 flex items-center justify-center gap-2"
+                  className="w-full bg-black hover:bg-brand-purple text-white py-3.5 text-xs font-bold uppercase tracking-widest rounded-none transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple"
                 >
-                  Submit Briefing <Send className="h-4.5 w-4.5" />
+                  Submit Briefing <Send className="h-4 w-4" />
                 </button>
               </form>
             )}
           </div>
 
         </div>
-      </section>
-
+      </SectionWrapper>
     </div>
   );
 }

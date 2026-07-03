@@ -10,7 +10,7 @@ export interface SectionWrapperProps {
   children: React.ReactNode;
   className?: string;
   background?: "default" | "white" | "dark" | "gradient" | "grid";
-  spacing?: "compact" | "default" | "generous";
+  spacing?: "compact" | "default" | "generous" | "none";
   animate?: boolean;
   id?: string;
 }

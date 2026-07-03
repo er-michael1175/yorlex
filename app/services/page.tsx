@@ -332,8 +332,8 @@ export default function Services() {
   return (
     <div className="flex-1 font-sans bg-brand-bg">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="default" animate>
-        <div className="pt-24 md:pt-32 pb-8 relative">
+      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-8 md:pt-12 pb-12 md:pb-16" animate>
+        <div className="relative">
           {/* Subtle architectural coordinates */}
           <div className="absolute right-0 top-16 hidden lg:block font-mono text-[9px] text-gray-400 select-none pointer-events-none text-right leading-relaxed">
             <span>SYS_LOC // 0x48FA</span>

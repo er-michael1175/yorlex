@@ -8,17 +8,19 @@
 /**
  * Returns the Tailwind vertical padding class for a given spacing tier.
  *
- * - 'compact'   → "py-20" (80px)
- * - 'default'   → "py-28" (112px)
- * - 'generous'  → "py-36" (144px)
+ * - 'compact'   → "py-12 md:py-16"
+ * - 'default'   → "py-16 md:py-24"
+ * - 'generous'  → "py-20 md:py-28"
+ * - 'none'      → ""
  */
 export function getSectionSpacing(
-  spacing: "compact" | "default" | "generous"
+  spacing: "compact" | "default" | "generous" | "none"
 ): string {
   const map: Record<typeof spacing, string> = {
     compact: "py-12 md:py-16",
     default: "py-16 md:py-24",
     generous: "py-20 md:py-28",
+    none: "",
   };
   return map[spacing];
 }

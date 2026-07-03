@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Rocket, Eye, Shield, Bolt, Users, ArrowRight } from "lucide-react";
+import { Rocket, Eye, Shield, Bolt, Users, ArrowRight, Check, MapPin, Cpu, Landmark, Scale } from "lucide-react";
 import {
   SectionWrapper,
   AnimatedHeading,
@@ -71,12 +71,6 @@ export default function About() {
     </div>
   );
 
-  const offices = [
-    { region: "North America", count: "12 Nodes" },
-    { region: "Europe & Middle East", count: "18 Nodes" },
-    { region: "Asia Pacific", count: "14 Nodes" },
-  ];
-
   const leaders = [
     {
       name: "Sarah Jenkins",
@@ -92,54 +86,88 @@ export default function About() {
 
   return (
     <div className="flex-1 bg-brand-bg font-sans">
-
       {/* Hero Section */}
-      <header className="relative w-full pt-28 md:pt-32 pb-6 md:pb-8 flex items-center bg-gray-250 border-b border-brand-border overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div
-            className="bg-cover bg-center w-full h-full mix-blend-multiply opacity-15 grayscale"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzGVaFWO8xTsLPEAGL8g2sk2z_Aud0srPIALl-wfG_2bgMxuBcgyudZ9WcEXnoHnUMmp55vdDCB18m6mJSovBJaVFCJc_Txrhv10omuRrMpVuklI9yOzjjhk3yJahq9syLT3xCzcftJgFgJRpb93RytMnqAu63v-BUp68bGOUttcyfjDU3lih8sPhDltkY71ip2Z7xrwPxpjm7gjXwV59aGzsljwOp6dJ-_TOBeoYI6nRWWY4r0lPys6GjD6F0SihrtA8IYejfOaY')",
-            }}
-          />
-          {/* Architectural Technical Grid overlay */}
-          <div className="absolute inset-0 crosshair-grid opacity-30" />
-
-          {/* Dynamic blueprints design vector */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" xmlns="http://www.w3.org/2000/svg">
-            <line x1="15%" y1="0" x2="15%" y2="100%" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-            <line x1="85%" y1="0" x2="85%" y2="100%" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-            <line x1="0" y1="35%" x2="100%" y2="35%" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-            <line x1="0" y1="75%" x2="100%" y2="75%" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-            
-            {/* Focal blueprint vector in top-right */}
-            <circle cx="85%" cy="35%" r="40" fill="none" stroke="rgba(161, 0, 255, 0.12)" strokeWidth="1" strokeDasharray="3,3" />
-            <circle cx="85%" cy="35%" r="60" fill="none" stroke="rgba(161, 0, 255, 0.06)" strokeWidth="0.5" />
-            <line x1="85%" y1="15%" x2="85%" y2="55%" stroke="rgba(161, 0, 255, 0.1)" strokeWidth="0.5" />
-            <line x1="75%" y1="35%" x2="95%" y2="35%" stroke="rgba(161, 0, 255, 0.1)" strokeWidth="0.5" />
-          </svg>
-
-          {/* Telemetry metadata overlay */}
-          <div className="absolute top-28 right-8 font-mono text-[8px] text-gray-400 select-none tracking-widest hidden md:block">
-            GRID_SCALE: 1:1.024 // CH_SYS_ACTIVE
-          </div>
-          <div className="absolute bottom-6 left-8 font-mono text-[8px] text-gray-400 select-none tracking-widest hidden md:block">
-            REF_BLUEPRINT: [YORLEX_CORP_HEADQUARTERS]
-          </div>
-        </div>
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-6">
-          <div className="md:col-span-8 md:col-start-1">
-            <p className="font-inter font-bold text-xs uppercase tracking-widest text-black mb-4">About Us</p>
-            <AnimatedHeading level={1} className="text-black mb-6">
-              Architecting Global Excellence.
-            </AnimatedHeading>
-            <p className="font-inter text-gray-700 text-base md:text-lg leading-relaxed max-w-2xl">
+      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 flex flex-col gap-3">
+            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+              <Rocket className="h-4 w-4 text-brand-purple shrink-0" />
+              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+                Corporate Identity
+              </span>
+            </div>
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+              Architecting Global Excellence
+            </h1>
+            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
               Yorlex is a multi-disciplinary powerhouse engineered to solve the most complex challenges across technology, finance, and enterprise management.
             </p>
+            <div className="flex flex-wrap gap-4 mt-1">
+              <PremiumButton
+                variant="gradient"
+                size="md"
+                href="/services"
+                icon={<ArrowRight className="h-4 w-4" />}
+              >
+                Explore Capabilities
+              </PremiumButton>
+              <PremiumButton
+                variant="secondary"
+                size="md"
+                href="/about/leadership"
+              >
+                Meet Leadership
+              </PremiumButton>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 relative">
+            <div className="h-[320px] bg-black border border-brand-border rounded-none relative overflow-hidden p-6 flex flex-col justify-between crosshair-grid select-none shadow-2xl">
+              {/* Dynamic Telemetry Panel */}
+              <div className="flex justify-between items-center text-white/50 text-[8px] font-mono border-b border-white/10 pb-2">
+                <span>SYSTEM: NODE_NETWORK_TELEMETRY</span>
+                <span className="text-brand-purple animate-pulse flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-brand-purple rounded-full inline-block"></span> SIGNAL ACTIVE
+                </span>
+              </div>
+              
+              {/* World grid & connections */}
+              <div className="relative flex-grow flex items-center justify-center my-2 overflow-hidden">
+                <svg viewBox="0 0 400 200" className="w-full h-full opacity-80" xmlns="http://www.w3.org/2000/svg">
+                  {/* Horizontal & Vertical grid lines */}
+                  <line x1="0" y1="50" x2="400" y2="50" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
+                  <line x1="0" y1="100" x2="400" y2="100" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
+                  <line x1="0" y1="150" x2="400" y2="150" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" strokeDasharray="2,2" />
+                  <line x1="100" y1="0" x2="100" y2="200" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
+                  <line x1="200" y1="0" x2="200" y2="200" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
+                  <line x1="300" y1="0" x2="300" y2="200" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" strokeDasharray="2,2" />
+
+                  {/* Connection links */}
+                  <path d="M 60,85 Q 120,40 180,65" fill="none" stroke="rgba(161, 0, 255, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
+                  <path d="M 180,65 Q 230,110 280,120" fill="none" stroke="rgba(161, 0, 255, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
+                  <path d="M 60,85 Q 170,170 280,120" fill="none" stroke="rgba(0, 122, 255, 0.3)" strokeWidth="1" strokeDasharray="4,4" />
+
+                  {/* Nodes */}
+                  <circle cx="60" cy="85" r="4" fill="#a100ff" />
+                  <circle cx="180" cy="65" r="4" fill="#a100ff" />
+                  <circle cx="280" cy="120" r="4" fill="#a100ff" />
+
+                  {/* Node labels */}
+                  <text x="65" y="81" fill="#fff" fontSize="7" fontFamily="monospace" opacity="0.8">SF_NODE.US</text>
+                  <text x="185" y="61" fill="#fff" fontSize="7" fontFamily="monospace" opacity="0.8">LON_NODE.UK</text>
+                  <text x="285" y="116" fill="#fff" fontSize="7" fontFamily="monospace" opacity="0.8">MAA_NODE.IN</text>
+                </svg>
+              </div>
+
+              {/* Bottom telemetry detail */}
+              <div className="flex justify-between items-end text-[7px] font-mono text-white/40 border-t border-white/10 pt-2">
+                <div>GRID_STATUS: 100% OPERATIONAL</div>
+                <div>LATENCY: 42MS</div>
+              </div>
+            </div>
           </div>
         </div>
-      </header>
+      </SectionWrapper>
 
       {/* The Power Bar — Stats Counter Row */}
       <SectionWrapper background="dark" spacing="compact" animate>
@@ -151,15 +179,16 @@ export default function About() {
         </div>
       </SectionWrapper>
 
-      {/* Our Story Section */}
-      <SectionWrapper background="default" spacing="default" animate>
+      {/* Our Origin Section */}
+      <SectionWrapper background="default" spacing="compact" animate>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-4 flex flex-col justify-between">
             <div>
+              <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// BRAND GENESIS</span>
               <AnimatedHeading level={2} className="text-black mb-4">
-                Our Origin.
+                Our Origin
               </AnimatedHeading>
-              <p className="font-inter font-bold text-xs uppercase text-brand-purple tracking-widest">The Genesis of Precision</p>
+              <p className="font-inter font-bold text-xs text-gray-550 uppercase tracking-widest">The Genesis of Precision</p>
             </div>
           </div>
           <div className="md:col-span-8">
@@ -183,10 +212,11 @@ export default function About() {
       </SectionWrapper>
 
       {/* Mission / Vision / Values Bento Grid */}
-      <SectionWrapper background="white" spacing="generous" animate>
-        <div className="text-center mb-16">
+      <SectionWrapper background="white" spacing="compact" animate>
+        <div className="text-center mb-12">
+          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// DIRECTIVES</span>
           <AnimatedHeading level={2} className="text-black">
-            Core Directives.
+            Core Directives
           </AnimatedHeading>
         </div>
 
@@ -260,97 +290,69 @@ export default function About() {
       </SectionWrapper>
 
       {/* Global Impact Section */}
-      <SectionWrapper background="default" spacing="default" animate>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <AnimatedHeading level={2} className="text-black mb-6">
-              Global Authority.
-            </AnimatedHeading>
-            <p className="font-inter text-gray-600 text-sm leading-relaxed mb-8">
-              Operating from strategic hubs across key economic theaters, Yorlex exerts influence and delivers localized precision on a global scale. Our network is a tightly integrated nervous system of elite professionals.
-            </p>
-            <div className="space-y-4">
-              {offices.map((office) => (
-                <div key={office.region} className="flex justify-between items-center border-b border-brand-border pb-2">
-                  <span className="font-inter font-bold text-xs uppercase text-black tracking-wider">{office.region}</span>
-                  <span className="text-xs text-gray-500 font-semibold">{office.count}</span>
-                </div>
-              ))}
+      <SectionWrapper background="default" spacing="compact" animate>
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// GLOBAL NODE NETWORK</span>
+          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+            Global Authority
+          </h2>
+          <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
+            Operating from strategic hubs across key economic theaters, Yorlex delivers localized precision and M&A consulting on a global scale.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              region: "North America",
+              count: "12 Nodes",
+              functions: ["Technology Strategy", "M&A Advisory", "Venture Building"],
+              city: "San Francisco, CA"
+            },
+            {
+              region: "Europe & Middle East",
+              count: "18 Nodes",
+              functions: ["Sovereign Wealth Consulting", "Operations Design", "Regulatory Compliance"],
+              city: "London, UK"
+            },
+            {
+              region: "Asia Pacific",
+              count: "14 Nodes",
+              functions: ["Product Engineering", "Process PMO Delivery", "Operations Scaling"],
+              city: "Chennai, IN"
+            }
+          ].map((office, idx) => (
+            <div key={idx} className="bg-white border border-brand-border-light p-8 transition-colors hover:border-brand-purple">
+              <span className="font-mono text-[9px] text-brand-purple uppercase tracking-widest block mb-2">// {office.city}</span>
+              <h3 className="font-plus-jakarta text-lg font-bold text-black uppercase mb-1">{office.region}</h3>
+              <div className="font-mono text-xs font-bold text-gray-400 mb-6">{office.count}</div>
+              
+              <ul className="space-y-2 border-t border-brand-border-light/60 pt-4">
+                {office.functions.map((func, fIdx) => (
+                  <li key={fIdx} className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-brand-purple shrink-0" />
+                    <span className="text-[10px] text-gray-555 uppercase font-mono font-medium">{func}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-
-          <div className="h-[380px] bg-black border border-brand-border rounded-none relative overflow-hidden p-6 flex flex-col justify-between crosshair-grid select-none">
-            {/* Dynamic Telemetry Panel */}
-            <div className="flex justify-between items-center text-white/50 text-[9px] font-mono border-b border-white/10 pb-2">
-              <span>SYSTEM: NODE_NETWORK_TELEMETRY</span>
-              <span className="text-brand-purple animate-pulse flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-brand-purple rounded-full inline-block"></span> SIGNAL ACTIVE
-              </span>
-            </div>
-            
-            {/* World grid & connections */}
-            <div className="relative flex-grow flex items-center justify-center my-4 overflow-hidden">
-              <svg viewBox="0 0 400 200" className="w-full h-full opacity-80" xmlns="http://www.w3.org/2000/svg">
-                {/* Horizontal & Vertical grid lines */}
-                <line x1="0" y1="50" x2="400" y2="50" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
-                <line x1="0" y1="100" x2="400" y2="100" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
-                <line x1="0" y1="150" x2="400" y2="150" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" strokeDasharray="2,2" />
-                <line x1="100" y1="0" x2="100" y2="200" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
-                <line x1="200" y1="0" x2="200" y2="200" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
-                <line x1="300" y1="0" x2="300" y2="200" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" strokeDasharray="2,2" />
-
-                {/* Connection links */}
-                <path d="M 60,85 Q 120,40 180,65" fill="none" stroke="rgba(161, 0, 255, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
-                <path d="M 180,65 Q 230,110 280,120" fill="none" stroke="rgba(161, 0, 255, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
-                <path d="M 60,85 Q 170,170 280,120" fill="none" stroke="rgba(0, 122, 255, 0.3)" strokeWidth="1" strokeDasharray="4,4" />
-
-                {/* Nodes */}
-                {/* SF Node */}
-                <circle cx="60" cy="85" r="4" fill="#a100ff" />
-                <circle cx="60" cy="85" r="8" fill="none" stroke="#a100ff" strokeWidth="1" className="animate-ping-slow origin-center" style={{ transformOrigin: '60px 85px' }} />
-                
-                {/* London Node */}
-                <circle cx="180" cy="65" r="4" fill="#a100ff" />
-                <circle cx="180" cy="65" r="8" fill="none" stroke="#a100ff" strokeWidth="1" className="animate-ping-slow origin-center" style={{ transformOrigin: '180px 65px' }} />
-
-                {/* Chennai Node */}
-                <circle cx="280" cy="120" r="4" fill="#a100ff" />
-                <circle cx="280" cy="120" r="8" fill="none" stroke="#007aff" strokeWidth="1" className="animate-ping-slow origin-center" style={{ transformOrigin: '280px 120px' }} />
-
-                {/* Node labels */}
-                <text x="65" y="81" fill="#fff" fontSize="7" fontFamily="monospace" opacity="0.8">SF_NODE.US</text>
-                <text x="185" y="61" fill="#fff" fontSize="7" fontFamily="monospace" opacity="0.8">LON_NODE.UK</text>
-                <text x="285" y="116" fill="#fff" fontSize="7" fontFamily="monospace" opacity="0.8">MAA_NODE.IN</text>
-              </svg>
-            </div>
-
-            {/* Bottom telemetry detail */}
-            <div className="flex justify-between items-end text-[8px] font-mono text-white/40 border-t border-white/10 pt-2">
-              <div className="space-y-0.5">
-                <div>GRID_STATUS: 100% OPERATIONAL</div>
-                <div>SECURE_TUNNEL: AES_256_ACTIVE</div>
-              </div>
-              <div className="text-right">
-                LATENCY: 42MS // PKT_LOSS: 0.00%
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </SectionWrapper>
 
       {/* Leadership Board */}
-      <SectionWrapper background="white" spacing="generous" animate>
+      <SectionWrapper background="white" spacing="compact" animate>
         <div className="text-center">
-          <p className="font-inter font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">The Architects</p>
-          <AnimatedHeading level={2} className="text-black mb-16">
-            Command &amp; Control.
+          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// THE ARCHITECTS</span>
+          <AnimatedHeading level={2} className="text-black mb-12">
+            Command &amp; Control
           </AnimatedHeading>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {leaders.map((leader) => (
               <GradientCard key={leader.name} variant="default" hover="lift" className="text-left flex flex-col justify-between">
                 <div>
-                  <div className="w-full aspect-4/5 bg-gray-200 mb-6 overflow-hidden border border-brand-border">
+                  <div className="w-full aspect-4/5 bg-gray-255 mb-6 overflow-hidden border border-brand-border-light">
                     <img
                       alt={leader.name}
                       src={leader.image}
@@ -364,7 +366,7 @@ export default function About() {
             ))}
 
             {/* CTA Card */}
-            <GradientCard variant="dark" hover="glow" className="flex flex-col items-center justify-center">
+            <GradientCard variant="dark" hover="glow" className="flex flex-col items-center justify-center p-8">
               <Users className="h-10 w-10 text-brand-purple mb-4" />
               <h4 className="font-plus-jakarta text-lg font-bold mb-2 uppercase text-center text-white">View Entire Board</h4>
               <p className="text-[10px] text-gray-400 text-center mb-6">45+ Elite multi-disciplinary partners worldwide.</p>
@@ -375,7 +377,6 @@ export default function About() {
           </div>
         </div>
       </SectionWrapper>
-
     </div>
   );
 }
