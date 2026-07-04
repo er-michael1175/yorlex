@@ -62,7 +62,7 @@ function HeroManagementDashboard() {
   };
 
   return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl h-[320px] flex flex-col justify-between">
+    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
       {/* Window Title Bar */}
       <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
         <div className="flex gap-2">
@@ -151,21 +151,22 @@ function CircularFramework() {
   return (
     <div className="flex flex-col lg:flex-row gap-12 items-center justify-center max-w-4xl mx-auto py-8">
       {/* Visual Circle Block */}
-      <div className="relative w-[340px] h-[340px] rounded-full border border-brand-border-light/20 flex items-center justify-center bg-slate-950/5 shrink-0 select-none">
-        {/* Connection lines from center to outer circles */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      <div className="relative w-[min(78vw,340px)] h-[min(78vw,340px)] rounded-full border border-brand-border-light/20 flex items-center justify-center bg-slate-950/5 shrink-0 select-none">
+        {/* Connection lines from center to outer circles (percentage-based so the diagram scales fluidly) */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 100 100">
           {nodes.map((node, i) => {
             const angle = -Math.PI / 2 + (i * Math.PI) / 3;
-            // Center is (170, 170) inside the w-[340px] h-[340px] container
-            const x2 = 170 + Math.cos(angle) * 115;
-            const y2 = 170 + Math.sin(angle) * 115;
+            // Center is (50, 50) in the 0-100 viewBox, radius ~33.8% of the container
+            const x2 = 50 + Math.cos(angle) * 33.8;
+            const y2 = 50 + Math.sin(angle) * 33.8;
             return (
               <line
                 key={i}
-                x1={170}
-                y1={170}
+                x1={50}
+                y1={50}
                 x2={x2}
                 y2={y2}
+                vectorEffect="non-scaling-stroke"
                 className={`stroke-[1.5px] ${
                   activeNode === node.name ? "stroke-brand-purple" : "stroke-brand-border-light/30"
                 } transition-colors duration-300`}
@@ -175,29 +176,28 @@ function CircularFramework() {
         </svg>
 
         {/* Decorative inner circular lines */}
-        <div className="absolute w-[230px] h-[230px] rounded-full border border-dashed border-brand-purple/10 animate-[spin_120s_linear_infinite] z-0" />
-        
+        <div className="absolute w-[67.6%] h-[67.6%] rounded-full border border-dashed border-brand-purple/10 animate-[spin_120s_linear_infinite] z-0" />
+
         {/* Center Node */}
-        <div className="w-[110px] h-[110px] rounded-full bg-black text-white flex flex-col items-center justify-center text-center p-3 z-10 border border-brand-purple/40 shadow-xl">
-          <span className="font-plus-jakarta font-bold text-[8px] uppercase tracking-widest text-brand-purple">Center</span>
-          <span className="font-plus-jakarta font-black text-[9px] uppercase leading-tight mt-1">
+        <div className="w-[32%] h-[32%] rounded-full bg-black text-white flex flex-col items-center justify-center text-center p-2 sm:p-3 z-10 border border-brand-purple/40 shadow-xl">
+          <span className="font-plus-jakarta font-bold text-[7px] sm:text-[8px] uppercase tracking-widest text-brand-purple">Center</span>
+          <span className="font-plus-jakarta font-black text-[8px] sm:text-[9px] uppercase leading-tight mt-1">
             Business Excellence
           </span>
         </div>
 
-        {/* Outer Circular Nodes */}
+        {/* Outer Circular Nodes (positioned via percentage + centering transform, so they track the fluid container size) */}
         {nodes.map((node, i) => {
           const angle = -Math.PI / 2 + (i * Math.PI) / 3;
-          // Offset relative to center 170px, button size 80px (w-20, h-20) -> radius is 115px
-          const left = 170 + Math.cos(angle) * 115 - 40;
-          const top = 170 + Math.sin(angle) * 115 - 40;
+          const leftPct = 50 + Math.cos(angle) * 33.8;
+          const topPct = 50 + Math.sin(angle) * 33.8;
 
           return (
             <button
               key={node.name}
               onClick={() => setActiveNode(node.name)}
-              style={{ left: `${left}px`, top: `${top}px` }}
-              className={`absolute w-20 h-20 rounded-full border flex items-center justify-center text-center p-2 font-mono text-[9px] uppercase font-bold tracking-wider transition-all duration-300 z-20 ${
+              style={{ left: `${leftPct}%`, top: `${topPct}%` }}
+              className={`absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full border flex items-center justify-center text-center p-1.5 sm:p-2 font-mono text-[8px] sm:text-[9px] uppercase font-bold tracking-wider transition-all duration-300 z-20 ${
                 activeNode === node.name
                   ? "bg-brand-purple text-white border-brand-purple shadow-[0_0_15px_rgba(161,0,255,0.3)] scale-110"
                   : "bg-white text-black border-brand-border-light hover:border-brand-purple hover:scale-105"
@@ -210,7 +210,7 @@ function CircularFramework() {
       </div>
 
       {/* Description Panel */}
-      <div className="flex-1 bg-white border border-brand-border p-8 min-h-[180px] flex flex-col justify-center gap-4">
+      <div className="flex-1 w-full bg-white border border-brand-border p-8 min-h-45 flex flex-col justify-center gap-4">
         <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block">// FRAMEWORK NODE DETAIL</span>
         <h3 className="font-plus-jakarta text-2xl font-black uppercase text-black">
           {activeNode} Pillar

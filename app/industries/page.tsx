@@ -18,7 +18,7 @@ function HeroIndustryConsole() {
   ];
 
   return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl h-[320px] flex flex-col justify-between">
+    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
       {/* Window Title Bar */}
       <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
         <div className="flex gap-2">
@@ -90,7 +90,7 @@ export default function Industries() {
       desc: "Capital allocation strategies, regulatory audit automation, and Virtual CFO alignment.",
       icon: Coins,
       metric: "+34.2% CAGR",
-      spanClass: "md:col-span-8 row-span-2 bg-slate-950 text-white border-white/10",
+      spanClass: "md:col-span-8 md:row-span-2 bg-slate-950 text-white border-white/10",
       type: "dark",
       bullets: ["Portfolio allocation modeling", "GST/Audit readiness reports", "Cash flow forecasting"],
     },
@@ -222,7 +222,7 @@ export default function Industries() {
 
       {/* Bento Grid Canvas */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light relative z-10" animate>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(300px,auto)]">
           {sectors.map((sector, idx) => {
             const IconComponent = sector.icon;
             return (

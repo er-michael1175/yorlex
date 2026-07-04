@@ -78,7 +78,7 @@ export default function Contact() {
           </div>
           
           {/* Map Visual (interactive dots matching SF, London, Chennai) */}
-          <div className="lg:col-span-5 relative h-[320px] w-full bg-slate-950 border border-brand-border-light/10 overflow-hidden rounded-none select-none shadow-2xl">
+          <div className="lg:col-span-5 relative min-h-80 w-full bg-slate-950 border border-brand-border-light/10 overflow-hidden rounded-none select-none shadow-2xl">
             <div className="absolute inset-0 z-0 opacity-20 grayscale">
               <img 
                 className="w-full h-full object-cover mix-blend-luminosity" 
@@ -99,7 +99,7 @@ export default function Contact() {
             </div>
 
             {/* Connection Vectors */}
-            <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 400 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M 80,100 Q 180,60 220,110" fill="none" stroke="rgba(161,0,255,0.4)" strokeWidth="1" strokeDasharray="3,3" />
               <path d="M 220,110 Q 280,160 380,210" fill="none" stroke="rgba(161,0,255,0.4)" strokeWidth="1" strokeDasharray="3,3" />
               <path d="M 80,100 Q 200,230 380,210" fill="none" stroke="rgba(0,122,255,0.2)" strokeWidth="1.5" />
@@ -195,7 +195,7 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleClientSubmit} className="space-y-6 relative z-10">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block font-inter font-bold text-[9px] text-gray-400 uppercase tracking-widest mb-1">First Name</label>
                     <input required type="text" className="w-full bg-transparent rounded-none border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane" />

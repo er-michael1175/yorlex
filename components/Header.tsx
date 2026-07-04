@@ -73,7 +73,7 @@ export default function Header() {
           </Link>
 
           {/* Navigation Links (Desktop) */}
-          <nav className="hidden md:flex items-center gap-4 relative">
+          <nav className="hidden lg:flex items-center gap-4 relative">
             {/* Capabilities Dropdown (Mega dropdown) */}
             <div
               className="relative"
@@ -210,7 +210,7 @@ export default function Header() {
           </nav>
 
           {/* Right Section: Search & CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             {/* Shrunk Search Button */}
             <button 
               onClick={() => setIsSearchOpen(true)}
@@ -237,7 +237,7 @@ export default function Header() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden p-2 text-slate-600 hover:text-black transition-colors"
+            className="lg:hidden p-2.5 text-slate-600 hover:text-black transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -247,32 +247,32 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-brand-bg border-t border-brand-border z-40 p-6 flex flex-col justify-between">
+        <div className="lg:hidden fixed inset-0 top-16 bg-brand-bg border-t border-brand-border z-40 p-6 flex flex-col justify-between overflow-y-auto">
           <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-3">
-              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200 pb-1">
+            <div className="flex flex-col gap-1">
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200 pb-1 mb-2">
                 Services
               </p>
               {services.map((svc) => (
                 <Link
                   key={svc.slug}
                   href={`/services/${svc.slug}`}
-                  className="text-sm font-bold uppercase tracking-wider text-gray-700 hover:text-brand-purple"
+                  className="py-2.5 text-sm font-bold uppercase tracking-wider text-gray-700 hover:text-brand-purple"
                 >
                   {svc.name} Solutions
                 </Link>
               ))}
             </div>
 
-            <div className="flex flex-col gap-4">
-              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200 pb-1">
+            <div className="flex flex-col gap-1">
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200 pb-1 mb-2">
                 Company
               </p>
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-base font-bold uppercase tracking-wider text-gray-700 hover:text-black"
+                  className="py-2.5 text-base font-bold uppercase tracking-wider text-gray-700 hover:text-black"
                 >
                   {link.name}
                 </Link>

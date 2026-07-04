@@ -34,7 +34,7 @@ function HeroSecuritySimulator() {
   };
 
   return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl h-[320px] flex flex-col justify-between">
+    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
       {/* Window Title Bar */}
       <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
         <div className="flex gap-2">

@@ -122,7 +122,7 @@ export default function About() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="h-[320px] bg-black border border-brand-border rounded-none relative overflow-hidden p-6 flex flex-col justify-between crosshair-grid select-none shadow-2xl">
+            <div className="min-h-80 bg-black border border-brand-border rounded-none relative overflow-hidden p-6 flex flex-col justify-between crosshair-grid select-none shadow-2xl">
               {/* Dynamic Telemetry Panel */}
               <div className="flex justify-between items-center text-white/50 text-[8px] font-mono border-b border-white/10 pb-2">
                 <span>SYSTEM: NODE_NETWORK_TELEMETRY</span>

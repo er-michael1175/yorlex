@@ -99,7 +99,7 @@ export default function Careers() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(280px,auto)]">
             {perks.map((perk) => {
               const Icon = perk.icon;
               return (
@@ -181,7 +181,7 @@ export default function Careers() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2 border transition-all whitespace-nowrap rounded-none ${
+                className={`px-4 py-2.5 min-h-11 border transition-all whitespace-nowrap rounded-none ${
                   activeFilter === filter
                     ? "bg-black border-black text-white"
                     : "bg-white border-brand-border text-black hover:border-black"
