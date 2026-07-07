@@ -219,7 +219,7 @@ function ServicesBento() {
   ];
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="pt-20 pb-10 md:pt-28 md:pb-14">
       <div className="max-w-7xl mx-auto px-6 space-y-14">
         <motion.div
           variants={fadeUp}
