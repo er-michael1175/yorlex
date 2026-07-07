@@ -12,6 +12,7 @@ export default function Careers() {
       title: "Global Mobility Network",
       desc: "Seamless transition across our 40+ international offices. We facilitate international assignments to accelerate executive development and cross-market expertise.",
       icon: Globe,
+      image: "/images/careers/global-mobility.jpg",
       spanClass: "md:col-span-8 bg-black text-white border-black",
       isDark: true,
     },
@@ -19,12 +20,14 @@ export default function Careers() {
       title: "Continuous Upskilling",
       desc: "Access exclusive executive education programs, advanced technical certifications, and bespoke leadership coaching tailored for high-trajectory careers.",
       icon: TrendingUp,
+      image: "/images/careers/upskilling.jpg",
       spanClass: "md:col-span-4 bg-white text-black border-brand-border hover:border-black",
     },
     {
       title: "Architectural Impact",
       desc: "Lead initiatives that reshape industries. At Yorlex, you don't just execute strategy; you design the blueprints for global enterprise transformation.",
       icon: Compass,
+      image: "/images/careers/architectural-impact.jpg",
       spanClass: "md:col-span-4 bg-white text-black border-brand-border hover:border-black",
     },
   ];
@@ -103,24 +106,30 @@ export default function Careers() {
             {perks.map((perk) => {
               const Icon = perk.icon;
               return (
-                <div 
-                  key={perk.title} 
-                  className={`p-8 flex flex-col justify-between border rounded-2xl group transition-all duration-300 ${perk.spanClass}`}
+                <div
+                  key={perk.title}
+                  className={`flex flex-col justify-between border rounded-2xl overflow-hidden group transition-all duration-300 ${perk.spanClass}`}
                 >
-                  <div>
-                    <div className={`w-12 h-12 flex items-center justify-center mb-6 rounded-2xl ${
-                      perk.isDark ? "bg-brand-purple text-white" : "bg-brand-bg text-black border border-brand-border group-hover:border-black"
-                    }`}>
-                      <Icon className="h-6 w-6" />
+                  <div className="relative h-32 overflow-hidden shrink-0">
+                    <img src={perk.image} alt="" className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105" />
+                    <div className={`absolute inset-0 ${perk.isDark ? "bg-yorlex-green/60" : "bg-yorlex-navy/25"}`} />
+                  </div>
+                  <div className="p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className={`w-12 h-12 flex items-center justify-center mb-6 rounded-2xl ${
+                        perk.isDark ? "bg-brand-purple text-white" : "bg-brand-bg text-black border border-brand-border group-hover:border-black"
+                      }`}>
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="font-plus-jakarta text-lg font-bold mb-3">
+                        {perk.title}
+                      </h3>
+                      <p className={`font-inter text-xs leading-relaxed ${
+                        perk.isDark ? "text-gray-400" : "text-gray-500"
+                      }`}>
+                        {perk.desc}
+                      </p>
                     </div>
-                    <h3 className="font-plus-jakarta text-lg font-bold mb-3">
-                      {perk.title}
-                    </h3>
-                    <p className={`font-inter text-xs leading-relaxed ${
-                      perk.isDark ? "text-gray-400" : "text-gray-500"
-                    }`}>
-                      {perk.desc}
-                    </p>
                   </div>
                 </div>
               );

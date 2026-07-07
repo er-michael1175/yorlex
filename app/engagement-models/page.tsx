@@ -125,6 +125,7 @@ export default function EngagementModels() {
       name: "Model Alpha",
       title: "Time & Materials",
       icon: Clock,
+      image: "/images/engagement/time-materials.jpg",
       desc: "Maximum flexibility for evolving architectures. Ideal for exploratory phases and dynamic R&D environments where scope requires continuous recalibration.",
       borderClass: "border-brand-border hover:border-brand-purple",
       bgClass: "bg-white text-black",
@@ -135,6 +136,7 @@ export default function EngagementModels() {
       name: "Model Beta",
       title: "Fixed Price",
       icon: FileText,
+      image: "/images/engagement/fixed-price.jpg",
       desc: "Absolute financial predictability. Engineered for projects with strictly defined parameters, rigid compliance requirements, and unyielding deadlines.",
       borderClass: "border-slate-800 hover:border-brand-purple shadow-2xl",
       bgClass: "bg-slate-950 text-white",
@@ -146,6 +148,7 @@ export default function EngagementModels() {
       name: "Model Gamma",
       title: "Success Fees",
       icon: TrendingUp,
+      image: "/images/engagement/success-fees.jpg",
       desc: "Venture-aligned partnerships. We tie a percentage of our compensation directly to measurable KPIs, revenue milestones, or cost-reduction metrics.",
       borderClass: "border-brand-border hover:border-brand-purple",
       bgClass: "bg-white text-black",
@@ -245,41 +248,48 @@ export default function EngagementModels() {
               return (
                 <div
                   key={model.name}
-                  className={`border p-8 flex flex-col justify-between min-h-[300px] rounded-2xl hover:border-brand-purple transition-all duration-250 relative group shadow-sm ${
+                  className={`border flex flex-col justify-between rounded-2xl overflow-hidden hover:border-brand-purple transition-all duration-250 relative group shadow-sm ${
                     model.borderClass
                   } ${model.bgClass}`}
                 >
                   {/* Top hover accent bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />
-                  
-                  <div className="flex justify-between items-start mb-6">
-                    <div className={`w-10 h-10 border flex items-center justify-center shrink-0 transition-colors duration-250 ${
-                      model.isHighContrast 
-                        ? "bg-slate-900 border-white/10 text-white group-hover:bg-brand-purple group-hover:text-white" 
-                        : "bg-brand-bg border-brand-border text-black group-hover:bg-brand-purple group-hover:text-white"
-                    }`}>
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <span className={`font-inter font-bold text-[8px] border px-2 py-0.5 ${model.badgeClass}`}>
-                      {model.name}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="font-plus-jakarta text-lg font-bold mb-2">
-                      {model.title}
-                    </h3>
-                    <p className={`font-inter text-xs leading-relaxed mb-6 ${model.isHighContrast ? "text-gray-400" : "text-gray-650"}`}>
-                      {model.desc}
-                    </p>
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250 z-10" />
 
-                    <ul className="space-y-2 border-t border-brand-border-light/40 pt-4">
-                      {model.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-center gap-2">
-                          <Check className="h-3.5 w-3.5 text-brand-purple shrink-0" />
-                          <span className={`text-[10px] font-mono font-medium ${model.isHighContrast ? "text-gray-400" : "text-gray-500"}`}>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="relative h-28 overflow-hidden shrink-0">
+                    <img src={model.image} alt="" className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105" />
+                    <div className={`absolute inset-0 ${model.isHighContrast ? "bg-yorlex-green/60" : "bg-yorlex-navy/25"}`} />
+                  </div>
+
+                  <div className="p-8 flex-1 flex flex-col justify-between min-h-[220px]">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className={`w-10 h-10 border flex items-center justify-center shrink-0 transition-colors duration-250 ${
+                        model.isHighContrast
+                          ? "bg-slate-900 border-white/10 text-white group-hover:bg-brand-purple group-hover:text-white"
+                          : "bg-brand-bg border-brand-border text-black group-hover:bg-brand-purple group-hover:text-white"
+                      }`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className={`font-inter font-bold text-[8px] border px-2 py-0.5 ${model.badgeClass}`}>
+                        {model.name}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="font-plus-jakarta text-lg font-bold mb-2">
+                        {model.title}
+                      </h3>
+                      <p className={`font-inter text-xs leading-relaxed mb-6 ${model.isHighContrast ? "text-gray-400" : "text-gray-650"}`}>
+                        {model.desc}
+                      </p>
+
+                      <ul className="space-y-2 border-t border-brand-border-light/40 pt-4">
+                        {model.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx} className="flex items-center gap-2">
+                            <Check className="h-3.5 w-3.5 text-brand-purple shrink-0" />
+                            <span className={`text-[10px] font-mono font-medium ${model.isHighContrast ? "text-gray-400" : "text-gray-500"}`}>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               );

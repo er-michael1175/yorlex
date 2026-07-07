@@ -37,11 +37,11 @@ export default function Header() {
   ];
 
   const services = [
-    { name: "Technology", slug: "technology", desc: "Enterprise cloud, AI, and web platforms", icon: Cpu },
-    { name: "Finance", slug: "finance", desc: "Accounting, payroll, virtual CFO services", icon: Landmark },
-    { name: "Marketing", slug: "marketing", desc: "SEO, social, and growth funnels", icon: Megaphone },
-    { name: "Management", slug: "management", desc: "Agile ops, recruiting, governance", icon: Users },
-    { name: "Support", slug: "support", desc: "24/7 global resolution centers", icon: Headphones },
+    { name: "Technology", slug: "technology", desc: "Enterprise cloud, AI, and web platforms", icon: Cpu, image: "/images/services/technology.jpg" },
+    { name: "Finance", slug: "finance", desc: "Accounting, payroll, virtual CFO services", icon: Landmark, image: "/images/services/finance.jpg" },
+    { name: "Marketing", slug: "marketing", desc: "SEO, social, and growth funnels", icon: Megaphone, image: "/images/services/marketing.jpg" },
+    { name: "Management", slug: "management", desc: "Agile ops, recruiting, governance", icon: Users, image: "/images/services/management.jpg" },
+    { name: "Support", slug: "support", desc: "24/7 global resolution centers", icon: Headphones, image: "/images/services/support.jpg" },
   ];
 
   const isActive = (href: string) =>
@@ -108,8 +108,16 @@ export default function Header() {
                         href={`/services/${svc.slug}`}
                         className="flex items-start gap-3 p-3 rounded-xl hover:bg-yorlex-canvas-alt transition-colors group/item"
                       >
-                        <div className="p-2 rounded-lg bg-yorlex-green-soft text-yorlex-green-dark">
-                          <svc.icon className="h-4 w-4" />
+                        <div className="relative w-12 h-12 shrink-0 rounded-lg overflow-hidden">
+                          <img
+                            src={svc.image}
+                            alt=""
+                            className="w-full h-full object-cover grayscale transition-transform duration-300 group-hover/item:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-yorlex-navy/25" />
+                          <div className="absolute -bottom-1 -right-1 p-1 rounded-md bg-white text-yorlex-green-dark shadow-sm">
+                            <svc.icon className="h-3 w-3" />
+                          </div>
                         </div>
                         <div>
                           <div className="text-sm font-semibold text-yorlex-ink">

@@ -36,6 +36,142 @@ const fileSvg: ImageAsset = {
   alt: "",
 };
 
+const servicesHero: ImageAsset = {
+  src: "/images/services/hero.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const leadershipHero: ImageAsset = {
+  src: "/images/about/leadership-hero.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const serviceTechnology: ImageAsset = {
+  src: "/images/services/technology.jpg",
+  width: 1400,
+  height: 787,
+  role: "decorative",
+  alt: "",
+};
+
+const serviceFinance: ImageAsset = {
+  src: "/images/services/finance.jpg",
+  width: 1400,
+  height: 934,
+  role: "decorative",
+  alt: "",
+};
+
+const serviceMarketing: ImageAsset = {
+  src: "/images/services/marketing.jpg",
+  width: 1400,
+  height: 934,
+  role: "decorative",
+  alt: "",
+};
+
+const serviceManagement: ImageAsset = {
+  src: "/images/services/management.jpg",
+  width: 1400,
+  height: 910,
+  role: "decorative",
+  alt: "",
+};
+
+const serviceSupport: ImageAsset = {
+  src: "/images/services/support.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const aboutVision: ImageAsset = {
+  src: "/images/about/vision.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const aboutStructuralIntegrity: ImageAsset = {
+  src: "/images/about/structural-integrity.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const aboutCalculatedVelocity: ImageAsset = {
+  src: "/images/about/calculated-velocity.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const aboutAccountability: ImageAsset = {
+  src: "/images/about/accountability.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const careersGlobalMobility: ImageAsset = {
+  src: "/images/careers/global-mobility.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const careersUpskilling: ImageAsset = {
+  src: "/images/careers/upskilling.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const careersArchitecturalImpact: ImageAsset = {
+  src: "/images/careers/architectural-impact.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const engagementTimeMaterials: ImageAsset = {
+  src: "/images/engagement/time-materials.jpg",
+  width: 1400,
+  height: 670,
+  role: "decorative",
+  alt: "",
+};
+
+const engagementFixedPrice: ImageAsset = {
+  src: "/images/engagement/fixed-price.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
+const engagementSuccessFees: ImageAsset = {
+  src: "/images/engagement/success-fees.jpg",
+  width: 1400,
+  height: 933,
+  role: "decorative",
+  alt: "",
+};
+
 const globeSvg: ImageAsset = {
   src: "/globe.svg",
   width: 24,
@@ -296,6 +432,33 @@ export const IMAGE_CATALOG: readonly ImageAsset[] = [
   nextSvg,
   vercelSvg,
   windowSvg,
+
+  // Local images — page hero visuals
+  servicesHero,
+  leadershipHero,
+
+  // Local images — home page services grid
+  serviceTechnology,
+  serviceFinance,
+  serviceMarketing,
+  serviceManagement,
+  serviceSupport,
+
+  // Local images — about page core directives
+  aboutVision,
+  aboutStructuralIntegrity,
+  aboutCalculatedVelocity,
+  aboutAccountability,
+
+  // Local images — careers page advantage cards
+  careersGlobalMobility,
+  careersUpskilling,
+  careersArchitecturalImpact,
+
+  // Local images — engagement models cards
+  engagementTimeMaterials,
+  engagementFixedPrice,
+  engagementSuccessFees,
 
   // Partner logos
   financeLogo,

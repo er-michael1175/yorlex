@@ -241,51 +241,75 @@ export default function About() {
 
           {/* Vision */}
           <div className="md:col-span-4">
-            <GradientCard variant="default" hover="lift" className="flex flex-col justify-between min-h-[300px]">
-              <div className="mb-8">
-                <Eye className="h-10 w-10 text-black" />
+            <div className="yorlex-card overflow-hidden h-full flex flex-col">
+              <div className="relative h-32 overflow-hidden shrink-0">
+                <img src="/images/about/vision.jpg" alt="" className="w-full h-full object-cover grayscale" />
+                <div className="absolute inset-0 bg-yorlex-navy/25" />
               </div>
-              <div>
-                <h3 className="font-plus-jakarta text-xl font-bold text-black mb-2">The Vision</h3>
-                <p className="font-inter text-gray-600 text-sm leading-relaxed">
-                  To be the undisputed architectural standard for multi-disciplinary enterprise management worldwide.
-                </p>
+              <div className="p-8 flex flex-col justify-between flex-1">
+                <div className="mb-8">
+                  <Eye className="h-10 w-10 text-black" />
+                </div>
+                <div>
+                  <h3 className="font-plus-jakarta text-xl font-bold text-black mb-2">The Vision</h3>
+                  <p className="font-inter text-gray-600 text-sm leading-relaxed">
+                    To be the undisputed architectural standard for multi-disciplinary enterprise management worldwide.
+                  </p>
+                </div>
               </div>
-            </GradientCard>
+            </div>
           </div>
         </div>
 
         {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <GradientCard variant="default" hover="border">
-            <div className="flex items-center gap-3 mb-4">
-              <Users className="h-5 w-5 text-black shrink-0" />
-              <h4 className="font-inter font-bold text-xs text-black">Structural Integrity</h4>
+          <div className="yorlex-card overflow-hidden">
+            <div className="relative h-28 overflow-hidden">
+              <img src="/images/about/structural-integrity.jpg" alt="" className="w-full h-full object-cover grayscale" />
+              <div className="absolute inset-0 bg-yorlex-navy/25" />
             </div>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              We build systems designed to endure stress, scale without fracture, and perform with absolute precision.
-            </p>
-          </GradientCard>
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Users className="h-5 w-5 text-black shrink-0" />
+                <h4 className="font-inter font-bold text-xs text-black">Structural Integrity</h4>
+              </div>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                We build systems designed to endure stress, scale without fracture, and perform with absolute precision.
+              </p>
+            </div>
+          </div>
 
-          <GradientCard variant="default" hover="border">
-            <div className="flex items-center gap-3 mb-4">
-              <Bolt className="h-5 w-5 text-black shrink-0" />
-              <h4 className="font-inter font-bold text-xs text-black">Calculated Velocity</h4>
+          <div className="yorlex-card overflow-hidden">
+            <div className="relative h-28 overflow-hidden">
+              <img src="/images/about/calculated-velocity.jpg" alt="" className="w-full h-full object-cover grayscale" />
+              <div className="absolute inset-0 bg-yorlex-navy/25" />
             </div>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              Speed is useless without direction. We combine aggressive innovation with rigorous analytical constraints.
-            </p>
-          </GradientCard>
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Bolt className="h-5 w-5 text-black shrink-0" />
+                <h4 className="font-inter font-bold text-xs text-black">Calculated Velocity</h4>
+              </div>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                Speed is useless without direction. We combine aggressive innovation with rigorous analytical constraints.
+              </p>
+            </div>
+          </div>
 
-          <GradientCard variant="default" hover="border">
-            <div className="flex items-center gap-3 mb-4">
-              <Shield className="h-5 w-5 text-black shrink-0" />
-              <h4 className="font-inter font-bold text-xs text-black">Absolute Accountability</h4>
+          <div className="yorlex-card overflow-hidden">
+            <div className="relative h-28 overflow-hidden">
+              <img src="/images/about/accountability.jpg" alt="" className="w-full h-full object-cover grayscale" />
+              <div className="absolute inset-0 bg-yorlex-navy/25" />
             </div>
-            <p className="text-xs text-gray-500 leading-relaxed">
-              We own the outcomes of our architectures. Trust is not requested; it is structurally guaranteed.
-            </p>
-          </GradientCard>
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Shield className="h-5 w-5 text-black shrink-0" />
+                <h4 className="font-inter font-bold text-xs text-black">Absolute Accountability</h4>
+              </div>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                We own the outcomes of our architectures. Trust is not requested; it is structurally guaranteed.
+              </p>
+            </div>
+          </div>
         </div>
       </SectionWrapper>
 

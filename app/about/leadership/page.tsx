@@ -45,7 +45,7 @@ export default function ExecutiveLeadership() {
       
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 mb-16 pb-12 border-b border-black">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
           <div className="max-w-[700px]">
             <p className="font-inter font-bold text-[10px] text-brand-purple tracking-[0.15em] mb-6 flex items-center gap-3">
               <span className="w-8 h-px bg-brand-purple block"></span>
@@ -60,6 +60,14 @@ export default function ExecutiveLeadership() {
               The Yorlex leadership team relies on paper-white precision and data-driven rigour. We project absolute authority, guiding multi-disciplinary excellence across global sectors.
             </p>
           </div>
+        </div>
+        <div className="relative h-56 md:h-72 rounded-2xl overflow-hidden">
+          <img
+            src="/images/about/leadership-hero.jpg"
+            alt=""
+            className="w-full h-full object-cover grayscale contrast-125"
+          />
+          <div className="absolute inset-0 bg-yorlex-navy/25" />
         </div>
       </section>
 

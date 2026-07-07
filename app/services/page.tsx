@@ -333,25 +333,32 @@ export default function Services() {
     <div className="flex-1 font-sans bg-brand-bg">
       {/* Hero Section */}
       <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-8 md:pt-12 pb-12 md:pb-16" animate>
-        <div className="relative">
-          {/* Subtle architectural coordinates */}
-          <div className="absolute right-0 top-16 hidden lg:block font-mono text-[9px] text-gray-400 select-none pointer-events-none text-right leading-relaxed">
-            <span>SYS_LOC // 0x48FA</span>
-            <br />
-            <span>GRID_SEC // SERV_V3</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 relative">
+            {/* Subtle architectural coordinates */}
+            <div className="absolute right-0 top-16 hidden lg:block font-mono text-[9px] text-gray-400 select-none pointer-events-none text-right leading-relaxed">
+              <span>SYS_LOC // 0x48FA</span>
+              <br />
+              <span>GRID_SEC // SERV_V3</span>
+            </div>
+
+            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max mb-6">
+              <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
+              <span className="font-inter font-bold text-[10px] text-gray-500">
+                Services Portfolio
+              </span>
+            </div>
+            <AnimatedHeading level={1}>Core Expertise</AnimatedHeading>
+            <p className="font-inter text-gray-650 text-base md:text-lg leading-relaxed max-w-3xl mt-4">
+              Architecting global authority across five distinct disciplines.
+              Precision-engineered solutions for modern enterprise scale.
+            </p>
           </div>
 
-          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max mb-6">
-            <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
-            <span className="font-inter font-bold text-[10px] text-gray-500">
-              Services Portfolio
-            </span>
+          <div className="lg:col-span-5 relative h-64 lg:h-80 rounded-2xl overflow-hidden">
+            <img src="/images/services/hero.jpg" alt="" className="w-full h-full object-cover grayscale" />
+            <div className="absolute inset-0 bg-yorlex-navy/25" />
           </div>
-          <AnimatedHeading level={1}>Core Expertise</AnimatedHeading>
-          <p className="font-inter text-gray-650 text-base md:text-lg leading-relaxed max-w-3xl mt-4">
-            Architecting global authority across five distinct disciplines.
-            Precision-engineered solutions for modern enterprise scale.
-          </p>
         </div>
       </SectionWrapper>
 

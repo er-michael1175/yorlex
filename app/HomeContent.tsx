@@ -182,6 +182,7 @@ function ServicesBento() {
       icon: Server,
       href: "/services/technology",
       size: "large",
+      image: "/images/services/technology.jpg",
     },
     {
       title: "Finance",
@@ -189,6 +190,7 @@ function ServicesBento() {
       icon: Landmark,
       href: "/services/finance",
       size: "standard",
+      image: "/images/services/finance.jpg",
     },
     {
       title: "Marketing",
@@ -196,6 +198,7 @@ function ServicesBento() {
       icon: Megaphone,
       href: "/services/marketing",
       size: "standard",
+      image: "/images/services/marketing.jpg",
     },
     {
       title: "Management",
@@ -203,6 +206,7 @@ function ServicesBento() {
       icon: Building,
       href: "/services/management",
       size: "standard",
+      image: "/images/services/management.jpg",
     },
     {
       title: "Support",
@@ -210,6 +214,7 @@ function ServicesBento() {
       icon: Headphones,
       href: "/services/support",
       size: "featured",
+      image: "/images/services/support.jpg",
     },
   ];
 
@@ -249,31 +254,46 @@ function ServicesBento() {
               <motion.div key={svc.title} variants={staggerItem} className={gridSpan}>
                 <Link
                   href={svc.href}
-                  className={`group block h-full p-8 transition-all duration-300 ${
+                  className={`group block h-full overflow-hidden transition-all duration-300 ${
                     isFeatured ? "yorlex-card-green" : "yorlex-card"
                   }`}
                 >
-                  <div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-5 ${
-                      isFeatured ? "bg-white/15" : "bg-yorlex-green-soft"
-                    }`}
-                  >
-                    <Icon className={`w-6 h-6 ${isFeatured ? "text-white" : "text-yorlex-green-dark"}`} />
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={svc.image}
+                      alt=""
+                      className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div
+                      className={`absolute inset-0 ${
+                        isFeatured ? "bg-yorlex-green/70" : "bg-yorlex-navy/25"
+                      }`}
+                    />
                   </div>
-                  <h3 className={`text-lg font-semibold mb-2 ${isFeatured ? "text-white" : "text-yorlex-ink"}`}>
-                    {svc.title}
-                  </h3>
-                  <p className={`text-sm leading-relaxed ${isFeatured ? "text-white/80" : "text-yorlex-body"}`}>
-                    {svc.description}
-                  </p>
-                  <span
-                    className={`inline-flex items-center gap-1 text-sm font-semibold mt-5 ${
-                      isFeatured ? "text-white" : "text-yorlex-green"
-                    }`}
-                  >
-                    Learn more
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
+
+                  <div className="p-8">
+                    <div
+                      className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-5 ${
+                        isFeatured ? "bg-white/15" : "bg-yorlex-green-soft"
+                      }`}
+                    >
+                      <Icon className={`w-6 h-6 ${isFeatured ? "text-white" : "text-yorlex-green-dark"}`} />
+                    </div>
+                    <h3 className={`text-lg font-semibold mb-2 ${isFeatured ? "text-white" : "text-yorlex-ink"}`}>
+                      {svc.title}
+                    </h3>
+                    <p className={`text-sm leading-relaxed ${isFeatured ? "text-white/80" : "text-yorlex-body"}`}>
+                      {svc.description}
+                    </p>
+                    <span
+                      className={`inline-flex items-center gap-1 text-sm font-semibold mt-5 ${
+                        isFeatured ? "text-white" : "text-yorlex-green"
+                      }`}
+                    >
+                      Learn more
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
                 </Link>
               </motion.div>
             );
