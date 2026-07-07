@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# unused local asset dump (not referenced by the codebase)
+/Background Image/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

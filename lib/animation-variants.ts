@@ -78,18 +78,18 @@ export const slideInLeft: Variants = {
  * Use with `initial="rest"` and `whileHover="hover"`.
  */
 export const hoverLift: Variants = {
-  rest: { y: 0, boxShadow: "0 0 0 rgba(161,0,255,0)" },
-  hover: { y: -4, boxShadow: "0 20px 60px rgba(161,0,255,0.1)" },
+  rest: { y: 0, boxShadow: "0 0 0 rgba(92,122,52,0)" },
+  hover: { y: -4, boxShadow: "0 20px 60px rgba(92,122,52,0.1)" },
 };
 
 /**
- * Hover variant that adds a purple glow around the element.
+ * Hover variant that adds a green glow around the element.
  * Use with `initial="rest"` and `whileHover="hover"`.
  */
 export const hoverGlow: Variants = {
-  rest: { boxShadow: "0 0 0 rgba(161,0,255,0)" },
+  rest: { boxShadow: "0 0 0 rgba(92,122,52,0)" },
   hover: {
     boxShadow:
-      "0 0 40px rgba(161,0,255,0.15), 0 0 80px rgba(161,0,255,0.05)",
+      "0 0 40px rgba(92,122,52,0.15), 0 0 80px rgba(92,122,52,0.05)",
   },
 };

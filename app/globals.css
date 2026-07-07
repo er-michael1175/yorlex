@@ -2,23 +2,23 @@
 
 @theme {
   --color-brand-dark: #000000;
-  --color-brand-purple: #a100ff;
-  --color-brand-blue: #007aff;
-  --color-brand-bg: #f9f9f9;
-  --color-brand-text: #1b1b1b;
-  --color-brand-border: #cfc4c5;
-  --color-brand-border-light: #e2e2e2;
+  --color-brand-purple: #5c7a34;
+  --color-brand-blue: #46601f;
+  --color-brand-bg: #faf8f2;
+  --color-brand-text: #16191c;
+  --color-brand-border: #e6e1d3;
+  --color-brand-border-light: #ece7d9;
 
   /* Extended surface palette */
   --color-surface-elevated: #ffffff;
   --color-surface-subtle: #fafafa;
   --color-surface-muted: #f5f5f5;
-  --color-surface-dark: #0d0d0e;
-  --color-surface-dark-elevated: #1a1a1c;
-  --color-surface-dark-muted: #141416;
+  --color-surface-dark: #0f1b2c;
+  --color-surface-dark-elevated: #1a2a40;
+  --color-surface-dark-muted: #16233a;
 
   /* Extended text palette */
-  --color-text-primary: #1b1b1b;
+  --color-text-primary: #16191c;
   --color-text-secondary: #4b5563;
   --color-text-tertiary: #9ca3af;
   --color-text-quaternary: #d1d5db;
@@ -26,11 +26,11 @@
   --color-text-on-dark-muted: #9ca3af;
 
   /* Interactive states */
-  --color-interactive-hover: rgba(161, 0, 255, 0.08);
-  --color-interactive-active: rgba(161, 0, 255, 0.12);
-  --color-interactive-focus: rgba(161, 0, 255, 0.24);
-  --color-glow-purple: rgba(161, 0, 255, 0.15);
-  --color-glow-purple-strong: rgba(161, 0, 255, 0.3);
+  --color-interactive-hover: rgba(92, 122, 52, 0.08);
+  --color-interactive-active: rgba(92, 122, 52, 0.12);
+  --color-interactive-focus: rgba(92, 122, 52, 0.24);
+  --color-glow-purple: rgba(92, 122, 52, 0.15);
+  --color-glow-purple-strong: rgba(92, 122, 52, 0.3);
 
   /* Spacing tokens (4px base-unit system) */
   --spacing-section-compact: 3rem;
@@ -82,11 +82,28 @@
 
   --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
   --font-inter: "Inter", sans-serif;
+
+  /* ─────────────────────────────────────────────────────────────
+   * Yorlex redesign tokens — new brand system (green/navy/cream).
+   * Scoped to Header, Footer, and the home page for now; legacy
+   * brand-* tokens above remain untouched for pages not yet migrated.
+   * ───────────────────────────────────────────────────────────── */
+  --color-yorlex-green: #5c7a34;
+  --color-yorlex-green-dark: #46601f;
+  --color-yorlex-green-soft: #e8eeda;
+  --color-yorlex-navy: #0f1b2c;
+  --color-yorlex-navy-elevated: #1a2a40;
+  --color-yorlex-canvas: #faf8f2;
+  --color-yorlex-canvas-alt: #f2efe3;
+  --color-yorlex-ink: #16191c;
+  --color-yorlex-body: #4b5563;
+  --color-yorlex-muted: #8a8f98;
+  --color-yorlex-border: #e6e1d3;
 }
 
 :root {
-  --background: #f9f9f9;
-  --foreground: #1b1b1b;
+  --background: #faf8f2;
+  --foreground: #16191c;
 }
 
 body {
@@ -95,11 +112,11 @@ body {
   font-family: var(--font-inter);
 }
 
-/* Elite Architectural Styles (Sharp 0px Corners) */
+/* Yorlex Architectural Styles (rounded, no forced uppercase) */
 .sharp-card {
   background: #ffffff;
   border: 1px solid var(--color-brand-border);
-  border-radius: 0px !important;
+  border-radius: 20px !important;
 }
 
 .sharp-card-hover {
@@ -108,23 +125,21 @@ body {
 
 .sharp-card-hover:hover {
   border-color: var(--color-brand-purple);
-  box-shadow: 0 10px 30px rgba(161, 0, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(92, 122, 52, 0.08);
   transform: translateY(-2px);
 }
 
 .sharp-btn-primary {
-  background-color: #000000;
+  background-color: var(--color-brand-purple);
   color: #ffffff;
   font-family: var(--font-inter);
-  font-weight: 700;
-  border-radius: 0px !important;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  border-radius: 9999px !important;
   transition: background-color 0.2s ease;
 }
 
 .sharp-btn-primary:hover {
-  background-color: var(--color-brand-purple);
+  background-color: var(--color-brand-blue);
 }
 
 .sharp-btn-secondary {
@@ -132,21 +147,19 @@ body {
   color: #000000;
   border: 1px solid var(--color-brand-border);
   font-family: var(--font-inter);
-  font-weight: 700;
-  border-radius: 0px !important;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  border-radius: 9999px !important;
   transition: all 0.2s ease;
 }
 
 .sharp-btn-secondary:hover {
-  background-color: #000000;
+  background-color: var(--color-brand-purple);
   color: #ffffff;
-  border-color: #000000;
+  border-color: var(--color-brand-purple);
 }
 
 .glow-text-purple {
-  text-shadow: 0 0 15px rgba(161, 0, 255, 0.3);
+  text-shadow: 0 0 15px rgba(92, 122, 52, 0.3);
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -239,7 +252,7 @@ body {
   width: 6px;
   height: 6px;
   background-color: var(--color-brand-purple);
-  border-radius: 0px;
+  border-radius: 9999px;
   box-shadow: 0 0 10px var(--color-brand-purple);
 }
 
@@ -279,4 +292,100 @@ body {
 
 .animate-ping-slow {
   animation: ping-slow 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * Yorlex redesign — reusable component classes
+ * (Header, Footer, home page). Rounded, green/navy visual system.
+ * ───────────────────────────────────────────────────────────── */
+.yorlex-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-yorlex-green);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.yorlex-btn-primary:hover {
+  background-color: var(--color-yorlex-green-dark);
+}
+
+.yorlex-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  color: var(--color-yorlex-ink);
+  border: 1px solid var(--color-yorlex-border);
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.yorlex-btn-secondary:hover {
+  border-color: var(--color-yorlex-ink);
+}
+
+.yorlex-btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.yorlex-btn-outline-dark:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.yorlex-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-yorlex-green-soft);
+  color: var(--color-yorlex-green-dark);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+}
+.yorlex-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--color-yorlex-green);
+  flex-shrink: 0;
+}
+
+.yorlex-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-yorlex-border);
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.yorlex-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(15, 27, 44, 0.08);
+}
+
+.yorlex-card-dark {
+  background-color: var(--color-yorlex-navy-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.yorlex-card-green {
+  background-color: var(--color-yorlex-green);
+  border-radius: 20px;
+  color: #ffffff;
 }

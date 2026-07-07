@@ -26,7 +26,7 @@ function HeroProcessSimulator() {
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+        <span className="text-[9px] text-gray-500 font-bold">
           YORLEX // PROCESS_MONITOR
         </span>
       </div>
@@ -37,7 +37,7 @@ function HeroProcessSimulator() {
           <button
             key={idx}
             onClick={() => setActiveStep(idx)}
-            className="flex-1 min-w-[50px] py-1.5 text-[7px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none relative z-10 text-gray-555 hover:text-white"
+            className="flex-1 min-w-[50px] py-1.5 text-[7px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
           >
             <span className={activeStep === idx ? "text-white" : ""}>0{idx + 1}</span>
             {activeStep === idx && (
@@ -53,13 +53,13 @@ function HeroProcessSimulator() {
 
       {/* active details */}
       <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1 flex justify-between">
+        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
           <span>// PIPELINE STEP 0{activeStep + 1} ACTIVE</span>
           <span className="text-brand-purple animate-pulse">● {stepsList[activeStep].status}</span>
         </div>
         
         <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-2 min-h-[100px] justify-center">
-          <div className="text-white font-bold text-[10px] uppercase">
+          <div className="text-white font-bold text-[10px]">
             {stepsList[activeStep].title} Phase
           </div>
           <p className="text-gray-400 text-[9px] leading-relaxed font-inter">
@@ -112,9 +112,9 @@ export default function Process() {
       <div className="flex-grow flex items-center justify-center my-1">
         <svg viewBox="0 0 100 40" className="w-full h-8">
           <line x1="10" y1="20" x2="90" y2="20" stroke="#cfc4c5" strokeWidth="1" strokeDasharray="2,2" />
-          <circle cx="15" cy="20" r="4" fill="#a100ff" />
+          <circle cx="15" cy="20" r="4" fill="#5c7a34" />
           <circle cx="50" cy="20" r="4" fill="#000" />
-          <circle cx="85" cy="20" r="4" fill="#007aff" />
+          <circle cx="85" cy="20" r="4" fill="#46601f" />
         </svg>
       </div>
       <div className="flex justify-between text-[7px] font-mono text-gray-400 border-t border-slate-100 pt-1">
@@ -178,7 +178,7 @@ export default function Process() {
       </div>
       <div className="relative flex-grow h-10 my-1.5">
         <svg className="w-full h-full" viewBox="0 0 150 40">
-          <path d="M 10,35 Q 80,35 140,5" fill="none" stroke="#a100ff" strokeWidth="2" />
+          <path d="M 10,35 Q 80,35 140,5" fill="none" stroke="#5c7a34" strokeWidth="2" />
         </svg>
       </div>
       <div className="flex justify-between text-[7px] font-mono text-gray-400 border-t border-slate-100 pt-1">
@@ -249,16 +249,16 @@ export default function Process() {
   return (
     <div className="flex-1 bg-brand-bg font-sans">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <Compass className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 How We Work
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Our Process Framework
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -308,10 +308,10 @@ export default function Process() {
                     {step.num}
                   </div>
                   <div>
-                    <h2 className="font-plus-jakarta text-xl font-bold uppercase text-black leading-tight">
+                    <h2 className="font-plus-jakarta text-xl font-bold text-black leading-tight">
                       {step.title}
                     </h2>
-                    <p className="font-inter text-[10px] font-bold text-brand-purple uppercase tracking-widest mt-0.5">
+                    <p className="font-inter text-[10px] font-bold text-brand-purple mt-0.5">
                       {step.subtitle}
                     </p>
                   </div>
@@ -326,11 +326,11 @@ export default function Process() {
                     {step.bullets.map((bullet, bIdx) => (
                       <div key={bIdx} className="flex items-center gap-1.5">
                         <Check className="h-3 w-3 text-brand-purple shrink-0" />
-                        <span className="text-[10px] text-gray-500 uppercase font-mono font-medium">{bullet}</span>
+                        <span className="text-[10px] text-gray-500 font-mono font-medium">{bullet}</span>
                       </div>
                     ))}
                   </div>
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-gray-400 bg-brand-bg border border-brand-border-light px-3.5 py-1.5">
+                  <span className="text-[9px] font-mono font-bold text-gray-400 bg-brand-bg border border-brand-border-light px-3.5 py-1.5">
                     {step.timeline}
                   </span>
                 </div>
@@ -350,8 +350,8 @@ export default function Process() {
       {/* Consultation Call Action */}
       <SectionWrapper background="dark" spacing="compact" animate>
         <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">// CONVERSION GATEWAY</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase mb-6 leading-tight">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// CONVERSION GATEWAY</span>
+          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Ready to Initiate Step 01?
           </h2>
           <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">

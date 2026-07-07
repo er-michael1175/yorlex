@@ -46,7 +46,7 @@ function HeroEngagementSimulator() {
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+        <span className="text-[9px] text-gray-500 font-bold">
           YORLEX // PARTNERSHIP_CONFIG
         </span>
       </div>
@@ -57,7 +57,7 @@ function HeroEngagementSimulator() {
           <button
             key={model}
             onClick={() => setActiveModel(model)}
-            className="flex-1 py-1.5 text-[8px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none relative z-10 text-gray-555 hover:text-white"
+            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
           >
             <span className={activeModel === model ? "text-white" : ""}>
               {model === "t_m" ? "T&M" : model === "fixed" ? "Fixed" : "Success"}
@@ -75,13 +75,13 @@ function HeroEngagementSimulator() {
 
       {/* Detail Block */}
       <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1 flex justify-between">
+        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
           <span>// PIPELINE STAGES READY</span>
           <span className="text-green-500 animate-pulse">● CONFIG_ACTIVE</span>
         </div>
 
         <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 min-h-[110px] justify-center">
-          <div className="text-white font-bold text-[10px] uppercase">
+          <div className="text-white font-bold text-[10px]">
             {modelSpecs[activeModel].name} Model
           </div>
           <div className="grid grid-cols-2 gap-2 text-gray-400 mt-1 font-mono text-[8px] leading-relaxed">
@@ -157,16 +157,16 @@ export default function EngagementModels() {
   return (
     <div className="flex-grow bg-brand-bg font-sans pt-0 pb-0">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <CheckSquare className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Partnership Frameworks
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Strategic Engagements
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -201,10 +201,10 @@ export default function EngagementModels() {
       <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light relative z-10" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <div className="inline-flex items-center gap-1.5 bg-brand-bg border border-brand-border px-3.5 py-1 text-black w-max font-mono text-[9px] font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-1.5 bg-brand-bg border border-brand-border px-3.5 py-1 text-black w-max font-mono text-[9px] font-bold">
               <Activity className="h-3.5 w-3.5 text-brand-purple shrink-0" /> Mandatory Baseline Entry Point
             </div>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">
               The Digital Maturity Audit
             </h2>
             <p className="font-inter text-gray-650 text-xs md:text-sm leading-relaxed max-w-xl">
@@ -213,14 +213,14 @@ export default function EngagementModels() {
             <div className="mt-2">
               <Link
                 href="#briefing"
-                className="inline-flex items-center gap-2 font-inter font-bold text-xs uppercase text-black border-b-2 border-black pb-1 hover:text-brand-purple hover:border-brand-purple transition-all"
+                className="inline-flex items-center gap-2 font-inter font-bold text-xs text-black border-b-2 border-black pb-1 hover:text-brand-purple hover:border-brand-purple transition-all"
               >
                 Initiate Audit <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
           
-          <div className="lg:col-span-5 relative h-[280px] w-full bg-brand-bg border border-brand-border rounded-none overflow-hidden">
+          <div className="lg:col-span-5 relative h-[280px] w-full bg-brand-bg border border-brand-border rounded-2xl overflow-hidden">
             <img
               className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all duration-300"
               alt="Analytical model visualization"
@@ -234,9 +234,9 @@ export default function EngagementModels() {
       <SectionWrapper background="default" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// ENGAGEMENT FRAMEWORKS</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">Engagement Models</h2>
-            <p className="font-inter text-gray-500 text-xs mt-2 uppercase tracking-wider">Tailored financial structures for enterprise integration.</p>
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// ENGAGEMENT FRAMEWORKS</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">Engagement Models</h2>
+            <p className="font-inter text-gray-500 text-xs mt-2">Tailored financial structures for enterprise integration.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -245,7 +245,7 @@ export default function EngagementModels() {
               return (
                 <div
                   key={model.name}
-                  className={`border p-8 flex flex-col justify-between min-h-[300px] rounded-none hover:border-brand-purple transition-all duration-250 relative group shadow-sm ${
+                  className={`border p-8 flex flex-col justify-between min-h-[300px] rounded-2xl hover:border-brand-purple transition-all duration-250 relative group shadow-sm ${
                     model.borderClass
                   } ${model.bgClass}`}
                 >
@@ -260,12 +260,12 @@ export default function EngagementModels() {
                     }`}>
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className={`font-inter font-bold text-[8px] uppercase border px-2 py-0.5 ${model.badgeClass}`}>
+                    <span className={`font-inter font-bold text-[8px] border px-2 py-0.5 ${model.badgeClass}`}>
                       {model.name}
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-plus-jakarta text-lg font-bold uppercase mb-2">
+                    <h3 className="font-plus-jakarta text-lg font-bold mb-2">
                       {model.title}
                     </h3>
                     <p className={`font-inter text-xs leading-relaxed mb-6 ${model.isHighContrast ? "text-gray-400" : "text-gray-650"}`}>
@@ -276,7 +276,7 @@ export default function EngagementModels() {
                       {model.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex items-center gap-2">
                           <Check className="h-3.5 w-3.5 text-brand-purple shrink-0" />
-                          <span className={`text-[10px] uppercase font-mono font-medium ${model.isHighContrast ? "text-gray-400" : "text-gray-500"}`}>{bullet}</span>
+                          <span className={`text-[10px] font-mono font-medium ${model.isHighContrast ? "text-gray-400" : "text-gray-500"}`}>{bullet}</span>
                         </li>
                       ))}
                     </ul>
@@ -293,16 +293,16 @@ export default function EngagementModels() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-5 flex flex-col justify-center gap-4">
-            <div className="inline-flex items-center gap-2 bg-brand-bg border border-brand-border px-3.5 py-1 text-black w-max font-mono text-[9px] font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-brand-bg border border-brand-border px-3.5 py-1 text-black w-max font-mono text-[9px] font-bold">
               <Calendar className="h-3.5 w-3.5 text-brand-purple shrink-0" /> Strategy Briefing
             </div>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">
               Request a Briefing
             </h2>
             <p className="font-inter text-gray-650 text-xs md:text-sm leading-relaxed max-w-xl">
               Submit your enterprise parameters. Our qualification team will review your requirements and schedule a preliminary strategy briefing within 24 hours.
             </p>
-            <div className="flex flex-col gap-3 font-inter text-[10px] font-bold uppercase tracking-wider text-gray-500 mt-2">
+            <div className="flex flex-col gap-3 font-inter text-[10px] font-bold text-gray-500 mt-2">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-4.5 w-4.5 text-black" /> Secure &amp; Confidential Processing
               </div>
@@ -312,13 +312,13 @@ export default function EngagementModels() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 bg-brand-bg p-8 border border-brand-border rounded-none shadow-xl">
+          <div className="lg:col-span-7 bg-brand-bg p-8 border border-brand-border rounded-2xl shadow-xl">
             {submitted ? (
               <div className="text-center py-12 flex flex-col items-center justify-center">
-                <div className="w-12 h-12 rounded-none bg-brand-purple text-white flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-brand-purple text-white flex items-center justify-center mb-4">
                   <Check className="h-6 w-6" />
                 </div>
-                <h4 className="text-lg font-bold text-black font-plus-jakarta uppercase mb-2">Briefing Saved</h4>
+                <h4 className="text-lg font-bold text-black font-plus-jakarta mb-2">Briefing Saved</h4>
                 <p className="text-xs text-gray-500 max-w-xs mx-auto leading-relaxed">
                   Thank you. Our audit specialists will contact you within 24 hours to schedule the briefing session.
                 </p>
@@ -327,7 +327,7 @@ export default function EngagementModels() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-1">
-                    <label className="font-inter font-bold text-[10px] text-gray-500 uppercase">Full Name</label>
+                    <label className="font-inter font-bold text-[10px] text-gray-500">Full Name</label>
                     <input
                       required
                       type="text"
@@ -336,7 +336,7 @@ export default function EngagementModels() {
                     />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <label className="font-inter font-bold text-[10px] text-gray-500 uppercase">Corporate Email</label>
+                    <label className="font-inter font-bold text-[10px] text-gray-500">Corporate Email</label>
                     <input
                       required
                       type="email"
@@ -347,7 +347,7 @@ export default function EngagementModels() {
                 </div>
                 
                 <div className="flex flex-col gap-1">
-                  <label className="font-inter font-bold text-[10px] text-gray-500 uppercase">Organization</label>
+                  <label className="font-inter font-bold text-[10px] text-gray-500">Organization</label>
                   <input
                     required
                     type="text"
@@ -357,7 +357,7 @@ export default function EngagementModels() {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="font-inter font-bold text-[10px] text-gray-500 uppercase">Strategic Focus</label>
+                  <label className="font-inter font-bold text-[10px] text-gray-500">Strategic Focus</label>
                   <select className="border-0 border-b border-brand-border bg-transparent px-0 py-2 focus:ring-0 focus:border-brand-purple font-inter text-sm text-black transition-colors">
                     <option value="tech">Technology Ecosystem Audit</option>
                     <option value="finance">Fiduciary &amp; Tax Restructuring</option>
@@ -368,7 +368,7 @@ export default function EngagementModels() {
 
                 <button
                   type="submit"
-                  className="w-full bg-black hover:bg-brand-purple text-white py-3.5 text-xs font-bold uppercase tracking-widest rounded-none transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple"
+                  className="w-full bg-black hover:bg-brand-purple text-white py-3.5 text-xs font-bold rounded-2xl transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple"
                 >
                   Submit Briefing <Send className="h-4 w-4" />
                 </button>

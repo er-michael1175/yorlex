@@ -24,7 +24,7 @@ function HeroCaseTicker() {
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+        <span className="text-[9px] text-gray-500 font-bold">
           YORLEX // PERFORMANCE_TICKER
         </span>
       </div>
@@ -35,7 +35,7 @@ function HeroCaseTicker() {
           <button
             key={idx}
             onClick={() => setActiveCase(idx)}
-            className="flex-1 py-1.5 text-[7px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none relative z-10 text-gray-555 hover:text-white"
+            className="flex-1 py-1.5 text-[7px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
           >
             <span className={activeCase === idx ? "text-white" : ""}>
               Case 0{idx + 1}
@@ -53,13 +53,13 @@ function HeroCaseTicker() {
 
       {/* Details */}
       <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1 flex justify-between">
+        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
           <span>// CLIENT TRANSFORMATION PROFILE</span>
           <span className={cases[activeCase].color}>● {cases[activeCase].status}</span>
         </div>
 
         <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-2 min-h-[100px] justify-center">
-          <div className="text-white font-bold text-[10px] uppercase">
+          <div className="text-white font-bold text-[10px]">
             {cases[activeCase].client}
           </div>
           <div className="grid grid-cols-2 gap-2 mt-1">
@@ -170,16 +170,16 @@ export default function SuccessStories() {
   return (
     <div className="flex-grow bg-brand-bg font-sans pt-0 pb-0">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <Award className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Proof of Work
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Success Stories
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -223,7 +223,7 @@ export default function SuccessStories() {
                   setActiveFilter(f.id);
                   setSelectedCase(null);
                 }}
-                className="px-4 py-2 text-[9px] font-bold uppercase tracking-wider border rounded-none transition-colors duration-150 relative"
+                className="px-4 py-2 text-[9px] font-bold border rounded-2xl transition-colors duration-150 relative"
                 style={{
                   borderColor: activeFilter === f.id ? "black" : "rgba(0,0,0,0.06)",
                 }}
@@ -253,19 +253,19 @@ export default function SuccessStories() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.25 }}
-                  className="bg-white border border-brand-border p-8 flex flex-col justify-between h-full hover:border-brand-purple transition-all duration-300 group relative rounded-none shadow-sm"
+                  className="bg-white border border-brand-border p-8 flex flex-col justify-between h-full hover:border-brand-purple transition-all duration-300 group relative rounded-2xl shadow-sm"
                 >
                   <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-300" />
                   
                   <div>
                     <div className="flex justify-between items-start mb-4">
-                      <span className="text-brand-purple text-[8px] font-mono font-bold uppercase tracking-widest">
+                      <span className="text-brand-purple text-[8px] font-mono font-bold">
                         // {story.client}
                       </span>
-                      <span className="text-[7px] font-mono text-gray-400 uppercase tracking-widest">// {story.category}</span>
+                      <span className="text-[7px] font-mono text-gray-400">// {story.category}</span>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-black mb-3 font-plus-jakarta uppercase tracking-wide group-hover:text-brand-purple transition-colors leading-tight">
+                    <h3 className="text-xl font-bold text-black mb-3 font-plus-jakarta tracking-wide group-hover:text-brand-purple transition-colors leading-tight">
                       {story.title}
                     </h3>
                     
@@ -282,7 +282,7 @@ export default function SuccessStories() {
                       {story.impact.map((imp) => (
                         <div key={imp.label} className="text-center">
                           <div className="text-sm font-bold text-black font-plus-jakarta">{imp.value}</div>
-                          <div className="text-[8px] text-gray-400 font-bold uppercase tracking-widest mt-1 font-inter">
+                          <div className="text-[8px] text-gray-400 font-bold mt-1 font-inter">
                             {imp.label}
                           </div>
                         </div>
@@ -292,7 +292,7 @@ export default function SuccessStories() {
 
                   <button
                     onClick={() => setSelectedCase(story.id)}
-                    className="w-full mt-8 bg-black hover:bg-brand-purple text-white py-3.5 rounded-none transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-black hover:border-brand-purple font-inter font-bold text-[9px]"
+                    className="w-full mt-8 bg-black hover:bg-brand-purple text-white py-3.5 rounded-2xl transition-all text-xs flex items-center justify-center gap-2 border border-black hover:border-brand-purple font-inter font-bold text-[9px]"
                   >
                     Read Case Analysis <ArrowRight className="h-4 w-4" />
                   </button>
@@ -315,38 +315,38 @@ export default function SuccessStories() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-white border border-brand-border p-8 md:p-12 rounded-none max-w-2xl w-full relative my-10 max-h-[85vh] overflow-y-auto scrollbar-thin shadow-2xl"
+                className="bg-white border border-brand-border p-8 md:p-12 rounded-2xl max-w-2xl w-full relative my-10 max-h-[85vh] overflow-y-auto scrollbar-thin shadow-2xl"
               >
                 <button
                   onClick={() => setSelectedCase(null)}
-                  className="absolute right-6 top-6 w-10 h-10 rounded-none bg-brand-bg border border-brand-border flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors"
+                  className="absolute right-6 top-6 w-10 h-10 rounded-2xl bg-brand-bg border border-brand-border flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
 
-                <span className="text-brand-purple text-[8px] font-mono font-bold uppercase tracking-widest block mb-3">
+                <span className="text-brand-purple text-[8px] font-mono font-bold block mb-3">
                   // {story.client} • Case Analysis
                 </span>
-                <h3 className="text-2xl font-bold text-black mb-6 font-plus-jakarta uppercase tracking-wide leading-tight border-b border-brand-border pb-4">
+                <h3 className="text-2xl font-bold text-black mb-6 font-plus-jakarta tracking-wide leading-tight border-b border-brand-border pb-4">
                   {story.title}
                 </h3>
 
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-xs font-bold uppercase text-black tracking-wider mb-2 font-mono">// The Challenge</h4>
+                    <h4 className="text-xs font-bold text-black mb-2 font-mono">// The Challenge</h4>
                     <p className="text-xs md:text-sm text-gray-655 leading-relaxed font-inter">
                       {story.details.challenge}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="text-xs font-bold uppercase text-black tracking-wider mb-4 font-mono">// Implemented Partner Actions</h4>
+                    <h4 className="text-xs font-bold text-black mb-4 font-mono">// Implemented Partner Actions</h4>
                     <div className="space-y-3">
                       {story.details.actions.map((act) => (
-                        <div key={act.area} className="flex gap-3 items-start bg-brand-bg border border-brand-border-light p-4 rounded-none">
+                        <div key={act.area} className="flex gap-3 items-start bg-brand-bg border border-brand-border-light p-4 rounded-2xl">
                           <CheckCircle2 className="h-4.5 w-4.5 text-brand-purple shrink-0 mt-0.5" />
                           <div>
-                            <strong className="text-brand-purple text-[8px] font-mono uppercase block mb-0.5 font-bold tracking-widest">
+                            <strong className="text-brand-purple text-[8px] font-mono block mb-0.5 font-bold">
                               {act.area} Pillar
                             </strong>
                             <span className="text-xs text-gray-655 leading-relaxed font-inter">{act.act}</span>
@@ -357,7 +357,7 @@ export default function SuccessStories() {
                   </div>
 
                   <div className="border-t border-brand-border-light/60 pt-6">
-                    <h4 className="text-xs font-bold uppercase text-black tracking-wider mb-2 font-mono">// Audit Verification & Results</h4>
+                    <h4 className="text-xs font-bold text-black mb-2 font-mono">// Audit Verification & Results</h4>
                     <p className="text-xs md:text-sm text-gray-655 leading-relaxed font-inter">
                       {story.details.results}
                     </p>
@@ -372,8 +372,8 @@ export default function SuccessStories() {
       {/* Final Conversion Action */}
       <SectionWrapper background="dark" spacing="compact" animate>
         <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">// ADVISORY PIPELINE</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase mb-6 leading-tight">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// ADVISORY PIPELINE</span>
+          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Ready to Build Your Success Story?
           </h2>
           <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">

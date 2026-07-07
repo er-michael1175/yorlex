@@ -35,7 +35,7 @@ export default function About() {
           <rect x="140" y="45" width="50" height="20" fill="#fff" stroke="#cfc4c5" strokeWidth="1" />
           <text x="165" y="57" fill="#000" fontSize="7" textAnchor="middle" fontWeight="bold">MARKETING</text>
 
-          <circle cx="95" cy="55" r="18" fill="#000" stroke="#a100ff" strokeWidth="1.5" />
+          <circle cx="95" cy="55" r="18" fill="#000" stroke="#5c7a34" strokeWidth="1.5" />
           <text x="95" y="58" fill="#fff" fontSize="6" textAnchor="middle" fontWeight="bold">YORLEX</text>
 
           <line x1="60" y1="20" x2="80" y2="42" stroke="#cfc4c5" strokeWidth="1" markerEnd="url(#arrow)" />
@@ -59,8 +59,8 @@ export default function About() {
       <div className="relative flex-grow h-16 my-2">
         <svg className="w-full h-full" viewBox="0 0 200 80">
           <path d="M 10,10 Q 70,70 190,70" fill="none" stroke="#ef4444" strokeWidth="1.5" opacity="0.8" />
-          <path d="M 10,70 Q 70,70 190,10" fill="none" stroke="#a100ff" strokeWidth="1.5" />
-          <circle cx="85" cy="52" r="3" fill="#007aff" />
+          <path d="M 10,70 Q 70,70 190,10" fill="none" stroke="#5c7a34" strokeWidth="1.5" />
+          <circle cx="85" cy="52" r="3" fill="#46601f" />
           <text x="92" y="55" fill="#fff" fontSize="6" fontFamily="monospace">OPTIMAL_CROSS [85, 52]</text>
         </svg>
       </div>
@@ -87,16 +87,16 @@ export default function About() {
   return (
     <div className="flex-1 bg-brand-bg font-sans">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <Rocket className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Corporate Identity
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Architecting Global Excellence
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -122,7 +122,7 @@ export default function About() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <div className="min-h-80 bg-black border border-brand-border rounded-none relative overflow-hidden p-6 flex flex-col justify-between crosshair-grid select-none shadow-2xl">
+            <div className="min-h-80 bg-black border border-brand-border rounded-2xl relative overflow-hidden p-6 flex flex-col justify-between crosshair-grid select-none shadow-2xl">
               {/* Dynamic Telemetry Panel */}
               <div className="flex justify-between items-center text-white/50 text-[8px] font-mono border-b border-white/10 pb-2">
                 <span>SYSTEM: NODE_NETWORK_TELEMETRY</span>
@@ -143,14 +143,14 @@ export default function About() {
                   <line x1="300" y1="0" x2="300" y2="200" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" strokeDasharray="2,2" />
 
                   {/* Connection links */}
-                  <path d="M 60,85 Q 120,40 180,65" fill="none" stroke="rgba(161, 0, 255, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
-                  <path d="M 180,65 Q 230,110 280,120" fill="none" stroke="rgba(161, 0, 255, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
+                  <path d="M 60,85 Q 120,40 180,65" fill="none" stroke="rgba(92, 122, 52, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
+                  <path d="M 180,65 Q 230,110 280,120" fill="none" stroke="rgba(92, 122, 52, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
                   <path d="M 60,85 Q 170,170 280,120" fill="none" stroke="rgba(0, 122, 255, 0.3)" strokeWidth="1" strokeDasharray="4,4" />
 
                   {/* Nodes */}
-                  <circle cx="60" cy="85" r="4" fill="#a100ff" />
-                  <circle cx="180" cy="65" r="4" fill="#a100ff" />
-                  <circle cx="280" cy="120" r="4" fill="#a100ff" />
+                  <circle cx="60" cy="85" r="4" fill="#5c7a34" />
+                  <circle cx="180" cy="65" r="4" fill="#5c7a34" />
+                  <circle cx="280" cy="120" r="4" fill="#5c7a34" />
 
                   {/* Node labels */}
                   <text x="65" y="81" fill="#fff" fontSize="7" fontFamily="monospace" opacity="0.8">SF_NODE.US</text>
@@ -184,11 +184,11 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-4 flex flex-col justify-between">
             <div>
-              <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// BRAND GENESIS</span>
+              <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// BRAND GENESIS</span>
               <AnimatedHeading level={2} className="text-black mb-4">
                 Our Origin
               </AnimatedHeading>
-              <p className="font-inter font-bold text-xs text-gray-550 uppercase tracking-widest">The Genesis of Precision</p>
+              <p className="font-inter font-bold text-xs text-gray-550">The Genesis of Precision</p>
             </div>
           </div>
           <div className="md:col-span-8">
@@ -214,7 +214,7 @@ export default function About() {
       {/* Mission / Vision / Values Bento Grid */}
       <SectionWrapper background="white" spacing="compact" animate>
         <div className="text-center mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// DIRECTIVES</span>
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// DIRECTIVES</span>
           <AnimatedHeading level={2} className="text-black">
             Core Directives
           </AnimatedHeading>
@@ -227,7 +227,7 @@ export default function About() {
               <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
                 <div className="flex-1 space-y-4">
                   <Rocket className="h-10 w-10 text-brand-purple" />
-                  <h3 className="font-plus-jakarta text-xl font-bold text-white uppercase">The Mission</h3>
+                  <h3 className="font-plus-jakarta text-xl font-bold text-white">The Mission</h3>
                   <p className="font-inter text-gray-300 text-sm md:text-base leading-relaxed">
                     To engineer uncompromising solutions that eliminate operational friction and accelerate institutional growth across global markets.
                   </p>
@@ -246,7 +246,7 @@ export default function About() {
                 <Eye className="h-10 w-10 text-black" />
               </div>
               <div>
-                <h3 className="font-plus-jakarta text-xl font-bold text-black mb-2 uppercase">The Vision</h3>
+                <h3 className="font-plus-jakarta text-xl font-bold text-black mb-2">The Vision</h3>
                 <p className="font-inter text-gray-600 text-sm leading-relaxed">
                   To be the undisputed architectural standard for multi-disciplinary enterprise management worldwide.
                 </p>
@@ -260,7 +260,7 @@ export default function About() {
           <GradientCard variant="default" hover="border">
             <div className="flex items-center gap-3 mb-4">
               <Users className="h-5 w-5 text-black shrink-0" />
-              <h4 className="font-inter font-bold text-xs text-black uppercase tracking-wider">Structural Integrity</h4>
+              <h4 className="font-inter font-bold text-xs text-black">Structural Integrity</h4>
             </div>
             <p className="text-xs text-gray-500 leading-relaxed">
               We build systems designed to endure stress, scale without fracture, and perform with absolute precision.
@@ -270,7 +270,7 @@ export default function About() {
           <GradientCard variant="default" hover="border">
             <div className="flex items-center gap-3 mb-4">
               <Bolt className="h-5 w-5 text-black shrink-0" />
-              <h4 className="font-inter font-bold text-xs text-black uppercase tracking-wider">Calculated Velocity</h4>
+              <h4 className="font-inter font-bold text-xs text-black">Calculated Velocity</h4>
             </div>
             <p className="text-xs text-gray-500 leading-relaxed">
               Speed is useless without direction. We combine aggressive innovation with rigorous analytical constraints.
@@ -280,7 +280,7 @@ export default function About() {
           <GradientCard variant="default" hover="border">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="h-5 w-5 text-black shrink-0" />
-              <h4 className="font-inter font-bold text-xs text-black uppercase tracking-wider">Absolute Accountability</h4>
+              <h4 className="font-inter font-bold text-xs text-black">Absolute Accountability</h4>
             </div>
             <p className="text-xs text-gray-500 leading-relaxed">
               We own the outcomes of our architectures. Trust is not requested; it is structurally guaranteed.
@@ -292,8 +292,8 @@ export default function About() {
       {/* Global Impact Section */}
       <SectionWrapper background="default" spacing="compact" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// GLOBAL NODE NETWORK</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// GLOBAL NODE NETWORK</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Global Authority
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -323,15 +323,15 @@ export default function About() {
             }
           ].map((office, idx) => (
             <div key={idx} className="bg-white border border-brand-border-light p-8 transition-colors hover:border-brand-purple">
-              <span className="font-mono text-[9px] text-brand-purple uppercase tracking-widest block mb-2">// {office.city}</span>
-              <h3 className="font-plus-jakarta text-lg font-bold text-black uppercase mb-1">{office.region}</h3>
+              <span className="font-mono text-[9px] text-brand-purple block mb-2">// {office.city}</span>
+              <h3 className="font-plus-jakarta text-lg font-bold text-black mb-1">{office.region}</h3>
               <div className="font-mono text-xs font-bold text-gray-400 mb-6">{office.count}</div>
               
               <ul className="space-y-2 border-t border-brand-border-light/60 pt-4">
                 {office.functions.map((func, fIdx) => (
                   <li key={fIdx} className="flex items-center gap-2">
                     <Check className="h-3.5 w-3.5 text-brand-purple shrink-0" />
-                    <span className="text-[10px] text-gray-555 uppercase font-mono font-medium">{func}</span>
+                    <span className="text-[10px] text-gray-555 font-mono font-medium">{func}</span>
                   </li>
                 ))}
               </ul>
@@ -343,7 +343,7 @@ export default function About() {
       {/* Leadership Board */}
       <SectionWrapper background="white" spacing="compact" animate>
         <div className="text-center">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// THE ARCHITECTS</span>
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// THE ARCHITECTS</span>
           <AnimatedHeading level={2} className="text-black mb-12">
             Command &amp; Control
           </AnimatedHeading>
@@ -359,8 +359,8 @@ export default function About() {
                       className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all duration-300"
                     />
                   </div>
-                  <h4 className="font-plus-jakarta text-xl font-bold text-black uppercase">{leader.name}</h4>
-                  <p className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-wider mt-1">{leader.role}</p>
+                  <h4 className="font-plus-jakarta text-xl font-bold text-black">{leader.name}</h4>
+                  <p className="font-inter font-bold text-[10px] text-brand-purple mt-1">{leader.role}</p>
                 </div>
               </GradientCard>
             ))}
@@ -368,7 +368,7 @@ export default function About() {
             {/* CTA Card */}
             <GradientCard variant="dark" hover="glow" className="flex flex-col items-center justify-center p-8">
               <Users className="h-10 w-10 text-brand-purple mb-4" />
-              <h4 className="font-plus-jakarta text-lg font-bold mb-2 uppercase text-center text-white">View Entire Board</h4>
+              <h4 className="font-plus-jakarta text-lg font-bold mb-2 text-center text-white">View Entire Board</h4>
               <p className="text-[10px] text-gray-400 text-center mb-6">45+ Elite multi-disciplinary partners worldwide.</p>
               <PremiumButton variant="ghost" href="/about/leadership" icon={<ArrowRight className="h-4 w-4" />} className="text-white hover:text-brand-purple">
                 Explore Leadership

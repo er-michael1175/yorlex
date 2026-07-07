@@ -42,7 +42,7 @@ function HeroTermsSimulator() {
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[9px] text-gray-550 font-bold uppercase tracking-widest">
+        <span className="text-[9px] text-gray-550 font-bold">
           YORLEX // MSA_ENGINE
         </span>
       </div>
@@ -53,7 +53,7 @@ function HeroTermsSimulator() {
           <button
             key={gate}
             onClick={() => setActiveGate(gate)}
-            className="flex-1 py-1.5 text-[8px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none relative z-10 text-gray-555 hover:text-white"
+            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
           >
             <span className={activeGate === gate ? "text-white" : ""}>{gate}</span>
             {activeGate === gate && (
@@ -69,13 +69,13 @@ function HeroTermsSimulator() {
 
       {/* Details */}
       <div className="flex-grow flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1 flex justify-between">
+        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
           <span>// COMPLIANCE PROTOCOL CHECK</span>
           <span className={gates[activeGate].color}>● COMPILED</span>
         </div>
 
         <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 min-h-[110px] justify-center">
-          <div className="text-white font-bold text-[10px] uppercase">
+          <div className="text-white font-bold text-[10px]">
             {gates[activeGate].name}
           </div>
           <div className="grid grid-cols-2 gap-2 text-gray-400 mt-1 font-mono text-[8px] leading-relaxed">
@@ -171,11 +171,11 @@ export default function TermsAndConditions() {
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <Gavel className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Governance &amp; MSA
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Terms &amp; Conditions
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -215,8 +215,8 @@ export default function TermsAndConditions() {
           
           {/* Sticky Sidebar Navigation */}
           <aside className="md:col-span-3 sticky top-28 hidden md:block">
-            <div className="bg-white p-6 border border-brand-border rounded-none shadow-sm">
-              <h3 className="font-inter font-bold text-[10px] text-black uppercase tracking-wider mb-4 border-b border-brand-border-light pb-2">
+            <div className="bg-white p-6 border border-brand-border rounded-2xl shadow-sm">
+              <h3 className="font-inter font-bold text-[10px] text-black mb-4 border-b border-brand-border-light pb-2">
                 Document Index
               </h3>
               <nav className="flex flex-col gap-2">
@@ -224,7 +224,7 @@ export default function TermsAndConditions() {
                   <button
                     key={sec.id}
                     onClick={() => scrollToSection(sec.id)}
-                    className={`text-left font-plus-jakarta text-xs font-bold uppercase py-2 pl-3 border-l-2 transition-all duration-300 ${
+                    className={`text-left font-plus-jakarta text-xs font-bold py-2 pl-3 border-l-2 transition-all duration-300 ${
                       activeSection === sec.id
                         ? "border-brand-purple text-brand-purple bg-brand-purple/5"
                         : "border-brand-border-light text-gray-405 hover:text-black hover:border-black"
@@ -243,7 +243,7 @@ export default function TermsAndConditions() {
               
               {/* Section 1 */}
               <section id="section-1" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   1. Acceptance of Terms
                 </h2>
                 <p>
@@ -253,7 +253,7 @@ export default function TermsAndConditions() {
 
               {/* Section 2 */}
               <section id="section-2" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   2. About Yorlex
                 </h2>
                 <p>
@@ -267,9 +267,9 @@ export default function TermsAndConditions() {
                     "Management Consulting",
                     "Business Support Services",
                   ].map((service, idx) => (
-                    <div key={idx} className="flex items-center gap-2 p-3 bg-brand-bg border border-brand-border-light rounded-none">
+                    <div key={idx} className="flex items-center gap-2 p-3 bg-brand-bg border border-brand-border-light rounded-2xl">
                       <CheckCircle className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                      <span className="font-mono text-[9px] uppercase text-gray-500 font-bold">{service}</span>
+                      <span className="font-mono text-[9px] text-gray-500 font-bold">{service}</span>
                     </div>
                   ))}
                 </div>
@@ -280,7 +280,7 @@ export default function TermsAndConditions() {
 
               {/* Section 3 */}
               <section id="section-3" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   3. Use of Website
                 </h2>
                 <p>
@@ -297,7 +297,7 @@ export default function TermsAndConditions() {
 
               {/* Section 4 */}
               <section id="section-4" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   4. Service Engagement
                 </h2>
                 <p>
@@ -316,7 +316,7 @@ export default function TermsAndConditions() {
 
               {/* Section 5 */}
               <section id="section-5" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   5. Client Responsibilities
                 </h2>
                 <p>
@@ -329,7 +329,7 @@ export default function TermsAndConditions() {
 
               {/* Section 6 */}
               <section id="section-6" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   6. Payments &amp; Billing
                 </h2>
                 <p>
@@ -339,7 +339,7 @@ export default function TermsAndConditions() {
 
               {/* Section 7 */}
               <section id="section-7" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   7. Intellectual Property
                 </h2>
                 <p>
@@ -353,7 +353,7 @@ export default function TermsAndConditions() {
 
               {/* Section 8 */}
               <section id="section-8" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   8. Confidentiality
                 </h2>
                 <p>
@@ -363,7 +363,7 @@ export default function TermsAndConditions() {
 
               {/* Section 9 */}
               <section id="section-9" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   9. Limitation of Liability
                 </h2>
                 <p>
@@ -383,7 +383,7 @@ export default function TermsAndConditions() {
 
               {/* Section 10 */}
               <section id="section-10" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   10. Third-Party Services
                 </h2>
                 <p>
@@ -393,7 +393,7 @@ export default function TermsAndConditions() {
 
               {/* Section 11 */}
               <section id="section-11" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   11. Warranties
                 </h2>
                 <p>
@@ -410,7 +410,7 @@ export default function TermsAndConditions() {
 
               {/* Section 12 */}
               <section id="section-12" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   12. Termination
                 </h2>
                 <p>
@@ -420,7 +420,7 @@ export default function TermsAndConditions() {
 
               {/* Section 13 */}
               <section id="section-13" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   13. Changes to These Terms
                 </h2>
                 <p>
@@ -430,7 +430,7 @@ export default function TermsAndConditions() {
 
               {/* Section 14 */}
               <section id="section-14" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   14. Governing Law
                 </h2>
                 <p>
@@ -440,13 +440,13 @@ export default function TermsAndConditions() {
 
               {/* Section 15 */}
               <section id="section-15" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   15. Contact Information
                 </h2>
                 <p>
                   If you have questions about these Terms &amp; Conditions, please contact us.
                 </p>
-                <div className="bg-brand-bg border border-brand-border p-6 rounded-none space-y-3 font-mono text-xs text-gray-555 mt-4">
+                <div className="bg-brand-bg border border-brand-border p-6 rounded-2xl space-y-3 font-mono text-xs text-gray-555 mt-4">
                   <div className="flex items-center gap-2">
                     <Globe className="h-4 w-4 text-brand-purple shrink-0" />
                     <span>Yorlex Enterprise</span>
@@ -470,14 +470,14 @@ export default function TermsAndConditions() {
                 
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                   {acknowledged ? (
-                    <div className="bg-brand-purple/10 border border-brand-purple text-brand-purple font-inter font-bold text-[10px] uppercase tracking-wider px-8 py-3.5 flex items-center justify-center gap-2">
+                    <div className="bg-brand-purple/10 border border-brand-purple text-brand-purple font-inter font-bold text-[10px] px-8 py-3.5 flex items-center justify-center gap-2">
                       <CheckCircle className="h-4 w-4" />
                       Terms Acknowledged
                     </div>
                   ) : (
                     <button
                       onClick={() => setAcknowledged(true)}
-                      className="bg-black hover:bg-brand-purple text-white font-inter font-bold text-[10px] uppercase tracking-widest px-8 py-3.5 transition-colors rounded-none border border-black hover:border-brand-purple"
+                      className="bg-black hover:bg-brand-purple text-white font-inter font-bold text-[10px] px-8 py-3.5 transition-colors rounded-2xl border border-black hover:border-brand-purple"
                     >
                       Acknowledge
                     </button>
@@ -485,7 +485,7 @@ export default function TermsAndConditions() {
                   
                   <button
                     onClick={() => alert("Downloading PDF summary...")}
-                    className="bg-white hover:bg-brand-bg text-black font-inter font-bold text-[10px] uppercase tracking-widest px-8 py-3.5 border border-brand-border transition-all flex items-center justify-center gap-2"
+                    className="bg-white hover:bg-brand-bg text-black font-inter font-bold text-[10px] px-8 py-3.5 border border-brand-border transition-all flex items-center justify-center gap-2"
                   >
                     <Download className="h-4 w-4 text-brand-purple" />
                     Download PDF
@@ -502,8 +502,8 @@ export default function TermsAndConditions() {
       {/* 3. Still Have Questions CTA */}
       <SectionWrapper background="dark" spacing="compact" animate>
         <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">// CONTRACT SUPPORT</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase mb-6 leading-tight">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// CONTRACT SUPPORT</span>
+          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Need More Information?
           </h2>
           <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">

@@ -37,7 +37,7 @@ function TechnologyIllustration() {
           <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/80" />
           <span className="w-1.5 h-1.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[8px] text-gray-500 font-bold uppercase tracking-wider">LON.04 // NODE_SYS</span>
+        <span className="text-[8px] text-gray-500 font-bold">LON.04 // NODE_SYS</span>
       </div>
       
       {/* Main Body */}
@@ -83,7 +83,7 @@ function FinanceIllustration() {
   return (
     <div className="w-full h-28 border border-brand-border-light/30 p-3 bg-brand-bg relative overflow-hidden flex flex-col justify-between">
       <div className="flex items-center justify-between mb-1">
-        <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Risk Model</span>
+        <span className="text-[9px] font-bold text-gray-400">Risk Model</span>
         <span className="text-[9px] font-mono font-bold text-green-600 bg-green-600/10 px-1.5 py-0.5">+14.2% YIELD</span>
       </div>
       
@@ -102,17 +102,17 @@ function FinanceIllustration() {
           <path
             d="M0,30 L20,28 L40,32 L60,18 L80,10 L100,5"
             fill="none"
-            stroke="#a100ff"
+            stroke="#5c7a34"
             strokeWidth="1.5"
             strokeLinecap="round"
           />
-          <circle cx="100" cy="5" r="2" fill="#a100ff" className="animate-ping" />
-          <circle cx="100" cy="5" r="1.5" fill="#a100ff" />
+          <circle cx="100" cy="5" r="2" fill="#5c7a34" className="animate-ping" />
+          <circle cx="100" cy="5" r="1.5" fill="#5c7a34" />
           
           <defs>
             <linearGradient id="financeGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#a100ff" />
-              <stop offset="100%" stopColor="#a100ff" stopOpacity="0" />
+              <stop offset="0%" stopColor="#5c7a34" />
+              <stop offset="100%" stopColor="#5c7a34" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>
@@ -130,8 +130,8 @@ function MarketingIllustration() {
   return (
     <div className="w-full h-28 border border-brand-border-light/30 p-3 bg-brand-bg relative overflow-hidden flex items-center justify-between">
       <div className="flex flex-col gap-1 max-w-[55%]">
-        <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Brand Authority</span>
-        <span className="text-xs font-bold text-black uppercase leading-tight font-plus-jakarta">Mindshare Domination</span>
+        <span className="text-[9px] font-bold text-gray-400">Brand Authority</span>
+        <span className="text-xs font-bold text-black leading-tight font-plus-jakarta">Mindshare Domination</span>
         <p className="text-[9px] text-gray-500 leading-tight">Data-driven global GTM visibility metrics.</p>
       </div>
       
@@ -151,7 +151,7 @@ function MarketingIllustration() {
             cy="18"
             r="15"
             fill="none"
-            stroke="#a100ff"
+            stroke="#5c7a34"
             strokeWidth="2.5"
             strokeDasharray="94, 100"
             strokeLinecap="round"
@@ -159,7 +159,7 @@ function MarketingIllustration() {
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="text-xs font-bold font-mono text-black">94%</span>
-          <span className="text-[6px] text-gray-450 font-bold uppercase tracking-widest">INDEX</span>
+          <span className="text-[6px] text-gray-450 font-bold">INDEX</span>
         </div>
       </div>
     </div>
@@ -169,29 +169,29 @@ function MarketingIllustration() {
 function ManagementIllustration() {
   return (
     <div className="w-full h-28 border border-brand-border-light/30 p-3 bg-brand-bg relative overflow-hidden flex flex-col justify-between">
-      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-2">Structure & OKRs</span>
+      <span className="text-[9px] font-bold text-gray-400 mb-2">Structure & OKRs</span>
       
       {/* Tree Map Nodes */}
       <div className="flex-1 flex flex-col justify-between items-center relative py-1">
-        <div className="z-10 bg-black text-white text-[8px] font-bold font-mono px-2 py-0.5 border border-brand-purple/20 uppercase">
+        <div className="z-10 bg-black text-white text-[8px] font-bold font-mono px-2 py-0.5 border border-brand-purple/20">
           ROOT_STRATEGY: 100%
         </div>
         
         <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 100 40">
-            <path d="M50,10 L50,22 L15,22 L15,30 M50,22 L85,22 L85,30" fill="none" stroke="#a100ff" strokeWidth="0.75" strokeDasharray="2, 2" />
-            <line x1="50" y1="10" x2="50" y2="30" stroke="#a100ff" strokeWidth="0.75" />
+            <path d="M50,10 L50,22 L15,22 L15,30 M50,22 L85,22 L85,30" fill="none" stroke="#5c7a34" strokeWidth="0.75" strokeDasharray="2, 2" />
+            <line x1="50" y1="10" x2="50" y2="30" stroke="#5c7a34" strokeWidth="0.75" />
           </svg>
         </div>
         
         <div className="w-full flex justify-between px-1 z-10">
-          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5 uppercase">
+          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5">
             OPS: 92%
           </div>
-          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5 uppercase">
+          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5">
             M&A: 100%
           </div>
-          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5 uppercase">
+          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5">
             GROWTH: 89%
           </div>
         </div>
@@ -204,7 +204,7 @@ function SupportIllustration() {
   return (
     <div className="w-full h-28 border border-brand-border-light/30 p-3 bg-brand-bg relative overflow-hidden flex flex-col justify-between">
       <div className="flex items-center justify-between border-b border-brand-border-light pb-1.5">
-        <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">SLA Audit</span>
+        <span className="text-[9px] font-bold text-gray-400">SLA Audit</span>
         <span className="flex items-center gap-1 text-[8px] font-bold text-green-600 bg-green-600/10 px-1.5 py-0.5">
           <span className="w-1 h-1 bg-green-500 rounded-full inline-block" /> COMPLIANT
         </span>
@@ -213,12 +213,12 @@ function SupportIllustration() {
       {/* Support Grid */}
       <div className="flex-1 grid grid-cols-2 gap-2 mt-2">
         <div className="bg-white border border-brand-border-light p-1.5 flex flex-col justify-center">
-          <span className="text-[7px] text-gray-400 font-bold uppercase">Response SLA</span>
+          <span className="text-[7px] text-gray-400 font-bold">Response SLA</span>
           <span className="text-sm font-bold text-black font-mono tracking-tight mt-0.5">8ms avg</span>
         </div>
         <div className="bg-white border border-brand-border-light p-1.5 flex flex-col justify-center">
-          <span className="text-[7px] text-gray-400 font-bold uppercase">Sovereignty</span>
-          <span className="text-[9px] font-bold text-brand-purple font-mono uppercase mt-0.5">100% GDPR</span>
+          <span className="text-[7px] text-gray-400 font-bold">Sovereignty</span>
+          <span className="text-[9px] font-bold text-brand-purple font-mono mt-0.5">100% GDPR</span>
         </div>
       </div>
     </div>
@@ -332,7 +332,7 @@ export default function Services() {
   return (
     <div className="flex-1 font-sans bg-brand-bg">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-8 md:pt-12 pb-12 md:pb-16" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-8 md:pt-12 pb-12 md:pb-16" animate>
         <div className="relative">
           {/* Subtle architectural coordinates */}
           <div className="absolute right-0 top-16 hidden lg:block font-mono text-[9px] text-gray-400 select-none pointer-events-none text-right leading-relaxed">
@@ -343,7 +343,7 @@ export default function Services() {
 
           <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max mb-6">
             <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
-            <span className="font-inter font-bold text-[10px] text-gray-500 uppercase tracking-widest">
+            <span className="font-inter font-bold text-[10px] text-gray-500">
               Services Portfolio
             </span>
           </div>
@@ -363,7 +363,7 @@ export default function Services() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className="relative py-4 px-6 text-[10px] font-mono font-bold uppercase tracking-widest transition-colors duration-200 outline-none select-none shrink-0"
+              className="relative py-4 px-6 text-[10px] font-mono font-bold transition-colors duration-200 outline-none select-none shrink-0"
               style={{ color: activeCategory === cat.id ? "#000000" : "#9ca3af" }}
             >
               {cat.name}
@@ -422,11 +422,11 @@ export default function Services() {
           <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-28">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <HelpCircle className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-500 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-500">
                 Service Delivery
               </span>
             </div>
-            <h2 className="font-plus-jakarta text-3xl md:text-4xl font-black text-black uppercase leading-tight tracking-tight">
+            <h2 className="font-plus-jakarta text-3xl md:text-4xl font-black text-black leading-tight tracking-tight">
               Enterprise Service Parameters
             </h2>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-md">
@@ -451,16 +451,16 @@ export default function Services() {
               return (
                 <div
                   key={item.id}
-                  className="bg-white border border-brand-border rounded-none overflow-hidden transition-colors duration-300"
+                  className="bg-white border border-brand-border rounded-2xl overflow-hidden transition-colors duration-300"
                 >
                   <button
                     onClick={() => setOpenFaqId(isOpen ? null : item.id)}
                     className="w-full flex justify-between items-center p-6 bg-brand-border-light/10 hover:bg-brand-border-light/20 transition-colors focus:outline-none text-left"
                   >
-                    <span className="font-plus-jakarta text-xs md:text-sm font-bold text-black uppercase tracking-wide pr-4">
+                    <span className="font-plus-jakarta text-xs md:text-sm font-bold text-black tracking-wide pr-4">
                       {item.q}
                     </span>
-                    <div className="w-6 h-6 rounded-none border border-brand-border flex items-center justify-center text-black shrink-0 bg-brand-bg transition-transform duration-300">
+                    <div className="w-6 h-6 rounded-2xl border border-brand-border flex items-center justify-center text-black shrink-0 bg-brand-bg transition-transform duration-300">
                       {isOpen ? <Minus className="h-3 w-3" /> : <Plus className="h-3 w-3" />}
                     </div>
                   </button>

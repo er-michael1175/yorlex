@@ -12,10 +12,10 @@ export default function RevenueOptimizationCaseStudy() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 mb-16">
         <div className="max-w-4xl">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">
             Case Study // Management
           </span>
-          <h1 className="font-plus-jakarta text-4xl md:text-6xl font-black text-black mb-6 uppercase leading-tight tracking-tight">
+          <h1 className="font-plus-jakarta text-4xl md:text-6xl font-black text-black mb-6 leading-tight tracking-tight">
             Omni-Channel Revenue Optimization Protocol
           </h1>
           <p className="font-inter text-gray-600 text-lg leading-relaxed max-w-3xl">
@@ -24,29 +24,29 @@ export default function RevenueOptimizationCaseStudy() {
         </div>
 
         {/* Quantifiable Results Banner */}
-        <div className="bg-black text-white mt-12 p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 border-t-4 border-brand-purple rounded-none">
+        <div className="bg-black text-white mt-12 p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 border-t-4 border-brand-purple rounded-2xl">
           <div className="border-b md:border-b-0 md:border-r border-brand-border/20 pb-6 md:pb-0 md:pr-6">
             <div className="font-plus-jakarta text-4xl md:text-5xl font-black text-brand-purple mb-2">142%</div>
-            <div className="font-inter font-bold text-[10px] text-gray-400 uppercase tracking-widest">
+            <div className="font-inter font-bold text-[10px] text-gray-400">
               Increase in Operational Efficiency
             </div>
           </div>
           <div className="border-b md:border-b-0 md:border-r border-brand-border/20 pb-6 md:pb-0 md:pr-6">
             <div className="font-plus-jakarta text-4xl md:text-5xl font-black text-brand-purple mb-2">$45M</div>
-            <div className="font-inter font-bold text-[10px] text-gray-400 uppercase tracking-widest">
+            <div className="font-inter font-bold text-[10px] text-gray-400">
               Recovered Revenue Stream
             </div>
           </div>
           <div>
             <div className="font-plus-jakarta text-4xl md:text-5xl font-black text-brand-purple mb-2">8.5x</div>
-            <div className="font-inter font-bold text-[10px] text-gray-400 uppercase tracking-widest">
+            <div className="font-inter font-bold text-[10px] text-gray-400">
               ROI Within First 3 Quarters
             </div>
           </div>
         </div>
 
         {/* Hero Image */}
-        <div className="mt-8 w-full h-[350px] md:h-[500px] border border-brand-border overflow-hidden rounded-none relative">
+        <div className="mt-8 w-full h-[350px] md:h-[500px] border border-brand-border overflow-hidden rounded-2xl relative">
           <img
             className="w-full h-full object-cover grayscale opacity-95 mix-blend-multiply pointer-events-none"
             alt="Digital installation art representing data optimization"
@@ -61,33 +61,33 @@ export default function RevenueOptimizationCaseStudy() {
           
           {/* Sticky Sidebar Metadata */}
           <aside className="w-full lg:w-1/4 lg:sticky lg:top-28 self-start mb-8 lg:mb-0">
-            <div className="bg-white border border-brand-border p-6 space-y-6 rounded-none">
+            <div className="bg-white border border-brand-border p-6 space-y-6 rounded-2xl">
               <div>
-                <h4 className="font-inter font-bold text-[10px] text-gray-400 uppercase tracking-widest mb-1">
+                <h4 className="font-inter font-bold text-[10px] text-gray-400 mb-1">
                   Client
                 </h4>
-                <p className="font-plus-jakarta font-bold text-sm text-black uppercase">
+                <p className="font-plus-jakarta font-bold text-sm text-black">
                   Nexus Global Retail
                 </p>
               </div>
               <div className="w-full h-px bg-brand-border-light"></div>
               <div>
-                <h4 className="font-inter font-bold text-[10px] text-gray-400 uppercase tracking-widest mb-1">
+                <h4 className="font-inter font-bold text-[10px] text-gray-400 mb-1">
                   Industry
                 </h4>
-                <p className="font-inter text-xs text-gray-600 font-semibold uppercase">
+                <p className="font-inter text-xs text-gray-600 font-semibold">
                   Enterprise Retail &amp; E-Commerce
                 </p>
               </div>
               <div className="w-full h-px bg-brand-border-light"></div>
               <div>
-                <h4 className="font-inter font-bold text-[10px] text-gray-400 uppercase tracking-widest mb-2">
+                <h4 className="font-inter font-bold text-[10px] text-gray-400 mb-2">
                   Services Deployed
                 </h4>
-                <ul className="font-inter text-xs text-gray-600 font-semibold uppercase space-y-1">
+                <ul className="font-inter text-xs text-gray-600 font-semibold space-y-1">
                   {servicesList.map((svc) => (
                     <li key={svc} className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 bg-brand-purple rounded-none shrink-0" />
+                      <span className="w-1.5 h-1.5 bg-brand-purple rounded-full shrink-0" />
                       {svc}
                     </li>
                   ))}
@@ -95,10 +95,10 @@ export default function RevenueOptimizationCaseStudy() {
               </div>
               <div className="w-full h-px bg-brand-border-light"></div>
               <div>
-                <h4 className="font-inter font-bold text-[10px] text-gray-400 uppercase tracking-widest mb-1">
+                <h4 className="font-inter font-bold text-[10px] text-gray-400 mb-1">
                   Timeline
                 </h4>
-                <p className="font-inter text-xs text-gray-600 font-semibold uppercase">
+                <p className="font-inter text-xs text-gray-600 font-semibold">
                   14 Months
                 </p>
               </div>
@@ -110,7 +110,7 @@ export default function RevenueOptimizationCaseStudy() {
             
             {/* The Challenge */}
             <div>
-              <h2 className="font-plus-jakarta text-2xl font-black text-black uppercase mb-6 border-l-4 border-brand-purple pl-4">
+              <h2 className="font-plus-jakarta text-2xl font-black text-black mb-6 border-l-4 border-brand-purple pl-4">
                 The Challenge
               </h2>
               <p className="font-inter text-gray-600 text-sm md:text-base leading-relaxed mb-4">
@@ -123,7 +123,7 @@ export default function RevenueOptimizationCaseStudy() {
 
             {/* The Approach */}
             <div>
-              <h2 className="font-plus-jakarta text-2xl font-black text-black uppercase mb-6 border-l-4 border-brand-purple pl-4">
+              <h2 className="font-plus-jakarta text-2xl font-black text-black mb-6 border-l-4 border-brand-purple pl-4">
                 The Approach
               </h2>
               <p className="font-inter text-gray-600 text-sm md:text-base leading-relaxed mb-6">
@@ -131,30 +131,30 @@ export default function RevenueOptimizationCaseStudy() {
               </p>
 
               {/* Diagram / Technical Visualization */}
-              <div className="w-full h-[350px] md:h-[450px] bg-black relative my-8 border border-brand-border flex items-center justify-center overflow-hidden rounded-none">
+              <div className="w-full h-[350px] md:h-[450px] bg-black relative my-8 border border-brand-border flex items-center justify-center overflow-hidden rounded-2xl">
                 <img
                   className="object-cover w-full h-full opacity-80 mix-blend-screen pointer-events-none"
                   alt="Decentralized data architecture wireframe blueprint"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa2eXm6hwOPyrbnYYkz5QZk0azVMyS1odse_dGKvXa2psEfxHIp6vnuLRvfBiQj4P4w7cZTxEZ9mvvtuiJLiPvwFttX1LzEoiXVVoTvwRzUv0iV0dBZGha0G1ixnxN4GZJWaQTheLnyLvgq4q9_sTStmKJX1CRHoOJgQC2twLaAodEZeVXNVF8NQk8cL9CAm_zzPohQ-R238DJe0htYAAGDXk3ApAWaiTkVhcreUZOSx6fn9BhwVDGSUxtXR85HmcZxAiR7LpYbyM"
                 />
-                <div className="absolute bottom-4 left-4 bg-white p-2 border border-brand-border rounded-none font-inter font-bold text-[10px] text-black uppercase tracking-wider">
+                <div className="absolute bottom-4 left-4 bg-white p-2 border border-brand-border rounded-2xl font-inter font-bold text-[10px] text-black">
                   Fig 1. Event-Driven Architecture
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 border border-brand-border rounded-none">
+                <div className="bg-white p-6 border border-brand-border rounded-2xl">
                   <Database className="text-brand-purple h-8 w-8 mb-4" />
-                  <h3 className="font-plus-jakarta text-base font-bold text-black uppercase mb-2">
+                  <h3 className="font-plus-jakarta text-base font-bold text-black mb-2">
                     Infrastructure Unification
                   </h3>
                   <p className="font-inter text-gray-500 text-xs leading-relaxed">
                     Migrated 40+ legacy databases into a cohesive, highly available data lake environment, ensuring real-time consistency across all global touchpoints.
                   </p>
                 </div>
-                <div className="bg-white p-6 border border-brand-border rounded-none">
+                <div className="bg-white p-6 border border-brand-border rounded-2xl">
                   <TrendingUp className="text-brand-purple h-8 w-8 mb-4" />
-                  <h3 className="font-plus-jakarta text-base font-bold text-black uppercase mb-2">
+                  <h3 className="font-plus-jakarta text-base font-bold text-black mb-2">
                     Predictive Allocation
                   </h3>
                   <p className="font-inter text-gray-500 text-xs leading-relaxed">
@@ -166,7 +166,7 @@ export default function RevenueOptimizationCaseStudy() {
 
             {/* The Outcome */}
             <div>
-              <h2 className="font-plus-jakarta text-2xl font-black text-black uppercase mb-6 border-l-4 border-brand-purple pl-4">
+              <h2 className="font-plus-jakarta text-2xl font-black text-black mb-6 border-l-4 border-brand-purple pl-4">
                 The Outcome
               </h2>
               <p className="font-inter text-gray-600 text-sm md:text-base leading-relaxed mb-8">
@@ -174,14 +174,14 @@ export default function RevenueOptimizationCaseStudy() {
               </p>
 
               {/* Quote Block */}
-              <div className="bg-black text-white p-8 md:p-10 border-l-4 border-brand-purple rounded-none relative overflow-hidden">
+              <div className="bg-black text-white p-8 md:p-10 border-l-4 border-brand-purple rounded-2xl relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent pointer-events-none"></div>
                 <Quote className="h-10 w-10 text-brand-purple mb-6 opacity-30" />
                 <blockquote className="relative z-10 font-plus-jakarta text-lg md:text-xl italic mb-8 text-gray-200">
                   "Yorlex didn't just provide a strategy; they re-architected our operational reality. Their precision and rigorous methodology delivered results that exceeded our most aggressive forecasts."
                 </blockquote>
                 <div className="relative z-10 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-none overflow-hidden bg-gray-200 border border-gray-800">
+                  <div className="w-12 h-12 rounded-2xl overflow-hidden bg-gray-200 border border-gray-800">
                     <img
                       className="object-cover w-full h-full grayscale pointer-events-none"
                       alt="Sarah Jenkins professional portrait"
@@ -189,10 +189,10 @@ export default function RevenueOptimizationCaseStudy() {
                     />
                   </div>
                   <div>
-                    <div className="font-plus-jakarta font-bold text-xs uppercase tracking-wide text-white">
+                    <div className="font-plus-jakarta font-bold text-xs tracking-wide text-white">
                       Sarah Jenkins
                     </div>
-                    <div className="font-inter text-[10px] text-brand-purple font-bold uppercase tracking-wider mt-0.5">
+                    <div className="font-inter text-[10px] text-brand-purple font-bold mt-0.5">
                       Chief Operations Officer, Nexus Global
                     </div>
                   </div>

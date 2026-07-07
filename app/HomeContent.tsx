@@ -2,16 +2,19 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ThreeBg from "../components/ThreeBg";
-import { Server, Landmark, Megaphone, Building, Headphones, ArrowRight } from "lucide-react";
 import {
-  SectionWrapper,
-  AnimatedHeading,
-  PremiumButton,
-  StatsCounter,
-  ServiceCard,
-} from "@/components/ui";
-import { staggerContainer, staggerItem } from "@/lib/animation-variants";
+  Server,
+  Landmark,
+  Megaphone,
+  Building,
+  Headphones,
+  ArrowRight,
+  ShieldCheck,
+  Gauge,
+  Layers,
+} from "lucide-react";
+import { StatsCounter } from "@/components/ui";
+import { staggerContainer, staggerItem, fadeUp } from "@/lib/animation-variants";
 import { useScrollReveal } from "@/components/hooks";
 
 export default function HomeContent() {
@@ -25,235 +28,209 @@ export default function HomeContent() {
   ];
 
   return (
-    <div className="flex-1 bg-brand-bg font-sans min-h-screen">
+    <div className="flex-1 bg-yorlex-canvas font-sans min-h-screen">
+      <HeroSection />
 
-      {/* ═══ Hero Section — dark bg with ThreeBg, upgraded heading + CTA ═══ */}
-      <section className="relative flex flex-col items-center justify-start overflow-hidden border-b border-brand-border bg-surface-dark text-white pt-4 pb-8 md:pt-6 md:pb-14">
-        <ThreeBg />
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row items-center py-4 md:py-6">
-          <div className="md:w-2/3 pr-0 md:pr-12 space-y-8">
-            <AnimatedHeading level={1} className="text-white">
-              Orchestrating <br className="hidden md:block" />
-              <span className="text-brand-purple">Digital</span> and <br className="hidden md:block" />
-              Operational Excellence.
-            </AnimatedHeading>
-
-            <motion.p
-              className="font-inter text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            >
-              For the Global Enterprise. We architect resilient systems and strategic frameworks that drive exponential growth and unmatched operational precision in complex environments.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <PremiumButton
-                variant="gradient"
-                size="lg"
-                href="/contact"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Schedule a Strategy Briefing
-              </PremiumButton>
-            </motion.div>
+      {/* Trusted-by marquee */}
+      <section className="py-14 border-b border-yorlex-border">
+        <div className="max-w-7xl mx-auto px-6 space-y-8">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-yorlex-muted">
+            Trusted by global enterprises
+          </p>
+          <div className="relative w-full overflow-hidden">
+            <div className="flex gap-16 animate-marquee whitespace-nowrap">
+              {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => {
+                const Icon = logo.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="shrink-0 flex items-center gap-2 text-yorlex-muted hover:text-yorlex-green transition-colors duration-300 font-semibold tracking-wide text-sm select-none"
+                  >
+                    <Icon className="h-5 w-5" />
+                    <span>{logo.label}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ Social Proof + Marquee — white bg with architectural grid ═══ */}
-      <SectionWrapper background="grid" spacing="compact" animate>
-        <div className="space-y-16">
-          <div className="space-y-6">
-            <motion.p
-              variants={staggerItem}
-              className="font-inter font-bold text-[10px] text-gray-400 uppercase tracking-widest text-center"
-            >
-              Trusted by Global Enterprises
-            </motion.p>
-
-            {/* Infinite Marquee Container */}
-            <motion.div variants={staggerItem} className="relative w-full overflow-hidden py-4">
-              <div className="flex gap-16 animate-marquee whitespace-nowrap">
-                {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => {
-                  const Icon = logo.icon;
-                  return (
-                    <div key={idx} className="shrink-0 flex items-center gap-2 text-gray-400 hover:text-brand-purple transition-all duration-300 cursor-pointer font-plus-jakarta font-bold uppercase tracking-widest text-xs select-none">
-                      <Icon className="h-5 w-5 text-gray-400" />
-                      <span>{logo.label}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </SectionWrapper>
-
-      {/* ═══ Stats Counter Section — dark background ═══ */}
-      <SectionWrapper background="dark" spacing="compact" animate>
-        <motion.div variants={staggerItem}>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+      {/* Stats band */}
+      <section className="bg-yorlex-navy py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <StatsCounter value={250} suffix="+" label="Projects Completed" dark />
             <StatsCounter value={40} suffix="+" label="Enterprise Clients" dark />
             <StatsCounter value={25} suffix="+" label="Countries Reached" dark />
             <StatsCounter value={99} suffix="%" label="System Reliability" dark />
           </div>
-        </motion.div>
-      </SectionWrapper>
+        </div>
+      </section>
 
-      {/* ═══ Bento Grid Services Section — gradient background ═══ */}
-      <BentoServicesSection />
-
+      <ServicesBento />
+      <QuoteSection />
+      <FinalCta />
     </div>
   );
 }
 
-/**
- * Bento grid services section using ServiceCard components
- * with stagger-reveal animations and the bento grid layout.
- */
-function BentoServicesSection() {
-  const { ref, isInView } = useScrollReveal();
-
-  const techIllustration = (
-    <div className="h-44 w-full bg-slate-950 border border-slate-800 p-4 font-mono text-[9px] text-white/50 flex flex-col justify-between select-none">
-      <div className="flex justify-between items-center border-b border-white/10 pb-1 text-[8px]">
-        <span>K8S_CLUSTER_STATUS</span>
-        <span className="text-green-400">● RUNNING</span>
-      </div>
-      <div className="space-y-1.5 py-2">
-        <div className="flex justify-between items-center">
-          <span>node-01 (master)</span>
-          <span className="text-white bg-brand-purple/20 px-1 font-bold text-[7px] border border-brand-purple/30">CPU: 42%</span>
-        </div>
-        <div className="flex justify-between items-center">
-          <span>node-02 (worker)</span>
-          <span className="text-white bg-brand-purple/20 px-1 font-bold text-[7px] border border-brand-purple/30">CPU: 65%</span>
-        </div>
-        <div className="flex justify-between items-center">
-          <span>node-03 (worker)</span>
-          <span className="text-white bg-[#007aff]/20 px-1 font-bold text-[7px] border border-[#007aff]/30">CPU: 18%</span>
-        </div>
-      </div>
-      <div className="flex justify-between text-[7px] border-t border-white/10 pt-1 text-white/30">
-        <span>PODS: 14/14 ACTIVE</span>
-        <span>REPLICAS: [3/3] [OK]</span>
-      </div>
-    </div>
-  );
-
-  const financeIllustration = (
-    <div className="h-28 w-full bg-slate-50 border border-slate-200 p-3 flex flex-col justify-between select-none mt-2">
-      <div className="flex justify-between text-[9px] font-mono text-gray-400">
-        <span>RUNWAY FORECAST</span>
-        <span className="text-black font-bold">+18.4 Mo</span>
-      </div>
-      <div className="flex items-end justify-between h-14 pt-2 gap-1.5">
-        <div className="bg-slate-200 w-full h-[30%] hover:bg-brand-purple transition-all duration-300"></div>
-        <div className="bg-slate-200 w-full h-[50%] hover:bg-brand-purple transition-all duration-300"></div>
-        <div className="bg-slate-200 w-full h-[45%] hover:bg-brand-purple transition-all duration-300"></div>
-        <div className="bg-slate-200 w-full h-[75%] hover:bg-brand-purple transition-all duration-300"></div>
-        <div className="bg-black w-full h-[95%]"></div>
-      </div>
-      <div className="flex justify-between text-[7px] font-mono text-gray-400 border-t border-slate-100 pt-1">
-        <span>Q1_26</span>
-        <span>Q2_26</span>
-        <span>Q3_26</span>
-        <span>Q4_26</span>
-        <span>FY_26 (ACT)</span>
-      </div>
-    </div>
-  );
-
-  const marketingIllustration = (
-    <div className="h-28 w-full bg-slate-50 border border-slate-200 p-3 flex flex-col justify-between select-none mt-2">
-      <div className="flex justify-between text-[9px] font-mono text-gray-400">
-        <span>CONVERSION FUNNEL</span>
-        <span className="text-brand-purple font-bold">4.8% CR</span>
-      </div>
-      <div className="flex flex-col gap-1.5 py-1">
-        <div className="bg-black text-white text-[7px] font-mono py-1 px-2 flex justify-between">
-          <span>TRAFFIC</span>
-          <span>100K (100%)</span>
-        </div>
-        <div className="bg-slate-300 text-black text-[7px] font-mono py-0.5 px-2 flex justify-between w-[60%]">
-          <span>LEADS</span>
-          <span>18K (18%)</span>
-        </div>
-        <div className="bg-brand-purple text-white text-[7px] font-mono py-0.5 px-2 flex justify-between w-[35%]">
-          <span>SALES</span>
-          <span>4.8K (4.8%)</span>
-        </div>
-      </div>
-      <div className="text-[7px] font-mono text-gray-400 text-center border-t border-slate-100 pt-1">
-        LTV/CAC RATIO: 4.8x [OUTPERFORM]
-      </div>
-    </div>
-  );
-
-  const managementIllustration = (
-    <div className="h-28 w-full bg-slate-50 border border-slate-200 p-3 flex flex-col justify-between select-none mt-2">
-      <div className="flex justify-between text-[9px] font-mono text-gray-400">
-        <span>BOARD GOVERNANCE</span>
-        <span className="text-black font-bold">3 CORE PODS</span>
-      </div>
-      <div className="flex justify-around items-center h-14 relative">
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="20%" y1="50%" x2="80%" y2="50%" stroke="#e2e2e2" strokeWidth="1" />
-          <line x1="50%" y1="20%" x2="50%" y2="80%" stroke="#e2e2e2" strokeWidth="1" />
-        </svg>
-        <div className="border border-brand-border bg-white text-black font-mono text-[7px] font-bold p-1 z-10 hover:border-brand-purple">CEO</div>
-        <div className="border border-brand-border bg-white text-black font-mono text-[7px] font-bold p-1 z-10 hover:border-brand-purple">COO</div>
-        <div className="border border-brand-border bg-white text-black font-mono text-[7px] font-bold p-1 z-10 hover:border-brand-purple">CFO</div>
-      </div>
-      <div className="text-[7px] font-mono text-gray-400 text-center border-t border-slate-100 pt-1">
-        RESTRUCTURING BLUEPRINT: OK
-      </div>
-    </div>
-  );
-
-  const supportIllustration = (
-    <div className="h-28 w-full border border-white/20 p-3 flex flex-col justify-between select-none mt-2 text-white bg-white/5">
-      <div className="flex justify-between text-[9px] font-mono text-white/60">
-        <span>SLA MONITOR</span>
-        <span className="text-white font-bold">&lt; 12 MIN TR</span>
-      </div>
-      <div className="space-y-1.5 py-1.5">
-        <div className="flex justify-between text-[7px] font-mono bg-white/5 border border-white/10 px-2 py-0.5 items-center">
-          <span>TICKET #4298</span>
-          <span className="text-[6px] text-green-400 border border-green-400/30 px-1 font-bold">RESOLVED</span>
-        </div>
-        <div className="flex justify-between text-[7px] font-mono bg-white/5 border border-white/10 px-2 py-0.5 items-center">
-          <span>TICKET #4299</span>
-          <span className="text-[6px] text-orange-400 border border-orange-400/30 px-1 font-bold animate-pulse">PROCESSING</span>
-        </div>
-      </div>
-      <div className="text-[7px] font-mono text-white/40 text-center border-t border-white/10 pt-1">
-        RESPONSE RATIO: 100% SLA RETENTION
-      </div>
-    </div>
-  );
-
+function HeroSection() {
   return (
-    <SectionWrapper background="gradient" spacing="default" animate>
-      <div className="space-y-16">
-        <div className="text-center md:text-left space-y-4">
-          <AnimatedHeading level={2}>
-            Architectural Solutions
-          </AnimatedHeading>
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)]">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="space-y-7"
+        >
+          <motion.span variants={staggerItem} className="yorlex-badge">
+            Strategic Partnerships
+          </motion.span>
+
+          <motion.h1
+            variants={staggerItem}
+            className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.08] text-yorlex-ink"
+          >
+            Orchestrating <span className="text-yorlex-green">Digital</span> and
+            Operational Excellence
+          </motion.h1>
+
           <motion.p
             variants={staggerItem}
-            className="font-inter text-text-secondary text-sm md:text-base max-w-xl"
+            className="text-base md:text-lg leading-relaxed max-w-xl text-yorlex-body"
           >
-            Precision-engineered frameworks designed to elevate every pillar of the modern enterprise.
+            For the global enterprise. We architect resilient systems and strategic
+            frameworks that drive exponential growth and unmatched operational
+            precision in complex environments.
           </motion.p>
-        </div>
+
+          <motion.div variants={staggerItem} className="flex flex-wrap items-center gap-4 pt-2">
+            <Link href="/contact" className="yorlex-btn-primary px-7 py-3.5 text-sm">
+              Schedule a Strategy Briefing
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link href="/services" className="yorlex-btn-secondary px-7 py-3.5 text-sm">
+              Explore Solutions
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="relative"
+        >
+          <div className="yorlex-card p-6 md:p-8">
+            <div className="flex items-center justify-between mb-6">
+              <span className="text-xs font-semibold uppercase tracking-widest text-yorlex-muted">
+                Operational Dashboard
+              </span>
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-yorlex-green">
+                <span className="w-1.5 h-1.5 rounded-full bg-yorlex-green animate-pulse" />
+                Live
+              </span>
+            </div>
+            <div className="flex items-end gap-2 h-32">
+              {[35, 55, 40, 70, 60, 85, 95].map((h, i) => (
+                <div
+                  key={i}
+                  className="flex-1 rounded-t-md bg-yorlex-green-soft"
+                  style={{ height: `${h}%` }}
+                >
+                  <div
+                    className="w-full h-full rounded-t-md bg-yorlex-green/80"
+                    style={{ opacity: 0.15 + i * 0.12 }}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center justify-between mt-6 pt-6 border-t border-yorlex-border text-sm">
+              <span className="text-yorlex-muted">Q1</span>
+              <span className="text-yorlex-muted">Q2</span>
+              <span className="text-yorlex-muted">Q3</span>
+              <span className="text-yorlex-muted">Q4</span>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: -10 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="absolute -left-4 -bottom-6 bg-white rounded-2xl shadow-[0_20px_40px_rgba(15,27,44,0.12)] border border-yorlex-border px-4 py-3"
+          >
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-yorlex-muted">
+              Operational Efficiency
+            </p>
+            <p className="text-2xl font-bold text-yorlex-green">98.4%</p>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function ServicesBento() {
+  const { ref, isInView } = useScrollReveal();
+
+  const services = [
+    {
+      title: "Technology",
+      description: "Enterprise cloud, AI orchestration, and zero-trust infrastructure.",
+      icon: Server,
+      href: "/services/technology",
+      size: "large",
+    },
+    {
+      title: "Finance",
+      description: "Virtual CFO services, LBO modeling, and tax compliance.",
+      icon: Landmark,
+      href: "/services/finance",
+      size: "standard",
+    },
+    {
+      title: "Marketing",
+      description: "Global SEO, growth funnels, and brand positioning.",
+      icon: Megaphone,
+      href: "/services/marketing",
+      size: "standard",
+    },
+    {
+      title: "Management",
+      description: "Agile organizational design and board governance.",
+      icon: Building,
+      href: "/services/management",
+      size: "standard",
+    },
+    {
+      title: "Support",
+      description: "24/7 global resolution centers and technical enablement.",
+      icon: Headphones,
+      href: "/services/support",
+      size: "featured",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-6 space-y-14">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-2xl space-y-4"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-yorlex-ink">
+            Architectural Solutions
+          </h2>
+          <p className="text-base text-yorlex-body">
+            Precision-engineered frameworks designed to elevate every pillar of the
+            modern enterprise.
+          </p>
+        </motion.div>
 
         <motion.div
           ref={ref as React.RefObject<HTMLDivElement>}
@@ -262,70 +239,122 @@ function BentoServicesSection() {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-12 gap-6"
         >
-          <ServiceCard
-            title="Technology"
-            description="Robust infrastructure and advanced cloud orchestration for seamless global operations."
-            icon={Server}
-            href="/services/technology"
-            variant="large"
-            tags={["Kubernetes Orchestration", "Sovereign AI Models", "Zero-Trust Mesh"]}
-            status={{ label: "Mirroring Active [LON.04]", active: true }}
-            illustration={techIllustration}
-          />
+          {services.map((svc) => {
+            const Icon = svc.icon;
+            const gridSpan =
+              svc.size === "large" ? "md:col-span-8" : svc.size === "featured" ? "md:col-span-12" : "md:col-span-4";
+            const isFeatured = svc.size === "featured";
 
-          <ServiceCard
-            title="Finance"
-            description="Strategic capital allocation, risk modeling, and high-frequency data analysis frameworks."
-            icon={Landmark}
-            href="/services/finance"
-            variant="standard"
-            tags={["LBO Modeling", "Virtual CFO", "Tax Compliance"]}
-            illustration={financeIllustration}
-          />
-
-          <ServiceCard
-            title="Marketing"
-            description="Data-driven global brand positioning."
-            icon={Megaphone}
-            href="/services/marketing"
-            variant="standard"
-            tags={["Global SEO", "Growth Funnels", "Brand Auditing"]}
-            illustration={marketingIllustration}
-          />
-
-          <ServiceCard
-            title="Management"
-            description="Agile organizational design and leadership."
-            icon={Building}
-            href="/services/management"
-            variant="standard"
-            tags={["Lean Process Ops", "HR Recruitment", "Board Governance"]}
-            illustration={managementIllustration}
-          />
-
-          <ServiceCard
-            title="Support"
-            description="24/7 global resolution centers and technical enablement."
-            icon={Headphones}
-            href="/services/support"
-            variant="featured"
-            tags={["SLA 4-Hour Response", "Sovereign Tier Desks", "Incident Audits"]}
-            illustration={supportIllustration}
-          />
+            return (
+              <motion.div key={svc.title} variants={staggerItem} className={gridSpan}>
+                <Link
+                  href={svc.href}
+                  className={`group block h-full p-8 transition-all duration-300 ${
+                    isFeatured ? "yorlex-card-green" : "yorlex-card"
+                  }`}
+                >
+                  <div
+                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-5 ${
+                      isFeatured ? "bg-white/15" : "bg-yorlex-green-soft"
+                    }`}
+                  >
+                    <Icon className={`w-6 h-6 ${isFeatured ? "text-white" : "text-yorlex-green-dark"}`} />
+                  </div>
+                  <h3 className={`text-lg font-semibold mb-2 ${isFeatured ? "text-white" : "text-yorlex-ink"}`}>
+                    {svc.title}
+                  </h3>
+                  <p className={`text-sm leading-relaxed ${isFeatured ? "text-white/80" : "text-yorlex-body"}`}>
+                    {svc.description}
+                  </p>
+                  <span
+                    className={`inline-flex items-center gap-1 text-sm font-semibold mt-5 ${
+                      isFeatured ? "text-white" : "text-yorlex-green"
+                    }`}
+                  >
+                    Learn more
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
-        {/* CTA below services grid */}
-        <motion.div variants={staggerItem} className="flex justify-center pt-8">
-          <PremiumButton
-            variant="secondary"
-            size="md"
-            href="/services"
-            icon={<ArrowRight className="h-4 w-4" />}
-          >
+        <motion.div variants={staggerItem} className="flex justify-center pt-4">
+          <Link href="/services" className="yorlex-btn-secondary px-7 py-3.5 text-sm">
             Explore All Services
-          </PremiumButton>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </motion.div>
       </div>
-    </SectionWrapper>
+    </section>
+  );
+}
+
+function QuoteSection() {
+  return (
+    <section className="bg-yorlex-navy py-20 md:py-28">
+      <div className="max-w-3xl mx-auto px-6 text-center space-y-8">
+        <span className="text-6xl font-bold text-yorlex-green leading-none">&ldquo;</span>
+        <p className="text-2xl md:text-3xl font-semibold text-white leading-snug">
+          Yorlex hasn&apos;t just improved our efficiency. It&apos;s fundamentally
+          transformed how we perceive business value.
+        </p>
+        <div className="flex items-center justify-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-yorlex-green-soft flex items-center justify-center text-yorlex-green-dark font-bold text-sm">
+            SC
+          </div>
+          <div className="text-left">
+            <p className="text-sm font-semibold text-white">Sarah Chen</p>
+            <p className="text-xs text-white/50">CTO, Global Logistics Corp</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FinalCta() {
+  const points = [
+    { icon: Gauge, label: "45% faster operational cycles" },
+    { icon: ShieldCheck, label: "Military-grade compliance" },
+    { icon: Layers, label: "Scales from 50 to 50,000 seats" },
+  ];
+
+  return (
+    <section className="py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="rounded-[28px] bg-yorlex-navy px-8 py-14 md:p-16 grid md:grid-cols-2 gap-10 items-center">
+          <div className="space-y-5">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Ready to Upgrade Your Enterprise?
+            </h2>
+            <p className="text-white/60 max-w-md">
+              Join 2,000+ leading enterprises that have already migrated their core
+              operations to Yorlex.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link href="/contact" className="yorlex-btn-primary px-7 py-3.5 text-sm">
+                Start Free Consultation
+              </Link>
+              <Link href="/contact" className="yorlex-btn-outline-dark px-7 py-3.5 text-sm">
+                Contact Sales
+              </Link>
+            </div>
+          </div>
+          <div className="grid gap-4">
+            {points.map((p) => {
+              const Icon = p.icon;
+              return (
+                <div key={p.label} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
+                  <Icon className="h-5 w-5 text-yorlex-green shrink-0" />
+                  <span className="text-sm text-white/85">{p.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

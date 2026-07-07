@@ -70,7 +70,7 @@ function HeroManagementDashboard() {
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+        <span className="text-[9px] text-gray-500 font-bold">
           YORLEX // STRATEGY_SIMULATOR
         </span>
       </div>
@@ -78,17 +78,17 @@ function HeroManagementDashboard() {
       {/* Main Metric Banner */}
       <div className="grid grid-cols-3 gap-3 mb-3">
         <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] uppercase tracking-wider font-bold">Strategy Metric</span>
+          <span className="text-gray-500 text-[8px] font-bold">Strategy Metric</span>
           <span className="text-xs font-bold text-green-400 font-mono mt-1">
             {strategyOutputs[activeStrategy].velocity.split(" ")[0]}
           </span>
         </div>
         <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] uppercase tracking-wider font-bold">Assurance Index</span>
+          <span className="text-gray-500 text-[8px] font-bold">Assurance Index</span>
           <span className="text-xs font-bold text-white font-mono mt-1">96.8%</span>
         </div>
         <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] uppercase tracking-wider font-bold">Consultant Sync</span>
+          <span className="text-gray-500 text-[8px] font-bold">Consultant Sync</span>
           <span className="text-xs font-bold text-brand-purple font-mono mt-1">LIVE</span>
         </div>
       </div>
@@ -99,7 +99,7 @@ function HeroManagementDashboard() {
           <button
             key={strategy}
             onClick={() => setActiveStrategy(strategy)}
-            className="flex-1 py-1.5 text-[8px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none relative z-10 text-gray-555 hover:text-white"
+            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
           >
             <span className={activeStrategy === strategy ? "text-white" : ""}>{strategy}</span>
             {activeStrategy === strategy && (
@@ -115,7 +115,7 @@ function HeroManagementDashboard() {
 
       {/* Projection Graphic */}
       <div className="flex-1 flex flex-col gap-2 justify-center">
-        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1">
+        <div className="text-[8px] text-gray-500 font-bold mb-1">
           // {strategyOutputs[activeStrategy].headline}
         </div>
         <div className="bg-slate-900/40 border border-brand-border-light/5 p-2.5 text-gray-400 flex flex-col gap-1.5">
@@ -180,8 +180,8 @@ function CircularFramework() {
 
         {/* Center Node */}
         <div className="w-[32%] h-[32%] rounded-full bg-black text-white flex flex-col items-center justify-center text-center p-2 sm:p-3 z-10 border border-brand-purple/40 shadow-xl">
-          <span className="font-plus-jakarta font-bold text-[7px] sm:text-[8px] uppercase tracking-widest text-brand-purple">Center</span>
-          <span className="font-plus-jakarta font-black text-[8px] sm:text-[9px] uppercase leading-tight mt-1">
+          <span className="font-plus-jakarta font-bold text-[7px] sm:text-[8px] text-brand-purple">Center</span>
+          <span className="font-plus-jakarta font-black text-[8px] sm:text-[9px] leading-tight mt-1">
             Business Excellence
           </span>
         </div>
@@ -197,9 +197,9 @@ function CircularFramework() {
               key={node.name}
               onClick={() => setActiveNode(node.name)}
               style={{ left: `${leftPct}%`, top: `${topPct}%` }}
-              className={`absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full border flex items-center justify-center text-center p-1.5 sm:p-2 font-mono text-[8px] sm:text-[9px] uppercase font-bold tracking-wider transition-all duration-300 z-20 ${
+              className={`absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full border flex items-center justify-center text-center p-1.5 sm:p-2 font-mono text-[8px] sm:text-[9px] font-bold transition-all duration-300 z-20 ${
                 activeNode === node.name
-                  ? "bg-brand-purple text-white border-brand-purple shadow-[0_0_15px_rgba(161,0,255,0.3)] scale-110"
+                  ? "bg-brand-purple text-white border-brand-purple shadow-[0_0_15px_rgba(92,122,52,0.3)] scale-110"
                   : "bg-white text-black border-brand-border-light hover:border-brand-purple hover:scale-105"
               }`}
             >
@@ -211,8 +211,8 @@ function CircularFramework() {
 
       {/* Description Panel */}
       <div className="flex-1 w-full bg-white border border-brand-border p-8 min-h-45 flex flex-col justify-center gap-4">
-        <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block">// FRAMEWORK NODE DETAIL</span>
-        <h3 className="font-plus-jakarta text-2xl font-black uppercase text-black">
+        <span className="font-inter font-bold text-[10px] text-brand-purple block">// FRAMEWORK NODE DETAIL</span>
+        <h3 className="font-plus-jakarta text-2xl font-black text-black">
           {activeNode} Pillar
         </h3>
         <p className="font-inter text-xs leading-relaxed text-gray-550">
@@ -375,16 +375,16 @@ export default function ManagementSolutions() {
   return (
     <div className="flex-1 font-sans bg-brand-bg">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Management Pillar
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Management Solutions for Sustainable Business Growth
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -419,8 +419,8 @@ export default function ManagementSolutions() {
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light relative z-10" animate>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-4">
           <div className="max-w-md">
-            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// ADVISORY OVERVIEW</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black uppercase text-black">
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// ADVISORY OVERVIEW</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">
               Strategic Management Consulting
             </h2>
           </div>
@@ -438,7 +438,7 @@ export default function ManagementSolutions() {
             return (
               <div
                 key={idx}
-                className="group relative block bg-white border border-brand-border-light p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(161,0,255,0.05)]"
+                className="group relative block bg-white border border-brand-border-light p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(92,122,52,0.05)]"
               >
                 {/* Top accent line */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-purple origin-left scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
@@ -448,7 +448,7 @@ export default function ManagementSolutions() {
                     <Icon className="w-4 h-4 text-black group-hover:text-brand-purple transition-colors" />
                   </div>
                   
-                  <h3 className="font-plus-jakarta text-sm font-bold uppercase tracking-tight text-black">
+                  <h3 className="font-plus-jakarta text-sm font-bold tracking-tight text-black">
                     {service.title}
                   </h3>
                   
@@ -478,8 +478,8 @@ export default function ManagementSolutions() {
       {/* 4. Industries We Support */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// EXPERIENCE VERTICALS</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// EXPERIENCE VERTICALS</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Industries We Support
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -498,7 +498,7 @@ export default function ManagementSolutions() {
                 <div className="w-8 h-8 bg-brand-bg flex items-center justify-center text-black">
                   <Icon className="w-4 h-4 text-brand-purple" />
                 </div>
-                <span className="text-[9px] font-plus-jakarta font-bold uppercase tracking-wider text-black">
+                <span className="text-[9px] font-plus-jakarta font-bold text-black">
                   {ind.name}
                 </span>
               </div>
@@ -510,8 +510,8 @@ export default function ManagementSolutions() {
       {/* 5. Consulting Process Timeline */}
       <SectionWrapper background="default" spacing="compact" animate>
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// ADVISORY STAGES</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// ADVISORY STAGES</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Our Consulting Process
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -531,7 +531,7 @@ export default function ManagementSolutions() {
                 0{idx + 1}
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="font-plus-jakarta text-xs font-bold uppercase tracking-tight text-black">
+                <h3 className="font-plus-jakarta text-xs font-bold tracking-tight text-black">
                   {step.title}
                 </h3>
                 <p className="font-inter text-[10px] leading-relaxed text-gray-550">
@@ -546,8 +546,8 @@ export default function ManagementSolutions() {
       {/* 6. Why Choose Yorlex */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// QUALITY ASSURANCE</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// QUALITY ASSURANCE</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Why Choose Yorlex
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -565,7 +565,7 @@ export default function ManagementSolutions() {
                 <Check className="h-4 w-4" />
               </div>
               <div className="flex flex-col gap-1.5">
-                <h3 className="font-plus-jakarta text-sm font-bold uppercase tracking-tight text-black">
+                <h3 className="font-plus-jakarta text-sm font-bold tracking-tight text-black">
                   {f.title}
                 </h3>
                 <p className="font-inter text-xs leading-relaxed text-gray-500">
@@ -580,8 +580,8 @@ export default function ManagementSolutions() {
       {/* 7. Business Impact Section (Metrics) */}
       <SectionWrapper background="default" spacing="compact" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// ADVISORY METRICS</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// ADVISORY METRICS</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Business Impact
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -598,7 +598,7 @@ export default function ManagementSolutions() {
               <div className="font-plus-jakarta text-3xl font-black text-black tracking-tight mb-2">
                 {metric.value}
               </div>
-              <div className="font-inter font-bold text-[9px] text-gray-550 uppercase tracking-wide">
+              <div className="font-inter font-bold text-[9px] text-gray-550 tracking-wide">
                 {metric.label}
               </div>
             </div>
@@ -609,8 +609,8 @@ export default function ManagementSolutions() {
       {/* 8. Recent Case Studies */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// ADVISORY OUTCOMES</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// ADVISORY OUTCOMES</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Featured Case Studies
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -627,11 +627,11 @@ export default function ManagementSolutions() {
               {/* Visual mockup top */}
               <div className="bg-[#0d0d0e] border-b border-brand-border-light/10 p-6 font-mono text-[9px] text-brand-purple min-h-[140px] flex flex-col justify-between">
                 <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                  <span className="text-[8px] text-gray-500 font-bold uppercase tracking-widest">{project.label}</span>
+                  <span className="text-[8px] text-gray-500 font-bold">{project.label}</span>
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                 </div>
                 <div className="flex-1 flex items-center justify-center my-3 text-center">
-                  <span className="text-white text-xs uppercase tracking-widest font-plus-jakarta font-bold">
+                  <span className="text-white text-xs font-plus-jakarta font-bold">
                     {project.title}
                   </span>
                 </div>
@@ -647,8 +647,8 @@ export default function ManagementSolutions() {
                   {project.desc}
                 </p>
                 <div className="border-t border-brand-border-light/60 pt-4 flex flex-col gap-1">
-                  <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Business Impact</span>
-                  <span className="font-mono text-xs font-bold text-green-600 uppercase">
+                  <span className="text-[8px] font-bold text-gray-400">Business Impact</span>
+                  <span className="font-mono text-xs font-bold text-green-600">
                     {project.metric}
                   </span>
                 </div>
@@ -661,8 +661,8 @@ export default function ManagementSolutions() {
       {/* 9. Management Framework Section */}
       <SectionWrapper background="default" spacing="compact" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// METHODOLOGICAL LAYOUT</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// METHODOLOGICAL LAYOUT</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Management Framework
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -679,11 +679,11 @@ export default function ManagementSolutions() {
           <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-28">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <HelpCircle className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-550 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-550">
                 Support Q&A
               </span>
             </div>
-            <h2 className="font-plus-jakarta text-3xl md:text-4xl font-black text-black uppercase leading-tight tracking-tight">
+            <h2 className="font-plus-jakarta text-3xl md:text-4xl font-black text-black leading-tight tracking-tight">
               Frequently Asked Questions
             </h2>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-md">
@@ -697,16 +697,16 @@ export default function ManagementSolutions() {
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-brand-border rounded-none overflow-hidden transition-colors duration-300"
+                  className="bg-white border border-brand-border rounded-2xl overflow-hidden transition-colors duration-300"
                 >
                   <button
                     onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
                     className="w-full flex justify-between items-center p-6 bg-brand-border-light/10 hover:bg-brand-border-light/20 transition-colors focus:outline-none text-left"
                   >
-                    <span className="font-plus-jakarta text-xs md:text-sm font-bold text-black uppercase tracking-wide pr-4">
+                    <span className="font-plus-jakarta text-xs md:text-sm font-bold text-black tracking-wide pr-4">
                       {item.q}
                     </span>
-                    <div className="w-6 h-6 rounded-none border border-brand-border flex items-center justify-center text-black shrink-0 bg-brand-bg transition-transform duration-300">
+                    <div className="w-6 h-6 rounded-2xl border border-brand-border flex items-center justify-center text-black shrink-0 bg-brand-bg transition-transform duration-300">
                       {isOpen ? <Minus className="h-3 w-3" /> : <Plus className="h-3 w-3" />}
                     </div>
                   </button>
@@ -730,8 +730,8 @@ export default function ManagementSolutions() {
       {/* 11. Final Call to Action */}
       <SectionWrapper background="dark" spacing="compact" animate>
         <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">// CONVERSION GATEWAY</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase mb-6 leading-tight">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// CONVERSION GATEWAY</span>
+          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Build a Stronger, Smarter Business
           </h2>
           <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">

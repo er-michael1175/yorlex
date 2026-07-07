@@ -61,7 +61,7 @@ export function ServiceCard({
     <div className="flex flex-col gap-4">
       {/* Icon with animated border-glow container */}
       <motion.div variants={staggerItem}>
-        <div className="inline-flex items-center justify-center w-12 h-12 border border-brand-border-light transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand-purple group-hover:shadow-[0_0_20px_rgba(161,0,255,0.15)]">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-brand-border-light transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand-purple group-hover:shadow-[0_0_20px_rgba(92,122,52,0.15)]">
           <Icon className="w-6 h-6" />
         </div>
       </motion.div>
@@ -69,7 +69,7 @@ export function ServiceCard({
       {/* Title */}
       <motion.h3
         variants={staggerItem}
-        className="font-plus-jakarta text-lg font-bold uppercase tracking-tight"
+        className="font-plus-jakarta text-lg font-semibold tracking-tight"
       >
         {title}
       </motion.h3>
@@ -88,7 +88,7 @@ export function ServiceCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] font-bold uppercase tracking-widest text-text-tertiary transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-brand-purple"
+              className="text-xs font-semibold text-text-tertiary transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-brand-purple"
             >
               {tag}
             </span>
@@ -120,7 +120,7 @@ export function ServiceCard({
     >
       <a
         href={href}
-        className={`group relative block border border-brand-border-light rounded-none p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${variantClasses}`}
+        className={`group relative block border border-brand-border-light rounded-2xl overflow-hidden p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${variantClasses}`}
       >
         {/* Animated top-border reveal on hover */}
         <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-purple origin-left scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />

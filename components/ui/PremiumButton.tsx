@@ -16,14 +16,14 @@ export interface PremiumButtonProps {
 function getVariantClasses(variant: PremiumButtonProps["variant"]): string {
   switch (variant) {
     case "secondary":
-      return "bg-transparent border border-brand-border text-brand-text hover:bg-black hover:text-white hover:border-black";
+      return "bg-transparent border border-brand-border text-brand-text hover:border-brand-purple hover:text-brand-purple";
     case "ghost":
       return "bg-transparent border-0 text-brand-text relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100";
     case "gradient":
       return "bg-linear-to-r from-brand-purple to-brand-blue text-white bg-[length:200%_100%] hover:bg-[position:100%_0]";
     case "primary":
     default:
-      return "bg-black text-white hover:bg-brand-purple";
+      return "bg-brand-purple text-white hover:bg-brand-blue";
   }
 }
 
@@ -57,7 +57,7 @@ function Spinner() {
  * hover animations, loading state, and accessible touch targets.
  *
  * Renders as `<a>` when `href` is provided, `<button>` otherwise.
- * All variants enforce 0px border-radius, uppercase, tracking-wider, font-bold, font-inter.
+ * All variants enforce a fully-rounded pill shape and font-inter.
  */
 export function PremiumButton({
   children,
@@ -70,7 +70,7 @@ export function PremiumButton({
   className = "",
 }: PremiumButtonProps) {
   const baseClasses =
-    "group inline-flex items-center justify-center rounded-none uppercase tracking-wider font-bold font-inter min-h-[44px] min-w-[44px] transition-all duration-300 cursor-pointer";
+    "group inline-flex items-center justify-center rounded-full font-semibold font-inter min-h-[44px] min-w-[44px] transition-all duration-300 cursor-pointer";
 
   const variantClasses = getVariantClasses(variant);
   const sizeClasses = getSizeClasses(size);

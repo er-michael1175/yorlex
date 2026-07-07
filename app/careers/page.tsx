@@ -62,11 +62,11 @@ export default function Careers() {
         <div className="md:col-span-8 flex flex-col items-start gap-6">
           <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
             <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
-            <span className="font-inter font-bold text-[10px] text-gray-500 uppercase tracking-widest">
+            <span className="font-inter font-bold text-[10px] text-gray-500">
               Careers
             </span>
           </div>
-          <h1 className="font-plus-jakarta text-5xl md:text-7xl font-black text-black leading-none uppercase">
+          <h1 className="font-plus-jakarta text-5xl md:text-7xl font-black text-black leading-none">
             Architect Your Future.
           </h1>
           <p className="font-inter text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl">
@@ -74,7 +74,7 @@ export default function Careers() {
           </p>
           <a
             href="#positions"
-            className="inline-flex items-center justify-center font-inter font-bold text-xs uppercase bg-black text-white hover:bg-brand-purple px-8 py-4 rounded-none transition-colors border border-black hover:border-brand-purple mt-2"
+            className="inline-flex items-center justify-center font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple mt-2"
           >
             Explore Opportunities
           </a>
@@ -91,7 +91,7 @@ export default function Careers() {
       <section className="bg-brand-border-light/40 py-20 border-y border-brand-border">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 text-center">
-            <h2 className="font-plus-jakarta text-3xl font-black text-black uppercase mb-4">
+            <h2 className="font-plus-jakarta text-3xl font-black text-black mb-4">
               The Yorlex Advantage
             </h2>
             <p className="font-inter text-gray-500 text-sm max-w-xl mx-auto leading-relaxed">
@@ -105,15 +105,15 @@ export default function Careers() {
               return (
                 <div 
                   key={perk.title} 
-                  className={`p-8 flex flex-col justify-between border rounded-none group transition-all duration-300 ${perk.spanClass}`}
+                  className={`p-8 flex flex-col justify-between border rounded-2xl group transition-all duration-300 ${perk.spanClass}`}
                 >
                   <div>
-                    <div className={`w-12 h-12 flex items-center justify-center mb-6 rounded-none ${
+                    <div className={`w-12 h-12 flex items-center justify-center mb-6 rounded-2xl ${
                       perk.isDark ? "bg-brand-purple text-white" : "bg-brand-bg text-black border border-brand-border group-hover:border-black"
                     }`}>
                       <Icon className="h-6 w-6" />
                     </div>
-                    <h3 className="font-plus-jakarta text-lg font-bold uppercase mb-3">
+                    <h3 className="font-plus-jakarta text-lg font-bold mb-3">
                       {perk.title}
                     </h3>
                     <p className={`font-inter text-xs leading-relaxed ${
@@ -127,11 +127,11 @@ export default function Careers() {
             })}
             
             {/* Telemetry Matrix Tile (col-span-8) */}
-            <div className="md:col-span-8 border border-brand-border bg-black text-white p-8 rounded-none relative overflow-hidden flex flex-col justify-between crosshair-grid select-none min-h-[280px]">
+            <div className="md:col-span-8 border border-brand-border bg-black text-white p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between crosshair-grid select-none min-h-[280px]">
               <div className="flex justify-between items-center text-[9px] font-mono text-white/50 border-b border-white/10 pb-2">
                 <span>TALENT_INFRASTRUCTURE: CAREER_TRACK_MATRIX</span>
-                <span className="text-[#007aff] flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-[#007aff] rounded-full inline-block animate-pulse"></span> SYSTEM STABLE
+                <span className="text-[#46601f] flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-[#46601f] rounded-full inline-block animate-pulse"></span> SYSTEM STABLE
                 </span>
               </div>
 
@@ -139,17 +139,17 @@ export default function Careers() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6 relative z-10">
                 <div className="border border-white/10 p-4 bg-white/5 relative group hover:border-brand-purple transition-colors">
                   <span className="absolute top-2 right-2 font-mono text-[8px] text-brand-purple">LEVEL_01</span>
-                  <h4 className="font-plus-jakarta font-bold text-xs uppercase mb-1">Associate</h4>
+                  <h4 className="font-plus-jakarta font-bold text-xs mb-1">Associate</h4>
                   <p className="font-inter text-[10px] text-gray-400 leading-normal">Collaborative engineering, technical compliance, risk auditing, B2B campaigns.</p>
                 </div>
                 <div className="border border-white/10 p-4 bg-white/5 relative group hover:border-brand-purple transition-colors">
                   <span className="absolute top-2 right-2 font-mono text-[8px] text-brand-purple">LEVEL_02</span>
-                  <h4 className="font-plus-jakarta font-bold text-xs uppercase mb-1">Director</h4>
+                  <h4 className="font-plus-jakarta font-bold text-xs mb-1">Director</h4>
                   <p className="font-inter text-[10px] text-gray-400 leading-normal">Systems architecture, regulatory frameworks, regional P&L, resource orchestration.</p>
                 </div>
                 <div className="border border-white/10 p-4 bg-white/5 relative group hover:border-brand-purple transition-colors">
                   <span className="absolute top-2 right-2 font-mono text-[8px] text-brand-purple">LEVEL_03</span>
-                  <h4 className="font-plus-jakarta font-bold text-xs uppercase mb-1">Managing Partner</h4>
+                  <h4 className="font-plus-jakarta font-bold text-xs mb-1">Managing Partner</h4>
                   <p className="font-inter text-[10px] text-gray-400 leading-normal">Equity allocation, succession strategy, global node command, C-level governance.</p>
                 </div>
               </div>
@@ -167,21 +167,21 @@ export default function Careers() {
       <section className="max-w-7xl mx-auto px-6 py-24" id="positions">
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-brand-border pb-6">
           <div>
-            <h2 className="font-plus-jakarta text-3xl font-black text-black uppercase mb-2">
+            <h2 className="font-plus-jakarta text-3xl font-black text-black mb-2">
               Open Positions
             </h2>
-            <p className="font-inter text-gray-500 text-xs uppercase tracking-wider font-semibold">
+            <p className="font-inter text-gray-500 text-xs font-semibold">
               Filter by discipline to find your next architectural role.
             </p>
           </div>
           
           {/* Filter Controls */}
-          <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 font-inter font-bold text-[10px] uppercase tracking-wider">
+          <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 font-inter font-bold text-[10px]">
             {["All", "Technology", "Finance", "Management"].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2.5 min-h-11 border transition-all whitespace-nowrap rounded-none ${
+                className={`px-4 py-2.5 min-h-11 border transition-all whitespace-nowrap rounded-2xl ${
                   activeFilter === filter
                     ? "bg-black border-black text-white"
                     : "bg-white border-brand-border text-black hover:border-black"
@@ -200,11 +200,11 @@ export default function Careers() {
               <div
                 key={job.title}
                 onClick={() => setSelectedRole(job.title)}
-                className="border border-brand-border bg-white hover:bg-brand-bg transition-colors p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer rounded-none"
+                className="border border-brand-border bg-white hover:bg-brand-bg transition-colors p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 group cursor-pointer rounded-2xl"
               >
                 <div className="flex-grow">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="bg-brand-border-light text-black font-inter font-bold text-[9px] px-2 py-0.5 uppercase border border-brand-border">
+                    <span className="bg-brand-border-light text-black font-inter font-bold text-[9px] px-2 py-0.5 border border-brand-border">
                       {job.dept}
                     </span>
                     <span className="text-gray-400 font-inter text-xs flex items-center gap-1">
@@ -212,7 +212,7 @@ export default function Careers() {
                       {job.location}
                     </span>
                   </div>
-                  <h3 className="font-plus-jakarta text-xl font-bold text-black uppercase tracking-wide group-hover:text-brand-purple transition-colors">
+                  <h3 className="font-plus-jakarta text-xl font-bold text-black tracking-wide group-hover:text-brand-purple transition-colors">
                     {job.title}
                   </h3>
                   <p className="font-inter text-xs md:text-sm text-gray-500 mt-2 max-w-4xl leading-relaxed">
@@ -235,17 +235,17 @@ export default function Careers() {
       {/* Application Modal Overlay */}
       {selectedRole && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 z-50">
-          <div className="bg-white border border-brand-border p-8 md:p-10 rounded-none max-w-lg w-full relative">
+          <div className="bg-white border border-brand-border p-8 md:p-10 rounded-2xl max-w-lg w-full relative">
             <button
               onClick={() => setSelectedRole(null)}
-              className="absolute right-6 top-6 w-10 h-10 rounded-none bg-brand-bg border border-brand-border flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors"
+              className="absolute right-6 top-6 w-10 h-10 rounded-2xl bg-brand-bg border border-brand-border flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
-            <h3 className="text-2xl font-black text-black mb-2 font-plus-jakarta uppercase">
+            <h3 className="text-2xl font-black text-black mb-2 font-plus-jakarta">
               Apply for Role
             </h3>
-            <p className="text-[10px] text-brand-purple font-bold uppercase tracking-widest mb-6">
+            <p className="text-[10px] text-brand-purple font-bold mb-6">
               {selectedRole}
             </p>
             
@@ -258,47 +258,47 @@ export default function Careers() {
               className="space-y-4"
             >
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 font-inter">
+                <label className="block text-[10px] font-bold text-gray-400 mb-2 font-inter">
                   Full Name
                 </label>
                 <input 
                   required 
                   type="text" 
-                  className="w-full bg-white border border-brand-border rounded-none px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter" 
+                  className="w-full bg-white border border-brand-border rounded-2xl px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter" 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 font-inter">
+                <label className="block text-[10px] font-bold text-gray-400 mb-2 font-inter">
                   Email Address
                 </label>
                 <input 
                   required 
                   type="email" 
-                  className="w-full bg-white border border-brand-border rounded-none px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter" 
+                  className="w-full bg-white border border-brand-border rounded-2xl px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter" 
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 font-inter">
+                <label className="block text-[10px] font-bold text-gray-400 mb-2 font-inter">
                   Resume / LinkedIn Link
                 </label>
                 <input 
                   required 
                   type="url" 
                   placeholder="https://..." 
-                  className="w-full bg-white border border-brand-border rounded-none px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter" 
+                  className="w-full bg-white border border-brand-border rounded-2xl px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter" 
                 />
               </div>
               <div className="flex gap-4 pt-4">
                 <button 
                   type="submit" 
-                  className="w-full bg-black text-white hover:bg-brand-purple font-bold text-xs uppercase tracking-wider py-3.5 rounded-none transition-colors border border-black hover:border-brand-purple font-inter font-bold text-[10px] uppercase"
+                  className="w-full bg-black text-white hover:bg-brand-purple font-bold text-xs py-3.5 rounded-2xl transition-colors border border-black hover:border-brand-purple font-inter font-bold text-[10px]"
                 >
                   Submit Application
                 </button>
                 <button 
                   type="button" 
                   onClick={() => setSelectedRole(null)} 
-                  className="w-full bg-white text-black border border-brand-border hover:bg-gray-50 font-bold text-xs uppercase tracking-wider py-3.5 rounded-none transition-colors font-inter"
+                  className="w-full bg-white text-black border border-brand-border hover:bg-gray-50 font-bold text-xs py-3.5 rounded-2xl transition-colors font-inter"
                 >
                   Cancel
                 </button>

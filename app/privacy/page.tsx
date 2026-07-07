@@ -42,7 +42,7 @@ function HeroSecuritySimulator() {
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[9px] text-gray-550 font-bold uppercase tracking-widest">
+        <span className="text-[9px] text-gray-550 font-bold">
           YORLEX // SECURE_PORTAL
         </span>
       </div>
@@ -53,7 +53,7 @@ function HeroSecuritySimulator() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className="flex-1 py-1.5 text-[8px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none relative z-10 text-gray-555 hover:text-white"
+            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
           >
             <span className={activeTab === tab ? "text-white" : ""}>{tab}</span>
             {activeTab === tab && (
@@ -69,13 +69,13 @@ function HeroSecuritySimulator() {
 
       {/* Details */}
       <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1 flex justify-between">
+        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
           <span>// CRYPTOGRAPHIC TUNNEL ACTIVE</span>
           <span className={specs[activeTab].color}>● SIGNAL_OK</span>
         </div>
 
         <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 min-h-[110px] justify-center">
-          <div className="text-white font-bold text-[10px] uppercase">
+          <div className="text-white font-bold text-[10px]">
             {specs[activeTab].name}
           </div>
           <div className="grid grid-cols-2 gap-2 text-gray-400 mt-1 font-mono text-[8px] leading-relaxed">
@@ -162,16 +162,16 @@ export default function PrivacyPolicy() {
   return (
     <div className="flex-1 bg-brand-bg font-sans">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <FileText className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Compliance &amp; Legal
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Privacy Policy
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -211,8 +211,8 @@ export default function PrivacyPolicy() {
           
           {/* Sticky Sidebar Navigation */}
           <aside className="md:col-span-3 sticky top-28 hidden md:block">
-            <div className="bg-white p-6 border border-brand-border rounded-none shadow-sm">
-              <h3 className="font-inter font-bold text-[10px] text-black uppercase tracking-wider mb-4 border-b border-brand-border-light pb-2">
+            <div className="bg-white p-6 border border-brand-border rounded-2xl shadow-sm">
+              <h3 className="font-inter font-bold text-[10px] text-black mb-4 border-b border-brand-border-light pb-2">
                 Table of Contents
               </h3>
               <nav className="flex flex-col gap-2">
@@ -220,7 +220,7 @@ export default function PrivacyPolicy() {
                   <button
                     key={sec.id}
                     onClick={() => scrollToSection(sec.id)}
-                    className={`text-left font-plus-jakarta text-xs font-bold uppercase py-2 pl-3 border-l-2 transition-all duration-300 ${
+                    className={`text-left font-plus-jakarta text-xs font-bold py-2 pl-3 border-l-2 transition-all duration-300 ${
                       activeSection === sec.id
                         ? "border-brand-purple text-brand-purple bg-brand-purple/5"
                         : "border-brand-border-light text-gray-405 hover:text-black hover:border-black"
@@ -239,13 +239,13 @@ export default function PrivacyPolicy() {
               
               {/* Section 1 */}
               <section id="section-1" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   1. Introduction
                 </h2>
                 <p>
                   Yorlex is committed to maintaining the confidentiality, integrity, and security of the information entrusted to us. By accessing our website or using our services, you agree to the practices described in this Privacy Policy.
                 </p>
-                <div className="bg-brand-bg p-5 border border-brand-border rounded-none flex items-start gap-4 shadow-sm mt-3">
+                <div className="bg-brand-bg p-5 border border-brand-border rounded-2xl flex items-start gap-4 shadow-sm mt-3">
                   <ShieldCheck className="h-5 w-5 text-brand-purple shrink-0 mt-0.5" />
                   <p className="text-[11px] text-gray-500 font-inter leading-relaxed">
                     All data processing pipelines operate under a strict zero-trust operational model, compartmentalizing information flows across Tech, Finance, Marketing, and Operations.
@@ -255,7 +255,7 @@ export default function PrivacyPolicy() {
 
               {/* Section 2 */}
               <section id="section-2" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   2. Information We Collect
                 </h2>
                 <p>
@@ -263,8 +263,8 @@ export default function PrivacyPolicy() {
                 </p>
                 
                 <div className="space-y-4 mt-4">
-                  <div className="bg-brand-bg border border-brand-border p-5 rounded-none">
-                    <strong className="text-black text-[11px] uppercase tracking-wider block mb-2 font-mono">// Personal Information</strong>
+                  <div className="bg-brand-bg border border-brand-border p-5 rounded-2xl">
+                    <strong className="text-black text-[11px] block mb-2 font-mono">// Personal Information</strong>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-500 font-mono">
                       <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-brand-purple" /> Full Name</li>
                       <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-brand-purple" /> Email Address</li>
@@ -273,8 +273,8 @@ export default function PrivacyPolicy() {
                     </ul>
                   </div>
 
-                  <div className="bg-brand-bg border border-brand-border p-5 rounded-none">
-                    <strong className="text-black text-[11px] uppercase tracking-wider block mb-2 font-mono">// Business Information</strong>
+                  <div className="bg-brand-bg border border-brand-border p-5 rounded-2xl">
+                    <strong className="text-black text-[11px] block mb-2 font-mono">// Business Information</strong>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-500 font-mono">
                       <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-brand-purple" /> Project Requirements</li>
                       <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-brand-purple" /> Business Objectives</li>
@@ -283,8 +283,8 @@ export default function PrivacyPolicy() {
                     </ul>
                   </div>
 
-                  <div className="bg-brand-bg border border-brand-border p-5 rounded-none">
-                    <strong className="text-black text-[11px] uppercase tracking-wider block mb-2 font-mono">// Technical Information</strong>
+                  <div className="bg-brand-bg border border-brand-border p-5 rounded-2xl">
+                    <strong className="text-black text-[11px] block mb-2 font-mono">// Technical Information</strong>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-500 font-mono">
                       <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-brand-purple" /> IP Address &amp; Device Info</li>
                       <li className="flex items-center gap-2"><Check className="h-3.5 w-3.5 text-brand-purple" /> Browser Type &amp; Operating System</li>
@@ -297,7 +297,7 @@ export default function PrivacyPolicy() {
 
               {/* Section 3 */}
               <section id="section-3" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   3. How We Use Your Information
                 </h2>
                 <p>
@@ -316,7 +316,7 @@ export default function PrivacyPolicy() {
 
               {/* Section 4 */}
               <section id="section-4" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   4. Cookies &amp; Analytics
                 </h2>
                 <p>
@@ -329,7 +329,7 @@ export default function PrivacyPolicy() {
 
               {/* Section 5 */}
               <section id="section-5" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   5. Data Protection
                 </h2>
                 <p>
@@ -344,9 +344,9 @@ export default function PrivacyPolicy() {
                     "Regular external security audits",
                     "Strict employee NDA compliance",
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2 p-3 bg-brand-bg border border-brand-border-light rounded-none">
+                    <div key={idx} className="flex items-center gap-2 p-3 bg-brand-bg border border-brand-border-light rounded-2xl">
                       <Lock className="h-4 w-4 text-brand-purple shrink-0" />
-                      <span className="font-mono text-[9px] uppercase text-gray-500">{item}</span>
+                      <span className="font-mono text-[9px] text-gray-500">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -354,7 +354,7 @@ export default function PrivacyPolicy() {
 
               {/* Section 6 */}
               <section id="section-6" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   6. Information Sharing
                 </h2>
                 <p>
@@ -372,7 +372,7 @@ export default function PrivacyPolicy() {
 
               {/* Section 7 */}
               <section id="section-7" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   7. Data Retention
                 </h2>
                 <p>
@@ -388,35 +388,35 @@ export default function PrivacyPolicy() {
 
               {/* Section 8 */}
               <section id="section-8" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   8. Your Rights
                 </h2>
                 <p>
                   Depending on applicable data privacy laws (such as GDPR or CCPA), you may have the right to:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
-                  <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-none">
+                  <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-2xl">
                     <Eye className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                    <span className="font-mono text-[9px] uppercase text-black font-bold">Access personal data</span>
+                    <span className="font-mono text-[9px] text-black font-bold">Access personal data</span>
                   </div>
-                  <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-none">
+                  <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-2xl">
                     <Edit className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                    <span className="font-mono text-[9px] uppercase text-black font-bold">Correct inaccurate info</span>
+                    <span className="font-mono text-[9px] text-black font-bold">Correct inaccurate info</span>
                   </div>
-                  <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-none">
+                  <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-2xl">
                     <Trash2 className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                    <span className="font-mono text-[9px] uppercase text-black font-bold">Request data erasure</span>
+                    <span className="font-mono text-[9px] text-black font-bold">Request data erasure</span>
                   </div>
-                  <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-none">
+                  <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-2xl">
                     <Ban className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                    <span className="font-mono text-[9px] uppercase text-black font-bold">Object to processing</span>
+                    <span className="font-mono text-[9px] text-black font-bold">Object to processing</span>
                   </div>
                 </div>
               </section>
 
               {/* Section 9 */}
               <section id="section-9" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   9. Third-Party Services
                 </h2>
                 <p>
@@ -429,7 +429,7 @@ export default function PrivacyPolicy() {
 
               {/* Section 10 */}
               <section id="section-10" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   10. Children's Privacy
                 </h2>
                 <p>
@@ -439,7 +439,7 @@ export default function PrivacyPolicy() {
 
               {/* Section 11 */}
               <section id="section-11" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   11. Updates to This Policy
                 </h2>
                 <p>
@@ -449,14 +449,14 @@ export default function PrivacyPolicy() {
 
               {/* Section 12 */}
               <section id="section-12" className="scroll-mt-32 space-y-4">
-                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black uppercase border-b border-brand-border pb-2">
+                <h2 className="font-plus-jakarta text-lg md:text-xl font-bold text-black border-b border-brand-border pb-2">
                   12. Contact Us
                 </h2>
                 <p>
                   If you have any questions regarding this Privacy Policy or how your information is handled, please contact us.
                 </p>
                 
-                <div className="bg-brand-bg border border-brand-border p-6 rounded-none space-y-3 font-mono text-xs text-gray-550 mt-4">
+                <div className="bg-brand-bg border border-brand-border p-6 rounded-2xl space-y-3 font-mono text-xs text-gray-550 mt-4">
                   <div className="flex items-center gap-2">
                     <Globe className="h-4 w-4 text-brand-purple shrink-0" />
                     <span>Yorlex Enterprise</span>
@@ -481,8 +481,8 @@ export default function PrivacyPolicy() {
       {/* 3. Still Have Questions CTA */}
       <SectionWrapper background="dark" spacing="compact" animate>
         <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">// COMPLIANCE SUPPORT</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase mb-6 leading-tight">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// COMPLIANCE SUPPORT</span>
+          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Questions About Your Privacy?
           </h2>
           <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">

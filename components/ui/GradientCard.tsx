@@ -28,7 +28,7 @@ export function GradientCard({
     tokens.bg,
     tokens.border,
     tokens.text,
-    "rounded-none",
+    "rounded-2xl",
     "p-8",
     "transition-colors duration-300",
     hover === "border" ? tokens.hoverBorder : "",

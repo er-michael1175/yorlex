@@ -78,7 +78,7 @@ function HeroMarketingDashboard() {
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+        <span className="text-[9px] text-gray-500 font-bold">
           YORLEX // PERFORMANCE_TRACKER
         </span>
       </div>
@@ -86,17 +86,17 @@ function HeroMarketingDashboard() {
       {/* Main Metric Banner */}
       <div className="grid grid-cols-3 gap-3 mb-3">
         <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] uppercase tracking-wider font-bold">Avg ROAS</span>
+          <span className="text-gray-500 text-[8px] font-bold">Avg ROAS</span>
           <span className="text-xs font-bold text-green-400 font-mono mt-1 flex items-center gap-1">
             <TrendingUp className="h-3 w-3 text-green-450 shrink-0" /> {channelMetrics[activeChannel].roas}
           </span>
         </div>
         <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] uppercase tracking-wider font-bold">Conversions</span>
+          <span className="text-gray-500 text-[8px] font-bold">Conversions</span>
           <span className="text-xs font-bold text-white font-mono mt-1">{channelMetrics[activeChannel].conversions}</span>
         </div>
         <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] uppercase tracking-wider font-bold">CPA Status</span>
+          <span className="text-gray-500 text-[8px] font-bold">CPA Status</span>
           <span className="text-xs font-bold text-brand-purple font-mono mt-1">{channelMetrics[activeChannel].cpa}</span>
         </div>
       </div>
@@ -107,7 +107,7 @@ function HeroMarketingDashboard() {
           <button
             key={channel}
             onClick={() => setActiveChannel(channel)}
-            className={`flex-1 py-1.5 text-[8px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none ${
+            className={`flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full ${
               activeChannel === channel ? "bg-brand-purple text-white" : "text-gray-550 hover:text-white"
             }`}
           >
@@ -118,7 +118,7 @@ function HeroMarketingDashboard() {
 
       {/* Conversion Rate Progression diagram */}
       <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1">
+        <div className="text-[8px] text-gray-500 font-bold mb-1">
           // CHANNEL CONVERSION RATE & ALLOCATION
         </div>
         <div className="h-6 w-full flex border border-brand-border-light/10 bg-slate-900/80 overflow-hidden relative items-center px-3">
@@ -326,16 +326,16 @@ export default function MarketingSolutions() {
   return (
     <div className="flex-grow bg-brand-bg font-sans">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <Megaphone className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Marketing Pillar
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Marketing Solutions That Accelerate Business Growth
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -370,8 +370,8 @@ export default function MarketingSolutions() {
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light relative z-10" animate>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-4">
           <div className="max-w-md">
-            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// GROWTH METHODOLOGY</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black uppercase text-black">
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// GROWTH METHODOLOGY</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">
               Data-Driven Marketing
             </h2>
           </div>
@@ -389,7 +389,7 @@ export default function MarketingSolutions() {
             return (
               <div
                 key={idx}
-                className="group relative block bg-white border border-brand-border-light p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(161,0,255,0.05)]"
+                className="group relative block bg-white border border-brand-border-light p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(92,122,52,0.05)]"
               >
                 {/* Top border reveal on hover */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-purple origin-left scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
@@ -399,7 +399,7 @@ export default function MarketingSolutions() {
                     <Icon className="w-4 h-4 text-black group-hover:text-brand-purple transition-colors" />
                   </div>
                   
-                  <h3 className="font-plus-jakarta text-sm font-bold uppercase tracking-tight text-black">
+                  <h3 className="font-plus-jakarta text-sm font-bold tracking-tight text-black">
                     {service.title}
                   </h3>
                   
@@ -429,8 +429,8 @@ export default function MarketingSolutions() {
       {/* 4. Marketing Channels */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// OMNICHANNEL LANDSCAPE</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// OMNICHANNEL LANDSCAPE</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Marketing Channels We Drive
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -449,7 +449,7 @@ export default function MarketingSolutions() {
                 <div className="w-8 h-8 bg-brand-bg flex items-center justify-center text-black">
                   <Icon className="w-4 h-4 text-brand-purple" />
                 </div>
-                <span className="text-[9px] font-plus-jakarta font-bold uppercase tracking-wider text-black">
+                <span className="text-[9px] font-plus-jakarta font-bold text-black">
                   {chan.name}
                 </span>
               </div>
@@ -461,8 +461,8 @@ export default function MarketingSolutions() {
       {/* 5. Industries We Serve */}
       <SectionWrapper background="default" spacing="compact" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// EXPERIENCE VERTICALS</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// EXPERIENCE VERTICALS</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Industries We Serve
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -481,7 +481,7 @@ export default function MarketingSolutions() {
                 <div className="w-8 h-8 bg-brand-bg flex items-center justify-center text-black">
                   <Icon className="w-4 h-4 text-brand-purple" />
                 </div>
-                <span className="text-[9px] font-plus-jakarta font-bold uppercase tracking-wider text-black">
+                <span className="text-[9px] font-plus-jakarta font-bold text-black">
                   {ind.name}
                 </span>
               </div>
@@ -493,8 +493,8 @@ export default function MarketingSolutions() {
       {/* 6. Our Marketing Process Timeline */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light" animate>
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// ACCELERATION TIMELINE</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// ACCELERATION TIMELINE</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Our Marketing Process
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -514,7 +514,7 @@ export default function MarketingSolutions() {
                 0{idx + 1}
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="font-plus-jakarta text-xs font-bold uppercase tracking-tight text-black">
+                <h3 className="font-plus-jakarta text-xs font-bold tracking-tight text-black">
                   {step.title}
                 </h3>
                 <p className="font-inter text-[10px] leading-relaxed text-gray-550">
@@ -529,8 +529,8 @@ export default function MarketingSolutions() {
       {/* 7. Why Businesses Choose Yorlex */}
       <SectionWrapper background="default" spacing="compact" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// ADVANTAGE</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// ADVANTAGE</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Why Businesses Choose Yorlex
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -548,7 +548,7 @@ export default function MarketingSolutions() {
                 <Check className="h-4 w-4" />
               </div>
               <div className="flex flex-col gap-1.5">
-                <h3 className="font-plus-jakarta text-sm font-bold uppercase tracking-tight text-black">
+                <h3 className="font-plus-jakarta text-sm font-bold tracking-tight text-black">
                   {f.title}
                 </h3>
                 <p className="font-inter text-xs leading-relaxed text-gray-500">
@@ -563,8 +563,8 @@ export default function MarketingSolutions() {
       {/* 8. Success Metrics Section */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// VERIFIED PERFORMANCE</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// VERIFIED PERFORMANCE</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Success Metrics
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -581,7 +581,7 @@ export default function MarketingSolutions() {
               <div className="font-plus-jakarta text-3xl md:text-4xl font-black text-black tracking-tight mb-2">
                 {stat.value}
               </div>
-              <div className="font-inter font-bold text-[10px] text-gray-500 uppercase tracking-wide">
+              <div className="font-inter font-bold text-[10px] text-gray-500 tracking-wide">
                 {stat.label}
               </div>
             </div>
@@ -592,8 +592,8 @@ export default function MarketingSolutions() {
       {/* 9. Featured Success Stories */}
       <SectionWrapper background="default" spacing="compact" animate>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// CAMPAIGN OUTCOMES</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// CAMPAIGN OUTCOMES</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Featured Success Stories
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -610,11 +610,11 @@ export default function MarketingSolutions() {
               {/* Visual mockup top */}
               <div className="bg-[#0d0d0e] border-b border-brand-border-light/10 p-6 font-mono text-[9px] text-brand-purple min-h-[140px] flex flex-col justify-between">
                 <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                  <span className="text-[8px] text-gray-500 font-bold uppercase tracking-widest">{project.label}</span>
+                  <span className="text-[8px] text-gray-500 font-bold">{project.label}</span>
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                 </div>
                 <div className="flex-1 flex items-center justify-center my-3 text-center">
-                  <span className="text-white text-xs uppercase tracking-widest font-plus-jakarta font-bold">
+                  <span className="text-white text-xs font-plus-jakarta font-bold">
                     {project.title}
                   </span>
                 </div>
@@ -630,8 +630,8 @@ export default function MarketingSolutions() {
                   {project.desc}
                 </p>
                 <div className="border-t border-brand-border-light/60 pt-4 flex flex-col gap-1">
-                  <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">Business Result</span>
-                  <span className="font-mono text-xs font-bold text-green-600 uppercase">
+                  <span className="text-[8px] font-bold text-gray-400">Business Result</span>
+                  <span className="font-mono text-xs font-bold text-green-600">
                     {project.metric}
                   </span>
                 </div>
@@ -644,8 +644,8 @@ export default function MarketingSolutions() {
       {/* 10. Marketing Tools We Use */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light" animate>
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// STACK INTEGRATIONS</span>
-          <h2 className="font-plus-jakarta text-3xl font-black uppercase text-black">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// STACK INTEGRATIONS</span>
+          <h2 className="font-plus-jakarta text-3xl font-black text-black">
             Marketing Tools We Use
           </h2>
           <p className="font-inter text-xs md:text-sm text-gray-550 leading-relaxed mt-2">
@@ -657,7 +657,7 @@ export default function MarketingSolutions() {
           {marketingTools.map((tool) => (
             <div
               key={tool}
-              className="px-6 py-3 border border-brand-border-light bg-brand-bg hover:border-brand-purple text-xs font-mono font-bold uppercase text-black transition-colors duration-200"
+              className="px-6 py-3 border border-brand-border-light bg-brand-bg hover:border-brand-purple text-xs font-mono font-bold text-black transition-colors duration-200"
             >
               {tool}
             </div>
@@ -671,11 +671,11 @@ export default function MarketingSolutions() {
           <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-28">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <HelpCircle className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-550 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-550">
                 Support Q&A
               </span>
             </div>
-            <h2 className="font-plus-jakarta text-3xl md:text-4xl font-black text-black uppercase leading-tight tracking-tight">
+            <h2 className="font-plus-jakarta text-3xl md:text-4xl font-black text-black leading-tight tracking-tight">
               Frequently Asked Questions
             </h2>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-md">
@@ -689,16 +689,16 @@ export default function MarketingSolutions() {
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-brand-border rounded-none overflow-hidden transition-colors duration-300"
+                  className="bg-white border border-brand-border rounded-2xl overflow-hidden transition-colors duration-300"
                 >
                   <button
                     onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
                     className="w-full flex justify-between items-center p-6 bg-brand-border-light/10 hover:bg-brand-border-light/20 transition-colors focus:outline-none text-left"
                   >
-                    <span className="font-plus-jakarta text-xs md:text-sm font-bold text-black uppercase tracking-wide pr-4">
+                    <span className="font-plus-jakarta text-xs md:text-sm font-bold text-black tracking-wide pr-4">
                       {item.q}
                     </span>
-                    <div className="w-6 h-6 rounded-none border border-brand-border flex items-center justify-center text-black shrink-0 bg-brand-bg transition-transform duration-300">
+                    <div className="w-6 h-6 rounded-2xl border border-brand-border flex items-center justify-center text-black shrink-0 bg-brand-bg transition-transform duration-300">
                       {isOpen ? <Minus className="h-3 w-3" /> : <Plus className="h-3 w-3" />}
                     </div>
                   </button>
@@ -722,8 +722,8 @@ export default function MarketingSolutions() {
       {/* 12. Final Call to Action */}
       <SectionWrapper background="dark" spacing="compact" animate>
         <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">// CONVERSION GATEWAY</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase mb-6 leading-tight">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// CONVERSION GATEWAY</span>
+          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Ready to Grow Your Brand?
           </h2>
           <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">

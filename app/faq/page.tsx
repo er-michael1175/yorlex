@@ -173,16 +173,16 @@ export default function FAQ() {
   return (
     <div className="flex-1 bg-brand-bg font-sans">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <HelpCircle className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Strategic FAQ
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Frequently Asked Questions
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -216,12 +216,12 @@ export default function FAQ() {
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
                 </div>
-                <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                <span className="text-[9px] text-gray-500 font-bold">
                   YORLEX // FAQ_ROUTER
                 </span>
               </div>
               <div className="flex-1 flex flex-col justify-center gap-3">
-                <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold">
+                <div className="text-[8px] text-gray-500 font-bold">
                   // GLOBAL INDEX DATA
                 </div>
                 <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 text-gray-400">
@@ -261,7 +261,7 @@ export default function FAQ() {
               placeholder="Search for your question..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-brand-bg border border-brand-border pl-12 pr-4 py-4 font-inter text-xs text-black placeholder-gray-455 rounded-none focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all shadow-sm"
+              className="w-full bg-brand-bg border border-brand-border pl-12 pr-4 py-4 font-inter text-xs text-black placeholder-gray-455 rounded-2xl focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all shadow-sm"
             />
           </div>
 
@@ -271,7 +271,7 @@ export default function FAQ() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className="px-4 py-2 text-[9px] font-bold uppercase tracking-wider border rounded-none transition-colors duration-150 relative"
+                className="px-4 py-2 text-[9px] font-bold border rounded-2xl transition-colors duration-150 relative"
                 style={{
                   borderColor: selectedCategory === cat.id ? "black" : "rgba(0,0,0,0.06)",
                 }}
@@ -304,7 +304,7 @@ export default function FAQ() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="bg-white border border-brand-border p-6 flex flex-col justify-between hover:border-brand-purple transition-colors duration-250 group relative rounded-none shadow-sm"
+                      className="bg-white border border-brand-border p-6 flex flex-col justify-between hover:border-brand-purple transition-colors duration-250 group relative rounded-2xl shadow-sm"
                     >
                       {/* Top border accent line */}
                       <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />
@@ -312,14 +312,14 @@ export default function FAQ() {
                       <div className="flex flex-col gap-4">
                         {/* Header with category icon */}
                         <div className="flex justify-between items-start gap-4">
-                          <span className="font-mono text-[8px] text-gray-400 uppercase tracking-widest">// {faq.category}</span>
+                          <span className="font-mono text-[8px] text-gray-400">// {faq.category}</span>
                           <div className="w-7 h-7 bg-brand-bg text-black group-hover:bg-brand-purple group-hover:text-white transition-colors duration-250 flex items-center justify-center shrink-0 border border-brand-border">
                             <IconComponent className="h-4 w-4" />
                           </div>
                         </div>
 
                         {/* Question */}
-                        <h3 className="font-plus-jakarta text-xs md:text-sm font-bold text-black uppercase tracking-wide leading-snug">
+                        <h3 className="font-plus-jakarta text-xs md:text-sm font-bold text-black tracking-wide leading-snug">
                           {faq.q}
                         </h3>
 
@@ -334,7 +334,7 @@ export default function FAQ() {
               ) : (
                 <div className="col-span-1 md:col-span-2 text-center py-16 border border-brand-border-light/60 bg-brand-bg/40 flex flex-col items-center gap-3">
                   <HelpCircle className="h-8 w-8 text-gray-400" />
-                  <span className="font-plus-jakarta font-bold text-xs uppercase tracking-wider text-gray-500">
+                  <span className="font-plus-jakarta font-bold text-xs text-gray-500">
                     No FAQs Found Matching "{searchQuery}"
                   </span>
                 </div>
@@ -348,8 +348,8 @@ export default function FAQ() {
       {/* 3. Still Have Questions CTA */}
       <SectionWrapper background="dark" spacing="compact" animate>
         <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">// CONVERSION GATEWAY</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase mb-6 leading-tight">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// CONVERSION GATEWAY</span>
+          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Still Have Questions?
           </h2>
           <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">

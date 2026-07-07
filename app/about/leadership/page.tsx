@@ -47,11 +47,11 @@ export default function ExecutiveLeadership() {
       <section className="max-w-7xl mx-auto px-6 mb-16 pb-12 border-b border-black">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-[700px]">
-            <p className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-[0.15em] mb-6 flex items-center gap-3">
+            <p className="font-inter font-bold text-[10px] text-brand-purple tracking-[0.15em] mb-6 flex items-center gap-3">
               <span className="w-8 h-px bg-brand-purple block"></span>
               Executive Authority
             </p>
-            <h1 className="font-plus-jakarta text-4xl md:text-6xl font-black text-black leading-tight uppercase">
+            <h1 className="font-plus-jakarta text-4xl md:text-6xl font-black text-black leading-tight">
               Architects of<br />Global Stability.
             </h1>
           </div>
@@ -70,7 +70,7 @@ export default function ExecutiveLeadership() {
           {leaders.map((leader) => (
             <article 
               key={leader.name} 
-              className="col-span-1 md:col-span-6 flex flex-col bg-white border border-brand-border group hover:border-brand-purple transition-colors duration-300 rounded-none"
+              className="col-span-1 md:col-span-6 flex flex-col bg-white border border-brand-border group hover:border-brand-purple transition-colors duration-300 rounded-2xl"
             >
               <div className="relative w-full h-[450px] overflow-hidden bg-brand-bg border-b border-brand-border">
                 <img
@@ -82,17 +82,17 @@ export default function ExecutiveLeadership() {
               <div className="p-8 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h2 className="font-plus-jakarta text-2xl font-bold uppercase text-black mb-1">
+                    <h2 className="font-plus-jakarta text-2xl font-bold text-black mb-1">
                       {leader.name}
                     </h2>
-                    <p className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest">
+                    <p className="font-inter font-bold text-[10px] text-brand-purple">
                       {leader.role}
                     </p>
                   </div>
                   <a
                     href={leader.linkedin}
                     aria-label={`${leader.name} LinkedIn Profile`}
-                    className="w-10 h-10 border border-brand-border rounded-none flex items-center justify-center text-black hover:bg-black hover:text-white hover:border-black transition-all"
+                    className="w-10 h-10 border border-brand-border rounded-2xl flex items-center justify-center text-black hover:bg-black hover:text-white hover:border-black transition-all"
                   >
                     <LinkedinIcon className="h-4 w-4" />
                   </a>
@@ -107,13 +107,13 @@ export default function ExecutiveLeadership() {
           {/* Governance Bento Tiles */}
           
           {/* Tile 1 (col-span-4, bg-black, text-white) */}
-          <div className="col-span-1 md:col-span-4 bg-black text-white p-8 flex flex-col justify-between min-h-[300px] border border-black relative overflow-hidden group rounded-none">
+          <div className="col-span-1 md:col-span-4 bg-black text-white p-8 flex flex-col justify-between min-h-[300px] border border-black relative overflow-hidden group rounded-2xl">
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-brand-purple to-transparent pointer-events-none"></div>
             <div className="w-12 h-12 bg-brand-purple text-white flex items-center justify-center mb-8 relative z-10">
               <Scale className="h-6 w-6" />
             </div>
             <div className="relative z-10">
-              <h3 className="font-plus-jakarta text-lg font-bold uppercase mb-3 text-white">
+              <h3 className="font-plus-jakarta text-lg font-bold mb-3 text-white">
                 Rigorous Governance
               </h3>
               <p className="font-inter text-gray-400 text-xs leading-relaxed">
@@ -123,12 +123,12 @@ export default function ExecutiveLeadership() {
           </div>
 
           {/* Tile 2 (col-span-8, bg-white, text-black, border) */}
-          <div className="col-span-1 md:col-span-8 bg-white border border-brand-border p-8 flex flex-col justify-between min-h-[300px] rounded-none hover:border-brand-purple transition-all duration-300 group">
+          <div className="col-span-1 md:col-span-8 bg-white border border-brand-border p-8 flex flex-col justify-between min-h-[300px] rounded-2xl hover:border-brand-purple transition-all duration-300 group">
             <div className="w-12 h-12 bg-brand-bg border border-brand-border text-brand-purple flex items-center justify-center mb-8">
               <ShieldCheck className="h-6 w-6" />
             </div>
             <div>
-              <h3 className="font-plus-jakarta text-lg font-bold uppercase mb-3 text-black">
+              <h3 className="font-plus-jakarta text-lg font-bold mb-3 text-black">
                 Verified Success
               </h3>
               <p className="font-inter text-gray-500 text-xs leading-relaxed mb-6 max-w-xl">
@@ -136,7 +136,7 @@ export default function ExecutiveLeadership() {
               </p>
               <Link 
                 href="/success-stories"
-                className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-purple uppercase tracking-widest font-inter border-b border-brand-purple pb-0.5 hover:text-black hover:border-black transition-colors"
+                className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-purple font-inter border-b border-brand-purple pb-0.5 hover:text-black hover:border-black transition-colors"
               >
                 Read Success Stories <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>

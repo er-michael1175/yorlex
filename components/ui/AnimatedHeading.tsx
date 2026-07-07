@@ -42,7 +42,6 @@ export function AnimatedHeading({
       initial="hidden"
       animate="visible"
       transition={transitionProps}
-      style={{ borderRadius: 0 }}
     >
       {children}
     </MotionTag>

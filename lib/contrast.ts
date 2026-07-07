@@ -14,7 +14,7 @@
 export interface ColorPair {
   /** Foreground (text) color as a hex string, e.g. "#ffffff". */
   fg: string;
-  /** Background color as a hex string, e.g. "#0d0d0e". */
+  /** Background color as a hex string, e.g. "#0f1b2c". */
   bg: string;
   /**
    * Whether this pair is rendered as large text. Large text is >= 24px,
@@ -104,41 +104,41 @@ export function contrastRatio(fg: string, bg: string): number {
  * Approved foreground/background text color pairs actually used in the UI.
  *
  * Derived from the theme tokens and component analysis:
- *  - Dark background (#0d0d0e): hero section, search modal (ThreeBg backgroundColor)
- *  - Brand purple (#a100ff): CTA button bg, support card bg, hover states
+ *  - Dark background (#0f1b2c): hero section, search modal (ThreeBg backgroundColor)
+ *  - Brand purple (#5c7a34): CTA button bg, support card bg, hover states
  *  - White (#ffffff): card backgrounds, button text, page sections
  *  - Black (#000000): footer bg, primary button bg
- *  - Brand text (#1b1b1b): default body text
- *  - Brand bg (#f9f9f9): page background
+ *  - Brand text (#16191c): default body text
+ *  - Brand bg (#faf8f2): page background
  *  - Gray-300 (#d1d5db): hero paragraph text
  *  - Gray-400 (#9ca3af): muted captions, footer links
  *  - Slate-400 (#94a3b8): metric labels, fine print on light bg
  */
 export const TEXT_COLOR_PAIRS: readonly ColorPair[] = [
   // Hero heading: white text on dark background (large, >=24px bold)
-  { fg: "#ffffff", bg: "#0d0d0e", largeText: true },
+  { fg: "#ffffff", bg: "#0f1b2c", largeText: true },
   // Hero heading normal inline text on dark background (normal weight sections)
-  { fg: "#ffffff", bg: "#0d0d0e", largeText: false },
+  { fg: "#ffffff", bg: "#0f1b2c", largeText: false },
   // Hero paragraph: gray-300 on dark background (16–18px body, large-ish)
-  { fg: "#d1d5db", bg: "#0d0d0e", largeText: true },
+  { fg: "#d1d5db", bg: "#0f1b2c", largeText: true },
   // Brand purple accent text on dark background ("Digital" in hero, large bold)
-  { fg: "#a100ff", bg: "#0d0d0e", largeText: true },
+  { fg: "#5c7a34", bg: "#0f1b2c", largeText: true },
   // White text on brand purple (CTA button, support section)
-  { fg: "#ffffff", bg: "#a100ff", largeText: false },
+  { fg: "#ffffff", bg: "#5c7a34", largeText: false },
   // White text on brand purple (large headings in support section)
-  { fg: "#ffffff", bg: "#a100ff", largeText: true },
+  { fg: "#ffffff", bg: "#5c7a34", largeText: true },
   // Brand purple on white (metric numbers, active nav links — large bold)
-  { fg: "#a100ff", bg: "#ffffff", largeText: true },
+  { fg: "#5c7a34", bg: "#ffffff", largeText: true },
   // Muted gray on dark background (search modal suggestions, footer links — large text)
-  { fg: "#9ca3af", bg: "#0d0d0e", largeText: true },
+  { fg: "#9ca3af", bg: "#0f1b2c", largeText: true },
   // White text on black (footer headings, primary button text)
   { fg: "#ffffff", bg: "#000000", largeText: false },
   // Black text on white (card headings, body text on card surfaces)
   { fg: "#000000", bg: "#ffffff", largeText: false },
-  // Default body text: brand-text (#1b1b1b) on page background (#f9f9f9)
-  { fg: "#1b1b1b", bg: "#f9f9f9", largeText: false },
+  // Default body text: brand-text (#16191c) on page background (#faf8f2)
+  { fg: "#16191c", bg: "#faf8f2", largeText: false },
   // Card text: brand-text on white card surfaces (.sharp-card)
-  { fg: "#1b1b1b", bg: "#ffffff", largeText: false },
+  { fg: "#16191c", bg: "#ffffff", largeText: false },
   // Muted descriptive text: gray-500 on white (service descriptions)
   { fg: "#6b7280", bg: "#ffffff", largeText: false },
   // Footer muted text: gray-400 on black (footer link text — small)

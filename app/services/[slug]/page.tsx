@@ -102,7 +102,7 @@ export default function ServicePage({ params }: PageProps) {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 font-inter">
+        <div className="flex items-center gap-2 text-[10px] font-bold text-gray-400 mb-6 font-inter">
           <Link href="/" className="hover:text-black transition-colors">Home</Link>
           <span>/</span>
           <span>Services</span>
@@ -116,10 +116,10 @@ export default function ServicePage({ params }: PageProps) {
             <div className="w-12 h-12 bg-black text-white flex items-center justify-center mb-6">
               <Icon className="h-6 w-6" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black text-black mb-4 font-plus-jakarta uppercase tracking-wide leading-tight">
+            <h1 className="text-4xl md:text-5xl font-black text-black mb-4 font-plus-jakarta tracking-wide leading-tight">
               {data.title}
             </h1>
-            <p className="text-brand-purple text-xs font-bold uppercase tracking-widest mb-4 font-inter">
+            <p className="text-brand-purple text-xs font-bold mb-4 font-inter">
               {data.tagline}
             </p>
             <p className="text-gray-600 leading-relaxed text-sm max-w-xl font-inter">
@@ -128,14 +128,14 @@ export default function ServicePage({ params }: PageProps) {
           </div>
 
           <div className="sharp-card p-8 flex flex-col gap-4">
-            <p className="text-[10px] font-bold text-brand-purple uppercase tracking-widest mb-2 font-inter">
+            <p className="text-[10px] font-bold text-brand-purple mb-2 font-inter">
               Core Capabilities
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {data.pillars.map((pillar) => (
-                <div key={pillar} className="flex items-center gap-3 p-4 bg-brand-bg border border-brand-border rounded-none">
+                <div key={pillar} className="flex items-center gap-3 p-4 bg-brand-bg border border-brand-border rounded-2xl">
                   <CheckCircle2 className="h-5 w-5 text-brand-purple shrink-0" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-black font-inter">{pillar}</span>
+                  <span className="text-xs font-bold text-black font-inter">{pillar}</span>
                 </div>
               ))}
             </div>
@@ -144,14 +144,14 @@ export default function ServicePage({ params }: PageProps) {
 
         {/* Detailed Features */}
         <div className="mb-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-12 font-plus-jakarta uppercase tracking-wider text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-black mb-12 font-plus-jakarta text-center">
             Service Highlights & Engagements
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {data.features.map((feat) => (
               <div key={feat.title} className="sharp-card p-8 hover:border-brand-purple transition-all duration-300">
-                <h3 className="text-base font-bold text-black mb-3 font-plus-jakarta uppercase tracking-wide flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-brand-purple rounded-none" />
+                <h3 className="text-base font-bold text-black mb-3 font-plus-jakarta tracking-wide flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-brand-purple rounded-full" />
                   {feat.title}
                 </h3>
                 <p className="text-xs md:text-sm text-gray-500 font-inter leading-relaxed">
@@ -163,9 +163,9 @@ export default function ServicePage({ params }: PageProps) {
         </div>
 
         {/* Consultation Prompt */}
-        <div className="bg-black text-white p-10 md:p-16 border border-black text-center relative overflow-hidden rounded-none">
+        <div className="bg-black text-white p-10 md:p-16 border border-black text-center relative overflow-hidden rounded-2xl">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-brand-purple to-transparent pointer-events-none" />
-          <h2 className="text-3xl font-bold font-plus-jakarta uppercase mb-4">
+          <h2 className="text-3xl font-bold font-plus-jakarta mb-4">
             Need Expert Consulting in {data.title}?
           </h2>
           <p className="text-gray-400 font-inter text-sm max-w-xl mx-auto mb-8 leading-relaxed">
@@ -173,7 +173,7 @@ export default function ServicePage({ params }: PageProps) {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white hover:bg-brand-purple text-black hover:text-white font-bold px-8 py-4 rounded-none transition-colors border border-white hover:border-brand-purple font-inter font-bold text-[10px] uppercase"
+            className="inline-flex items-center gap-2 bg-white hover:bg-brand-purple text-black hover:text-white font-bold px-8 py-4 rounded-2xl transition-colors border border-white hover:border-brand-purple font-inter font-bold text-[10px]"
           >
             Start Conversation <ArrowRight className="h-4 w-4" />
           </Link>

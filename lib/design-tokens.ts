@@ -83,10 +83,10 @@ export function getTypographyClasses(
   options?: { gradient?: boolean; dark?: boolean }
 ): string {
   const baseClasses: Record<1 | 2 | 3 | 4, string> = {
-    1: "font-plus-jakarta text-5xl md:text-7xl font-black uppercase leading-tight tracking-tight",
-    2: "font-plus-jakarta text-3xl md:text-4xl font-black uppercase tracking-tight",
-    3: "font-plus-jakarta text-xl md:text-2xl font-bold uppercase",
-    4: "font-plus-jakarta text-lg font-bold uppercase",
+    1: "font-plus-jakarta text-5xl md:text-7xl font-bold leading-tight tracking-tight",
+    2: "font-plus-jakarta text-3xl md:text-4xl font-bold tracking-tight",
+    3: "font-plus-jakarta text-xl md:text-2xl font-semibold",
+    4: "font-plus-jakarta text-lg font-semibold",
   };
 
   let classes = baseClasses[level];

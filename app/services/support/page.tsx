@@ -64,7 +64,7 @@ function HeroSupportDashboard() {
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
         </div>
-        <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+        <span className="text-[9px] text-gray-500 font-bold">
           YORLEX // SUPPORT_CONSOLE
         </span>
       </div>
@@ -75,7 +75,7 @@ function HeroSupportDashboard() {
           <button
             key={q}
             onClick={() => setActiveQueue(q)}
-            className="flex-1 py-1.5 text-[8px] font-bold uppercase tracking-wider transition-colors duration-150 rounded-none relative z-10 text-gray-555 hover:text-white"
+            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
           >
             <span className={activeQueue === q ? "text-white" : ""}>
               {q === "customer" ? "Customer" : q === "backoffice" ? "Backoffice" : "Technical"}
@@ -93,13 +93,13 @@ function HeroSupportDashboard() {
 
       {/* Details */}
       <div className="flex-grow flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 uppercase tracking-widest font-bold mb-1 flex justify-between">
+        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
           <span>// LIVE SLA QUEUE STATUS</span>
           <span className={queues[activeQueue].color}>● ONLINE</span>
         </div>
 
         <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 min-h-[110px] justify-center">
-          <div className="text-white font-bold text-[10px] uppercase">
+          <div className="text-white font-bold text-[10px]">
             {queues[activeQueue].name}
           </div>
           <div className="grid grid-cols-2 gap-2 text-gray-400 mt-1 font-mono text-[8px] leading-relaxed">
@@ -259,16 +259,16 @@ export default function SupportServices() {
   return (
     <div className="flex-grow bg-brand-bg font-sans">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="min-h-[calc(100vh-64px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555 uppercase tracking-widest">
+              <span className="font-inter font-bold text-[10px] text-gray-555">
                 Operations &amp; BPO
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black uppercase tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
               Business Support Services That Keep Your Business Running
             </h1>
             <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
@@ -303,8 +303,8 @@ export default function SupportServices() {
       <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light relative z-10" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8 flex flex-col gap-4">
-            <span className="font-mono text-[9px] font-bold text-brand-purple uppercase tracking-widest">// GLOBAL OPERATIONS</span>
-            <AnimatedHeading level={2} className="text-black font-plus-jakarta uppercase">
+            <span className="font-mono text-[9px] font-bold text-brand-purple">// GLOBAL OPERATIONS</span>
+            <AnimatedHeading level={2} className="text-black font-plus-jakarta">
               Reliable Operational Support for Every Business
             </AnimatedHeading>
             <p className="font-inter text-gray-650 text-xs md:text-sm leading-relaxed max-w-2xl">
@@ -318,9 +318,9 @@ export default function SupportServices() {
       <SectionWrapper background="default" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// OUTSOURCING PORTFOLIO</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">Our Support Services</h2>
-            <p className="font-inter text-gray-500 text-xs mt-2 uppercase tracking-wider">Premium operational and back-office configurations.</p>
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// OUTSOURCING PORTFOLIO</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">Our Support Services</h2>
+            <p className="font-inter text-gray-500 text-xs mt-2">Premium operational and back-office configurations.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -329,19 +329,19 @@ export default function SupportServices() {
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-brand-border p-6 flex flex-col justify-between hover:border-brand-purple transition-all duration-250 group relative rounded-none shadow-sm min-h-[280px]"
+                  className="bg-white border border-brand-border p-6 flex flex-col justify-between hover:border-brand-purple transition-all duration-250 group relative rounded-2xl shadow-sm min-h-[280px]"
                 >
                   <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />
                   
                   <div className="flex flex-col gap-4">
                     <div className="flex justify-between items-start">
-                      <span className="font-mono text-[8px] text-gray-400 uppercase tracking-widest">// SRV 0{idx + 1}</span>
-                      <div className="w-8 h-8 rounded-none border border-brand-border bg-brand-bg text-black group-hover:bg-brand-purple group-hover:text-white transition-colors duration-250 flex items-center justify-center shrink-0">
+                      <span className="font-mono text-[8px] text-gray-400">// SRV 0{idx + 1}</span>
+                      <div className="w-8 h-8 rounded-2xl border border-brand-border bg-brand-bg text-black group-hover:bg-brand-purple group-hover:text-white transition-colors duration-250 flex items-center justify-center shrink-0">
                         <IconComponent className="h-4.5 w-4.5" />
                       </div>
                     </div>
                     
-                    <h3 className="font-plus-jakarta text-sm font-bold uppercase tracking-wide text-black group-hover:text-brand-purple transition-colors">
+                    <h3 className="font-plus-jakarta text-sm font-bold tracking-wide text-black group-hover:text-brand-purple transition-colors">
                       {srv.title}
                     </h3>
                     
@@ -349,7 +349,7 @@ export default function SupportServices() {
                       {srv.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex items-center gap-1.5">
                           <Check className="h-3 w-3 text-brand-purple shrink-0" />
-                          <span className="text-[9px] text-gray-550 uppercase font-mono font-medium">{bullet}</span>
+                          <span className="text-[9px] text-gray-550 font-mono font-medium">{bullet}</span>
                         </li>
                       ))}
                     </ul>
@@ -364,14 +364,14 @@ export default function SupportServices() {
       {/* 4. Industries We Support */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-7xl mx-auto text-center">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// CUSTOMER ECOSYSTEMS</span>
-          <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase mb-12">Industries We Support</h2>
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// CUSTOMER ECOSYSTEMS</span>
+          <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black mb-12">Industries We Support</h2>
           
           <div className="flex flex-wrap justify-center gap-3">
             {industries.map((ind, idx) => (
               <div
                 key={idx}
-                className="bg-brand-bg border border-brand-border px-6 py-3 font-mono text-[10px] font-bold uppercase text-black hover:border-brand-purple transition-colors rounded-none shadow-sm cursor-default"
+                className="bg-brand-bg border border-brand-border px-6 py-3 font-mono text-[10px] font-bold text-black hover:border-brand-purple transition-colors rounded-2xl shadow-sm cursor-default"
               >
                 {ind}
               </div>
@@ -384,24 +384,24 @@ export default function SupportServices() {
       <SectionWrapper background="default" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// SLA INTEGRATION TIMELINE</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">Our Support Process</h2>
-            <p className="font-inter text-gray-500 text-xs mt-2 uppercase tracking-wider">How we integrate support teams seamlessly.</p>
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// SLA INTEGRATION TIMELINE</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">Our Support Process</h2>
+            <p className="font-inter text-gray-500 text-xs mt-2">How we integrate support teams seamlessly.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-7 gap-4">
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-brand-border p-6 flex flex-col justify-between min-h-[160px] relative group hover:border-brand-purple transition-all rounded-none shadow-sm"
+                className="bg-white border border-brand-border p-6 flex flex-col justify-between min-h-[160px] relative group hover:border-brand-purple transition-all rounded-2xl shadow-sm"
               >
                 <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-[10px] font-mono font-bold text-brand-purple">0{idx + 1}</span>
-                  <span className="text-[7px] font-mono text-gray-400 uppercase tracking-widest">Step</span>
+                  <span className="text-[7px] font-mono text-gray-400">Step</span>
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-plus-jakarta text-[10px] font-bold uppercase text-black leading-tight">
+                  <h4 className="font-plus-jakarta text-[10px] font-bold text-black leading-tight">
                     {step.title}
                   </h4>
                   <p className="font-inter text-[9px] text-gray-500 leading-normal">
@@ -418,20 +418,20 @@ export default function SupportServices() {
       <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// RESILIENCE &amp; SCALE</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">Why Choose Yorlex</h2>
-            <p className="font-inter text-gray-500 text-xs mt-2 uppercase tracking-wider">Operational parameters guaranteed by structural SLA benchmarks.</p>
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// RESILIENCE &amp; SCALE</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">Why Choose Yorlex</h2>
+            <p className="font-inter text-gray-500 text-xs mt-2">Operational parameters guaranteed by structural SLA benchmarks.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyChoose.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-brand-bg border border-brand-border p-6 flex flex-col justify-between group hover:border-brand-purple transition-colors rounded-none shadow-sm"
+                className="bg-brand-bg border border-brand-border p-6 flex flex-col justify-between group hover:border-brand-purple transition-colors rounded-2xl shadow-sm"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <CheckCircle2 className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                  <h3 className="font-plus-jakarta text-[11px] font-bold uppercase tracking-wider text-black">
+                  <h3 className="font-plus-jakarta text-[11px] font-bold text-black">
                     {item.title}
                   </h3>
                 </div>
@@ -448,11 +448,11 @@ export default function SupportServices() {
       <SectionWrapper background="default" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
           {benefits.map((b, idx) => (
-            <div key={idx} className="bg-white border border-brand-border p-6 flex flex-col justify-center rounded-none shadow-sm">
+            <div key={idx} className="bg-white border border-brand-border p-6 flex flex-col justify-center rounded-2xl shadow-sm">
               <span className="font-plus-jakarta text-3xl font-black text-black leading-tight">
                 {b.value}
               </span>
-              <span className="font-inter font-bold text-[8px] text-gray-400 uppercase tracking-widest mt-2 block">
+              <span className="font-inter font-bold text-[8px] text-gray-400 mt-2 block">
                 {b.label}
               </span>
             </div>
@@ -463,14 +463,14 @@ export default function SupportServices() {
       {/* 8. Support Tools & Platforms */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-7xl mx-auto text-center">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// SYSTEM SYNC</span>
-          <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase mb-12">Support Tools &amp; Platforms</h2>
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// SYSTEM SYNC</span>
+          <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black mb-12">Support Tools &amp; Platforms</h2>
           
           <div className="flex flex-wrap justify-center gap-3">
             {tools.map((tool, idx) => (
               <div
                 key={idx}
-                className="bg-brand-bg border border-brand-border px-5 py-2.5 font-mono text-[9px] font-semibold text-gray-500 hover:border-brand-purple hover:text-black transition-colors rounded-none shadow-sm cursor-default"
+                className="bg-brand-bg border border-brand-border px-5 py-2.5 font-mono text-[9px] font-semibold text-gray-500 hover:border-brand-purple hover:text-black transition-colors rounded-2xl shadow-sm cursor-default"
               >
                 {tool}
               </div>
@@ -483,24 +483,24 @@ export default function SupportServices() {
       <SectionWrapper background="default" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// OUTCOMES VERIFIED</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">Case Studies</h2>
-            <p className="font-inter text-gray-500 text-xs mt-2 uppercase tracking-wider">Documented client transformations and workload reductions.</p>
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// OUTCOMES VERIFIED</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">Case Studies</h2>
+            <p className="font-inter text-gray-500 text-xs mt-2">Documented client transformations and workload reductions.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {caseStudies.map((cs, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-brand-border p-8 flex flex-col justify-between group hover:border-brand-purple transition-all duration-300 rounded-none shadow-sm relative"
+                className="bg-white border border-brand-border p-8 flex flex-col justify-between group hover:border-brand-purple transition-all duration-300 rounded-2xl shadow-sm relative"
               >
                 <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="font-mono text-[8px] text-gray-400 uppercase tracking-widest">// STUDY 0{idx + 1}</span>
-                    <span className="text-[7px] text-green-500 font-bold uppercase tracking-widest border border-green-500/20 px-2 py-0.5">Verified</span>
+                    <span className="font-mono text-[8px] text-gray-400">// STUDY 0{idx + 1}</span>
+                    <span className="text-[7px] text-green-500 font-bold border border-green-500/20 px-2 py-0.5">Verified</span>
                   </div>
-                  <h3 className="font-plus-jakarta text-base font-bold uppercase tracking-wide text-black group-hover:text-brand-purple transition-colors leading-tight">
+                  <h3 className="font-plus-jakarta text-base font-bold tracking-wide text-black group-hover:text-brand-purple transition-colors leading-tight">
                     {cs.title}
                   </h3>
                   <p className="font-inter text-xs text-gray-550 leading-relaxed">
@@ -510,7 +510,7 @@ export default function SupportServices() {
                 <div className="border-t border-brand-border-light/60 pt-4 mt-6">
                   <Link
                     href="/success-stories"
-                    className="inline-flex items-center gap-2 font-inter font-bold text-[9px] uppercase text-black hover:text-brand-purple transition-colors"
+                    className="inline-flex items-center gap-2 font-inter font-bold text-[9px] text-black hover:text-brand-purple transition-colors"
                   >
                     Read Full Study <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -525,8 +525,8 @@ export default function SupportServices() {
       <SectionWrapper background="white" spacing="compact" className="border-t border-brand-border-light" animate>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-2">// FAQ CENTER</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black uppercase">Frequently Asked Questions</h2>
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// FAQ CENTER</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">Frequently Asked Questions</h2>
           </div>
 
           <div className="flex flex-col gap-4">
@@ -535,16 +535,16 @@ export default function SupportServices() {
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-brand-border rounded-none overflow-hidden"
+                  className="bg-white border border-brand-border rounded-2xl overflow-hidden"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
                     className="w-full flex justify-between items-center p-5 bg-brand-border-light/10 hover:bg-brand-border-light/20 transition-colors focus:outline-none text-left"
                   >
-                    <span className="font-plus-jakarta text-xs md:text-sm font-bold text-black uppercase tracking-wide pr-4">
+                    <span className="font-plus-jakarta text-xs md:text-sm font-bold text-black tracking-wide pr-4">
                       {faq.q}
                     </span>
-                    <div className="w-6 h-6 rounded-none border border-brand-border flex items-center justify-center text-black shrink-0 bg-brand-bg transition-transform duration-300">
+                    <div className="w-6 h-6 rounded-2xl border border-brand-border flex items-center justify-center text-black shrink-0 bg-brand-bg transition-transform duration-300">
                       {isOpen ? <Minus className="h-3 w-3" /> : <Plus className="h-3 w-3" />}
                     </div>
                   </button>
@@ -567,8 +567,8 @@ export default function SupportServices() {
       {/* 11. Final CTA */}
       <SectionWrapper background="dark" spacing="compact" animate>
         <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple uppercase tracking-widest block mb-4">// ADVISORY GATEWAY</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase mb-6 leading-tight">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// ADVISORY GATEWAY</span>
+          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Let Yorlex Handle Your Operations
           </h2>
           <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
