@@ -1,25 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { LogOut, Mail, Check, Trash2, Inbox } from "lucide-react";
+import { Mail, Check, Trash2, Inbox } from "lucide-react";
 import type { ContactSubmission } from "@/lib/contactStore";
+import AdminNav from "./AdminNav";
 
 export default function AdminDashboard({
   initialSubmissions,
 }: {
   initialSubmissions: ContactSubmission[];
 }) {
-  const router = useRouter();
   const [submissions, setSubmissions] = useState(initialSubmissions);
-  const [loggingOut, setLoggingOut] = useState(false);
-
-  async function handleLogout() {
-    setLoggingOut(true);
-    await fetch("/api/admin/logout", { method: "POST" });
-    router.push("/admin/login");
-    router.refresh();
-  }
 
   async function toggleHandled(id: string, handled: boolean) {
     setSubmissions((prev) =>
@@ -46,23 +37,15 @@ export default function AdminDashboard({
   return (
     <div className="flex-grow bg-yorlex-canvas min-h-[calc(100vh-64px)] px-6 py-12">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="font-plus-jakarta text-2xl font-bold text-yorlex-ink">
-              Contact Inbox
-            </h1>
-            <p className="font-inter text-sm text-yorlex-muted mt-1">
-              {unhandledCount} unread · {submissions.length} total
-            </p>
-          </div>
-          <button
-            onClick={handleLogout}
-            disabled={loggingOut}
-            className="flex items-center gap-2 bg-yorlex-navy hover:bg-yorlex-navy-elevated text-white text-sm font-semibold px-4 py-2.5 rounded-full transition-colors disabled:opacity-60"
-          >
-            <LogOut className="h-4 w-4" />
-            {loggingOut ? "Signing out…" : "Sign Out"}
-          </button>
+        <AdminNav />
+
+        <div className="mb-8">
+          <h1 className="font-plus-jakarta text-2xl font-bold text-yorlex-ink">
+            Contact Inbox
+          </h1>
+          <p className="font-inter text-sm text-yorlex-muted mt-1">
+            {unhandledCount} unread · {submissions.length} total
+          </p>
         </div>
 
         {submissions.length === 0 ? (

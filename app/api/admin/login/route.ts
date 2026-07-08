@@ -10,8 +10,9 @@ function safeCompare(a: string, b: string): boolean {
 }
 
 export async function POST(request: Request) {
+  const adminEmail = process.env.ADMIN_EMAIL;
   const adminPassword = process.env.ADMIN_PASSWORD;
-  if (!adminPassword) {
+  if (!adminEmail || !adminPassword) {
     return NextResponse.json(
       { error: "Admin login is not configured on the server." },
       { status: 500 }
@@ -25,9 +26,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const { password } = (body ?? {}) as Record<string, unknown>;
-  if (typeof password !== "string" || !safeCompare(password, adminPassword)) {
-    return NextResponse.json({ error: "Incorrect password" }, { status: 401 });
+  const { email, password } = (body ?? {}) as Record<string, unknown>;
+
+  const emailValid =
+    typeof email === "string" &&
+    safeCompare(email.trim().toLowerCase(), adminEmail.trim().toLowerCase());
+  const passwordValid = typeof password === "string" && safeCompare(password, adminPassword);
+
+  if (!emailValid || !passwordValid) {
+    return NextResponse.json({ error: "Incorrect email or password" }, { status: 401 });
   }
 
   await createAdminSession();

@@ -6,6 +6,7 @@ import { Lock } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -19,7 +20,7 @@ export default function AdminLoginPage() {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (!res.ok) {
@@ -51,12 +52,26 @@ export default function AdminLoginPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block font-inter font-semibold text-xs text-white/60 mb-1.5">
+              Email
+            </label>
+            <input
+              type="email"
+              required
+              autoFocus
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full bg-white/5 rounded-lg border border-white/15 text-white py-2.5 px-3 focus:border-yorlex-green focus:outline-none transition-colors font-inter text-sm"
+              placeholder="you@yorlex.com"
+            />
+          </div>
+
+          <div>
+            <label className="block font-inter font-semibold text-xs text-white/60 mb-1.5">
               Password
             </label>
             <input
               type="password"
               required
-              autoFocus
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full bg-white/5 rounded-lg border border-white/15 text-white py-2.5 px-3 focus:border-yorlex-green focus:outline-none transition-colors font-inter text-sm"

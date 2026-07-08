@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { addSubmission } from "@/lib/contactStore";
 import { sendContactNotification } from "@/lib/mailer";
+import { validateContactEmail } from "@/lib/emailValidation";
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -22,6 +23,11 @@ export async function POST(request: Request) {
     !message.trim()
   ) {
     return NextResponse.json({ error: "Missing or invalid fields" }, { status: 400 });
+  }
+
+  const emailCheck = await validateContactEmail(email.trim());
+  if (!emailCheck.valid) {
+    return NextResponse.json({ error: emailCheck.reason }, { status: 400 });
   }
 
   const submission = await addSubmission({
