@@ -19,12 +19,12 @@ import { useScrollReveal } from "@/components/hooks";
 
 export default function HomeContent() {
   const partnerLogos = [
-    { name: "Tech Enterprise", icon: Server, label: "CLOUDMESH" },
-    { name: "Financial Institution", icon: Landmark, label: "FINTEX" },
-    { name: "Manufacturing Corp", icon: Building, label: "APEX_MFG" },
-    { name: "Communication Desk", icon: Megaphone, label: "VOX_MEDIA" },
-    { name: "Global Operations", icon: Server, label: "SYS_CORP" },
-    { name: "Client Desk", icon: Headphones, label: "PRO_SUPPORT" },
+    { name: "Tech Enterprise", icon: Server, label: "Cloudmesh" },
+    { name: "Financial Institution", icon: Landmark, label: "Fintex" },
+    { name: "Manufacturing Corp", icon: Building, label: "Apex Manufacturing" },
+    { name: "Communication Desk", icon: Megaphone, label: "Vox Media" },
+    { name: "Global Operations", icon: Server, label: "Syscorp" },
+    { name: "Client Desk", icon: Headphones, label: "ProSupport" },
   ];
 
   return (
@@ -123,7 +123,7 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
         >
-          <div className="yorlex-card p-6 md:p-8">
+          <div className="yorlex-card p-6 md:p-8 pb-14 md:pb-16">
             <div className="flex items-center justify-between mb-6">
               <span className="text-xs font-semibold uppercase tracking-widest text-yorlex-muted">
                 Operational Dashboard
@@ -133,8 +133,8 @@ function HeroSection() {
                 Live
               </span>
             </div>
-            <div className="flex items-end gap-2 h-32">
-              {[35, 55, 40, 70, 60, 85, 95].map((h, i) => (
+            <div className="flex items-end gap-3 h-32">
+              {[45, 65, 78, 95].map((h, i) => (
                 <div
                   key={i}
                   className="flex-1 rounded-t-md bg-yorlex-green-soft"
@@ -142,7 +142,7 @@ function HeroSection() {
                 >
                   <div
                     className="w-full h-full rounded-t-md bg-yorlex-green/80"
-                    style={{ opacity: 0.15 + i * 0.12 }}
+                    style={{ opacity: 0.4 + i * 0.2 }}
                   />
                 </div>
               ))}
@@ -197,7 +197,7 @@ function ServicesBento() {
       description: "Global SEO, growth funnels, and brand positioning.",
       icon: Megaphone,
       href: "/services/marketing",
-      size: "standard",
+      size: "half",
       image: "/images/services/marketing.jpg",
     },
     {
@@ -205,7 +205,7 @@ function ServicesBento() {
       description: "Agile organizational design and board governance.",
       icon: Building,
       href: "/services/management",
-      size: "standard",
+      size: "half",
       image: "/images/services/management.jpg",
     },
     {
@@ -247,7 +247,13 @@ function ServicesBento() {
           {services.map((svc) => {
             const Icon = svc.icon;
             const gridSpan =
-              svc.size === "large" ? "md:col-span-8" : svc.size === "featured" ? "md:col-span-12" : "md:col-span-4";
+              svc.size === "large"
+                ? "md:col-span-8"
+                : svc.size === "featured"
+                  ? "md:col-span-12"
+                  : svc.size === "half"
+                    ? "md:col-span-6"
+                    : "md:col-span-4";
             const isFeatured = svc.size === "featured";
 
             return (

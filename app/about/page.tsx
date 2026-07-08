@@ -242,7 +242,7 @@ export default function About() {
           {/* Vision */}
           <div className="md:col-span-4">
             <div className="yorlex-card overflow-hidden h-full flex flex-col">
-              <div className="relative h-32 overflow-hidden shrink-0">
+              <div className="relative h-48 overflow-hidden shrink-0">
                 <img src="/images/about/vision.jpg" alt="" className="w-full h-full object-cover grayscale" />
                 <div className="absolute inset-0 bg-yorlex-navy/25" />
               </div>
@@ -264,7 +264,7 @@ export default function About() {
         {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="yorlex-card overflow-hidden">
-            <div className="relative h-28 overflow-hidden">
+            <div className="relative h-40 overflow-hidden">
               <img src="/images/about/structural-integrity.jpg" alt="" className="w-full h-full object-cover grayscale" />
               <div className="absolute inset-0 bg-yorlex-navy/25" />
             </div>
@@ -280,7 +280,7 @@ export default function About() {
           </div>
 
           <div className="yorlex-card overflow-hidden">
-            <div className="relative h-28 overflow-hidden">
+            <div className="relative h-40 overflow-hidden">
               <img src="/images/about/calculated-velocity.jpg" alt="" className="w-full h-full object-cover grayscale" />
               <div className="absolute inset-0 bg-yorlex-navy/25" />
             </div>
@@ -296,7 +296,7 @@ export default function About() {
           </div>
 
           <div className="yorlex-card overflow-hidden">
-            <div className="relative h-28 overflow-hidden">
+            <div className="relative h-40 overflow-hidden">
               <img src="/images/about/accountability.jpg" alt="" className="w-full h-full object-cover grayscale" />
               <div className="absolute inset-0 bg-yorlex-navy/25" />
             </div>
