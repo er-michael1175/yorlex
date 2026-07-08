@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Globe, Mail, Phone, ArrowRight } from "lucide-react";
+import { Globe, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -53,15 +53,31 @@ export default function Footer() {
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
               Advancing global productivity through technology, finance, marketing, and management expertise.
             </p>
+            <div className="space-y-2 text-sm text-white/70">
+              <a
+                href="mailto:contact@yorlex.com"
+                className="flex items-center gap-2 hover:text-yorlex-green transition-colors"
+              >
+                <Mail className="h-3.5 w-3.5 shrink-0" />
+                contact@yorlex.com
+              </a>
+              <a
+                href="tel:+919270292704"
+                className="flex items-center gap-2 hover:text-yorlex-green transition-colors"
+              >
+                <Phone className="h-3.5 w-3.5 shrink-0" />
+                +91 92702 92704
+              </a>
+              <div className="flex items-start gap-2">
+                <MapPin className="h-3.5 w-3.5 shrink-0 mt-0.5" />
+                <span className="max-w-55">
+                  First Floor, Golghar, Gorakhpur - 273001, Uttar Pradesh
+                </span>
+              </div>
+            </div>
             <div className="flex items-center gap-4 pt-1 text-white/60">
               <Link href="#" className="hover:text-yorlex-green transition-colors">
                 <Globe className="h-4 w-4" />
-              </Link>
-              <Link href="/contact" className="hover:text-yorlex-green transition-colors">
-                <Mail className="h-4 w-4" />
-              </Link>
-              <Link href="/contact" className="hover:text-yorlex-green transition-colors">
-                <Phone className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -153,7 +169,7 @@ export default function Footer() {
           <div>© 2024 Yorlex. All rights reserved.</div>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-white/70 transition-colors">
-              Global Offices
+              Our Office
             </Link>
             <Link href="/privacy" className="hover:text-white/70 transition-colors">
               Privacy

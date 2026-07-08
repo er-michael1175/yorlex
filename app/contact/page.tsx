@@ -8,36 +8,75 @@ export default function Contact() {
   const [clientSubmitted, setClientSubmitted] = useState(false);
   const [generalSubmitted, setGeneralSubmitted] = useState(false);
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+  const [clientError, setClientError] = useState<string | null>(null);
+  const [generalError, setGeneralError] = useState<string | null>(null);
+  const [clientSubmitting, setClientSubmitting] = useState(false);
+  const [generalSubmitting, setGeneralSubmitting] = useState(false);
 
   const offices = [
     {
-      city: "San Francisco (North America HQ)",
-      addr: "Suite 400, 101 California St, San Francisco, CA, USA",
-      phone: "+1 415 890 2000",
-      email: "sf@yorlex.com",
-    },
-    {
-      city: "London (Europe HQ)",
-      addr: "30 St Mary Axe, London EC3A 8BF, United Kingdom",
-      phone: "+44 20 7902 4000",
-      email: "ldn@yorlex.com",
-    },
-    {
-      city: "Chennai (APAC HQ)",
-      addr: "Tidel Park, Taramani, Chennai, TN, India",
-      phone: "+91 44 2254 0900",
-      email: "maa@yorlex.com",
+      city: "Gorakhpur (Headquarters)",
+      addr: "First Floor, Golghar, Gorakhpur - 273001, Uttar Pradesh, India",
+      phone: "+91 92702 92704",
+      email: "contact@yorlex.com",
     },
   ];
 
-  const handleClientSubmit = (e: React.FormEvent) => {
+  const handleClientSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setClientSubmitted(true);
+    setClientError(null);
+    setClientSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const firstName = String(formData.get("firstName") ?? "").trim();
+    const lastName = String(formData.get("lastName") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const areaOfInterest = String(formData.get("areaOfInterest") ?? "");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "client",
+          name: `${firstName} ${lastName}`.trim(),
+          email,
+          areaOfInterest,
+          message: `Area of interest: ${areaOfInterest}`,
+        }),
+      });
+      if (!res.ok) throw new Error();
+      setClientSubmitted(true);
+    } catch {
+      setClientError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setClientSubmitting(false);
+    }
   };
 
-  const handleGeneralSubmit = (e: React.FormEvent) => {
+  const handleGeneralSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setGeneralSubmitted(true);
+    setGeneralError(null);
+    setGeneralSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "general", name, email, message }),
+      });
+      if (!res.ok) throw new Error();
+      setGeneralSubmitted(true);
+    } catch {
+      setGeneralError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setGeneralSubmitting(false);
+    }
   };
 
   return (
@@ -198,21 +237,21 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">First Name</label>
-                    <input required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane" />
+                    <input name="firstName" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane" />
                   </div>
                   <div>
                     <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Last Name</label>
-                    <input required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Doe" />
+                    <input name="lastName" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Doe" />
                   </div>
                 </div>
                 <div>
                   <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Corporate Email</label>
-                  <input required type="email" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="email@company.com" />
+                  <input name="email" required type="email" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="email@company.com" />
                 </div>
                 <div>
                   <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Area of Interest</label>
                   <div className="relative">
-                    <select required className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs cursor-pointer appearance-none">
+                    <select name="areaOfInterest" required defaultValue="tech" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs cursor-pointer appearance-none">
                       <option className="bg-black text-white" value="tech">Technology Architecture &amp; Outsourcing</option>
                       <option className="bg-black text-white" value="fin">Fiduciary &amp; Tax Solutions</option>
                       <option className="bg-black text-white" value="mkt">Marketing Brand &amp; ROI Campaigns</option>
@@ -221,8 +260,11 @@ export default function Contact() {
                     </select>
                   </div>
                 </div>
-                <button type="submit" className="w-full bg-white hover:bg-brand-purple text-black hover:text-white py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-white hover:border-brand-purple">
-                  <span>Initiate Engagement</span>
+                {clientError && (
+                  <p className="font-inter text-xs text-red-400">{clientError}</p>
+                )}
+                <button type="submit" disabled={clientSubmitting} className="w-full bg-white hover:bg-brand-purple text-black hover:text-white py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-white hover:border-brand-purple disabled:opacity-60">
+                  <span>{clientSubmitting ? "Submitting…" : "Initiate Engagement"}</span>
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </form>
@@ -254,18 +296,21 @@ export default function Contact() {
               <form onSubmit={handleGeneralSubmit} className="space-y-6">
                 <div>
                   <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Full Name</label>
-                  <input required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane Doe" />
+                  <input name="name" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane Doe" />
                 </div>
                 <div>
                   <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Email Address</label>
-                  <input required type="email" className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="jane@doe.com" />
+                  <input name="email" required type="email" className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="jane@doe.com" />
                 </div>
                 <div>
                   <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Message</label>
-                  <textarea required rows={3} className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors resize-none font-inter text-xs" placeholder="How can we assist you?" />
+                  <textarea name="message" required rows={3} className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors resize-none font-inter text-xs" placeholder="How can we assist you?" />
                 </div>
-                <button type="submit" className="w-full bg-black hover:bg-brand-purple text-white py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple">
-                  <span>Submit Inquiry</span>
+                {generalError && (
+                  <p className="font-inter text-xs text-red-500">{generalError}</p>
+                )}
+                <button type="submit" disabled={generalSubmitting} className="w-full bg-black hover:bg-brand-purple text-white py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple disabled:opacity-60">
+                  <span>{generalSubmitting ? "Submitting…" : "Submit Inquiry"}</span>
                 </button>
               </form>
             )}
@@ -274,16 +319,16 @@ export default function Contact() {
         </div>
       </SectionWrapper>
 
-      {/* Global Offices */}
+      {/* Office */}
       <SectionWrapper id="offices-section" background="default" spacing="compact" className="border-t border-brand-border-light" animate>
         <div>
           <div className="text-center mb-12">
-            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// CORPORATE SITES</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">Global Offices</h2>
+            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// GET IN TOUCH</span>
+            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">Our Office</h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {offices.map((office, idx) => (
+
+          <div className="grid grid-cols-1 max-w-md mx-auto gap-8">
+            {offices.map((office) => (
               <div
                 key={office.city}
                 className="bg-white border border-brand-border p-8 flex flex-col justify-between group hover:border-brand-purple transition-all duration-300 rounded-2xl shadow-sm relative"
@@ -302,7 +347,12 @@ export default function Contact() {
                     </div>
                     <div className="flex gap-2.5 items-center">
                       <Phone className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                      <span className="font-mono font-semibold">{office.phone}</span>
+                      <a
+                        href={`tel:${office.phone.replace(/\s/g, "")}`}
+                        className="font-mono font-semibold hover:text-brand-purple transition-colors"
+                      >
+                        {office.phone}
+                      </a>
                     </div>
                     <div className="flex gap-2.5 items-center">
                       <Mail className="h-4.5 w-4.5 text-brand-purple shrink-0" />

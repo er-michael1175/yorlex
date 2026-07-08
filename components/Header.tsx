@@ -13,6 +13,7 @@ import {
   Users,
   Headphones,
   ArrowRight,
+  MessageCircle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
@@ -163,14 +164,12 @@ export default function Header() {
 
           {/* Right section */}
           <div className="hidden lg:flex items-center gap-3">
-            <button
-              type="button"
-              className="px-4 py-2 text-sm font-medium text-yorlex-body hover:text-yorlex-ink transition-colors"
+            <Link
+              href="/contact"
+              className="yorlex-btn-primary flex items-center gap-2 px-5 py-2.5 text-sm"
             >
-              Login
-            </button>
-            <Link href="/contact" className="yorlex-btn-primary px-5 py-2.5 text-sm">
-              Get Started
+              <MessageCircle className="h-4 w-4" />
+              Contact Us
             </Link>
           </div>
 
@@ -239,14 +238,12 @@ export default function Header() {
               ))}
 
               <div className="mt-4 pt-4 border-t border-yorlex-border flex flex-col gap-3">
-                <button
-                  type="button"
-                  className="w-full py-3 text-sm font-semibold text-center text-yorlex-ink border border-yorlex-border rounded-full"
+                <Link
+                  href="/contact"
+                  className="yorlex-btn-primary w-full py-3 text-sm text-center flex items-center justify-center gap-2"
                 >
-                  Login
-                </button>
-                <Link href="/contact" className="yorlex-btn-primary w-full py-3 text-sm text-center">
-                  Get Started
+                  <MessageCircle className="h-4 w-4" />
+                  Contact Us
                 </Link>
               </div>
             </div>

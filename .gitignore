@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.local.example
+
+# contact form submissions (local file-based storage, contains PII)
+/data/
 
 # vercel
 .vercel
