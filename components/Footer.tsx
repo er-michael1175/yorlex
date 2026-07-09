@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Globe, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -27,12 +27,6 @@ export default function Footer() {
     { name: "About Us", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Industries", href: "/industries" },
-    { name: "Engagement Models", href: "/engagement-models" },
-  ];
-
-  const legal = [
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -45,15 +39,15 @@ export default function Footer() {
 
   return (
     <footer className="w-full flex flex-col mt-auto">
-      <div className="w-full bg-yorlex-navy text-white pt-16 pb-10 px-6 flex flex-col items-center">
-        <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 items-start pb-14">
+      <div className="w-full bg-yorlex-navy text-white pt-10 pb-6 px-6 flex flex-col items-center">
+        <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start pb-6">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <Logo variant="light" />
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
               Advancing global productivity through technology, finance, marketing, and management expertise.
             </p>
-            <div className="space-y-2 text-sm text-white/70">
+            <div className="space-y-1.5 text-sm text-white/70">
               <a
                 href="mailto:contact@yorlex.com"
                 className="flex items-center gap-2 hover:text-yorlex-green transition-colors"
@@ -75,17 +69,12 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <div className="flex items-center gap-4 pt-1 text-white/60">
-              <Link href="#" className="hover:text-yorlex-green transition-colors">
-                <Globe className="h-4 w-4" />
-              </Link>
-            </div>
           </div>
 
           {/* Solutions */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <h4 className="text-sm font-semibold text-white">Solutions</h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
+            <ul className="space-y-2 text-sm text-white/60">
               {solutions.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:text-yorlex-green transition-colors">
@@ -97,9 +86,9 @@ export default function Footer() {
           </div>
 
           {/* Resources */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <h4 className="text-sm font-semibold text-white">Resources</h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
+            <ul className="space-y-2 text-sm text-white/60">
               {resources.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:text-yorlex-green transition-colors">
@@ -110,10 +99,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
-          <div className="space-y-4">
+          {/* Company + newsletter */}
+          <div className="space-y-3">
             <h4 className="text-sm font-semibold text-white">Company</h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
+            <ul className="space-y-2 text-sm text-white/60">
               {company.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:text-yorlex-green transition-colors">
@@ -122,27 +111,13 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
 
-          {/* Legal + newsletter */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-white">Legal</h4>
-            <ul className="space-y-2.5 text-sm text-white/60">
-              {legal.map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="hover:text-yorlex-green transition-colors">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <form onSubmit={handleSubscribe} className="pt-2">
+            <div className="pt-1 text-center">
               <p className="text-xs font-semibold text-white/80 mb-2">Get insights in your inbox</p>
               {subscribed ? (
                 <p className="text-sm text-yorlex-green font-medium">Thanks — you&apos;re subscribed.</p>
               ) : (
-                <div className="flex items-center gap-2">
+                <form onSubmit={handleSubscribe} className="flex items-center justify-center gap-2">
                   <input
                     type="email"
                     required
@@ -158,14 +133,14 @@ export default function Footer() {
                   >
                     <ArrowRight className="h-4 w-4" />
                   </button>
-                </div>
+                </form>
               )}
-            </form>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="w-full max-w-7xl pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40 gap-4">
+        <div className="w-full max-w-7xl pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40 gap-3">
           <div>© 2024 Yorlex. All rights reserved.</div>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-white/70 transition-colors">

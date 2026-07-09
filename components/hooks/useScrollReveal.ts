@@ -14,32 +14,32 @@ export interface UseScrollRevealReturn {
   isInView: boolean;
 }
 
+const FALLBACK_REVEAL_MS = 1500;
+
 /**
  * One-shot scroll-reveal hook powered by IntersectionObserver.
- * `isInView` transitions to `true` exactly once when the referenced element
- * enters the viewport, then the observer disconnects to prevent memory leaks.
+ * `isInView` transitions to `true` once the referenced element enters the
+ * viewport, then the observer disconnects to prevent memory leaks.
  *
- * Falls back to `isInView = true` immediately if IntersectionObserver is unavailable.
+ * A fallback timer also force-reveals content if the observer never fires
+ * (e.g. the ref never attaches to a DOM node) so content can't get stuck
+ * permanently invisible.
  */
 export function useScrollReveal(options?: UseScrollRevealOptions): UseScrollRevealReturn {
   const ref = useRef<HTMLElement | null>(null);
-  const [isInView, setIsInView] = useState(() => {
-    // Fallback: if IntersectionObserver is unavailable, mark as visible immediately
-    if (typeof IntersectionObserver === "undefined") {
-      return true;
-    }
-    return false;
-  });
+  const [isInView, setIsInView] = useState(
+    () => typeof IntersectionObserver === "undefined"
+  );
 
   useEffect(() => {
-    // If already in view (fallback triggered) or IO unavailable, nothing to do
-    if (typeof IntersectionObserver === "undefined") {
-      setIsInView(true);
-      return;
-    }
+    if (isInView) return;
 
     const element = ref.current;
-    if (!element) return;
+    const fallback = setTimeout(() => setIsInView(true), FALLBACK_REVEAL_MS);
+
+    if (!element) {
+      return () => clearTimeout(fallback);
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -57,6 +57,7 @@ export function useScrollReveal(options?: UseScrollRevealOptions): UseScrollReve
     observer.observe(element);
 
     return () => {
+      clearTimeout(fallback);
       observer.disconnect();
     };
     // One-shot: options are consumed once on mount
