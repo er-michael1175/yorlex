@@ -65,7 +65,7 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <MapPin className="h-3.5 w-3.5 shrink-0 mt-0.5" />
                 <span className="max-w-55">
-                  First Floor, Golghar, Gorakhpur - 273001, Uttar Pradesh
+                  First Floor, GDA Tower, Golghar, Gorakhpur - 273001, Uttar Pradesh
                 </span>
               </div>
             </div>

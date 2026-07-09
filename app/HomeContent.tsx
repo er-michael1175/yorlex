@@ -19,12 +19,12 @@ import { useScrollReveal } from "@/components/hooks";
 
 export default function HomeContent() {
   const partnerLogos = [
-    { name: "Tech Enterprise", icon: Server, label: "Cloudmesh" },
-    { name: "Financial Institution", icon: Landmark, label: "Fintex" },
-    { name: "Manufacturing Corp", icon: Building, label: "Apex Manufacturing" },
-    { name: "Communication Desk", icon: Megaphone, label: "Vox Media" },
-    { name: "Global Operations", icon: Server, label: "Syscorp" },
-    { name: "Client Desk", icon: Headphones, label: "ProSupport" },
+    { label: "Cloudmesh" },
+    { label: "Fintex" },
+    { label: "Apex Manufacturing" },
+    { label: "Vox Media" },
+    { label: "Syscorp" },
+    { label: "ProSupport" },
   ];
 
   return (
@@ -38,19 +38,20 @@ export default function HomeContent() {
             Trusted by global enterprises
           </p>
           <div className="relative w-full overflow-hidden">
-            <div className="flex gap-16 animate-marquee whitespace-nowrap">
-              {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => {
-                const Icon = logo.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="shrink-0 flex items-center gap-2 text-yorlex-muted hover:text-yorlex-green transition-colors duration-300 font-semibold tracking-wide text-sm select-none"
-                  >
-                    <Icon className="h-5 w-5" />
-                    <span>{logo.label}</span>
-                  </div>
-                );
-              })}
+            <div className="flex gap-14 animate-marquee whitespace-nowrap">
+              {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => (
+                <div
+                  key={idx}
+                  className="shrink-0 flex items-center gap-2.5 text-yorlex-muted hover:text-yorlex-ink transition-colors duration-300 select-none"
+                >
+                  <span className="w-7 h-7 rounded-md bg-yorlex-green-soft flex items-center justify-center text-yorlex-green-dark font-bold text-xs shrink-0">
+                    {logo.label.charAt(0)}
+                  </span>
+                  <span className="font-semibold tracking-wide text-sm uppercase">
+                    {logo.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -78,7 +79,22 @@ export default function HomeContent() {
 function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)]">
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+      <div
+        className="absolute inset-y-0 right-0 w-full md:w-3/4 grayscale opacity-40 pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to right, transparent, black 45%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 45%)",
+        }}
+      >
+        <img
+          src="/images/home/hero-skyline.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)] opacity-60 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial="hidden"
           animate="visible"

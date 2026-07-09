@@ -22,7 +22,7 @@ export const contactDefaultContent: ContactContent = {
   offices: [
     {
       city: "Gorakhpur (Headquarters)",
-      addr: "First Floor, Golghar, Gorakhpur - 273001, Uttar Pradesh, India",
+      addr: "First Floor, GDA Tower, Golghar, Gorakhpur - 273001, Uttar Pradesh, India",
       phone: "+91 92702 92704",
       email: "contact@yorlex.com",
     },
