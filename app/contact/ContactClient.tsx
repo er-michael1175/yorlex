@@ -118,8 +118,24 @@ export default function ContactClient({ content }: { content: ContactContent }) 
   return (
     <div className="flex-grow bg-brand-bg font-sans pt-0 pb-0">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="py-16 md:py-20" animate>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden py-16 md:py-20" animate>
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 45%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 45%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/contact/contact-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-45 md:opacity-20 pointer-events-none" />
+
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
               <Globe className="h-4 w-4 text-brand-purple shrink-0" />
