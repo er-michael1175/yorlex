@@ -173,7 +173,7 @@ export default function ServicePage({ params }: PageProps) {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white hover:bg-brand-purple text-black hover:text-white font-bold px-8 py-4 rounded-2xl transition-colors border border-white hover:border-brand-purple font-inter font-bold text-[10px]"
+            className="inline-flex items-center gap-2 bg-white hover:bg-brand-purple text-black font-bold px-8 py-4 rounded-2xl transition-colors border border-white hover:border-brand-purple font-inter font-bold text-[10px]"
           >
             Start Conversation <ArrowRight className="h-4 w-4" />
           </Link>

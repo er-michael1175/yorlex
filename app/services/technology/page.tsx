@@ -36,84 +36,6 @@ import {
 } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
 
-// Mock Dashboard Component for the Hero Right Side
-function HeroDashboardMockup() {
-  const [activeStep, setActiveStep] = useState(0);
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % 4);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const buildStages = [
-    { label: "INITIATING BUILD", status: "success" },
-    { label: "COMPILING DEPLOYMENT DOCKER", status: "success" },
-    { label: "RUNNING SECURITY PEN-TEST", status: "active" },
-    { label: "STAGE_ROLLOUT: LON.04 SUCCESS", status: "pending" },
-  ];
-
-  return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
-      {/* Window Title Bar */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
-        <div className="flex gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[9px] text-gray-500 font-bold">
-          YORLEX // DEVOPS_MONITOR_01
-        </span>
-      </div>
-
-      {/* Main Stats Grid */}
-      <div className="grid grid-cols-3 gap-3 mb-4">
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">API Status</span>
-          <span className="text-xs font-bold text-green-400 font-mono mt-1 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-ping" /> 99.98%
-          </span>
-        </div>
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">Node Latency</span>
-          <span className="text-xs font-bold text-brand-blue font-mono mt-1">4.83 ms</span>
-        </div>
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">Secure Core</span>
-          <span className="text-xs font-bold text-brand-purple font-mono mt-1">SOC-2 ACTIVE</span>
-        </div>
-      </div>
-
-      {/* Live terminal compiler feed */}
-      <div className="flex-1 flex flex-col gap-2 overflow-hidden text-[9px] text-gray-450 border border-brand-border-light/5 bg-slate-900/40 p-3">
-        <div className="text-[8px] text-brand-purple font-bold">// REAL-TIME DEPLOYMENT LOGS</div>
-        <div className="flex flex-col gap-1">
-          {buildStages.map((stage, idx) => (
-            <div key={idx} className="flex items-center justify-between">
-              <span className={idx === activeStep ? "text-brand-purple font-bold" : "text-gray-400"}>
-                &gt; {stage.label}
-              </span>
-              <span className={`text-[8px] font-bold ${
-                idx < activeStep ? "text-green-500" : idx === activeStep ? "text-brand-blue animate-pulse" : "text-gray-650"
-              }`}>
-                {idx < activeStep ? "DONE" : idx === activeStep ? "RUNNING" : "WAITING"}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Graphic base info */}
-      <div className="mt-3 border-t border-brand-border-light/10 pt-3 flex items-center justify-between text-[8px] text-gray-500">
-        <span>Active Orchestration Pipeline</span>
-        <span className="text-brand-purple">// v1.42.0</span>
-      </div>
-    </div>
-  );
-}
-
 // Services Grid Data
 const servicesList = [
   {
@@ -212,6 +134,7 @@ const caseStudies = [
   {
     title: "Enterprise CRM Platform",
     industry: "Finance & Operations",
+    image: "/images/services/case-study-crm.jpg",
     tech: ["Next.js", "Node.js", "PostgreSQL", "AWS"],
     desc: "Restructured CRM operations for a global quantitative trading group, migrating legacy architectures to microservices.",
     outcome: "+38% Operational Efficiency Boost",
@@ -219,6 +142,7 @@ const caseStudies = [
   {
     title: "AI Customer Support Chatbot",
     industry: "E-commerce & Retail",
+    image: "/images/services/case-study-support.jpg",
     tech: ["OpenAI API", "LangChain", "Python", "Next.js"],
     desc: "Designed and trained generative AI agents to resolve Level-1 support requests with human-like comprehension.",
     outcome: "-45% Support Ticket Volume",
@@ -226,6 +150,7 @@ const caseStudies = [
   {
     title: "E-commerce Marketplace",
     industry: "Retail & Sales",
+    image: "/images/services/case-study-marketplace.jpg",
     tech: ["React", "Next.js", "Node.js", "Kubernetes"],
     desc: "Re-engineered high-volume transactional pipelines, optimizing database querying for peak trading seasons.",
     outcome: "99.99% Core Transactional Uptime",
@@ -266,58 +191,76 @@ export default function TechnologySolutions() {
   return (
     <div className="flex-1 font-sans bg-brand-bg">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col gap-3">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
-              <span className="font-inter font-bold text-[10px] text-gray-555">
-                Technology Pillar
-              </span>
-            </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
-              Technology Solutions That Power Modern Businesses
-            </h1>
-            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-              We help startups, SMEs, and enterprises build scalable digital products, automate operations, modernize legacy systems, and accelerate business growth through innovative technology.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-1">
-              <PremiumButton
-                variant="gradient"
-                size="md"
-                href="/contact"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Schedule Consultation
-              </PremiumButton>
-              <PremiumButton
-                variant="secondary"
-                size="md"
-                href="/contact"
-              >
-                Get a Free Quote
-              </PremiumButton>
-            </div>
-          </div>
+      <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8" animate>
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 42%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/services/technology-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
 
-          <div className="lg:col-span-5 relative">
-            <HeroDashboardMockup />
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
+            <span className="font-inter font-bold text-[10px] text-gray-555">
+              Technology Pillar
+            </span>
+          </div>
+          <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+            Technology Solutions That Power Modern Businesses
+          </h1>
+          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+            We help startups, SMEs, and enterprises build scalable digital products, automate operations, modernize legacy systems, and accelerate business growth through innovative technology.
+          </p>
+          <div className="flex flex-wrap gap-4 mt-1">
+            <PremiumButton
+              variant="gradient"
+              size="md"
+              href="/contact"
+              icon={<ArrowRight className="h-4 w-4" />}
+            >
+              Schedule Consultation
+            </PremiumButton>
+            <PremiumButton
+              variant="secondary"
+              size="md"
+              href="/contact"
+            >
+              Get a Free Quote
+            </PremiumButton>
           </div>
         </div>
       </SectionWrapper>
 
       {/* 2. What We Do Section */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light relative z-10" animate>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-4">
-          <div className="max-w-md">
-            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// CAPABILITY SCOPE</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 flex flex-col gap-3">
+            <span className="font-inter font-bold text-[10px] text-brand-purple block">// CAPABILITY SCOPE</span>
             <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">
               End-to-End Technology Services
             </h2>
+            <p className="font-inter text-gray-600 text-sm leading-relaxed max-w-xl">
+              Yorlex delivers end-to-end technology solutions that help businesses innovate faster, improve operational efficiency, and stay ahead in the digital era.
+            </p>
           </div>
-          <p className="font-inter text-gray-600 text-sm leading-relaxed max-w-xl">
-            Yorlex delivers end-to-end technology solutions that help businesses innovate faster, improve operational efficiency, and stay ahead in the digital era.
-          </p>
+          <div className="lg:col-span-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/services/what-we-do.jpg"
+              alt="Yorlex team collaborating on a technology delivery"
+              className="w-full h-48 md:h-56 object-cover border border-brand-border-light"
+            />
+          </div>
         </div>
       </SectionWrapper>
 
@@ -329,7 +272,7 @@ export default function TechnologySolutions() {
             return (
               <div
                 key={idx}
-                className="group relative block bg-white border border-brand-border-light p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(92,122,52,0.05)]"
+                className="group relative block bg-white border border-brand-border-light p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(159,198,40,0.05)]"
               >
                 {/* Top border reveal on hover */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-purple origin-left scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
@@ -487,23 +430,29 @@ export default function TechnologySolutions() {
               key={idx}
               className="bg-white border border-brand-border-light hover:border-brand-purple transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Visual mock top */}
-              <div className="bg-[#0d0d0e] border-b border-brand-border-light/10 p-6 font-mono text-[9px] text-brand-purple min-h-[140px] flex flex-col justify-between">
-                <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                  <span className="text-[8px] text-gray-500 font-bold">{project.industry}</span>
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                </div>
-                <div className="flex-1 flex items-center justify-center my-3 text-center">
-                  <span className="text-white text-xs font-plus-jakarta font-bold">
-                    {project.title}
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
-                  {project.tech.map((t) => (
-                    <span key={t} className="text-[8px] border border-brand-purple/20 px-1 text-brand-purple/90">
-                      {t}
+              {/* Visual top */}
+              <div className="relative min-h-[160px] overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="relative h-full min-h-[160px] p-6 flex flex-col justify-between">
+                  <span className="text-[9px] font-bold text-white/80 tracking-wide">{project.industry}</span>
+                  <div>
+                    <span className="text-white text-sm font-plus-jakarta font-bold block mb-2">
+                      {project.title}
                     </span>
-                  ))}
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tech.map((t) => (
+                        <span key={t} className="text-[8px] border border-white/25 px-1.5 py-0.5 text-white/90 bg-black/30">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 

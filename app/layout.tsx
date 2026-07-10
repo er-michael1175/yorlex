@@ -51,7 +51,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${plusJakartaSans.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-brand-bg text-brand-text font-sans antialiased flex flex-col overflow-x-hidden selection:bg-brand-purple selection:text-white">
+      <body className="min-h-screen bg-brand-bg text-brand-text font-sans antialiased flex flex-col overflow-x-hidden selection:bg-brand-purple selection:text-brand-text">
         <Header />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />

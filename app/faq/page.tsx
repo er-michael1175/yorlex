@@ -317,7 +317,7 @@ export default function FAQ() {
                         {/* Header with category icon */}
                         <div className="flex justify-between items-start gap-4">
                           <span className="font-mono text-[8px] text-gray-400">// {faq.category}</span>
-                          <div className="w-7 h-7 bg-brand-bg text-black group-hover:bg-brand-purple group-hover:text-white transition-colors duration-250 flex items-center justify-center shrink-0 border border-brand-border">
+                          <div className="w-7 h-7 bg-brand-bg text-black group-hover:bg-brand-purple group-hover:text-brand-text transition-colors duration-250 flex items-center justify-center shrink-0 border border-brand-border">
                             <IconComponent className="h-4 w-4" />
                           </div>
                         </div>

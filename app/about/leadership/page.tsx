@@ -117,7 +117,7 @@ export default function ExecutiveLeadership() {
           {/* Tile 1 (col-span-4, bg-black, text-white) */}
           <div className="col-span-1 md:col-span-4 bg-black text-white p-8 flex flex-col justify-between min-h-[300px] border border-black relative overflow-hidden group rounded-2xl">
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-brand-purple to-transparent pointer-events-none"></div>
-            <div className="w-12 h-12 bg-brand-purple text-white flex items-center justify-center mb-8 relative z-10">
+            <div className="w-12 h-12 bg-brand-purple text-brand-text flex items-center justify-center mb-8 relative z-10">
               <Scale className="h-6 w-6" />
             </div>
             <div className="relative z-10">

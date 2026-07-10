@@ -292,7 +292,7 @@ export default function SuccessStories() {
 
                   <button
                     onClick={() => setSelectedCase(story.id)}
-                    className="w-full mt-8 bg-black hover:bg-brand-purple text-white py-3.5 rounded-2xl transition-all text-xs flex items-center justify-center gap-2 border border-black hover:border-brand-purple font-inter font-bold text-[9px]"
+                    className="w-full mt-8 bg-black hover:bg-brand-purple text-white hover:text-brand-text py-3.5 rounded-2xl transition-all text-xs flex items-center justify-center gap-2 border border-black hover:border-brand-purple font-inter font-bold text-[9px]"
                   >
                     Read Case Analysis <ArrowRight className="h-4 w-4" />
                   </button>

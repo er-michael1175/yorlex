@@ -21,114 +21,7 @@ import {
   Smile,
   Check,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
-
-// Interactive SLA Operations Monitor Dashboard for Hero Right Side
-function HeroSupportDashboard() {
-  const [activeQueue, setActiveQueue] = useState<"customer" | "backoffice" | "technical">("customer");
-
-  const queues = {
-    customer: {
-      name: "Customer Care Queue",
-      tickets: "12 Active",
-      latency: "42 Sec Avg",
-      agents: "48 Headcount",
-      sla: "99.94% Compliant",
-      color: "text-green-400",
-    },
-    backoffice: {
-      name: "Data & Back-Office",
-      tickets: "480 Records/hr",
-      latency: "14 Min Cycle",
-      agents: "72 Headcount",
-      sla: "99.98% Accuracy",
-      color: "text-brand-purple",
-    },
-    technical: {
-      name: "IT Helpdesk SLA",
-      tickets: "4 Active",
-      latency: "8 Min Response",
-      agents: "18 Headcount",
-      sla: "100% Resolved",
-      color: "text-blue-400",
-    },
-  };
-
-  return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
-      {/* Window Title Bar */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
-        <div className="flex gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[9px] text-gray-500 font-bold">
-          YORLEX // SUPPORT_CONSOLE
-        </span>
-      </div>
-
-      {/* Selector Tabs */}
-      <div className="flex gap-1.5 border border-brand-border-light/5 bg-slate-900/40 p-1.5 mb-3 relative">
-        {(["customer", "backoffice", "technical"] as const).map((q) => (
-          <button
-            key={q}
-            onClick={() => setActiveQueue(q)}
-            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
-          >
-            <span className={activeQueue === q ? "text-white" : ""}>
-              {q === "customer" ? "Customer" : q === "backoffice" ? "Backoffice" : "Technical"}
-            </span>
-            {activeQueue === q && (
-              <motion.div
-                layoutId="activeSupportTab"
-                className="absolute inset-0 bg-brand-purple -z-10"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Details */}
-      <div className="flex-grow flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
-          <span>// LIVE SLA QUEUE STATUS</span>
-          <span className={queues[activeQueue].color}>● ONLINE</span>
-        </div>
-
-        <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 min-h-[110px] justify-center">
-          <div className="text-white font-bold text-[10px]">
-            {queues[activeQueue].name}
-          </div>
-          <div className="grid grid-cols-2 gap-2 text-gray-400 mt-1 font-mono text-[8px] leading-relaxed">
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-550">QUEUE VOLUME</span>
-              <span className="font-bold text-white mt-0.5">{queues[activeQueue].tickets}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-550">RESPONSE SPEED</span>
-              <span className={`font-bold mt-0.5 ${queues[activeQueue].color}`}>{queues[activeQueue].latency}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-555">ACTIVE HEADCOUNT</span>
-              <span className="font-bold text-white mt-0.5">{queues[activeQueue].agents}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-555">SLA COMPLIANCE</span>
-              <span className="font-bold text-white mt-0.5">{queues[activeQueue].sla}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="text-[7px] text-gray-450 border-t border-brand-border-light/10 pt-2">
-        ROUTING_PROTOCOL: BPO_GLOBAL // DATA_SECURE: AES_256
-      </div>
-    </div>
-  );
-}
 
 export default function SupportServices() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -236,14 +129,17 @@ export default function SupportServices() {
     {
       title: "E-commerce Customer Support",
       desc: "Handled customer inquiries across email and live chat, improving response times and customer satisfaction.",
+      image: "/images/services/support-case-1.jpg",
     },
     {
       title: "Administrative Process Optimization",
       desc: "Streamlined back-office operations for a growing company, reducing manual workload and increasing efficiency.",
+      image: "/images/services/support-case-2.jpg",
     },
     {
       title: "Technical Help Desk",
       desc: "Provided multi-channel technical support, ensuring quick issue resolution and minimal downtime.",
+      image: "/images/services/support-case-3.jpg",
     },
   ];
 
@@ -259,42 +155,52 @@ export default function SupportServices() {
   return (
     <div className="flex-grow bg-brand-bg font-sans">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col gap-3">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555">
-                Operations &amp; BPO
-              </span>
-            </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
-              Business Support Services That Keep Your Business Running
-            </h1>
-            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-              Focus on growing your business while Yorlex handles your operational, administrative, customer support, and back-office processes with efficiency, accuracy, and professionalism.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-1">
-              <PremiumButton
-                variant="gradient"
-                size="md"
-                href="/contact"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Schedule Consultation
-              </PremiumButton>
-              <PremiumButton
-                variant="secondary"
-                size="md"
-                href="/contact"
-              >
-                Get Support Solutions
-              </PremiumButton>
-            </div>
-          </div>
+      <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8" animate>
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 42%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/services/support-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
 
-          <div className="lg:col-span-5 relative">
-            <HeroSupportDashboard />
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
+            <span className="font-inter font-bold text-[10px] text-gray-555">
+              Operations &amp; BPO
+            </span>
+          </div>
+          <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+            Business Support Services That Keep Your Business Running
+          </h1>
+          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+            Focus on growing your business while Yorlex handles your operational, administrative, customer support, and back-office processes with efficiency, accuracy, and professionalism.
+          </p>
+          <div className="flex flex-wrap gap-4 mt-1">
+            <PremiumButton
+              variant="gradient"
+              size="md"
+              href="/contact"
+              icon={<ArrowRight className="h-4 w-4" />}
+            >
+              Schedule Consultation
+            </PremiumButton>
+            <PremiumButton
+              variant="secondary"
+              size="md"
+              href="/contact"
+            >
+              Get Support Solutions
+            </PremiumButton>
           </div>
         </div>
       </SectionWrapper>
@@ -310,6 +216,14 @@ export default function SupportServices() {
             <p className="font-inter text-gray-650 text-xs md:text-sm leading-relaxed max-w-2xl">
               From customer service and virtual assistance to documentation, data processing, and business process outsourcing, Yorlex provides scalable support solutions that improve productivity and reduce operational costs.
             </p>
+          </div>
+          <div className="lg:col-span-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/services/support-overview.jpg"
+              alt="Yorlex support team collaborating on daily operations"
+              className="w-full h-48 md:h-56 object-cover border border-brand-border-light"
+            />
           </div>
         </div>
       </SectionWrapper>
@@ -336,7 +250,7 @@ export default function SupportServices() {
                   <div className="flex flex-col gap-4">
                     <div className="flex justify-between items-start">
                       <span className="font-mono text-[8px] text-gray-400">// SRV 0{idx + 1}</span>
-                      <div className="w-8 h-8 rounded-2xl border border-brand-border bg-brand-bg text-black group-hover:bg-brand-purple group-hover:text-white transition-colors duration-250 flex items-center justify-center shrink-0">
+                      <div className="w-8 h-8 rounded-2xl border border-brand-border bg-brand-bg text-black group-hover:bg-brand-purple group-hover:text-brand-text transition-colors duration-250 flex items-center justify-center shrink-0">
                         <IconComponent className="h-4.5 w-4.5" />
                       </div>
                     </div>
@@ -492,28 +406,37 @@ export default function SupportServices() {
             {caseStudies.map((cs, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-brand-border p-8 flex flex-col justify-between group hover:border-brand-purple transition-all duration-300 rounded-2xl shadow-sm relative"
+                className="bg-white border border-brand-border overflow-hidden group hover:border-brand-purple transition-all duration-300 rounded-2xl shadow-sm relative flex flex-col justify-between"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="font-mono text-[8px] text-gray-400">// STUDY 0{idx + 1}</span>
-                    <span className="text-[7px] text-green-500 font-bold border border-green-500/20 px-2 py-0.5">Verified</span>
-                  </div>
-                  <h3 className="font-plus-jakarta text-base font-bold tracking-wide text-black group-hover:text-brand-purple transition-colors leading-tight">
-                    {cs.title}
-                  </h3>
-                  <p className="font-inter text-xs text-gray-550 leading-relaxed">
-                    {cs.desc}
-                  </p>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250 z-10" />
+                <div className="relative h-40 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={cs.image}
+                    alt={cs.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <span className="absolute bottom-3 left-4 font-mono text-[8px] text-white/90 font-bold">// STUDY 0{idx + 1}</span>
+                  <span className="absolute top-3 right-3 text-[7px] text-white font-bold border border-white/40 bg-black/30 px-2 py-0.5">Verified</span>
                 </div>
-                <div className="border-t border-brand-border-light/60 pt-4 mt-6">
-                  <Link
-                    href="/success-stories"
-                    className="inline-flex items-center gap-2 font-inter font-bold text-[9px] text-black hover:text-brand-purple transition-colors"
-                  >
-                    Read Full Study <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                <div className="p-8 flex flex-col justify-between flex-1">
+                  <div className="space-y-4">
+                    <h3 className="font-plus-jakarta text-base font-bold tracking-wide text-black group-hover:text-brand-purple transition-colors leading-tight">
+                      {cs.title}
+                    </h3>
+                    <p className="font-inter text-xs text-gray-550 leading-relaxed">
+                      {cs.desc}
+                    </p>
+                  </div>
+                  <div className="border-t border-brand-border-light/60 pt-4 mt-6">
+                    <Link
+                      href="/success-stories"
+                      className="inline-flex items-center gap-2 font-inter font-bold text-[9px] text-black hover:text-brand-purple transition-colors"
+                    >
+                      Read Full Study <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

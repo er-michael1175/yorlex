@@ -113,7 +113,7 @@ export default function ContentEditor({
               type="button"
               onClick={saveNow}
               disabled={status === "saving" || status === "conflict"}
-              className="flex items-center gap-2 bg-yorlex-green hover:bg-yorlex-green-dark disabled:opacity-60 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
+              className="flex items-center gap-2 bg-yorlex-green hover:bg-yorlex-green-dark disabled:opacity-60 text-yorlex-ink text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
             >
               <Save className="h-4 w-4" />
               Save now

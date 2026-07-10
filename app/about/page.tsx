@@ -35,7 +35,7 @@ export default function About() {
           <rect x="140" y="45" width="50" height="20" fill="#fff" stroke="#cfc4c5" strokeWidth="1" />
           <text x="165" y="57" fill="#000" fontSize="7" textAnchor="middle" fontWeight="bold">MARKETING</text>
 
-          <circle cx="95" cy="55" r="18" fill="#000" stroke="#5c7a34" strokeWidth="1.5" />
+          <circle cx="95" cy="55" r="18" fill="#000" stroke="#9fc628" strokeWidth="1.5" />
           <text x="95" y="58" fill="#fff" fontSize="6" textAnchor="middle" fontWeight="bold">YORLEX</text>
 
           <line x1="60" y1="20" x2="80" y2="42" stroke="#cfc4c5" strokeWidth="1" markerEnd="url(#arrow)" />
@@ -59,8 +59,8 @@ export default function About() {
       <div className="relative flex-grow h-16 my-2">
         <svg className="w-full h-full" viewBox="0 0 200 80">
           <path d="M 10,10 Q 70,70 190,70" fill="none" stroke="#ef4444" strokeWidth="1.5" opacity="0.8" />
-          <path d="M 10,70 Q 70,70 190,10" fill="none" stroke="#5c7a34" strokeWidth="1.5" />
-          <circle cx="85" cy="52" r="3" fill="#46601f" />
+          <path d="M 10,70 Q 70,70 190,10" fill="none" stroke="#9fc628" strokeWidth="1.5" />
+          <circle cx="85" cy="52" r="3" fill="#77951e" />
           <text x="92" y="55" fill="#fff" fontSize="6" fontFamily="monospace">OPTIMAL_CROSS [85, 52]</text>
         </svg>
       </div>
@@ -143,14 +143,14 @@ export default function About() {
                   <line x1="300" y1="0" x2="300" y2="200" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" strokeDasharray="2,2" />
 
                   {/* Connection links */}
-                  <path d="M 60,85 Q 120,40 180,65" fill="none" stroke="rgba(92, 122, 52, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
-                  <path d="M 180,65 Q 230,110 280,120" fill="none" stroke="rgba(92, 122, 52, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
+                  <path d="M 60,85 Q 120,40 180,65" fill="none" stroke="rgba(159, 198, 40, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
+                  <path d="M 180,65 Q 230,110 280,120" fill="none" stroke="rgba(159, 198, 40, 0.4)" strokeWidth="1" strokeDasharray="3,3" />
                   <path d="M 60,85 Q 170,170 280,120" fill="none" stroke="rgba(0, 122, 255, 0.3)" strokeWidth="1" strokeDasharray="4,4" />
 
                   {/* Nodes */}
-                  <circle cx="60" cy="85" r="4" fill="#5c7a34" />
-                  <circle cx="180" cy="65" r="4" fill="#5c7a34" />
-                  <circle cx="280" cy="120" r="4" fill="#5c7a34" />
+                  <circle cx="60" cy="85" r="4" fill="#9fc628" />
+                  <circle cx="180" cy="65" r="4" fill="#9fc628" />
+                  <circle cx="280" cy="120" r="4" fill="#9fc628" />
 
                   {/* Node labels */}
                   <text x="65" y="81" fill="#fff" fontSize="7" fontFamily="monospace" opacity="0.8">SF_NODE.US</text>

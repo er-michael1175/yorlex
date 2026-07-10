@@ -20,10 +20,10 @@ function getVariantClasses(variant: PremiumButtonProps["variant"]): string {
     case "ghost":
       return "bg-transparent border-0 text-brand-text relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100";
     case "gradient":
-      return "bg-linear-to-r from-brand-purple to-brand-blue text-white bg-[length:200%_100%] hover:bg-[position:100%_0]";
+      return "bg-linear-to-r from-brand-purple to-brand-blue text-brand-text bg-[length:200%_100%] hover:bg-[position:100%_0]";
     case "primary":
     default:
-      return "bg-brand-purple text-white hover:bg-brand-blue";
+      return "bg-brand-purple text-brand-text hover:bg-brand-blue";
   }
 }
 

@@ -112,9 +112,9 @@ export default function Process() {
       <div className="flex-grow flex items-center justify-center my-1">
         <svg viewBox="0 0 100 40" className="w-full h-8">
           <line x1="10" y1="20" x2="90" y2="20" stroke="#cfc4c5" strokeWidth="1" strokeDasharray="2,2" />
-          <circle cx="15" cy="20" r="4" fill="#5c7a34" />
+          <circle cx="15" cy="20" r="4" fill="#9fc628" />
           <circle cx="50" cy="20" r="4" fill="#000" />
-          <circle cx="85" cy="20" r="4" fill="#46601f" />
+          <circle cx="85" cy="20" r="4" fill="#77951e" />
         </svg>
       </div>
       <div className="flex justify-between text-[7px] font-mono text-gray-400 border-t border-slate-100 pt-1">
@@ -178,7 +178,7 @@ export default function Process() {
       </div>
       <div className="relative flex-grow h-10 my-1.5">
         <svg className="w-full h-full" viewBox="0 0 150 40">
-          <path d="M 10,35 Q 80,35 140,5" fill="none" stroke="#5c7a34" strokeWidth="2" />
+          <path d="M 10,35 Q 80,35 140,5" fill="none" stroke="#9fc628" strokeWidth="2" />
         </svg>
       </div>
       <div className="flex justify-between text-[7px] font-mono text-gray-400 border-t border-slate-100 pt-1">

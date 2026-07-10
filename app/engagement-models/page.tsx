@@ -264,8 +264,8 @@ export default function EngagementModels() {
                     <div className="flex justify-between items-start mb-6">
                       <div className={`w-10 h-10 border flex items-center justify-center shrink-0 transition-colors duration-250 ${
                         model.isHighContrast
-                          ? "bg-slate-900 border-white/10 text-white group-hover:bg-brand-purple group-hover:text-white"
-                          : "bg-brand-bg border-brand-border text-black group-hover:bg-brand-purple group-hover:text-white"
+                          ? "bg-slate-900 border-white/10 text-white group-hover:bg-brand-purple group-hover:text-brand-text"
+                          : "bg-brand-bg border-brand-border text-black group-hover:bg-brand-purple group-hover:text-brand-text"
                       }`}>
                         <Icon className="h-5 w-5" />
                       </div>
@@ -325,7 +325,7 @@ export default function EngagementModels() {
           <div className="lg:col-span-7 bg-brand-bg p-8 border border-brand-border rounded-2xl shadow-xl">
             {submitted ? (
               <div className="text-center py-12 flex flex-col items-center justify-center">
-                <div className="w-12 h-12 rounded-2xl bg-brand-purple text-white flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-brand-purple text-brand-text flex items-center justify-center mb-4">
                   <Check className="h-6 w-6" />
                 </div>
                 <h4 className="text-lg font-bold text-black font-plus-jakarta mb-2">Briefing Saved</h4>
@@ -378,7 +378,7 @@ export default function EngagementModels() {
 
                 <button
                   type="submit"
-                  className="w-full bg-black hover:bg-brand-purple text-white py-3.5 text-xs font-bold rounded-2xl transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple"
+                  className="w-full bg-black hover:bg-brand-purple text-white hover:text-brand-text py-3.5 text-xs font-bold rounded-2xl transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple"
                 >
                   Submit Briefing <Send className="h-4 w-4" />
                 </button>

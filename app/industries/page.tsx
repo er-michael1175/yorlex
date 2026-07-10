@@ -245,8 +245,8 @@ export default function Industries() {
                   </div>
                   <div className={`w-8 h-8 rounded-2xl border flex items-center justify-center shrink-0 transition-colors duration-300 ${
                     sector.type === "dark" 
-                      ? "bg-slate-900 border-white/10 text-white group-hover:bg-brand-purple group-hover:text-white" 
-                      : "bg-brand-bg border-brand-border text-black group-hover:bg-brand-purple group-hover:text-white"
+                      ? "bg-slate-900 border-white/10 text-white group-hover:bg-brand-purple group-hover:text-brand-text"
+                      : "bg-brand-bg border-brand-border text-black group-hover:bg-brand-purple group-hover:text-brand-text"
                   }`}>
                     <IconComponent className="h-4.5 w-4.5" />
                   </div>

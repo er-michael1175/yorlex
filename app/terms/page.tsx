@@ -409,7 +409,7 @@ export default function TermsAndConditions() {
                   ) : (
                     <button
                       onClick={() => setAcknowledged(true)}
-                      className="bg-black hover:bg-brand-purple text-white font-inter font-bold text-[10px] px-8 py-3.5 transition-colors rounded-2xl border border-black hover:border-brand-purple"
+                      className="bg-black hover:bg-brand-purple text-white hover:text-brand-text font-inter font-bold text-[10px] px-8 py-3.5 transition-colors rounded-2xl border border-black hover:border-brand-purple"
                     >
                       Acknowledge
                     </button>

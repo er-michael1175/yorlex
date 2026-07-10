@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full bg-yorlex-green hover:bg-yorlex-green-dark disabled:opacity-60 text-white py-3 text-sm font-semibold rounded-full transition-colors"
+            className="w-full bg-yorlex-green hover:bg-yorlex-green-dark disabled:opacity-60 text-yorlex-ink py-3 text-sm font-semibold rounded-full transition-colors"
           >
             {submitting ? "Signing in…" : "Sign In"}
           </button>

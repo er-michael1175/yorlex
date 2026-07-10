@@ -17,8 +17,6 @@ import {
   Plus,
   Minus,
   CheckCircle2,
-  DollarSign,
-  Percent,
   BarChart3,
   Users,
   Lock,
@@ -37,110 +35,6 @@ import {
   Zap,
 } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
-
-// Interactive Ad-Spend & ROAS Calculator for the Hero Right Side
-function HeroMarketingDashboard() {
-  const [activeChannel, setActiveChannel] = useState<"search" | "social" | "video">("search");
-
-  const channelMetrics = {
-    search: {
-      budget: "$12,500/mo",
-      conversions: "1,420",
-      cpa: "$8.80",
-      roas: "4.8x",
-      rate: "4.2%",
-      color: "bg-brand-purple",
-    },
-    social: {
-      budget: "$18,000/mo",
-      conversions: "2,150",
-      cpa: "$8.37",
-      roas: "3.9x",
-      rate: "3.8%",
-      color: "bg-black",
-    },
-    video: {
-      budget: "$25,000/mo",
-      conversions: "2,840",
-      cpa: "$8.80",
-      roas: "5.2x",
-      rate: "5.1%",
-      color: "bg-brand-purple/40",
-    },
-  };
-
-  return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
-      {/* Window Title Bar */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
-        <div className="flex gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[9px] text-gray-500 font-bold">
-          YORLEX // PERFORMANCE_TRACKER
-        </span>
-      </div>
-
-      {/* Main Metric Banner */}
-      <div className="grid grid-cols-3 gap-3 mb-3">
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">Avg ROAS</span>
-          <span className="text-xs font-bold text-green-400 font-mono mt-1 flex items-center gap-1">
-            <TrendingUp className="h-3 w-3 text-green-450 shrink-0" /> {channelMetrics[activeChannel].roas}
-          </span>
-        </div>
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">Conversions</span>
-          <span className="text-xs font-bold text-white font-mono mt-1">{channelMetrics[activeChannel].conversions}</span>
-        </div>
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">CPA Status</span>
-          <span className="text-xs font-bold text-brand-purple font-mono mt-1">{channelMetrics[activeChannel].cpa}</span>
-        </div>
-      </div>
-
-      {/* Channel Switchers */}
-      <div className="flex gap-1.5 border border-brand-border-light/5 bg-slate-900/40 p-1.5 mb-3">
-        {(["search", "social", "video"] as const).map((channel) => (
-          <button
-            key={channel}
-            onClick={() => setActiveChannel(channel)}
-            className={`flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full ${
-              activeChannel === channel ? "bg-brand-purple text-white" : "text-gray-550 hover:text-white"
-            }`}
-          >
-            {channel}
-          </button>
-        ))}
-      </div>
-
-      {/* Conversion Rate Progression diagram */}
-      <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 font-bold mb-1">
-          // CHANNEL CONVERSION RATE & ALLOCATION
-        </div>
-        <div className="h-6 w-full flex border border-brand-border-light/10 bg-slate-900/80 overflow-hidden relative items-center px-3">
-          <div
-            className={`absolute left-0 top-0 h-full ${channelMetrics[activeChannel].color} transition-all duration-300 opacity-20`}
-            style={{ width: `${parseFloat(channelMetrics[activeChannel].rate) * 20}%` }}
-          />
-          <span className="text-white font-bold text-[9px] z-10 flex items-center gap-1.5">
-            <Percent className="h-3 w-3 text-brand-purple shrink-0" />
-            Conversion Rate: {channelMetrics[activeChannel].rate}
-          </span>
-        </div>
-        <div className="flex justify-between items-center text-[8px] text-gray-400">
-          <span className="flex items-center gap-1">
-            <DollarSign className="h-3 w-3 text-brand-purple shrink-0" /> Allocated Budget: {channelMetrics[activeChannel].budget}
-          </span>
-          <span className="text-brand-purple">// v1.12.0</span>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // Success Metrics Stats Grid
 const stats = [
@@ -263,18 +157,21 @@ const caseStudies = [
     metric: "+220% Online Revenue Boost",
     desc: "Re-engineered SEO structures and paid ad campaigns for an apparel marketplace, decreasing overall CPA by 34%.",
     label: "Retail & PPC",
+    image: "/images/services/marketing-case-ecommerce.jpg",
   },
   {
     title: "Healthcare Brand",
     metric: "12,000+ Patient Leads Generated",
     desc: "Designed and executed a local search optimization blueprint and Google Search Ads campaign for a medical group.",
     label: "Healthcare & SEO",
+    image: "/images/services/marketing-case-healthcare.jpg",
   },
   {
     title: "B2B Technology Company",
     metric: "+180% Lead Conversion rate",
     desc: "Deployed targeted B2B content marketing and LinkedIn outreach strategies, maximizing sales team pipeline velocity.",
     label: "SaaS & B2B",
+    image: "/images/services/marketing-case-b2b.jpg",
   },
 ];
 
@@ -326,58 +223,78 @@ export default function MarketingSolutions() {
   return (
     <div className="flex-grow bg-brand-bg font-sans">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col gap-3">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Megaphone className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555">
-                Marketing Pillar
-              </span>
-            </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
-              Marketing Solutions That Accelerate Business Growth
-            </h1>
-            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-              Drive measurable growth with data-driven marketing strategies, powerful branding, SEO, paid advertising, social media management, and performance campaigns that generate real business results.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-1">
-              <PremiumButton
-                variant="gradient"
-                size="md"
-                href="/contact"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Schedule Marketing Consultation
-              </PremiumButton>
-              <PremiumButton
-                variant="secondary"
-                size="md"
-                href="/contact"
-              >
-                Get Free Marketing Audit
-              </PremiumButton>
-            </div>
-          </div>
+      <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8" animate>
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 42%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/services/marketing-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
 
-          <div className="lg:col-span-5 relative">
-            <HeroMarketingDashboard />
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Megaphone className="h-4 w-4 text-brand-purple shrink-0" />
+            <span className="font-inter font-bold text-[10px] text-gray-555">
+              Marketing Pillar
+            </span>
+          </div>
+          <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+            Marketing Solutions That Accelerate Business Growth
+          </h1>
+          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+            Drive measurable growth with data-driven marketing strategies, powerful branding, SEO, paid advertising, social media management, and performance campaigns that generate real business results.
+          </p>
+          <div className="flex flex-wrap gap-4 mt-1">
+            <PremiumButton
+              variant="gradient"
+              size="md"
+              href="/contact"
+              icon={<ArrowRight className="h-4 w-4" />}
+            >
+              Schedule Marketing Consultation
+            </PremiumButton>
+            <PremiumButton
+              variant="secondary"
+              size="md"
+              href="/contact"
+            >
+              Get Free Marketing Audit
+            </PremiumButton>
           </div>
         </div>
       </SectionWrapper>
 
       {/* 2. Introduction Section */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light relative z-10" animate>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-4">
-          <div className="max-w-md">
-            <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// GROWTH METHODOLOGY</span>
-            <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">
-              Data-Driven Marketing
-            </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 flex flex-col gap-3">
+            <div className="max-w-md">
+              <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// GROWTH METHODOLOGY</span>
+              <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">
+                Data-Driven Marketing
+              </h2>
+            </div>
+            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+              At Yorlex, we don't just create campaigns—we build growth engines. Our marketing experts combine strategy, creativity, analytics, and technology to increase visibility, generate qualified leads, and maximize ROI.
+            </p>
           </div>
-          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-            At Yorlex, we don't just create campaigns—we build growth engines. Our marketing experts combine strategy, creativity, analytics, and technology to increase visibility, generate qualified leads, and maximize ROI.
-          </p>
+          <div className="lg:col-span-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/services/marketing-overview.jpg"
+              alt="Yorlex marketing team reviewing campaign performance"
+              className="w-full h-48 md:h-56 object-cover border border-brand-border-light"
+            />
+          </div>
         </div>
       </SectionWrapper>
 
@@ -389,7 +306,7 @@ export default function MarketingSolutions() {
             return (
               <div
                 key={idx}
-                className="group relative block bg-white border border-brand-border-light p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(92,122,52,0.05)]"
+                className="group relative block bg-white border border-brand-border-light p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(159,198,40,0.05)]"
               >
                 {/* Top border reveal on hover */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-purple origin-left scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
@@ -608,19 +525,20 @@ export default function MarketingSolutions() {
               className="bg-white border border-brand-border-light hover:border-brand-purple transition-all duration-300 flex flex-col justify-between"
             >
               {/* Visual mockup top */}
-              <div className="bg-[#0d0d0e] border-b border-brand-border-light/10 p-6 font-mono text-[9px] text-brand-purple min-h-[140px] flex flex-col justify-between">
-                <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                  <span className="text-[8px] text-gray-500 font-bold">{project.label}</span>
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                </div>
-                <div className="flex-1 flex items-center justify-center my-3 text-center">
-                  <span className="text-white text-xs font-plus-jakarta font-bold">
-                    {project.title}
-                  </span>
-                </div>
-                <div className="border-t border-white/5 pt-2 flex justify-between font-bold text-[9px] text-brand-purple">
-                  <span>OUTCOME:</span>
-                  <span>{project.metric}</span>
+              <div className="relative min-h-[160px] overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="relative h-full min-h-[160px] p-6 flex flex-col justify-between">
+                  <span className="text-[9px] font-bold text-white/80 tracking-wide">{project.label}</span>
+                  <div>
+                    <span className="text-white text-sm font-plus-jakarta font-bold block mb-2">{project.title}</span>
+                    <span className="text-[9px] font-bold text-white/90 bg-black/30 border border-white/25 px-1.5 py-0.5 inline-block">{project.metric}</span>
+                  </div>
                 </div>
               </div>
 

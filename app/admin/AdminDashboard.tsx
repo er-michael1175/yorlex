@@ -39,13 +39,22 @@ export default function AdminDashboard({
       <div className="max-w-5xl mx-auto">
         <AdminNav />
 
-        <div className="mb-8">
-          <h1 className="font-plus-jakarta text-2xl font-bold text-yorlex-ink">
-            Contact Inbox
-          </h1>
-          <p className="font-inter text-sm text-yorlex-muted mt-1">
-            {unhandledCount} unread · {submissions.length} total
-          </p>
+        <div className="mb-8 relative overflow-hidden rounded-2xl">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/services/support-hero-bg.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-yorlex-navy/75" />
+          <div className="relative px-6 py-8 md:px-8 md:py-10">
+            <h1 className="font-plus-jakarta text-2xl font-bold text-white">
+              Contact Inbox
+            </h1>
+            <p className="font-inter text-sm text-white/70 mt-1">
+              {unhandledCount} unread · {submissions.length} total
+            </p>
+          </div>
         </div>
 
         {submissions.length === 0 ? (

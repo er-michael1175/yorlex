@@ -38,7 +38,7 @@ function getGridClasses(variant: ServiceCardProps["variant"]): string {
  */
 function getVariantClasses(variant: ServiceCardProps["variant"]): string {
   if (variant === "featured") {
-    return "bg-brand-purple text-white";
+    return "bg-brand-purple text-brand-text";
   }
   return "bg-white text-brand-text";
 }
@@ -61,7 +61,7 @@ export function ServiceCard({
     <div className="flex flex-col gap-4">
       {/* Icon with animated border-glow container */}
       <motion.div variants={staggerItem}>
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-brand-border-light transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand-purple group-hover:shadow-[0_0_20px_rgba(92,122,52,0.15)]">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-brand-border-light transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand-purple group-hover:shadow-[0_0_20px_rgba(159,198,40,0.15)]">
           <Icon className="w-6 h-6" />
         </div>
       </motion.div>
@@ -77,7 +77,7 @@ export function ServiceCard({
       {/* Description */}
       <motion.p
         variants={staggerItem}
-        className={`font-inter text-sm leading-relaxed ${variant === "featured" ? "text-white/80" : "text-text-secondary"}`}
+        className={`font-inter text-sm leading-relaxed ${variant === "featured" ? "text-brand-text/70" : "text-text-secondary"}`}
       >
         {description}
       </motion.p>
@@ -102,7 +102,7 @@ export function ServiceCard({
           <span
             className={`w-2 h-2 rounded-full ${status.active ? "bg-green-400 animate-pulse" : "bg-gray-400"}`}
           />
-          <span className={`text-xs ${variant === "featured" ? "text-white/70" : "text-text-tertiary"}`}>
+          <span className={`text-xs ${variant === "featured" ? "text-brand-text/70" : "text-text-tertiary"}`}>
             {status.label}
           </span>
         </motion.div>

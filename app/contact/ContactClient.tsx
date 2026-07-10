@@ -275,7 +275,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 {clientError && (
                   <p className="font-inter text-xs text-red-400">{clientError}</p>
                 )}
-                <button type="submit" disabled={clientSubmitting} className="w-full bg-white hover:bg-brand-purple text-black hover:text-white py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-white hover:border-brand-purple disabled:opacity-60">
+                <button type="submit" disabled={clientSubmitting} className="w-full bg-white hover:bg-brand-purple text-black py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-white hover:border-brand-purple disabled:opacity-60">
                   <span>{clientSubmitting ? "Submitting…" : "Initiate Engagement"}</span>
                   <ArrowRight className="h-4 w-4" />
                 </button>
@@ -321,7 +321,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 {generalError && (
                   <p className="font-inter text-xs text-red-500">{generalError}</p>
                 )}
-                <button type="submit" disabled={generalSubmitting} className="w-full bg-black hover:bg-brand-purple text-white py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple disabled:opacity-60">
+                <button type="submit" disabled={generalSubmitting} className="w-full bg-black hover:bg-brand-purple text-white hover:text-brand-text py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple disabled:opacity-60">
                   <span>{generalSubmitting ? "Submitting…" : "Submit Inquiry"}</span>
                 </button>
               </form>

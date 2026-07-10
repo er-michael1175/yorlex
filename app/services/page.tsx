@@ -25,202 +25,13 @@ import {
 // Category type definition
 type Category = "all" | "advisory" | "engineering";
 
-// Custom Illustration Components for Bento Cards
-
-function TechnologyIllustration() {
+// Real photo illustration for bento cards (reuses each service page's hero photo)
+function ServicePhoto({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
   return (
-    <div className="w-full h-full min-h-[160px] bg-[#0d0d0e] border border-brand-border-light/10 p-4 font-mono text-[9px] text-brand-purple relative overflow-hidden flex flex-col justify-between select-none">
-      {/* Top Panel Controls */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-2 mb-2">
-        <div className="flex gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-500/80" />
-          <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/80" />
-          <span className="w-1.5 h-1.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[8px] text-gray-500 font-bold">LON.04 // NODE_SYS</span>
-      </div>
-      
-      {/* Main Body */}
-      <div className="flex-1 flex gap-4 overflow-hidden">
-        {/* Terminal logs */}
-        <div className="flex-1 flex flex-col gap-1 text-gray-400">
-          <div className="text-[8px] text-brand-purple font-bold">// SECURE SESSION STARTED</div>
-          <div className="flex items-center gap-1">
-            <span className="text-green-500">&gt;</span>
-            <span className="animate-pulse">STITCHING DATABASE_01...</span>
-          </div>
-          <div className="text-gray-500">SYS_HEALTH: 100% OK</div>
-          <div className="text-gray-500">ZERO_TRUST: VALIDATED</div>
-          <div className="text-brand-purple/80">LATENCY: 4.83ms</div>
-        </div>
-        
-        {/* Servers graphic */}
-        <div className="w-16 flex flex-col gap-1.5 justify-center border-l border-brand-border-light/10 pl-3">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="flex items-center justify-between w-full h-2 bg-black border border-gray-800 px-1">
-              <div className="w-1.5 h-1.5 bg-brand-purple animate-pulse rounded-full" />
-              <div className="flex gap-0.5">
-                <span className={`w-0.5 h-0.5 rounded-full ${i % 2 === 0 ? "bg-green-400" : "bg-brand-blue"}`} />
-                <span className="w-0.5 h-0.5 rounded-full bg-green-400" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      
-      {/* Uptime Footer */}
-      <div className="mt-2 border-t border-brand-border-light/10 pt-2 flex items-center justify-between text-[8px] text-gray-500">
-        <span>Uptime: 99.998%</span>
-        <span className="animate-pulse flex items-center gap-1">
-          <span className="w-1.5 h-1.5 bg-green-500 rounded-full inline-block" /> Live
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function FinanceIllustration() {
-  return (
-    <div className="w-full h-28 border border-brand-border-light/30 p-3 bg-brand-bg relative overflow-hidden flex flex-col justify-between">
-      <div className="flex items-center justify-between mb-1">
-        <span className="text-[9px] font-bold text-gray-400">Risk Model</span>
-        <span className="text-[9px] font-mono font-bold text-green-600 bg-green-600/10 px-1.5 py-0.5">+14.2% YIELD</span>
-      </div>
-      
-      {/* SVG Chart */}
-      <div className="flex-1 relative mt-1">
-        <svg className="w-full h-full" viewBox="0 0 100 40" preserveAspectRatio="none">
-          <line x1="0" y1="10" x2="100" y2="10" stroke="rgba(0,0,0,0.03)" strokeWidth="0.5" />
-          <line x1="0" y1="20" x2="100" y2="20" stroke="rgba(0,0,0,0.03)" strokeWidth="0.5" />
-          <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(0,0,0,0.03)" strokeWidth="0.5" />
-          
-          <path
-            d="M0,40 L0,30 L20,28 L40,32 L60,18 L80,10 L100,5 L100,40 Z"
-            fill="url(#financeGradient)"
-            opacity="0.15"
-          />
-          <path
-            d="M0,30 L20,28 L40,32 L60,18 L80,10 L100,5"
-            fill="none"
-            stroke="#5c7a34"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-          <circle cx="100" cy="5" r="2" fill="#5c7a34" className="animate-ping" />
-          <circle cx="100" cy="5" r="1.5" fill="#5c7a34" />
-          
-          <defs>
-            <linearGradient id="financeGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#5c7a34" />
-              <stop offset="100%" stopColor="#5c7a34" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      
-      <div className="text-[8px] text-gray-400 font-mono flex justify-between mt-2 border-t border-brand-border-light pt-1.5">
-        <span>Q1-Q4 Projections</span>
-        <span>Sovereign Cap</span>
-      </div>
-    </div>
-  );
-}
-
-function MarketingIllustration() {
-  return (
-    <div className="w-full h-28 border border-brand-border-light/30 p-3 bg-brand-bg relative overflow-hidden flex items-center justify-between">
-      <div className="flex flex-col gap-1 max-w-[55%]">
-        <span className="text-[9px] font-bold text-gray-400">Brand Authority</span>
-        <span className="text-xs font-bold text-black leading-tight font-plus-jakarta">Mindshare Domination</span>
-        <p className="text-[9px] text-gray-500 leading-tight">Data-driven global GTM visibility metrics.</p>
-      </div>
-      
-      {/* Circular Progress Gauge */}
-      <div className="relative w-16 h-16 flex items-center justify-center shrink-0">
-        <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-          <circle
-            cx="18"
-            cy="18"
-            r="15"
-            fill="none"
-            stroke="#e2e2e2"
-            strokeWidth="2.5"
-          />
-          <circle
-            cx="18"
-            cy="18"
-            r="15"
-            fill="none"
-            stroke="#5c7a34"
-            strokeWidth="2.5"
-            strokeDasharray="94, 100"
-            strokeLinecap="round"
-          />
-        </svg>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-xs font-bold font-mono text-black">94%</span>
-          <span className="text-[6px] text-gray-450 font-bold">INDEX</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ManagementIllustration() {
-  return (
-    <div className="w-full h-28 border border-brand-border-light/30 p-3 bg-brand-bg relative overflow-hidden flex flex-col justify-between">
-      <span className="text-[9px] font-bold text-gray-400 mb-2">Structure & OKRs</span>
-      
-      {/* Tree Map Nodes */}
-      <div className="flex-1 flex flex-col justify-between items-center relative py-1">
-        <div className="z-10 bg-black text-white text-[8px] font-bold font-mono px-2 py-0.5 border border-brand-purple/20">
-          ROOT_STRATEGY: 100%
-        </div>
-        
-        <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-          <svg className="w-full h-full" viewBox="0 0 100 40">
-            <path d="M50,10 L50,22 L15,22 L15,30 M50,22 L85,22 L85,30" fill="none" stroke="#5c7a34" strokeWidth="0.75" strokeDasharray="2, 2" />
-            <line x1="50" y1="10" x2="50" y2="30" stroke="#5c7a34" strokeWidth="0.75" />
-          </svg>
-        </div>
-        
-        <div className="w-full flex justify-between px-1 z-10">
-          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5">
-            OPS: 92%
-          </div>
-          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5">
-            M&A: 100%
-          </div>
-          <div className="bg-white border border-brand-border text-[7px] font-bold text-gray-650 px-1.5 py-0.5">
-            GROWTH: 89%
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SupportIllustration() {
-  return (
-    <div className="w-full h-28 border border-brand-border-light/30 p-3 bg-brand-bg relative overflow-hidden flex flex-col justify-between">
-      <div className="flex items-center justify-between border-b border-brand-border-light pb-1.5">
-        <span className="text-[9px] font-bold text-gray-400">SLA Audit</span>
-        <span className="flex items-center gap-1 text-[8px] font-bold text-green-600 bg-green-600/10 px-1.5 py-0.5">
-          <span className="w-1 h-1 bg-green-500 rounded-full inline-block" /> COMPLIANT
-        </span>
-      </div>
-      
-      {/* Support Grid */}
-      <div className="flex-1 grid grid-cols-2 gap-2 mt-2">
-        <div className="bg-white border border-brand-border-light p-1.5 flex flex-col justify-center">
-          <span className="text-[7px] text-gray-400 font-bold">Response SLA</span>
-          <span className="text-sm font-bold text-black font-mono tracking-tight mt-0.5">8ms avg</span>
-        </div>
-        <div className="bg-white border border-brand-border-light p-1.5 flex flex-col justify-center">
-          <span className="text-[7px] text-gray-400 font-bold">Sovereignty</span>
-          <span className="text-[9px] font-bold text-brand-purple font-mono mt-0.5">100% GDPR</span>
-        </div>
-      </div>
+    <div className={`relative overflow-hidden rounded-xl ${className}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={alt} className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-brand-purple/10" />
     </div>
   );
 }
@@ -234,9 +45,14 @@ const services = [
     href: "/services/technology",
     variant: "large" as const,
     tags: ["Kubernetes", "Sovereign AI", "Zero-Trust"],
-    status: { label: "Mirroring Active [LON.04]", active: true },
     category: "engineering" as const,
-    illustration: <TechnologyIllustration />,
+    illustration: (
+      <ServicePhoto
+        src="/images/services/technology-hero-bg.jpg"
+        alt="Technology services"
+        className="h-40 md:h-full min-h-40"
+      />
+    ),
   },
   {
     title: "Finance",
@@ -247,7 +63,9 @@ const services = [
     variant: "standard" as const,
     tags: ["Risk Modelling", "Capital Markets", "Treasury"],
     category: "advisory" as const,
-    illustration: <FinanceIllustration />,
+    illustration: (
+      <ServicePhoto src="/images/services/finance-hero-bg.jpg" alt="Finance services" className="h-28" />
+    ),
   },
   {
     title: "Marketing",
@@ -258,7 +76,9 @@ const services = [
     variant: "standard" as const,
     tags: ["Brand Strategy", "Performance", "GTM"],
     category: "engineering" as const,
-    illustration: <MarketingIllustration />,
+    illustration: (
+      <ServicePhoto src="/images/services/marketing-hero-bg.jpg" alt="Marketing services" className="h-28" />
+    ),
   },
   {
     title: "Management",
@@ -269,7 +89,9 @@ const services = [
     variant: "standard" as const,
     tags: ["Org Design", "M&A Integration", "OKRs"],
     category: "advisory" as const,
-    illustration: <ManagementIllustration />,
+    illustration: (
+      <ServicePhoto src="/images/services/management-hero-bg.jpg" alt="Management services" className="h-28" />
+    ),
   },
   {
     title: "Support",
@@ -280,7 +102,9 @@ const services = [
     variant: "standard" as const,
     tags: ["Legal", "HR", "Compliance"],
     category: "engineering" as const,
-    illustration: <SupportIllustration />,
+    illustration: (
+      <ServicePhoto src="/images/services/support-hero-bg.jpg" alt="Support services" className="h-28" />
+    ),
   },
 ];
 
@@ -299,7 +123,7 @@ const faqItems = [
   {
     id: "faq-3",
     q: "How do you guarantee data privacy and regulatory compliance?",
-    a: "All systems operate under SOC 2 Type II controls. Data is housed in isolated Tier-4 cloud instances with multi-region replication. We sign strict NDAs and BAs, and comply fully with regional GDPR, CCPA, and specialized financial/healthcare sovereignty mandates.",
+    a: "We take data privacy seriously. Every engagement starts with a signed NDA, and client data is handled under strict access controls. We adapt our compliance approach to your jurisdiction's requirements, including GDPR, CCPA, and India's DPDP Act where applicable.",
   },
   {
     id: "faq-4",
@@ -332,33 +156,35 @@ export default function Services() {
   return (
     <div className="flex-1 font-sans bg-brand-bg">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-8 md:pt-12 pb-12 md:pb-16" animate>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 relative">
-            {/* Subtle architectural coordinates */}
-            <div className="absolute right-0 top-16 hidden lg:block font-mono text-[9px] text-gray-400 select-none pointer-events-none text-right leading-relaxed">
-              <span>SYS_LOC // 0x48FA</span>
-              <br />
-              <span>GRID_SEC // SERV_V3</span>
-            </div>
+      <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8" animate>
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 42%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/services/hero.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
 
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max mb-6">
-              <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
-              <span className="font-inter font-bold text-[10px] text-gray-500">
-                Services Portfolio
-              </span>
-            </div>
-            <AnimatedHeading level={1}>Core Expertise</AnimatedHeading>
-            <p className="font-inter text-gray-650 text-base md:text-lg leading-relaxed max-w-3xl mt-4">
-              Architecting global authority across five distinct disciplines.
-              Precision-engineered solutions for modern enterprise scale.
-            </p>
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
+            <span className="font-inter font-bold text-[10px] text-gray-500">
+              Services Portfolio
+            </span>
           </div>
-
-          <div className="lg:col-span-5 relative h-64 lg:h-80 rounded-2xl overflow-hidden">
-            <img src="/images/services/hero.jpg" alt="" className="w-full h-full object-cover grayscale" />
-            <div className="absolute inset-0 bg-yorlex-navy/25" />
-          </div>
+          <AnimatedHeading level={1}>Core Expertise</AnimatedHeading>
+          <p className="font-inter text-gray-650 text-base md:text-lg leading-relaxed max-w-xl">
+            Architecting global authority across five distinct disciplines.
+            Precision-engineered solutions for modern enterprise scale.
+          </p>
         </div>
       </SectionWrapper>
 
@@ -412,7 +238,6 @@ export default function Services() {
                   href={service.href}
                   variant={service.variant}
                   tags={service.tags}
-                  status={service.status}
                   illustration={service.illustration}
                 />
               </motion.div>
@@ -490,8 +315,16 @@ export default function Services() {
       </SectionWrapper>
 
       {/* CTA Section */}
-      <SectionWrapper background="dark" spacing="compact" animate>
-        <div className="text-center">
+      <SectionWrapper background="dark" spacing="compact" className="relative overflow-hidden" animate>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/services/finance-case-tax.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-yorlex-navy/75 pointer-events-none" />
+
+        <div className="relative text-center">
           <AnimatedHeading level={2} className="text-white mb-6">
             Ready to Transform Your Operations?
           </AnimatedHeading>
@@ -499,14 +332,24 @@ export default function Services() {
             Connect with our specialists to explore how Yorlex can architect your
             competitive advantage.
           </p>
-          <PremiumButton
-            variant="gradient"
-            size="lg"
-            href="/contact"
-            icon={<ArrowRight className="h-5 w-5" />}
-          >
-            Schedule a Strategy Briefing
-          </PremiumButton>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <PremiumButton
+              variant="gradient"
+              size="lg"
+              href="/contact"
+              icon={<ArrowRight className="h-5 w-5" />}
+            >
+              Schedule a Strategy Briefing
+            </PremiumButton>
+            <PremiumButton
+              variant="secondary"
+              size="lg"
+              href="/contact"
+              className="border-white/20 text-white hover:bg-white/10"
+            >
+              Talk to Our Team
+            </PremiumButton>
+          </div>
         </div>
       </SectionWrapper>
     </div>

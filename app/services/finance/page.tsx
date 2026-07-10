@@ -31,109 +31,6 @@ import {
 } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
 
-// Interactive Capital Allocation/CFO Dashboard for the Hero Right Side
-function HeroFinanceDashboard() {
-  const [allocationTier, setAllocationTier] = useState<"growth" | "conservative" | "balanced">("balanced");
-
-  const allocations = {
-    growth: [
-      { name: "Expansion & CapEx", pct: 50, color: "bg-brand-purple" },
-      { name: "Operating Reserve", pct: 30, color: "bg-black" },
-      { name: "Tax & Compliance Fund", pct: 20, color: "bg-brand-purple/40" },
-    ],
-    conservative: [
-      { name: "Expansion & CapEx", pct: 15, color: "bg-brand-purple" },
-      { name: "Operating Reserve", pct: 60, color: "bg-black" },
-      { name: "Tax & Compliance Fund", pct: 25, color: "bg-brand-purple/40" },
-    ],
-    balanced: [
-      { name: "Expansion & CapEx", pct: 35, color: "bg-brand-purple" },
-      { name: "Operating Reserve", pct: 45, color: "bg-black" },
-      { name: "Tax & Compliance Fund", pct: 20, color: "bg-brand-purple/40" },
-    ],
-  };
-
-  return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
-      {/* Window Title Bar */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
-        <div className="flex gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[9px] text-gray-500 font-bold">
-          YORLEX // FINANCIAL_ALLOCATOR
-        </span>
-      </div>
-
-      {/* Main Metric Banner */}
-      <div className="grid grid-cols-3 gap-3 mb-3">
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">Cash Runway</span>
-          <span className="text-xs font-bold text-green-400 font-mono mt-1">24.5 Months</span>
-        </div>
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">Burn Rate</span>
-          <span className="text-xs font-bold text-white font-mono mt-1">$42,500/mo</span>
-        </div>
-        <div className="bg-slate-900/60 border border-brand-border-light/5 p-3 flex flex-col justify-center">
-          <span className="text-gray-500 text-[8px] font-bold">Audit Status</span>
-          <span className="text-xs font-bold text-brand-purple font-mono mt-1">100% READY</span>
-        </div>
-      </div>
-
-      {/* Interactive Selectors */}
-      <div className="flex gap-1.5 border border-brand-border-light/5 bg-slate-900/40 p-1.5 mb-3 relative">
-        {(["growth", "balanced", "conservative"] as const).map((tier) => (
-          <button
-            key={tier}
-            onClick={() => setAllocationTier(tier)}
-            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
-          >
-            <span className={allocationTier === tier ? "text-white" : ""}>{tier}</span>
-            {allocationTier === tier && (
-              <motion.div
-                layoutId="activeAllocationTab"
-                className="absolute inset-0 bg-brand-purple -z-10"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Output Diagram */}
-      <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 font-bold mb-1">
-          // CAPITAL ALLOCATION DISTRIBUTION
-        </div>
-        <div className="h-6 w-full flex border border-brand-border-light/10 bg-slate-900/80 overflow-hidden">
-          {allocations[allocationTier].map((slice, idx) => (
-            <div
-              key={idx}
-              className={`${slice.color} h-full transition-all duration-300`}
-              style={{ width: `${slice.pct}%` }}
-              title={`${slice.name}: ${slice.pct}%`}
-            />
-          ))}
-        </div>
-        <div className="grid grid-cols-3 gap-2 text-[8px] leading-tight text-gray-400">
-          {allocations[allocationTier].map((slice, idx) => (
-            <div key={idx} className="flex flex-col gap-0.5">
-              <span className="font-bold flex items-center gap-1">
-                <span className={`w-1.5 h-1.5 shrink-0 ${slice.color}`} />
-                {slice.pct}%
-              </span>
-              <span className="text-[7px] text-gray-550 truncate">{slice.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // Interactive KPI Dashboard Section Component
 function LiveFinanceDashboardSection() {
   const [activeTab, setActiveTab] = useState<"kpi" | "chart" | "expenses">("kpi");
@@ -357,18 +254,21 @@ const caseStudies = [
     metric: "Reduced Bookkeeping Overhead by 70%",
     desc: "Re-engineered a Series A SaaS company's legacy accounting stacks, migrating manual spreadsheets to automated cloud ledgers.",
     label: "SaaS & Scale",
+    image: "/images/services/finance-case-accounting.jpg",
   },
   {
     title: "Payroll Automation Engine",
     metric: "100% Payroll Processing Accuracy",
     desc: "Consolidated multi-state salary compliance, benefits distribution, and tax filings for 500+ employees.",
     label: "HR & Compliance",
+    image: "/images/services/finance-case-payroll.jpg",
   },
   {
     title: "Strategic Tax Optimization",
     metric: "22% Liability Reduction Year-over-Year",
     desc: "Conducted tax structuring reviews for a manufacturing group, optimizing statutory exemptions and corporate liabilities.",
     label: "Tax & Advisory",
+    image: "/images/services/finance-case-tax.jpg",
   },
 ];
 
@@ -406,58 +306,76 @@ export default function FinanceSolutions() {
   return (
     <div className="flex-1 font-sans bg-brand-bg">
       {/* 1. Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col gap-3">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Landmark className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555">
-                Finance Pillar
-              </span>
-            </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
-              Financial Solutions That Drive Business Growth
-            </h1>
-            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-              Manage your finances with confidence. From accounting and tax compliance to payroll, virtual CFO services, and financial planning, Yorlex helps businesses stay compliant, profitable, and future-ready.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-1">
-              <PremiumButton
-                variant="gradient"
-                size="md"
-                href="/contact"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Schedule Financial Consultation
-              </PremiumButton>
-              <PremiumButton
-                variant="secondary"
-                size="md"
-                href="/contact"
-              >
-                Request a Quote
-              </PremiumButton>
-            </div>
-          </div>
+      <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8" animate>
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 42%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/services/finance-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
 
-          <div className="lg:col-span-5 relative">
-            <HeroFinanceDashboard />
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Landmark className="h-4 w-4 text-brand-purple shrink-0" />
+            <span className="font-inter font-bold text-[10px] text-gray-555">
+              Finance Pillar
+            </span>
+          </div>
+          <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+            Financial Solutions That Drive Business Growth
+          </h1>
+          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+            Manage your finances with confidence. From accounting and tax compliance to payroll, virtual CFO services, and financial planning, Yorlex helps businesses stay compliant, profitable, and future-ready.
+          </p>
+          <div className="flex flex-wrap gap-4 mt-1">
+            <PremiumButton
+              variant="gradient"
+              size="md"
+              href="/contact"
+              icon={<ArrowRight className="h-4 w-4" />}
+            >
+              Schedule Financial Consultation
+            </PremiumButton>
+            <PremiumButton
+              variant="secondary"
+              size="md"
+              href="/contact"
+            >
+              Request a Quote
+            </PremiumButton>
           </div>
         </div>
       </SectionWrapper>
 
       {/* 2. Overview Section */}
       <SectionWrapper background="white" spacing="compact" className="border-t border-b border-brand-border-light relative z-10" animate>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 py-4">
-          <div className="max-w-md">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 flex flex-col gap-3">
             <span className="font-inter font-bold text-[10px] text-brand-purple block mb-2">// ADVISORY OVERVIEW</span>
             <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">
               Strategic Financial Services
             </h2>
+            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+              Whether you're a startup, SME, or enterprise, Yorlex provides comprehensive financial solutions that improve cash flow, reduce compliance risks, and support long-term business growth.
+            </p>
           </div>
-          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-            Whether you're a startup, SME, or enterprise, Yorlex provides comprehensive financial solutions that improve cash flow, reduce compliance risks, and support long-term business growth.
-          </p>
+          <div className="lg:col-span-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/services/finance-overview.jpg"
+              alt="Yorlex finance advisors reviewing strategy"
+              className="w-full h-48 md:h-56 object-cover border border-brand-border-light"
+            />
+          </div>
         </div>
       </SectionWrapper>
 
@@ -469,7 +387,7 @@ export default function FinanceSolutions() {
             return (
               <div
                 key={idx}
-                className="group relative block bg-white border border-brand-border-light p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(92,122,52,0.05)]"
+                className="group relative block bg-white border border-brand-border-light p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(159,198,40,0.05)]"
               >
                 {/* Top accent line */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-purple origin-left scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
@@ -641,20 +559,21 @@ export default function FinanceSolutions() {
               key={idx}
               className="bg-white border border-brand-border-light hover:border-brand-purple transition-all duration-300 flex flex-col justify-between"
             >
-              {/* Visual mockup top bar */}
-              <div className="bg-[#0d0d0e] border-b border-brand-border-light/10 p-6 font-mono text-[9px] text-brand-purple min-h-[140px] flex flex-col justify-between">
-                <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                  <span className="text-[8px] text-gray-500 font-bold">{project.label}</span>
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                </div>
-                <div className="flex-1 flex flex-col items-center justify-center my-3 text-center gap-1">
-                  <span className="text-white text-xs font-plus-jakarta font-bold">
-                    {project.title}
-                  </span>
-                </div>
-                <div className="border-t border-white/5 pt-2 flex justify-between text-brand-purple/90 font-bold text-[9px]">
-                  <span>METRIC:</span>
-                  <span>{project.metric}</span>
+              {/* Visual top */}
+              <div className="relative min-h-[160px] overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="relative h-full min-h-[160px] p-6 flex flex-col justify-between">
+                  <span className="text-[9px] font-bold text-white/80 tracking-wide">{project.label}</span>
+                  <div>
+                    <span className="text-white text-sm font-plus-jakarta font-bold block mb-2">{project.title}</span>
+                    <span className="text-[9px] font-bold text-white/90 bg-black/30 border border-white/25 px-1.5 py-0.5 inline-block">{project.metric}</span>
+                  </div>
                 </div>
               </div>
 

@@ -35,7 +35,7 @@ export default function CareersClient({ content }: { content: CareersContent }) 
           </p>
           <a
             href="#positions"
-            className="inline-flex items-center justify-center font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple mt-2"
+            className="inline-flex items-center justify-center font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple hover:text-brand-text px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple mt-2"
           >
             Explore Opportunities
           </a>
@@ -79,7 +79,7 @@ export default function CareersClient({ content }: { content: CareersContent }) 
                   <div className="p-8 flex-1 flex flex-col justify-between">
                     <div>
                       <div className={`w-12 h-12 flex items-center justify-center mb-6 rounded-2xl ${
-                        perk.featured ? "bg-brand-purple text-white" : "bg-brand-bg text-black border border-brand-border group-hover:border-black"
+                        perk.featured ? "bg-brand-purple text-brand-text" : "bg-brand-bg text-black border border-brand-border group-hover:border-black"
                       }`}>
                         <Icon className="h-6 w-6" />
                       </div>
@@ -101,8 +101,8 @@ export default function CareersClient({ content }: { content: CareersContent }) 
             <div className="md:col-span-8 border border-brand-border bg-black text-white p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between crosshair-grid select-none min-h-[280px]">
               <div className="flex justify-between items-center text-[9px] font-mono text-white/50 border-b border-white/10 pb-2">
                 <span>TALENT_INFRASTRUCTURE: CAREER_TRACK_MATRIX</span>
-                <span className="text-[#46601f] flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-[#46601f] rounded-full inline-block animate-pulse"></span> SYSTEM STABLE
+                <span className="text-[#77951e] flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-[#77951e] rounded-full inline-block animate-pulse"></span> SYSTEM STABLE
                 </span>
               </div>
 
@@ -259,7 +259,7 @@ export default function CareersClient({ content }: { content: CareersContent }) 
               <div className="flex gap-4 pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-black text-white hover:bg-brand-purple font-bold text-xs py-3.5 rounded-2xl transition-colors border border-black hover:border-brand-purple font-inter font-bold text-[10px]"
+                  className="w-full bg-black text-white hover:bg-brand-purple hover:text-brand-text font-bold text-xs py-3.5 rounded-2xl transition-colors border border-black hover:border-brand-purple font-inter font-bold text-[10px]"
                 >
                   Submit Application
                 </button>
