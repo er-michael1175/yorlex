@@ -17,12 +17,15 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(false);
   const pathname = usePathname();
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to get in touch.");
+  const contactHref = whatsappUrl ?? "/contact";
 
   useEffect(() => {
     setIsOpen(false);
@@ -32,7 +35,7 @@ export default function Header() {
 
   const navLinks = [
     { name: "Platform", href: "/" },
-    { name: "Resources", href: "/success-stories" },
+    { name: "Contact", href: "/contact" },
     { name: "Careers", href: "/careers" },
     { name: "Company", href: "/about" },
   ];
@@ -165,7 +168,9 @@ export default function Header() {
           {/* Right section */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               className="yorlex-btn-primary flex items-center gap-2 px-5 py-2.5 text-sm"
             >
               <MessageCircle className="h-4 w-4" />
@@ -239,7 +244,9 @@ export default function Header() {
 
               <div className="mt-4 pt-4 border-t border-yorlex-border flex flex-col gap-3">
                 <Link
-                  href="/contact"
+                  href={contactHref}
+                  target={whatsappUrl ? "_blank" : undefined}
+                  rel={whatsappUrl ? "noopener noreferrer" : undefined}
                   className="yorlex-btn-primary w-full py-3 text-sm text-center flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="h-4 w-4" />

@@ -1,102 +1,30 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Shield, Eye, Edit, Trash2, Ban, Mail, ArrowRight, FileText, Check, Lock, ShieldCheck, Globe } from "lucide-react";
-import { motion } from "framer-motion";
+import { Shield, Eye, Edit, Trash2, Ban, Mail, ArrowRight, FileText, Check, Lock, ShieldCheck, Globe, Phone, MapPin } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
 
-// Interactive Data Security Simulator for Hero Right Side
-function HeroSecuritySimulator() {
-  const [activeTab, setActiveTab] = useState<"encryption" | "compliance" | "silos">("encryption");
-
-  const specs = {
-    encryption: {
-      name: "AES-256 Data Encryption",
-      status: "SECURELY ENCRYPTED",
-      protocol: "SSL/TLS v1.3 Handshake",
-      keys: "Ephemeral HSM Keys",
-      color: "text-green-400",
-    },
-    compliance: {
-      name: "Regulatory Frameworks",
-      status: "GDPR & CCPA COMPLIANT",
-      protocol: "Standard Contract Clauses",
-      keys: "Sovereign Silos Active",
-      color: "text-brand-purple",
-    },
-    silos: {
-      name: "Database siloing",
-      status: "COMPARTMENTALIZED",
-      protocol: "Zero-Trust Authorization",
-      keys: "Multi-Signature Gateway",
-      color: "text-blue-400",
-    },
-  };
+// Plain-language summary of our real privacy commitments for the hero
+function PrivacyCommitments() {
+  const commitments = [
+    { icon: Ban, text: "We never sell or rent your data to third parties" },
+    { icon: Eye, text: "You can request a copy of your data at any time" },
+    { icon: Trash2, text: "You can request deletion of your data at any time" },
+    { icon: Mail, text: "Privacy requests are answered within 5 business days" },
+  ];
 
   return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
-      {/* Window Title Bar */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
-        <div className="flex gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[9px] text-gray-550 font-bold">
-          YORLEX // SECURE_PORTAL
-        </span>
-      </div>
-
-      {/* Selectors */}
-      <div className="flex gap-1.5 border border-brand-border-light/5 bg-slate-900/40 p-1.5 mb-3 relative">
-        {(["encryption", "compliance", "silos"] as const).map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
-          >
-            <span className={activeTab === tab ? "text-white" : ""}>{tab}</span>
-            {activeTab === tab && (
-              <motion.div
-                layoutId="activeSecurityTab"
-                className="absolute inset-0 bg-brand-purple -z-10"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </button>
+    <div className="w-full bg-yorlex-navy rounded-2xl border border-white/10 p-6 md:p-8 shadow-2xl">
+      <span className="text-xs font-semibold uppercase tracking-widest text-white/50">
+        Our Commitments
+      </span>
+      <div className="mt-5 space-y-4">
+        {commitments.map((c) => (
+          <div key={c.text} className="flex items-start gap-3">
+            <c.icon className="h-4.5 w-4.5 text-yorlex-green shrink-0 mt-0.5" />
+            <span className="text-sm text-white/80 leading-relaxed">{c.text}</span>
+          </div>
         ))}
-      </div>
-
-      {/* Details */}
-      <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
-          <span>// CRYPTOGRAPHIC TUNNEL ACTIVE</span>
-          <span className={specs[activeTab].color}>● SIGNAL_OK</span>
-        </div>
-
-        <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 min-h-[110px] justify-center">
-          <div className="text-white font-bold text-[10px]">
-            {specs[activeTab].name}
-          </div>
-          <div className="grid grid-cols-2 gap-2 text-gray-400 mt-1 font-mono text-[8px] leading-relaxed">
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-550">TUNNEL STATUS</span>
-              <span className={`font-bold mt-0.5 ${specs[activeTab].color}`}>{specs[activeTab].status}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-550">SECURITY PROTOCOL</span>
-              <span className="font-bold text-white mt-0.5">{specs[activeTab].protocol}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-555">GATEWAY KEYING</span>
-              <span className="font-bold text-white mt-0.5">{specs[activeTab].keys}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="text-[7px] text-gray-450 border-t border-brand-border-light/10 pt-2">
-        DATA_OWNERSHIP: CLIENT_RETAINED // SLA_RETENTION: STRICT
       </div>
     </div>
   );
@@ -189,7 +117,7 @@ export default function PrivacyPolicy() {
               <PremiumButton
                 variant="secondary"
                 size="md"
-                href="mailto:support@yorlex.com"
+                href="mailto:contact@yorlex.com"
               >
                 Email Our Privacy Team
               </PremiumButton>
@@ -200,7 +128,7 @@ export default function PrivacyPolicy() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <HeroSecuritySimulator />
+            <PrivacyCommitments />
           </div>
         </div>
       </SectionWrapper>
@@ -392,7 +320,7 @@ export default function PrivacyPolicy() {
                   8. Your Rights
                 </h2>
                 <p>
-                  Depending on applicable data privacy laws (such as GDPR or CCPA), you may have the right to:
+                  Depending on applicable data privacy laws — including India's Digital Personal Data Protection Act, 2023, and international frameworks such as GDPR or CCPA where relevant — you may have the right to:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
                   <div className="flex items-center gap-3 p-4 border border-brand-border bg-white rounded-2xl">
@@ -459,15 +387,19 @@ export default function PrivacyPolicy() {
                 <div className="bg-brand-bg border border-brand-border p-6 rounded-2xl space-y-3 font-mono text-xs text-gray-550 mt-4">
                   <div className="flex items-center gap-2">
                     <Globe className="h-4 w-4 text-brand-purple shrink-0" />
-                    <span>Yorlex Enterprise</span>
+                    <span>Yorlex</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-brand-purple shrink-0" />
-                    <span>Email: support@yorlex.com</span>
+                    <span>Email: contact@yorlex.com</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-brand-purple shrink-0" />
-                    <span>Address: Yorlex Legal Towers, Financial District, SF &amp; London</span>
+                    <Phone className="h-4 w-4 text-brand-purple shrink-0" />
+                    <span>Phone: +91 92702 92704</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-brand-purple shrink-0" />
+                    <span>Address: First Floor, GDA Tower, Golghar, Gorakhpur - 273001, Uttar Pradesh, India</span>
                   </div>
                 </div>
               </section>
@@ -500,7 +432,7 @@ export default function PrivacyPolicy() {
             <PremiumButton
               variant="secondary"
               size="lg"
-              href="mailto:support@yorlex.com"
+              href="mailto:contact@yorlex.com"
               className="border-white/20 text-white hover:bg-white/10"
             >
               Email Our Privacy Team

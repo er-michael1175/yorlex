@@ -1,22 +1,39 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Check, Handshake, ArrowRight, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, Check, Handshake, ArrowRight, Globe, MessageCircle } from "lucide-react";
 import { SectionWrapper, PremiumButton } from "@/components/ui";
 import type { ContactContent } from "@/lib/content/contact";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const AREA_OF_INTEREST_LABELS: Record<string, string> = {
+  tech: "Technology Architecture & Outsourcing",
+  fin: "Fiduciary & Tax Solutions",
+  mkt: "Marketing Brand & ROI Campaigns",
+  mgt: "Management & Operational Consulting",
+  spt: "Business Support & Back-Office/BPO",
+};
+
+function openWhatsAppWith(message: string) {
+  const url = getWhatsAppUrl(message);
+  if (url) {
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+}
 
 export default function ContactClient({ content }: { content: ContactContent }) {
   const [clientSubmitted, setClientSubmitted] = useState(false);
   const [generalSubmitted, setGeneralSubmitted] = useState(false);
-  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const [clientError, setClientError] = useState<string | null>(null);
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [clientSubmitting, setClientSubmitting] = useState(false);
   const [generalSubmitting, setGeneralSubmitting] = useState(false);
 
   const { offices } = content;
+  const primaryOffice = offices[0];
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to get in touch.");
 
   const handleClientSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,6 +69,10 @@ export default function ContactClient({ content }: { content: ContactContent }) 
         throw new Error(data.error || "Something went wrong. Please try again or email us directly.");
       }
       setClientSubmitted(true);
+      const areaLabel = AREA_OF_INTEREST_LABELS[areaOfInterest] ?? areaOfInterest;
+      openWhatsAppWith(
+        `Hi Yorlex, I'm ${firstName} ${lastName} (${email}). I'd like to discuss ${areaLabel}.`
+      );
     } catch (err) {
       setClientError(err instanceof Error ? err.message : "Something went wrong. Please try again or email us directly.");
     } finally {
@@ -86,6 +107,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
         throw new Error(data.error || "Something went wrong. Please try again or email us directly.");
       }
       setGeneralSubmitted(true);
+      openWhatsAppWith(`Hi Yorlex, I'm ${name} (${email}). ${message}`);
     } catch (err) {
       setGeneralError(err instanceof Error ? err.message : "Something went wrong. Please try again or email us directly.");
     } finally {
@@ -96,7 +118,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
   return (
     <div className="flex-grow bg-brand-bg font-sans pt-0 pb-0">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
+      <SectionWrapper background="grid" spacing="none" className="py-16 md:py-20" animate>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
             <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
@@ -125,97 +147,73 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 size="md"
                 href="#offices-section"
               >
-                View Offices
+                View Our Office
               </PremiumButton>
             </div>
           </div>
 
-          {/* Map Visual (interactive dots matching SF, London, Chennai) */}
-          <div className="lg:col-span-5 relative min-h-80 w-full bg-slate-950 border border-brand-border-light/10 overflow-hidden rounded-2xl select-none shadow-2xl">
-            <div className="absolute inset-0 z-0 opacity-20 grayscale">
-              <img
-                className="w-full h-full object-cover mix-blend-luminosity"
-                alt="Minimalist digital world map"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Pk-SOUaMX24GEvA17CbSHN-EYpVH7W4dwDCtIj2IyTqy3xaCeCPDCVsxbAbGRaRL4HImAjlnKOe7cuhQMLC82xHJbRUfH-VMdh6uumW_Y8mfCK4LAvIJB3fFbGPSoJnaUVCYMAGnM9VtOWBjAzrQd8-Zl3bY74rN8-k-Z8PBfz3-7IapdWu79gn4Kmx7PgdK6E0asyMJDszqAepLfojXyGUT7GEhPYcqWxMaj6c3pNOWdkV3F9WJeZo_ERqFZrit4pEHio211JI"
-              />
-            </div>
-
-            {/* Ambient grid overlay */}
-            <div className="absolute inset-0 bg-size-[20px_20px] bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] z-0"></div>
-
-            <div className="absolute top-4 left-4 z-10 text-[8px] font-mono text-white/50">
-              GLOBAL_ROUTING_GRID: ACTIVE
-            </div>
-
-            <div className="absolute top-4 right-4 z-10 text-[8px] font-mono text-brand-purple animate-pulse flex items-center gap-1">
-              <span className="w-1 h-1 bg-brand-purple rounded-full inline-block"></span> 3 ACTIVE NODES
-            </div>
-
-            {/* Connection Vectors */}
-            <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 400 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 80,100 Q 180,60 220,110" fill="none" stroke="rgba(92,122,52,0.4)" strokeWidth="1" strokeDasharray="3,3" />
-              <path d="M 220,110 Q 280,160 380,210" fill="none" stroke="rgba(92,122,52,0.4)" strokeWidth="1" strokeDasharray="3,3" />
-              <path d="M 80,100 Q 200,230 380,210" fill="none" stroke="rgba(0,122,255,0.2)" strokeWidth="1.5" />
-            </svg>
-
-            {/* SF Node (Top Left) */}
-            <div
-              className="absolute flex flex-col items-center group cursor-pointer z-20"
-              onMouseEnter={() => setHoveredNode("sf")}
-              onMouseLeave={() => setHoveredNode(null)}
-              style={{ transform: "translate(-50%, -50%)", top: "35%", left: "20%" }}
-            >
-              <div className="relative w-4 h-4 flex items-center justify-center">
-                <div className="w-2 h-2 bg-brand-purple rounded-full shadow-[0_0_10px_#5c7a34] group-hover:scale-125 transition-transform z-10"></div>
-                <div className="absolute inset-0 bg-brand-purple/35 rounded-full animate-ping-slow"></div>
+          {/* Direct Contact Card */}
+          <div className="lg:col-span-5 relative">
+            <div className="yorlex-card-dark p-6 md:p-8">
+              <div className="flex items-center justify-between mb-5">
+                <span className="text-xs font-semibold uppercase tracking-widest text-white/50">
+                  Direct Line
+                </span>
+                <span className="flex items-center gap-1.5 text-xs font-semibold text-yorlex-green">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yorlex-green animate-pulse" />
+                  Available Now
+                </span>
               </div>
-              {hoveredNode === "sf" && (
-                <div className="absolute top-6 font-mono text-[7px] text-white bg-black border border-white/20 px-2 py-0.5 rounded-2xl whitespace-nowrap shadow-lg">
-                  SF_HQ: 14ms Latency
+
+              <div className="space-y-3">
+                {primaryOffice && (
+                  <a
+                    href={`tel:${primaryOffice.phone.replace(/\s/g, "")}`}
+                    className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-3.5 hover:border-yorlex-green/40 transition-colors"
+                  >
+                    <Phone className="h-4.5 w-4.5 text-yorlex-green shrink-0" />
+                    <div>
+                      <div className="text-[10px] uppercase tracking-wide text-white/40">Call</div>
+                      <div className="text-sm font-semibold text-white">{primaryOffice.phone}</div>
+                    </div>
+                  </a>
+                )}
+
+                {whatsappUrl && (
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-3.5 hover:border-yorlex-green/40 transition-colors"
+                  >
+                    <MessageCircle className="h-4.5 w-4.5 text-yorlex-green shrink-0" />
+                    <div>
+                      <div className="text-[10px] uppercase tracking-wide text-white/40">Chat</div>
+                      <div className="text-sm font-semibold text-white">WhatsApp</div>
+                    </div>
+                  </a>
+                )}
+
+                {primaryOffice && (
+                  <a
+                    href={`mailto:${primaryOffice.email}`}
+                    className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 py-3.5 hover:border-yorlex-green/40 transition-colors"
+                  >
+                    <Mail className="h-4.5 w-4.5 text-yorlex-green shrink-0" />
+                    <div>
+                      <div className="text-[10px] uppercase tracking-wide text-white/40">Email</div>
+                      <div className="text-sm font-semibold text-white">{primaryOffice.email}</div>
+                    </div>
+                  </a>
+                )}
+              </div>
+
+              {primaryOffice && (
+                <div className="flex items-center gap-2 text-xs text-white/40 mt-5 pt-5 border-t border-white/10">
+                  <MapPin className="h-3.5 w-3.5 shrink-0" />
+                  {primaryOffice.city}
                 </div>
               )}
-            </div>
-
-            {/* LON Node (Top Middle) */}
-            <div
-              className="absolute flex flex-col items-center group cursor-pointer z-20"
-              onMouseEnter={() => setHoveredNode("lon")}
-              onMouseLeave={() => setHoveredNode(null)}
-              style={{ transform: "translate(-50%, -50%)", top: "38%", left: "55%" }}
-            >
-              <div className="relative w-4 h-4 flex items-center justify-center">
-                <div className="w-2 h-2 bg-brand-purple rounded-full shadow-[0_0_10px_#5c7a34] group-hover:scale-125 transition-transform z-10"></div>
-                <div className="absolute inset-0 bg-brand-purple/35 rounded-full animate-ping-slow"></div>
-              </div>
-              {hoveredNode === "lon" && (
-                <div className="absolute top-6 font-mono text-[7px] text-white bg-black border border-white/20 px-2 py-0.5 rounded-2xl whitespace-nowrap shadow-lg">
-                  LON_HQ: 38ms Latency
-                </div>
-              )}
-            </div>
-
-            {/* Chennai Node (Bottom Right) */}
-            <div
-              className="absolute flex flex-col items-center group cursor-pointer z-20"
-              onMouseEnter={() => setHoveredNode("maa")}
-              onMouseLeave={() => setHoveredNode(null)}
-              style={{ transform: "translate(-50%, -50%)", top: "68%", left: "82%" }}
-            >
-              <div className="relative w-4 h-4 flex items-center justify-center">
-                <div className="w-2.5 h-2.5 bg-brand-purple rounded-full shadow-[0_0_10px_#5c7a34] group-hover:scale-125 transition-transform z-10"></div>
-                <div className="absolute inset-0 bg-brand-purple/35 rounded-full animate-ping-slow"></div>
-              </div>
-              {hoveredNode === "maa" && (
-                <div className="absolute top-6 font-mono text-[7px] text-white bg-black border border-white/20 px-2 py-0.5 rounded-2xl whitespace-nowrap shadow-lg">
-                  MAA_HUB: 72ms Latency
-                </div>
-              )}
-            </div>
-
-            {/* Bottom Telemetry Details */}
-            <div className="absolute bottom-4 left-4 right-4 z-10 flex justify-between items-center text-[7px] font-mono text-white/30 border-t border-white/10 pt-2">
-              <span>SATELLITE_TUNNEL_ESTABLISHED: TRUE</span>
-              <span>GEO_ZONE: GLOBAL_EAST_WEST</span>
             </div>
           </div>
         </div>
@@ -243,7 +241,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 </div>
                 <h4 className="text-xl font-bold text-white mb-2 font-plus-jakarta">Briefing Registered</h4>
                 <p className="text-xs text-gray-400 max-w-sm mx-auto leading-relaxed font-inter">
-                  Our strategic partners will review your objectives and contact you within 4 hours.
+                  We&apos;ve opened WhatsApp in a new tab so we can continue the conversation directly. Our strategic partners will also review your objectives and contact you within 4 hours.
                 </p>
               </div>
             ) : (
@@ -303,7 +301,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 </div>
                 <h4 className="text-xl font-bold text-black mb-2 font-plus-jakarta">Inquiry Received</h4>
                 <p className="text-xs text-gray-550 max-w-sm mx-auto leading-relaxed font-inter">
-                  Thank you. Our communications team will establish contact within 24 business hours.
+                  We&apos;ve opened WhatsApp in a new tab so we can continue the conversation directly. Thank you — we&apos;ll also follow up by email within 24 business hours.
                 </p>
               </div>
             ) : (

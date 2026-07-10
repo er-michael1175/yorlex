@@ -294,8 +294,10 @@ export default function FAQ() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[300px] mt-4">
             <AnimatePresence mode="popLayout">
               {filteredFAQs.length > 0 ? (
-                filteredFAQs.map((faq) => {
+                filteredFAQs.map((faq, idx) => {
                   const IconComponent = categoryIcons[faq.category] || HelpCircle;
+                  const isOrphanedLastCard =
+                    idx === filteredFAQs.length - 1 && filteredFAQs.length % 2 !== 0;
                   return (
                     <motion.div
                       key={faq.q}
@@ -304,7 +306,9 @@ export default function FAQ() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="bg-white border border-brand-border p-6 flex flex-col justify-between hover:border-brand-purple transition-colors duration-250 group relative rounded-2xl shadow-sm"
+                      className={`bg-white border border-brand-border p-6 flex flex-col justify-between transition-colors duration-250 group relative rounded-2xl shadow-sm ${
+                        isOrphanedLastCard ? "md:col-span-2" : ""
+                      }`}
                     >
                       {/* Top border accent line */}
                       <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />

@@ -1,102 +1,30 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Gavel, CheckCircle, ArrowRight, FileText, Download, ShieldAlert, Check, Lock, Globe, Mail, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
+import { Gavel, CheckCircle, ArrowRight, FileText, Download, ShieldAlert, Check, Lock, Globe, Mail, ShieldCheck, Phone, MapPin } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
 
-// Interactive Contract Integrity Simulator for Hero Right Side
-function HeroTermsSimulator() {
-  const [activeGate, setActiveGate] = useState<"engagement" | "intellectual" | "jurisdiction">("engagement");
-
-  const gates = {
-    engagement: {
-      name: "Client Engagement SOP",
-      status: "CONTRACT_READY",
-      clause: "Section 4.0 Scope Validation",
-      detail: "MSA Execution Before Dev Sprints",
-      color: "text-green-400",
-    },
-    intellectual: {
-      name: "IP Ownership Gate",
-      status: "CONDITIONAL_TRANSFER",
-      clause: "Section 7.0 IP Allocation",
-      detail: "Transfer complete after final billing gate",
-      color: "text-brand-purple",
-    },
-    jurisdiction: {
-      name: "Governing Legislation",
-      status: "DELAWARE_LAW",
-      clause: "Section 14.0 Governing Venue",
-      detail: "Delaware state corporate jurisdiction",
-      color: "text-blue-400",
-    },
-  };
+// Plain-language summary of the key contract terms for the hero
+function TermsHighlights() {
+  const highlights = [
+    { icon: FileText, text: "Work begins only after you approve a written scope and quote" },
+    { icon: ShieldCheck, text: "You own the final deliverables once your invoice is paid" },
+    { icon: Lock, text: "Your business information is kept confidential" },
+    { icon: Gavel, text: "Governed by Indian law, courts in Gorakhpur, Uttar Pradesh" },
+  ];
 
   return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
-      {/* Window Title Bar */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
-        <div className="flex gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[9px] text-gray-550 font-bold">
-          YORLEX // MSA_ENGINE
-        </span>
-      </div>
-
-      {/* Selectors */}
-      <div className="flex gap-1.5 border border-brand-border-light/5 bg-slate-900/40 p-1.5 mb-3 relative">
-        {(["engagement", "intellectual", "jurisdiction"] as const).map((gate) => (
-          <button
-            key={gate}
-            onClick={() => setActiveGate(gate)}
-            className="flex-1 py-1.5 text-[8px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
-          >
-            <span className={activeGate === gate ? "text-white" : ""}>{gate}</span>
-            {activeGate === gate && (
-              <motion.div
-                layoutId="activeTermsTab"
-                className="absolute inset-0 bg-brand-purple -z-10"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </button>
+    <div className="w-full bg-yorlex-navy rounded-2xl border border-white/10 p-6 md:p-8 shadow-2xl">
+      <span className="text-xs font-semibold uppercase tracking-widest text-white/50">
+        Key Terms At a Glance
+      </span>
+      <div className="mt-5 space-y-4">
+        {highlights.map((h) => (
+          <div key={h.text} className="flex items-start gap-3">
+            <h.icon className="h-4.5 w-4.5 text-yorlex-green shrink-0 mt-0.5" />
+            <span className="text-sm text-white/80 leading-relaxed">{h.text}</span>
+          </div>
         ))}
-      </div>
-
-      {/* Details */}
-      <div className="flex-grow flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
-          <span>// COMPLIANCE PROTOCOL CHECK</span>
-          <span className={gates[activeGate].color}>● COMPILED</span>
-        </div>
-
-        <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-1.5 min-h-[110px] justify-center">
-          <div className="text-white font-bold text-[10px]">
-            {gates[activeGate].name}
-          </div>
-          <div className="grid grid-cols-2 gap-2 text-gray-400 mt-1 font-mono text-[8px] leading-relaxed">
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-550">GATE STATUS</span>
-              <span className={`font-bold mt-0.5 ${gates[activeGate].color}`}>{gates[activeGate].status}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-550">ENFORCED CLAUSE</span>
-              <span className="font-bold text-white mt-0.5">{gates[activeGate].clause}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-555">RESOLUTION SOP</span>
-              <span className="font-bold text-white mt-0.5">{gates[activeGate].detail}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="text-[7px] text-gray-450 border-t border-brand-border-light/10 pt-2">
-        LEGAL_STATUS: MASTER_SER_AGREEMENT // DOC_REVISION: 2026.06
       </div>
     </div>
   );
@@ -204,7 +132,7 @@ export default function TermsAndConditions() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <HeroTermsSimulator />
+            <TermsHighlights />
           </div>
         </div>
       </SectionWrapper>
@@ -434,7 +362,7 @@ export default function TermsAndConditions() {
                   14. Governing Law
                 </h2>
                 <p>
-                  These Terms &amp; Conditions shall be governed by and interpreted in accordance with the laws of the jurisdiction of Delaware, USA, without regard to conflict of law rules. Any disputes shall be subject to the exclusive jurisdiction of the competent courts in Delaware, USA.
+                  These Terms &amp; Conditions shall be governed by and interpreted in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the competent courts in Gorakhpur, Uttar Pradesh.
                 </p>
               </section>
 
@@ -449,15 +377,19 @@ export default function TermsAndConditions() {
                 <div className="bg-brand-bg border border-brand-border p-6 rounded-2xl space-y-3 font-mono text-xs text-gray-555 mt-4">
                   <div className="flex items-center gap-2">
                     <Globe className="h-4 w-4 text-brand-purple shrink-0" />
-                    <span>Yorlex Enterprise</span>
+                    <span>Yorlex</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-brand-purple shrink-0" />
-                    <span>Email: support@yorlex.com</span>
+                    <span>Email: contact@yorlex.com</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-brand-purple shrink-0" />
-                    <span>Address: Yorlex Legal Towers, Financial District, SF &amp; London</span>
+                    <Phone className="h-4 w-4 text-brand-purple shrink-0" />
+                    <span>Phone: +91 92702 92704</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-brand-purple shrink-0" />
+                    <span>Address: First Floor, GDA Tower, Golghar, Gorakhpur - 273001, Uttar Pradesh, India</span>
                   </div>
                 </div>
               </section>
@@ -484,11 +416,11 @@ export default function TermsAndConditions() {
                   )}
                   
                   <button
-                    onClick={() => alert("Downloading PDF summary...")}
+                    onClick={() => window.print()}
                     className="bg-white hover:bg-brand-bg text-black font-inter font-bold text-[10px] px-8 py-3.5 border border-brand-border transition-all flex items-center justify-center gap-2"
                   >
                     <Download className="h-4 w-4 text-brand-purple" />
-                    Download PDF
+                    Print / Save as PDF
                   </button>
                 </div>
               </div>

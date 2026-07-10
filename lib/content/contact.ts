@@ -14,10 +14,10 @@ export type ContactContent = {
 };
 
 export const contactDefaultContent: ContactContent = {
-  heroBadge: "Global Engagement",
-  heroHeading: "Engage Excellence",
+  heroBadge: "Get In Touch",
+  heroHeading: "Let's Talk",
   heroSubheading:
-    "Direct access to Yorlex Enterprise's global authorities. Select your engagement path for guaranteed precision routing and our industry-leading 4-hour SLA response.",
+    "Reach us directly by phone, WhatsApp, or the form below — whether you're exploring a partnership or just have a question.",
   officesHeading: "Our Office",
   offices: [
     {
