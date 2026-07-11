@@ -30,6 +30,7 @@ import {
   FileText,
 } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 // Interactive KPI Dashboard Section Component
 function LiveFinanceDashboardSection() {
@@ -303,6 +304,9 @@ const faqItems = [
 export default function FinanceSolutions() {
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to talk about finance solutions.");
+  const contactHref = whatsappUrl ?? "/contact";
+
   return (
     <div className="flex-1 font-sans bg-brand-bg">
       {/* 1. Hero Section */}
@@ -351,7 +355,9 @@ export default function FinanceSolutions() {
               <PremiumButton
                 variant="gradient"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Schedule Financial Consultation
@@ -359,7 +365,9 @@ export default function FinanceSolutions() {
               <PremiumButton
                 variant="secondary"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
               >
                 Request a Quote
               </PremiumButton>
@@ -674,7 +682,9 @@ export default function FinanceSolutions() {
             <PremiumButton
               variant="gradient"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               icon={<ArrowRight className="h-5 w-5" />}
             >
               Book Financial Consultation
@@ -682,7 +692,9 @@ export default function FinanceSolutions() {
             <PremiumButton
               variant="secondary"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               className="border-white/20 text-white hover:bg-white/10"
             >
               Speak with a Finance Expert

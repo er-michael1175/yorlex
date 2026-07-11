@@ -22,9 +22,13 @@ import {
   Check,
 } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function SupportServices() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to talk about business support services.");
+  const contactHref = whatsappUrl ?? "/contact";
 
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx);
@@ -200,7 +204,9 @@ export default function SupportServices() {
               <PremiumButton
                 variant="gradient"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Schedule Consultation
@@ -208,7 +214,9 @@ export default function SupportServices() {
               <PremiumButton
                 variant="secondary"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
               >
                 Get Support Solutions
               </PremiumButton>
@@ -513,7 +521,9 @@ export default function SupportServices() {
             <PremiumButton
               variant="gradient"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               icon={<ArrowRight className="h-5 w-5" />}
             >
               Book a Consultation
@@ -521,7 +531,9 @@ export default function SupportServices() {
             <PremiumButton
               variant="secondary"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               className="border-white/20 text-white hover:bg-white/10"
             >
               Contact Our Support Team

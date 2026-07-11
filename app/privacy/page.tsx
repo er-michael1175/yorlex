@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Shield, Eye, Edit, Trash2, Ban, Mail, ArrowRight, FileText, Check, Lock, ShieldCheck, Globe, Phone, MapPin } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 // Plain-language summary of our real privacy commitments for the hero
 function PrivacyCommitments() {
@@ -32,6 +33,9 @@ function PrivacyCommitments() {
 
 export default function PrivacyPolicy() {
   const [activeSection, setActiveSection] = useState<string>("section-1");
+
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I have a question about your Privacy Policy.");
+  const contactHref = whatsappUrl ?? "/contact";
 
   const sections = [
     { id: "section-1", name: "1. Introduction" },
@@ -140,7 +144,9 @@ export default function PrivacyPolicy() {
               <PremiumButton
                 variant="gradient"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Contact Us
@@ -455,7 +461,9 @@ export default function PrivacyPolicy() {
             <PremiumButton
               variant="gradient"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               icon={<ArrowRight className="h-5 w-5" />}
             >
               Contact Us

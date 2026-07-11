@@ -3,6 +3,7 @@
 import React from "react";
 import { Search, Compass, Cpu, Layers, TrendingUp, ArrowRight, Check } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 function StepPhoto({ src, alt }: { src: string; alt: string }) {
   return (
@@ -14,6 +15,9 @@ function StepPhoto({ src, alt }: { src: string; alt: string }) {
 }
 
 export default function Process() {
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to schedule a system audit.");
+  const contactHref = whatsappUrl ?? "/contact";
+
   const auditIllustration = (
     <StepPhoto src="/images/services/finance-hero-bg.jpg" alt="Discovery and system audit" />
   );
@@ -140,7 +144,9 @@ export default function Process() {
               <PremiumButton
                 variant="gradient"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Schedule System Audit
@@ -237,7 +243,9 @@ export default function Process() {
             <PremiumButton
               variant="gradient"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               icon={<ArrowRight className="h-5 w-5" />}
             >
               Schedule Free Strategy Audit
@@ -245,7 +253,9 @@ export default function Process() {
             <PremiumButton
               variant="secondary"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               className="border-white/20 text-white hover:bg-white/10"
             >
               Talk to an Expert

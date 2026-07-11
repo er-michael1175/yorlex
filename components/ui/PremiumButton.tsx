@@ -7,6 +7,8 @@ export interface PremiumButtonProps {
   variant?: "primary" | "secondary" | "ghost" | "gradient";
   size?: "sm" | "md" | "lg";
   href?: string;
+  target?: string;
+  rel?: string;
   onClick?: () => void;
   icon?: React.ReactNode;
   loading?: boolean;
@@ -64,6 +66,8 @@ export function PremiumButton({
   variant = "primary",
   size = "md",
   href,
+  target,
+  rel,
   onClick,
   icon,
   loading = false,
@@ -106,7 +110,7 @@ export function PremiumButton({
 
   if (href && !loading) {
     return (
-      <a href={href} className={combinedClasses} onClick={onClick}>
+      <a href={href} target={target} rel={rel} className={combinedClasses} onClick={onClick}>
         {content}
       </a>
     );

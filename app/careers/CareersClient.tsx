@@ -5,10 +5,17 @@ import { ArrowRight, MapPin, X, Briefcase } from "lucide-react";
 import { ICON_MAP } from "@/lib/content/iconMap";
 import type { CareersContent } from "@/lib/content/careers";
 import { SectionWrapper, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function CareersClient({ content }: { content: CareersContent }) {
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [applicantName, setApplicantName] = useState("");
+  const [applicantEmail, setApplicantEmail] = useState("");
+  const [applicantResume, setApplicantResume] = useState("");
+
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to talk to your team about career opportunities.");
+  const contactHref = whatsappUrl ?? "/contact";
 
   const { perks, jobs } = content;
 
@@ -66,7 +73,14 @@ export default function CareersClient({ content }: { content: CareersContent }) 
                 Explore Opportunities
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <PremiumButton variant="secondary" size="md" href="/contact" className="rounded-2xl">
+              <PremiumButton
+                variant="secondary"
+                size="md"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
+                className="rounded-2xl"
+              >
                 Talk to Our Team
               </PremiumButton>
             </div>
@@ -241,8 +255,20 @@ export default function CareersClient({ content }: { content: CareersContent }) 
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                alert("Application registered successfully. Our talent partner will reach out in 48 hours.");
+                const message = [
+                  `Hi Yorlex, I'd like to apply for the ${selectedRole} role.`,
+                  `Name: ${applicantName}`,
+                  `Email: ${applicantEmail}`,
+                  `Resume / LinkedIn: ${applicantResume}`,
+                ].join("\n");
+                const url = getWhatsAppUrl(message);
+                if (url) {
+                  window.open(url, "_blank", "noopener,noreferrer");
+                }
                 setSelectedRole(null);
+                setApplicantName("");
+                setApplicantEmail("");
+                setApplicantResume("");
               }}
               className="space-y-4"
             >
@@ -253,6 +279,8 @@ export default function CareersClient({ content }: { content: CareersContent }) 
                 <input
                   required
                   type="text"
+                  value={applicantName}
+                  onChange={(e) => setApplicantName(e.target.value)}
                   className="w-full bg-white border border-brand-border rounded-2xl px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter"
                 />
               </div>
@@ -263,6 +291,8 @@ export default function CareersClient({ content }: { content: CareersContent }) 
                 <input
                   required
                   type="email"
+                  value={applicantEmail}
+                  onChange={(e) => setApplicantEmail(e.target.value)}
                   className="w-full bg-white border border-brand-border rounded-2xl px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter"
                 />
               </div>
@@ -274,6 +304,8 @@ export default function CareersClient({ content }: { content: CareersContent }) 
                   required
                   type="url"
                   placeholder="https://..."
+                  value={applicantResume}
+                  onChange={(e) => setApplicantResume(e.target.value)}
                   className="w-full bg-white border border-brand-border rounded-2xl px-4 py-3 text-black text-sm focus:outline-none focus:border-brand-purple font-inter"
                 />
               </div>

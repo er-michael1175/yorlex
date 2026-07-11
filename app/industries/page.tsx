@@ -3,8 +3,12 @@
 import React from "react";
 import { ArrowRight, Coins, HeartPulse, Factory, Store, Truck, Cpu, Building2, ShieldAlert, Video, Scale, HelpCircle } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function Industries() {
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to talk about solutions for my industry.");
+  const contactHref = whatsappUrl ?? "/contact";
+
   const sectors = [
     {
       name: "Financial Services",
@@ -151,7 +155,9 @@ export default function Industries() {
               <PremiumButton
                 variant="gradient"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Schedule Industry Consultation
@@ -245,7 +251,9 @@ export default function Industries() {
             <PremiumButton
               variant="gradient"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               icon={<ArrowRight className="h-5 w-5" />}
             >
               Request Sector Consult
@@ -253,7 +261,9 @@ export default function Industries() {
             <PremiumButton
               variant="secondary"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               className="border-white/20 text-white hover:bg-white/10"
             >
               Talk to an Industry Advisor

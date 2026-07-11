@@ -35,6 +35,7 @@ import {
   LineChart,
 } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 // Services Grid Data
 const servicesList = [
@@ -188,6 +189,9 @@ const faqItems = [
 export default function TechnologySolutions() {
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to talk about technology solutions.");
+  const contactHref = whatsappUrl ?? "/contact";
+
   return (
     <div className="flex-1 font-sans bg-brand-bg">
       {/* 1. Hero Section */}
@@ -236,7 +240,9 @@ export default function TechnologySolutions() {
               <PremiumButton
                 variant="gradient"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Schedule Consultation
@@ -244,7 +250,9 @@ export default function TechnologySolutions() {
               <PremiumButton
                 variant="secondary"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
               >
                 Get a Free Quote
               </PremiumButton>
@@ -553,7 +561,9 @@ export default function TechnologySolutions() {
             <PremiumButton
               variant="gradient"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               icon={<ArrowRight className="h-5 w-5" />}
             >
               Book Free Consultation
@@ -561,7 +571,9 @@ export default function TechnologySolutions() {
             <PremiumButton
               variant="secondary"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               className="border-white/20 text-white hover:bg-white/10"
             >
               Contact Our Experts

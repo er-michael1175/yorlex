@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Clock, FileText, TrendingUp, ShieldCheck, CheckSquare, Send, Check, ArrowRight, Activity, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 // Interactive Engagement Simulator for Hero Right Side
 function HeroEngagementSimulator() {
@@ -112,11 +113,33 @@ function HeroEngagementSimulator() {
   );
 }
 
+const FOCUS_LABELS: Record<string, string> = {
+  tech: "Technology Ecosystem Audit",
+  finance: "Fiduciary & Tax Restructuring",
+  marketing: "Brand Strategy & Pipeline Growth",
+  management: "Lean Management & Talent Search",
+};
+
 export default function EngagementModels() {
   const [submitted, setSubmitted] = useState(false);
+  const [briefingName, setBriefingName] = useState("");
+  const [briefingEmail, setBriefingEmail] = useState("");
+  const [briefingOrg, setBriefingOrg] = useState("");
+  const [briefingFocus, setBriefingFocus] = useState("tech");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const message = [
+      "Hi Yorlex, I'd like to request a strategy briefing.",
+      `Name: ${briefingName}`,
+      `Corporate Email: ${briefingEmail}`,
+      `Organization: ${briefingOrg}`,
+      `Strategic Focus: ${FOCUS_LABELS[briefingFocus]}`,
+    ].join("\n");
+    const url = getWhatsAppUrl(message);
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
     setSubmitted(true);
   };
 
@@ -328,9 +351,9 @@ export default function EngagementModels() {
                 <div className="w-12 h-12 rounded-2xl bg-brand-purple text-brand-text flex items-center justify-center mb-4">
                   <Check className="h-6 w-6" />
                 </div>
-                <h4 className="text-lg font-bold text-black font-plus-jakarta mb-2">Briefing Saved</h4>
+                <h4 className="text-lg font-bold text-black font-plus-jakarta mb-2">Sent to WhatsApp</h4>
                 <p className="text-xs text-gray-500 max-w-xs mx-auto leading-relaxed">
-                  Thank you. Our audit specialists will contact you within 24 hours to schedule the briefing session.
+                  We&apos;ve opened WhatsApp with your details pre-filled &mdash; just hit send and our team will respond right away.
                 </p>
               </div>
             ) : (
@@ -341,6 +364,8 @@ export default function EngagementModels() {
                     <input
                       required
                       type="text"
+                      value={briefingName}
+                      onChange={(e) => setBriefingName(e.target.value)}
                       className="border-0 border-b border-brand-border bg-transparent px-0 py-2 focus:ring-0 focus:border-brand-purple font-inter text-sm text-black transition-colors"
                       placeholder="Jane Doe"
                     />
@@ -350,17 +375,21 @@ export default function EngagementModels() {
                     <input
                       required
                       type="email"
+                      value={briefingEmail}
+                      onChange={(e) => setBriefingEmail(e.target.value)}
                       className="border-0 border-b border-brand-border bg-transparent px-0 py-2 focus:ring-0 focus:border-brand-purple font-inter text-sm text-black transition-colors"
                       placeholder="jane@enterprise.com"
                     />
                   </div>
                 </div>
-                
+
                 <div className="flex flex-col gap-1">
                   <label className="font-inter font-bold text-[10px] text-gray-500">Organization</label>
                   <input
                     required
                     type="text"
+                    value={briefingOrg}
+                    onChange={(e) => setBriefingOrg(e.target.value)}
                     className="border-0 border-b border-brand-border bg-transparent px-0 py-2 focus:ring-0 focus:border-brand-purple font-inter text-sm text-black transition-colors"
                     placeholder="Company Name"
                   />
@@ -368,7 +397,11 @@ export default function EngagementModels() {
 
                 <div className="flex flex-col gap-1">
                   <label className="font-inter font-bold text-[10px] text-gray-500">Strategic Focus</label>
-                  <select className="border-0 border-b border-brand-border bg-transparent px-0 py-2 focus:ring-0 focus:border-brand-purple font-inter text-sm text-black transition-colors">
+                  <select
+                    value={briefingFocus}
+                    onChange={(e) => setBriefingFocus(e.target.value)}
+                    className="border-0 border-b border-brand-border bg-transparent px-0 py-2 focus:ring-0 focus:border-brand-purple font-inter text-sm text-black transition-colors"
+                  >
                     <option value="tech">Technology Ecosystem Audit</option>
                     <option value="finance">Fiduciary &amp; Tax Restructuring</option>
                     <option value="marketing">Brand Strategy &amp; Pipeline Growth</option>

@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import { HelpCircle, Search, ArrowRight, Cpu, Landmark, Zap, Layers, Compass, Scale, Shield, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 interface FAQItem {
   q: string;
@@ -159,6 +160,9 @@ export default function FAQ() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I have a question I couldn't find in the FAQ.");
+  const contactHref = whatsappUrl ?? "/contact";
+
   // Filter FAQs based on category AND search input
   const filteredFAQs = useMemo(() => {
     return faqData.filter((faq) => {
@@ -223,7 +227,9 @@ export default function FAQ() {
               <PremiumButton
                 variant="gradient"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Contact Our Team
@@ -231,7 +237,9 @@ export default function FAQ() {
               <PremiumButton
                 variant="secondary"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
               >
                 Schedule Free Consultation
               </PremiumButton>
@@ -364,7 +372,9 @@ export default function FAQ() {
             <PremiumButton
               variant="gradient"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               icon={<ArrowRight className="h-5 w-5" />}
             >
               Contact Us
@@ -372,7 +382,9 @@ export default function FAQ() {
             <PremiumButton
               variant="secondary"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               className="border-white/20 text-white hover:bg-white/10"
             >
               Book a Free Consultation

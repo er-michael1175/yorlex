@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Gavel, CheckCircle, ArrowRight, FileText, Download, ShieldAlert, Check, Lock, Globe, Mail, ShieldCheck, Phone, MapPin } from "lucide-react";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 // Plain-language summary of the key contract terms for the hero
 function TermsHighlights() {
@@ -33,6 +34,9 @@ function TermsHighlights() {
 export default function TermsAndConditions() {
   const [activeSection, setActiveSection] = useState<string>("section-1");
   const [acknowledged, setAcknowledged] = useState<boolean>(false);
+
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I have a question about your Terms & Conditions.");
+  const contactHref = whatsappUrl ?? "/contact";
 
   const sections = [
     { id: "section-1", name: "1. Acceptance of Terms" },
@@ -144,7 +148,9 @@ export default function TermsAndConditions() {
               <PremiumButton
                 variant="gradient"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
                 icon={<ArrowRight className="h-4 w-4" />}
               >
                 Contact Us
@@ -152,7 +158,9 @@ export default function TermsAndConditions() {
               <PremiumButton
                 variant="secondary"
                 size="md"
-                href="/contact"
+                href={contactHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
               >
                 Request a Consultation
               </PremiumButton>
@@ -484,7 +492,9 @@ export default function TermsAndConditions() {
             <PremiumButton
               variant="gradient"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               icon={<ArrowRight className="h-5 w-5" />}
             >
               Contact Us
@@ -492,7 +502,9 @@ export default function TermsAndConditions() {
             <PremiumButton
               variant="secondary"
               size="lg"
-              href="/contact"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
               className="border-white/20 text-white hover:bg-white/10"
             >
               Request a Consultation

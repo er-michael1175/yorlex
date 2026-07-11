@@ -86,6 +86,9 @@ export default function HomeContent() {
 }
 
 function HeroSection() {
+  const whatsappUrl = getWhatsAppUrl("Hi Yorlex, I'd like to schedule a strategy briefing.");
+  const briefingHref = whatsappUrl ?? "/contact";
+
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)]">
       <div
@@ -143,7 +146,12 @@ function HeroSection() {
           </motion.p>
 
           <motion.div variants={staggerItem} className="flex flex-wrap items-center gap-4 pt-2">
-            <Link href="/contact" className="yorlex-btn-primary px-7 py-3.5 text-sm">
+            <Link
+              href={briefingHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
+              className="yorlex-btn-primary px-7 py-3.5 text-sm"
+            >
               Schedule a Strategy Briefing
               <ArrowRight className="h-4 w-4" />
             </Link>
@@ -562,7 +570,12 @@ function FinalCta() {
               operations through Yorlex — see what changes when yours does too.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
-              <Link href="/contact" className="yorlex-btn-primary px-7 py-3.5 text-sm">
+              <Link
+                href={salesHref}
+                target={whatsappUrl ? "_blank" : undefined}
+                rel={whatsappUrl ? "noopener noreferrer" : undefined}
+                className="yorlex-btn-primary px-7 py-3.5 text-sm"
+              >
                 Start Free Consultation
               </Link>
               <Link
