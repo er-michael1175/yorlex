@@ -116,14 +116,14 @@ export default function PrivacyPolicy() {
         </div>
         <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="lg:hidden -mx-6 -mt-4 md:-mt-6 mb-6 relative h-52 sm:h-64 overflow-hidden">
+        <div className="lg:hidden -mx-6 -mt-4 md:-mt-6 mb-6 relative h-64 sm:h-80 overflow-hidden rounded-b-4xl shadow-xl">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/privacy/privacy-hero-bg.jpg"
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/5 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-bg to-transparent" />
         </div>
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

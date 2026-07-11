@@ -107,13 +107,13 @@ function HeroSection() {
       <div className="hidden md:block absolute inset-0 bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)] opacity-25 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 py-10 md:py-24">
-        <div className="md:hidden -mx-6 -mt-10 mb-6 relative h-52 sm:h-64 overflow-hidden">
+        <div className="md:hidden -mx-6 -mt-10 mb-6 relative h-64 sm:h-80 overflow-hidden rounded-b-4xl shadow-xl">
           <img
             src="/images/home/hero-skyline.jpg"
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-yorlex-canvas via-yorlex-canvas/5 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-yorlex-canvas to-transparent" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
