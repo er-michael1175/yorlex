@@ -135,14 +135,14 @@ export default function ContactClient({ content }: { content: ContactContent }) 
         </div>
         <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="lg:hidden -mx-6 -mt-16 md:-mt-20 mb-6 relative h-64 sm:h-80 overflow-hidden rounded-b-4xl shadow-xl">
+        <div className="lg:hidden absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/contact/contact-hero-bg.jpg"
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-bg to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/70" />
         </div>
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -153,10 +153,10 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 {content.heroBadge}
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black max-lg:text-white tracking-tight">
               {content.heroHeading}
             </h1>
-            <p className="font-inter text-gray-655 text-sm leading-relaxed max-w-xl">
+            <p className="font-inter text-gray-655 max-lg:text-white/90 text-sm leading-relaxed max-w-xl">
               {content.heroSubheading}
             </p>
             <div className="flex flex-wrap gap-4 mt-1">
@@ -172,6 +172,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 variant="secondary"
                 size="md"
                 href="#offices-section"
+                className="max-lg:text-white max-lg:border-white/30"
               >
                 View Our Office
               </PremiumButton>
@@ -188,8 +189,8 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                   </div>
                 ))}
               </div>
-              <p className="font-inter text-sm text-gray-555">
-                <span className="font-semibold text-black">2,000+ enterprises</span> already trust Yorlex
+              <p className="font-inter text-sm text-gray-555 max-lg:text-white/85">
+                <span className="font-semibold text-black max-lg:text-white">2,000+ enterprises</span> already trust Yorlex
               </p>
             </div>
           </div>

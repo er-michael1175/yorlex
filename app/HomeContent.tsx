@@ -106,16 +106,17 @@ function HeroSection() {
       </div>
       <div className="hidden md:block absolute inset-0 bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)] opacity-25 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-10 md:py-24">
-        <div className="md:hidden -mx-6 -mt-10 mb-6 relative h-64 sm:h-80 overflow-hidden rounded-b-4xl shadow-xl">
-          <img
-            src="/images/home/hero-skyline.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-yorlex-canvas to-transparent" />
-        </div>
+      {/* Mobile-only full background image behind the text */}
+      <div className="md:hidden absolute inset-0">
+        <img
+          src="/images/home/hero-skyline.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/70" />
+      </div>
 
+      <div className="relative max-w-7xl mx-auto px-6 py-14 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial="hidden"
@@ -129,7 +130,7 @@ function HeroSection() {
 
           <motion.h1
             variants={staggerItem}
-            className="text-3xl md:text-6xl font-bold tracking-tight leading-[1.08] text-yorlex-ink"
+            className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.08] text-white md:text-yorlex-ink"
           >
             Run Your Business.
             <br />
@@ -138,7 +139,7 @@ function HeroSection() {
 
           <motion.p
             variants={staggerItem}
-            className="text-base md:text-lg leading-relaxed max-w-xl text-yorlex-body"
+            className="text-base md:text-lg leading-relaxed max-w-xl text-white/90 md:text-yorlex-body"
           >
             Technology, finance, marketing, and management — delivered by one
             partner embedded in your operations, trusted across 25 countries to
@@ -155,7 +156,10 @@ function HeroSection() {
               Schedule a Strategy Briefing
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/services" className="yorlex-btn-secondary px-7 py-3.5 text-sm">
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold rounded-full border transition-colors bg-transparent text-white border-white/30 hover:bg-white/10 md:bg-white md:text-yorlex-ink md:border-yorlex-border md:hover:border-yorlex-ink md:hover:bg-transparent"
+            >
               Explore Solutions
             </Link>
           </motion.div>
@@ -171,8 +175,8 @@ function HeroSection() {
                 </div>
               ))}
             </div>
-            <p className="text-sm text-yorlex-muted">
-              <span className="font-semibold text-yorlex-ink">2,000+ enterprises</span> already trust Yorlex
+            <p className="text-sm text-white/85 md:text-yorlex-muted">
+              <span className="font-semibold text-white md:text-yorlex-ink">2,000+ enterprises</span> already trust Yorlex
             </p>
           </motion.div>
         </motion.div>

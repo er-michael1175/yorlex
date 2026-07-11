@@ -177,30 +177,28 @@ export default function Services() {
         </div>
         <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="relative">
-          <div className="lg:hidden -mx-6 -mt-4 md:-mt-6 mb-6 relative h-64 sm:h-80 overflow-hidden rounded-b-4xl shadow-xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/services/hero.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-bg to-transparent" />
-          </div>
+        <div className="lg:hidden absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/services/hero.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/70" />
+        </div>
 
-          <div className="flex flex-col gap-3 max-w-xl">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
-              <span className="font-inter font-bold text-[10px] text-gray-500">
-                Services Portfolio
-              </span>
-            </div>
-            <AnimatedHeading level={1}>Core Expertise</AnimatedHeading>
-            <p className="font-inter text-gray-650 text-base md:text-lg leading-relaxed max-w-xl">
-              Architecting global authority across five distinct disciplines.
-              Precision-engineered solutions for modern enterprise scale.
-            </p>
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
+            <span className="font-inter font-bold text-[10px] text-gray-500">
+              Services Portfolio
+            </span>
           </div>
+          <AnimatedHeading level={1} className="max-lg:text-white">Core Expertise</AnimatedHeading>
+          <p className="font-inter text-gray-650 max-lg:text-white/90 text-base md:text-lg leading-relaxed max-w-xl">
+            Architecting global authority across five distinct disciplines.
+            Precision-engineered solutions for modern enterprise scale.
+          </p>
         </div>
       </SectionWrapper>
 

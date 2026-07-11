@@ -116,14 +116,14 @@ export default function PrivacyPolicy() {
         </div>
         <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="lg:hidden -mx-6 -mt-4 md:-mt-6 mb-6 relative h-64 sm:h-80 overflow-hidden rounded-b-4xl shadow-xl">
+        <div className="lg:hidden absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/privacy/privacy-hero-bg.jpg"
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-bg to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/70" />
         </div>
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -134,10 +134,10 @@ export default function PrivacyPolicy() {
                 Compliance &amp; Legal
               </span>
             </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black max-lg:text-white tracking-tight">
               Privacy Policy
             </h1>
-            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+            <p className="font-inter text-gray-650 max-lg:text-white/90 text-sm leading-relaxed max-w-xl">
               At Yorlex, we value your privacy and are committed to protecting your personal and business information. This Privacy Policy explains how we collect, use, store, and safeguard your data when you interact with our website or use our services.
             </p>
             <div className="flex flex-wrap gap-4 mt-2">
@@ -155,11 +155,12 @@ export default function PrivacyPolicy() {
                 variant="secondary"
                 size="md"
                 href="mailto:contact@yorlex.com"
+                className="max-lg:text-white max-lg:border-white/30"
               >
                 Email Our Privacy Team
               </PremiumButton>
             </div>
-            <div className="font-mono text-[9px] text-gray-400 mt-2">
+            <div className="font-mono text-[9px] text-gray-400 max-lg:text-white/70 mt-2">
               Last Updated: June 2026
             </div>
           </div>

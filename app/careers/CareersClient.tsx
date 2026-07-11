@@ -45,45 +45,43 @@ export default function CareersClient({ content }: { content: CareersContent }) 
         </div>
         <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="relative">
-          <div className="lg:hidden -mx-6 -mt-32 md:-mt-40 mb-6 relative h-64 sm:h-80 overflow-hidden rounded-b-4xl shadow-xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={content.heroImage} alt="" className="w-full h-full object-cover" />
-            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-bg to-transparent" />
-          </div>
+        <div className="lg:hidden absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={content.heroImage} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/70" />
+        </div>
 
-          <div className="flex flex-col items-start gap-6 max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-500">
-                {content.heroBadge}
-              </span>
-            </div>
-            <h1 className="font-plus-jakarta text-5xl md:text-7xl font-black text-black leading-none">
-              {content.heroHeading}
-            </h1>
-            <p className="font-inter text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl">
-              {content.heroSubheading}
-            </p>
-            <div className="flex flex-wrap gap-4 mt-2">
-              <a
-                href="#positions"
-                className="inline-flex items-center justify-center gap-2 font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple hover:text-brand-text px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple"
-              >
-                Explore Opportunities
-                <ArrowRight className="h-4 w-4" />
-              </a>
-              <PremiumButton
-                variant="secondary"
-                size="md"
-                href={contactHref}
-                target={whatsappUrl ? "_blank" : undefined}
-                rel={whatsappUrl ? "noopener noreferrer" : undefined}
-                className="rounded-2xl"
-              >
-                Talk to Our Team
-              </PremiumButton>
-            </div>
+        <div className="relative flex flex-col items-start gap-6 max-w-2xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
+            <span className="font-inter font-bold text-[10px] text-gray-500">
+              {content.heroBadge}
+            </span>
+          </div>
+          <h1 className="font-plus-jakarta text-5xl md:text-7xl font-black text-black max-lg:text-white leading-none">
+            {content.heroHeading}
+          </h1>
+          <p className="font-inter text-gray-600 max-lg:text-white/90 text-base md:text-lg leading-relaxed max-w-2xl">
+            {content.heroSubheading}
+          </p>
+          <div className="flex flex-wrap gap-4 mt-2">
+            <a
+              href="#positions"
+              className="inline-flex items-center justify-center gap-2 font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple hover:text-brand-text px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple"
+            >
+              Explore Opportunities
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <PremiumButton
+              variant="secondary"
+              size="md"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
+              className="rounded-2xl max-lg:text-white max-lg:border-white/30"
+            >
+              Talk to Our Team
+            </PremiumButton>
           </div>
         </div>
       </SectionWrapper>

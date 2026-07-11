@@ -327,51 +327,50 @@ export default function FinanceSolutions() {
         </div>
         <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="relative">
-          <div className="lg:hidden -mx-6 -mt-4 md:-mt-6 mb-6 relative h-64 sm:h-80 overflow-hidden rounded-b-4xl shadow-xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/services/finance-hero-bg.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-brand-bg to-transparent" />
-          </div>
+        <div className="lg:hidden absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/services/finance-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/70" />
+        </div>
 
-          <div className="flex flex-col gap-3 max-w-xl">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Landmark className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555">
-                Finance Pillar
-              </span>
-            </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
-              Financial Solutions That Drive Business Growth
-            </h1>
-            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-              Manage your finances with confidence. From accounting and tax compliance to payroll, virtual CFO services, and financial planning, Yorlex helps businesses stay compliant, profitable, and future-ready.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-1">
-              <PremiumButton
-                variant="gradient"
-                size="md"
-                href={contactHref}
-                target={whatsappUrl ? "_blank" : undefined}
-                rel={whatsappUrl ? "noopener noreferrer" : undefined}
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Schedule Financial Consultation
-              </PremiumButton>
-              <PremiumButton
-                variant="secondary"
-                size="md"
-                href={contactHref}
-                target={whatsappUrl ? "_blank" : undefined}
-                rel={whatsappUrl ? "noopener noreferrer" : undefined}
-              >
-                Request a Quote
-              </PremiumButton>
-            </div>
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Landmark className="h-4 w-4 text-brand-purple shrink-0" />
+            <span className="font-inter font-bold text-[10px] text-gray-555">
+              Finance Pillar
+            </span>
+          </div>
+          <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black max-lg:text-white tracking-tight">
+            Financial Solutions That Drive Business Growth
+          </h1>
+          <p className="font-inter text-gray-650 max-lg:text-white/90 text-sm leading-relaxed max-w-xl">
+            Manage your finances with confidence. From accounting and tax compliance to payroll, virtual CFO services, and financial planning, Yorlex helps businesses stay compliant, profitable, and future-ready.
+          </p>
+          <div className="flex flex-wrap gap-4 mt-1">
+            <PremiumButton
+              variant="gradient"
+              size="md"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
+              icon={<ArrowRight className="h-4 w-4" />}
+            >
+              Schedule Financial Consultation
+            </PremiumButton>
+            <PremiumButton
+              variant="secondary"
+              size="md"
+              href={contactHref}
+              target={whatsappUrl ? "_blank" : undefined}
+              rel={whatsappUrl ? "noopener noreferrer" : undefined}
+              className="max-lg:text-white max-lg:border-white/30"
+            >
+              Request a Quote
+            </PremiumButton>
           </div>
         </div>
       </SectionWrapper>
