@@ -82,10 +82,10 @@ function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)]">
       <div
-        className="absolute inset-y-0 right-0 w-full md:w-3/4 opacity-80 pointer-events-none"
+        className="absolute inset-y-0 right-0 w-full md:w-3/4 opacity-50 md:opacity-80 pointer-events-none"
         style={{
-          maskImage: "linear-gradient(to right, transparent, black 40%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, black 40%)",
+          maskImage: "linear-gradient(to right, transparent, black 55%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 55%)",
         }}
       >
         <img
@@ -94,7 +94,7 @@ function HeroSection() {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)] opacity-25 pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)] opacity-60 md:opacity-25 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
         <motion.div
@@ -422,10 +422,14 @@ function QuoteSection() {
               key={t.name}
               onClick={() => setActive(idx)}
               aria-label={`Show testimonial from ${t.name}`}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                idx === active ? "w-6 bg-yorlex-green" : "w-1.5 bg-white/20 hover:bg-white/40"
-              }`}
-            />
+              className="p-2.5 -m-2.5 flex items-center justify-center"
+            >
+              <span
+                className={`block h-1.5 rounded-full transition-all duration-300 ${
+                  idx === active ? "w-6 bg-yorlex-green" : "w-1.5 bg-white/20 hover:bg-white/40"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

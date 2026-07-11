@@ -53,14 +53,14 @@ export default function Footer() {
             <div className="space-y-1.5 text-sm text-white/70">
               <a
                 href="mailto:contact@yorlex.com"
-                className="flex items-center gap-2 hover:text-yorlex-green transition-colors"
+                className="flex items-center gap-2 hover:text-yorlex-green transition-colors py-2 -my-2"
               >
                 <Mail className="h-3.5 w-3.5 shrink-0" />
                 contact@yorlex.com
               </a>
               <a
                 href="tel:+919270292704"
-                className="flex items-center gap-2 hover:text-yorlex-green transition-colors"
+                className="flex items-center gap-2 hover:text-yorlex-green transition-colors py-2 -my-2"
               >
                 <Phone className="h-3.5 w-3.5 shrink-0" />
                 +91 92702 92704
@@ -80,7 +80,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-white/60">
               {solutions.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="hover:text-yorlex-green transition-colors">
+                  <Link href={item.href} className="inline-block py-2 -my-2 hover:text-yorlex-green transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -94,7 +94,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-white/60">
               {resources.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="hover:text-yorlex-green transition-colors">
+                  <Link href={item.href} className="inline-block py-2 -my-2 hover:text-yorlex-green transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -108,7 +108,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-white/60">
               {company.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="hover:text-yorlex-green transition-colors">
+                  <Link href={item.href} className="inline-block py-2 -my-2 hover:text-yorlex-green transition-colors">
                     {item.name}
                   </Link>
                 </li>

@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${plusJakartaSans.variable} scroll-smooth`}
+      className={`${inter.variable} ${plusJakartaSans.variable}`}
     >
       <body className="min-h-screen bg-brand-bg text-brand-text font-sans antialiased flex flex-col overflow-x-hidden selection:bg-brand-purple selection:text-brand-text">
         <Header />

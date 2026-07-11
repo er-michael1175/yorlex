@@ -393,7 +393,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 <span className="hidden sm:block w-1 h-1 rounded-full bg-brand-border" />
                 <a
                   href={`tel:${office.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 font-mono font-semibold hover:text-brand-purple transition-colors"
+                  className="flex items-center gap-2 font-mono font-semibold hover:text-brand-purple transition-colors py-2 -my-2"
                 >
                   <Phone className="h-4 w-4 text-brand-purple shrink-0" />
                   {office.phone}
@@ -401,7 +401,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 <span className="hidden sm:block w-1 h-1 rounded-full bg-brand-border" />
                 <a
                   href={`mailto:${office.email}`}
-                  className="flex items-center gap-2 font-semibold hover:text-brand-purple transition-colors"
+                  className="flex items-center gap-2 font-semibold hover:text-brand-purple transition-colors py-2 -my-2"
                 >
                   <Mail className="h-4 w-4 text-brand-purple shrink-0" />
                   {office.email}
