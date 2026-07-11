@@ -27,7 +27,7 @@ export default function CareersClient({ content }: { content: CareersContent }) 
         animate
       >
         <div
-          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          className="hidden lg:block absolute inset-y-0 right-0 w-3/4 opacity-90 pointer-events-none"
           style={{
             maskImage: "linear-gradient(to right, transparent, black 42%)",
             WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
@@ -36,32 +36,40 @@ export default function CareersClient({ content }: { content: CareersContent }) 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={content.heroImage} alt="" className="w-full h-full object-cover" />
         </div>
-        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
+        <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="relative flex flex-col items-start gap-6 max-w-2xl">
-          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-            <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
-            <span className="font-inter font-bold text-[10px] text-gray-500">
-              {content.heroBadge}
-            </span>
+        <div className="relative">
+          <div className="lg:hidden -mx-6 -mt-32 md:-mt-40 mb-6 relative h-52 sm:h-64 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={content.heroImage} alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/5 to-transparent" />
           </div>
-          <h1 className="font-plus-jakarta text-5xl md:text-7xl font-black text-black leading-none">
-            {content.heroHeading}
-          </h1>
-          <p className="font-inter text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl">
-            {content.heroSubheading}
-          </p>
-          <div className="flex flex-wrap gap-4 mt-2">
-            <a
-              href="#positions"
-              className="inline-flex items-center justify-center gap-2 font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple hover:text-brand-text px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple"
-            >
-              Explore Opportunities
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <PremiumButton variant="secondary" size="md" href="/contact" className="rounded-2xl">
-              Talk to Our Team
-            </PremiumButton>
+
+          <div className="flex flex-col items-start gap-6 max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+              <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
+              <span className="font-inter font-bold text-[10px] text-gray-500">
+                {content.heroBadge}
+              </span>
+            </div>
+            <h1 className="font-plus-jakarta text-5xl md:text-7xl font-black text-black leading-none">
+              {content.heroHeading}
+            </h1>
+            <p className="font-inter text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl">
+              {content.heroSubheading}
+            </p>
+            <div className="flex flex-wrap gap-4 mt-2">
+              <a
+                href="#positions"
+                className="inline-flex items-center justify-center gap-2 font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple hover:text-brand-text px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple"
+              >
+                Explore Opportunities
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <PremiumButton variant="secondary" size="md" href="/contact" className="rounded-2xl">
+                Talk to Our Team
+              </PremiumButton>
+            </div>
           </div>
         </div>
       </SectionWrapper>

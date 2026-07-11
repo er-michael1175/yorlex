@@ -308,7 +308,7 @@ export default function FinanceSolutions() {
       {/* 1. Hero Section */}
       <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div
-          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          className="hidden lg:block absolute inset-y-0 right-0 w-3/4 opacity-90 pointer-events-none"
           style={{
             maskImage: "linear-gradient(to right, transparent, black 42%)",
             WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
@@ -321,37 +321,49 @@ export default function FinanceSolutions() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
+        <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="relative flex flex-col gap-3 max-w-xl">
-          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-            <Landmark className="h-4 w-4 text-brand-purple shrink-0" />
-            <span className="font-inter font-bold text-[10px] text-gray-555">
-              Finance Pillar
-            </span>
+        <div className="relative">
+          <div className="lg:hidden -mx-6 -mt-4 md:-mt-6 mb-6 relative h-52 sm:h-64 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/services/finance-hero-bg.jpg"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/5 to-transparent" />
           </div>
-          <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
-            Financial Solutions That Drive Business Growth
-          </h1>
-          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-            Manage your finances with confidence. From accounting and tax compliance to payroll, virtual CFO services, and financial planning, Yorlex helps businesses stay compliant, profitable, and future-ready.
-          </p>
-          <div className="flex flex-wrap gap-4 mt-1">
-            <PremiumButton
-              variant="gradient"
-              size="md"
-              href="/contact"
-              icon={<ArrowRight className="h-4 w-4" />}
-            >
-              Schedule Financial Consultation
-            </PremiumButton>
-            <PremiumButton
-              variant="secondary"
-              size="md"
-              href="/contact"
-            >
-              Request a Quote
-            </PremiumButton>
+
+          <div className="flex flex-col gap-3 max-w-xl">
+            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+              <Landmark className="h-4 w-4 text-brand-purple shrink-0" />
+              <span className="font-inter font-bold text-[10px] text-gray-555">
+                Finance Pillar
+              </span>
+            </div>
+            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+              Financial Solutions That Drive Business Growth
+            </h1>
+            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+              Manage your finances with confidence. From accounting and tax compliance to payroll, virtual CFO services, and financial planning, Yorlex helps businesses stay compliant, profitable, and future-ready.
+            </p>
+            <div className="flex flex-wrap gap-4 mt-1">
+              <PremiumButton
+                variant="gradient"
+                size="md"
+                href="/contact"
+                icon={<ArrowRight className="h-4 w-4" />}
+              >
+                Schedule Financial Consultation
+              </PremiumButton>
+              <PremiumButton
+                variant="secondary"
+                size="md"
+                href="/contact"
+              >
+                Request a Quote
+              </PremiumButton>
+            </div>
           </div>
         </div>
       </SectionWrapper>

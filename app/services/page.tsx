@@ -158,7 +158,7 @@ export default function Services() {
       {/* Hero Section */}
       <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8" animate>
         <div
-          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          className="hidden lg:block absolute inset-y-0 right-0 w-3/4 opacity-90 pointer-events-none"
           style={{
             maskImage: "linear-gradient(to right, transparent, black 42%)",
             WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
@@ -171,20 +171,32 @@ export default function Services() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
+        <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
 
-        <div className="relative flex flex-col gap-3 max-w-xl">
-          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-            <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
-            <span className="font-inter font-bold text-[10px] text-gray-500">
-              Services Portfolio
-            </span>
+        <div className="relative">
+          <div className="lg:hidden -mx-6 -mt-4 md:-mt-6 mb-6 relative h-52 sm:h-64 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/services/hero.jpg"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/5 to-transparent" />
           </div>
-          <AnimatedHeading level={1}>Core Expertise</AnimatedHeading>
-          <p className="font-inter text-gray-650 text-base md:text-lg leading-relaxed max-w-xl">
-            Architecting global authority across five distinct disciplines.
-            Precision-engineered solutions for modern enterprise scale.
-          </p>
+
+          <div className="flex flex-col gap-3 max-w-xl">
+            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+              <Cpu className="h-4 w-4 text-brand-purple shrink-0 animate-pulse" />
+              <span className="font-inter font-bold text-[10px] text-gray-500">
+                Services Portfolio
+              </span>
+            </div>
+            <AnimatedHeading level={1}>Core Expertise</AnimatedHeading>
+            <p className="font-inter text-gray-650 text-base md:text-lg leading-relaxed max-w-xl">
+              Architecting global authority across five distinct disciplines.
+              Precision-engineered solutions for modern enterprise scale.
+            </p>
+          </div>
         </div>
       </SectionWrapper>
 

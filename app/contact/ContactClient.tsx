@@ -120,7 +120,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
       {/* Hero Section */}
       <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full py-16 md:py-20" animate>
         <div
-          className="absolute inset-y-0 right-0 w-full md:w-3/4 opacity-90 pointer-events-none"
+          className="hidden lg:block absolute inset-y-0 right-0 w-3/4 opacity-90 pointer-events-none"
           style={{
             maskImage: "linear-gradient(to right, transparent, black 45%)",
             WebkitMaskImage: "linear-gradient(to right, transparent, black 45%)",
@@ -133,7 +133,17 @@ export default function ContactClient({ content }: { content: ContactContent }) 
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-brand-bg opacity-45 md:opacity-20 pointer-events-none" />
+        <div className="hidden lg:block absolute inset-0 bg-brand-bg opacity-20 pointer-events-none" />
+
+        <div className="lg:hidden -mx-6 -mt-16 md:-mt-20 mb-6 relative h-52 sm:h-64 overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/contact/contact-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/5 to-transparent" />
+        </div>
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col gap-3">
