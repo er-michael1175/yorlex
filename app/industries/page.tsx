@@ -1,87 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { ArrowRight, Coins, HeartPulse, Factory, Store, Truck, Cpu, Building2, ShieldAlert, Video, Scale, HelpCircle } from "lucide-react";
-import { motion } from "framer-motion";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
-
-// Interactive Sector Console for Hero Right Side
-function HeroIndustryConsole() {
-  const [activeSector, setActiveSector] = useState<number>(0);
-
-  const metrics = [
-    { name: "Financial Services", metric: "+34.2% CAGR", benchmark: "2.4x Assets", color: "text-green-400" },
-    { name: "Healthcare & MedTech", metric: "-18% Friction", benchmark: "SLA Audited", color: "text-blue-400" },
-    { name: "Technology & SaaS", metric: "99.99% Uptime", benchmark: "DevOps Coordinated", color: "text-brand-purple" },
-    { name: "Retail & E-commerce", metric: "2.4x ROAS", benchmark: "Logistics Optimized", color: "text-white" },
-    { name: "Logistics & Supply", metric: "-22% Lead Time", benchmark: "Dynamic Routing", color: "text-green-400" },
-  ];
-
-  return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
-      {/* Window Title Bar */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
-        <div className="flex gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[9px] text-gray-500 font-bold">
-          YORLEX // SECTOR_OPTIMIZER
-        </span>
-      </div>
-
-      {/* Selectors */}
-      <div className="flex flex-wrap gap-1 border border-brand-border-light/5 bg-slate-900/40 p-1 mb-3 relative">
-        {metrics.map((sec, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveSector(idx)}
-            className="flex-1 min-w-[50px] py-1.5 text-[7px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
-          >
-            <span className={activeSector === idx ? "text-white" : ""}>0{idx + 1}</span>
-            {activeSector === idx && (
-              <motion.div
-                layoutId="activeSectorTab"
-                className="absolute inset-0 bg-brand-purple -z-10"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Details */}
-      <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
-          <span>// SECTOR PROFILE 0{activeSector + 1} ACTIVE</span>
-          <span className="text-green-500">SYS_OK</span>
-        </div>
-
-        <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-2 min-h-[100px] justify-center">
-          <div className="text-white font-bold text-[10px]">
-            {metrics[activeSector].name}
-          </div>
-          <div className="grid grid-cols-2 gap-2 font-mono text-[9px] text-gray-400 mt-1">
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-500">GROWTH BENCHMARK</span>
-              <span className={`font-bold mt-0.5 ${metrics[activeSector].color}`}>{metrics[activeSector].metric}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-500">OPERATIONAL SCALE</span>
-              <span className="font-bold text-white mt-0.5">{metrics[activeSector].benchmark}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center text-[7px] text-gray-450 mt-1">
-          <span>SLA_STATUS: COMPLIANT</span>
-          <span>COMPLIANCE: 100% OK</span>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function Industries() {
   const sectors = [
@@ -180,42 +101,57 @@ export default function Industries() {
   return (
     <div className="flex-1 bg-brand-bg font-sans">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col gap-3">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Factory className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555">
-                Market Sectors
-              </span>
-            </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
-              Industries We Serve
-            </h1>
-            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-              Transforming global ecosystems through rigorous analysis, architectural precision, and uncompromising technological excellence. We engineer solutions for complex enterprise challenges.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-1">
-              <PremiumButton
-                variant="gradient"
-                size="md"
-                href="/contact"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Schedule Industry Consultation
-              </PremiumButton>
-              <PremiumButton
-                variant="secondary"
-                size="md"
-                href="/services"
-              >
-                View Case Studies
-              </PremiumButton>
-            </div>
-          </div>
+      <SectionWrapper
+        background="grid"
+        spacing="none"
+        className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8"
+        animate
+      >
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 42%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/industries/industries-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
 
-          <div className="lg:col-span-5 relative">
-            <HeroIndustryConsole />
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Factory className="h-4 w-4 text-brand-purple shrink-0" />
+            <span className="font-inter font-bold text-[10px] text-gray-555">
+              Market Sectors
+            </span>
+          </div>
+          <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+            Industries We Serve
+          </h1>
+          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+            Transforming global ecosystems through rigorous analysis, architectural precision, and uncompromising technological excellence. We engineer solutions for complex enterprise challenges.
+          </p>
+          <div className="flex flex-wrap gap-4 mt-1">
+            <PremiumButton
+              variant="gradient"
+              size="md"
+              href="/contact"
+              icon={<ArrowRight className="h-4 w-4" />}
+            >
+              Schedule Industry Consultation
+            </PremiumButton>
+            <PremiumButton
+              variant="secondary"
+              size="md"
+              href="/services"
+            >
+              View Case Studies
+            </PremiumButton>
           </div>
         </div>
       </SectionWrapper>

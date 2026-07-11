@@ -2,8 +2,8 @@
 
 @theme {
   --color-brand-dark: #000000;
-  --color-brand-purple: #9fc628;
-  --color-brand-blue: #77951e;
+  --color-brand-purple: #99bb2b;
+  --color-brand-blue: #748e21;
   --color-brand-bg: #faf8f2;
   --color-brand-text: #16191c;
   --color-brand-border: #e6e1d3;
@@ -26,11 +26,11 @@
   --color-text-on-dark-muted: #9ca3af;
 
   /* Interactive states */
-  --color-interactive-hover: rgba(159, 198, 40, 0.08);
-  --color-interactive-active: rgba(159, 198, 40, 0.12);
-  --color-interactive-focus: rgba(159, 198, 40, 0.24);
-  --color-glow-purple: rgba(159, 198, 40, 0.15);
-  --color-glow-purple-strong: rgba(159, 198, 40, 0.3);
+  --color-interactive-hover: rgba(153, 187, 43, 0.08);
+  --color-interactive-active: rgba(153, 187, 43, 0.12);
+  --color-interactive-focus: rgba(153, 187, 43, 0.24);
+  --color-glow-purple: rgba(153, 187, 43, 0.15);
+  --color-glow-purple-strong: rgba(153, 187, 43, 0.3);
 
   /* Spacing tokens (4px base-unit system) */
   --spacing-section-compact: 3rem;
@@ -88,9 +88,9 @@
    * Scoped to Header, Footer, and the home page for now; legacy
    * brand-* tokens above remain untouched for pages not yet migrated.
    * ───────────────────────────────────────────────────────────── */
-  --color-yorlex-green: #9fc628;
-  --color-yorlex-green-dark: #77951e;
-  --color-yorlex-green-soft: #f1f6df;
+  --color-yorlex-green: #99bb2b;
+  --color-yorlex-green-dark: #748e21;
+  --color-yorlex-green-soft: #f0f5df;
   --color-yorlex-navy: #0f1b2c;
   --color-yorlex-navy-elevated: #1a2a40;
   --color-yorlex-canvas: #faf8f2;
@@ -125,7 +125,7 @@ body {
 
 .sharp-card-hover:hover {
   border-color: var(--color-brand-purple);
-  box-shadow: 0 10px 30px rgba(159, 198, 40, 0.08);
+  box-shadow: 0 10px 30px rgba(153, 187, 43, 0.08);
   transform: translateY(-2px);
 }
 
@@ -159,7 +159,7 @@ body {
 }
 
 .glow-text-purple {
-  text-shadow: 0 0 15px rgba(159, 198, 40, 0.3);
+  text-shadow: 0 0 15px rgba(153, 187, 43, 0.3);
 }
 
 .hide-scrollbar::-webkit-scrollbar {

@@ -14,7 +14,7 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
   const textColor = variant === "light" ? "text-white" : "text-yorlex-ink";
 
   return (
-    <Link href="/" className={`inline-flex items-center gap-3 ${className}`}>
+    <Link href="/" className={`inline-flex items-center gap-2 ${className}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/brand/logo-mark.png"
@@ -23,7 +23,7 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
         height={52}
         className="shrink-0"
       />
-      <span className={`text-4xl font-bold tracking-tight ${textColor}`}>Yorlex</span>
+      <span className={`text-xl font-bold tracking-tight ${textColor}`}>Yorlex</span>
     </Link>
   );
 }

@@ -28,6 +28,6 @@ export const VANTA_GLOBE_CONFIG: Omit<VantaGlobeConfig, "el" | "THREE"> = {
   scale: 1.0,
   scaleMobile: 1.0,
   color: 0xb19799,
-  color2: "rgba(159,198,40,0.3)",
+  color2: "rgba(153,187,43,0.3)",
   backgroundColor: 0x0f1b2c,
 };

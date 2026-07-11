@@ -29,8 +29,7 @@ export const careersDefaultContent: CareersContent = {
   heroHeading: "Architect Your Future.",
   heroSubheading:
     "Join Yorlex Enterprise, a global authority in multi-disciplinary excellence. We seek elite minds to drive innovation across technology, finance, and strategic management.",
-  heroImage:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuC_opwp7Ejy2le3wK5pqApFPdhjIdv22l8ILZdl0Fnf1t-NmaTOz4M_ZS_rDlyBMoh4g-qxvZbC2ZyIuIpOEF0d7QVpcFZo4-mMam9N7ezSIUx9sPekumZrKXVtoepkxxW_qK0Yzt1AB9Chh6tcAcItJJd2FlcCT4kLhd-JCqSCW0sotkEaes0SK82bwzeTpcbDVVmw4JrlznbIV81t_-rrh6Gc4T1B7WZt7rHmKXduFf6TciTsrU4tuiajfJvaOZHtOTzDUOtUxOQ",
+  heroImage: "/images/careers/careers-hero-bg.jpg",
   perksHeading: "The Yorlex Advantage",
   perksSubheading:
     "Uncompromising standards require unparalleled support. Discover our commitment to global talent.",

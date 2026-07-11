@@ -24,7 +24,7 @@ function getBackgroundClasses(
     case "dark":
       return "bg-surface-dark";
     case "gradient":
-      return "bg-[radial-gradient(ellipse_at_top,rgba(159,198,40,0.08)_0%,transparent_60%),radial-gradient(ellipse_at_bottom_right,rgba(159,198,40,0.05)_0%,transparent_50%)]";
+      return "bg-[radial-gradient(ellipse_at_top,rgba(153,187,43,0.08)_0%,transparent_60%),radial-gradient(ellipse_at_bottom_right,rgba(153,187,43,0.05)_0%,transparent_50%)]";
     case "grid":
       return "architectural-grid";
     case "default":

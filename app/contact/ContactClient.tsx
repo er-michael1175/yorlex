@@ -118,7 +118,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
   return (
     <div className="flex-grow bg-brand-bg font-sans pt-0 pb-0">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden py-16 md:py-20" animate>
+      <SectionWrapper background="grid" spacing="none" className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full py-16 md:py-20" animate>
         <div
           className="absolute inset-y-0 right-0 w-full md:w-3/4 opacity-90 pointer-events-none"
           style={{
@@ -165,6 +165,22 @@ export default function ContactClient({ content }: { content: ContactContent }) 
               >
                 View Our Office
               </PremiumButton>
+            </div>
+
+            <div className="flex items-center gap-3 pt-3">
+              <div className="flex -space-x-2.5">
+                {["A", "B", "C", "D"].map((letter) => (
+                  <div
+                    key={letter}
+                    className="w-8 h-8 rounded-full bg-yorlex-green-soft border-2 border-brand-bg flex items-center justify-center text-yorlex-green-dark font-bold text-xs"
+                  >
+                    {letter}
+                  </div>
+                ))}
+              </div>
+              <p className="font-inter text-sm text-gray-555">
+                <span className="font-semibold text-black">2,000+ enterprises</span> already trust Yorlex
+              </p>
             </div>
           </div>
 
@@ -240,7 +256,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
           {/* Client Engagement Form */}
-          <div className="bg-black text-white p-8 md:p-10 border border-black relative overflow-hidden group rounded-2xl shadow-xl">
+          <div className="bg-black text-white p-8 md:p-10 border border-black relative overflow-hidden group rounded-2xl shadow-xl flex flex-col">
             <div className="absolute top-0 left-0 w-full h-1 bg-brand-purple transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
             <div className="flex justify-between items-start mb-8 relative z-10">
               <div>
@@ -251,7 +267,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
             </div>
 
             {clientSubmitted ? (
-              <div className="text-center py-16 flex flex-col items-center justify-center">
+              <div className="flex-1 text-center py-16 flex flex-col items-center justify-center">
                 <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 border border-brand-purple text-brand-purple flex items-center justify-center mb-6">
                   <Check className="h-8 w-8" />
                 </div>
@@ -261,37 +277,39 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleClientSubmit} className="space-y-6 relative z-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">First Name</label>
-                    <input name="firstName" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane" />
+              <form onSubmit={handleClientSubmit} className="flex-1 flex flex-col relative z-10">
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">First Name</label>
+                      <input name="firstName" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane" />
+                    </div>
+                    <div>
+                      <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Last Name</label>
+                      <input name="lastName" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Doe" />
+                    </div>
                   </div>
                   <div>
-                    <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Last Name</label>
-                    <input name="lastName" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Doe" />
+                    <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Corporate Email</label>
+                    <input name="email" required type="email" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="email@company.com" />
                   </div>
-                </div>
-                <div>
-                  <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Corporate Email</label>
-                  <input name="email" required type="email" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="email@company.com" />
-                </div>
-                <div>
-                  <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Area of Interest</label>
-                  <div className="relative">
-                    <select name="areaOfInterest" required defaultValue="tech" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs cursor-pointer appearance-none">
-                      <option className="bg-black text-white" value="tech">Technology Architecture &amp; Outsourcing</option>
-                      <option className="bg-black text-white" value="fin">Fiduciary &amp; Tax Solutions</option>
-                      <option className="bg-black text-white" value="mkt">Marketing Brand &amp; ROI Campaigns</option>
-                      <option className="bg-black text-white" value="mgt">Management &amp; Operational Consulting</option>
-                      <option className="bg-black text-white" value="spt">Business Support &amp; Back-Office/BPO</option>
-                    </select>
+                  <div>
+                    <label className="block font-inter font-bold text-[9px] text-gray-400 mb-1">Area of Interest</label>
+                    <div className="relative">
+                      <select name="areaOfInterest" required defaultValue="tech" className="w-full bg-transparent rounded-lg border border-brand-border text-white py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs cursor-pointer appearance-none">
+                        <option className="bg-black text-white" value="tech">Technology Architecture &amp; Outsourcing</option>
+                        <option className="bg-black text-white" value="fin">Fiduciary &amp; Tax Solutions</option>
+                        <option className="bg-black text-white" value="mkt">Marketing Brand &amp; ROI Campaigns</option>
+                        <option className="bg-black text-white" value="mgt">Management &amp; Operational Consulting</option>
+                        <option className="bg-black text-white" value="spt">Business Support &amp; Back-Office/BPO</option>
+                      </select>
+                    </div>
                   </div>
+                  {clientError && (
+                    <p className="font-inter text-xs text-red-400">{clientError}</p>
+                  )}
                 </div>
-                {clientError && (
-                  <p className="font-inter text-xs text-red-400">{clientError}</p>
-                )}
-                <button type="submit" disabled={clientSubmitting} className="w-full bg-white hover:bg-brand-purple text-black py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-white hover:border-brand-purple disabled:opacity-60">
+                <button type="submit" disabled={clientSubmitting} className="w-full bg-white hover:bg-brand-purple text-black py-4 text-xs font-bold rounded-full transition-colors mt-auto pt-4 flex items-center justify-center gap-2 border border-white hover:border-brand-purple disabled:opacity-60">
                   <span>{clientSubmitting ? "Submitting…" : "Initiate Engagement"}</span>
                   <ArrowRight className="h-4 w-4" />
                 </button>
@@ -300,7 +318,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
           </div>
 
           {/* General Inquiries Form */}
-          <div className="bg-white p-8 md:p-10 border border-brand-border relative overflow-hidden group hover:border-brand-purple transition-colors rounded-2xl shadow-sm">
+          <div className="bg-white p-8 md:p-10 border border-brand-border relative overflow-hidden group hover:border-brand-purple transition-colors rounded-2xl shadow-sm flex flex-col">
             <div className="absolute top-0 left-0 w-full h-1 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
             <div className="flex justify-between items-start mb-8">
               <div>
@@ -311,7 +329,7 @@ export default function ContactClient({ content }: { content: ContactContent }) 
             </div>
 
             {generalSubmitted ? (
-              <div className="text-center py-16 flex flex-col items-center justify-center">
+              <div className="flex-1 text-center py-16 flex flex-col items-center justify-center">
                 <div className="w-16 h-16 rounded-2xl bg-brand-purple/10 border border-brand-purple text-brand-purple flex items-center justify-center mb-6">
                   <Check className="h-8 w-8" />
                 </div>
@@ -321,23 +339,25 @@ export default function ContactClient({ content }: { content: ContactContent }) 
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleGeneralSubmit} className="space-y-6">
-                <div>
-                  <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Full Name</label>
-                  <input name="name" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane Doe" />
+              <form onSubmit={handleGeneralSubmit} className="flex-1 flex flex-col">
+                <div className="space-y-6">
+                  <div>
+                    <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Full Name</label>
+                    <input name="name" required type="text" className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="Jane Doe" />
+                  </div>
+                  <div>
+                    <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Email Address</label>
+                    <input name="email" required type="email" className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="jane@doe.com" />
+                  </div>
+                  <div>
+                    <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Message</label>
+                    <textarea name="message" required rows={3} className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors resize-none font-inter text-xs" placeholder="How can we assist you?" />
+                  </div>
+                  {generalError && (
+                    <p className="font-inter text-xs text-red-500">{generalError}</p>
+                  )}
                 </div>
-                <div>
-                  <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Email Address</label>
-                  <input name="email" required type="email" className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors font-inter text-xs" placeholder="jane@doe.com" />
-                </div>
-                <div>
-                  <label className="block font-inter font-bold text-[9px] text-gray-500 mb-1">Message</label>
-                  <textarea name="message" required rows={3} className="w-full bg-transparent rounded-lg border border-brand-border text-black py-2.5 px-3 focus:border-brand-purple focus:outline-none transition-colors resize-none font-inter text-xs" placeholder="How can we assist you?" />
-                </div>
-                {generalError && (
-                  <p className="font-inter text-xs text-red-500">{generalError}</p>
-                )}
-                <button type="submit" disabled={generalSubmitting} className="w-full bg-black hover:bg-brand-purple text-white hover:text-brand-text py-4 text-xs font-bold rounded-full transition-colors mt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple disabled:opacity-60">
+                <button type="submit" disabled={generalSubmitting} className="w-full bg-black hover:bg-brand-purple text-white hover:text-brand-text py-4 text-xs font-bold rounded-full transition-colors mt-auto pt-4 flex items-center justify-center gap-2 border border-black hover:border-brand-purple disabled:opacity-60">
                   <span>{generalSubmitting ? "Submitting…" : "Submit Inquiry"}</span>
                 </button>
               </form>
@@ -355,41 +375,37 @@ export default function ContactClient({ content }: { content: ContactContent }) 
             <h2 className="font-plus-jakarta text-2xl md:text-3xl font-black text-black">{content.officesHeading}</h2>
           </div>
 
-          <div className="grid grid-cols-1 max-w-md mx-auto gap-8">
+          <div className="flex flex-col items-center gap-6">
             {offices.map((office) => (
               <div
                 key={office.city}
-                className="bg-white border border-brand-border p-8 flex flex-col justify-between group hover:border-brand-purple transition-all duration-300 rounded-2xl shadow-sm relative"
+                className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs md:text-sm font-inter text-gray-650"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-250" />
-
-                <div>
-                  <h4 className="font-bold text-black text-base font-plus-jakarta tracking-wide flex items-center gap-2 mb-6">
-                    <span className="w-1.5 h-1.5 bg-brand-purple rounded-full" />
-                    {office.city}
-                  </h4>
-                  <div className="space-y-4 text-xs text-gray-550 font-inter">
-                    <div className="flex gap-2.5 items-start">
-                      <MapPin className="h-4.5 w-4.5 text-brand-purple shrink-0 mt-0.5" />
-                      <span>{office.addr}</span>
-                    </div>
-                    <div className="flex gap-2.5 items-center">
-                      <Phone className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                      <a
-                        href={`tel:${office.phone.replace(/\s/g, "")}`}
-                        className="font-mono font-semibold hover:text-brand-purple transition-colors"
-                      >
-                        {office.phone}
-                      </a>
-                    </div>
-                    <div className="flex gap-2.5 items-center">
-                      <Mail className="h-4.5 w-4.5 text-brand-purple shrink-0" />
-                      <a href={`mailto:${office.email}`} className="hover:text-brand-purple transition-colors font-semibold">
-                        {office.email}
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <span className="flex items-center gap-2 font-bold text-black font-plus-jakarta text-base tracking-wide">
+                  <span className="w-1.5 h-1.5 bg-brand-purple rounded-full shrink-0" />
+                  {office.city}
+                </span>
+                <span className="hidden sm:block w-1 h-1 rounded-full bg-brand-border" />
+                <span className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-brand-purple shrink-0" />
+                  {office.addr}
+                </span>
+                <span className="hidden sm:block w-1 h-1 rounded-full bg-brand-border" />
+                <a
+                  href={`tel:${office.phone.replace(/\s/g, "")}`}
+                  className="flex items-center gap-2 font-mono font-semibold hover:text-brand-purple transition-colors"
+                >
+                  <Phone className="h-4 w-4 text-brand-purple shrink-0" />
+                  {office.phone}
+                </a>
+                <span className="hidden sm:block w-1 h-1 rounded-full bg-brand-border" />
+                <a
+                  href={`mailto:${office.email}`}
+                  className="flex items-center gap-2 font-semibold hover:text-brand-purple transition-colors"
+                >
+                  <Mail className="h-4 w-4 text-brand-purple shrink-0" />
+                  {office.email}
+                </a>
               </div>
             ))}
           </div>

@@ -105,7 +105,7 @@ export function contrastRatio(fg: string, bg: string): number {
  *
  * Derived from the theme tokens and component analysis:
  *  - Dark background (#0f1b2c): hero section, search modal (ThreeBg backgroundColor)
- *  - Brand purple (#9fc628): CTA button bg, support card bg, hover states
+ *  - Brand purple (#99bb2b): CTA button bg, support card bg, hover states
  *  - White (#ffffff): card backgrounds, button text, page sections
  *  - Black (#000000): footer bg, primary button bg
  *  - Brand text (#16191c): default body text
@@ -122,13 +122,13 @@ export const TEXT_COLOR_PAIRS: readonly ColorPair[] = [
   // Hero paragraph: gray-300 on dark background (16–18px body, large-ish)
   { fg: "#d1d5db", bg: "#0f1b2c", largeText: true },
   // Brand purple accent text on dark background ("Digital" in hero, large bold)
-  { fg: "#9fc628", bg: "#0f1b2c", largeText: true },
+  { fg: "#99bb2b", bg: "#0f1b2c", largeText: true },
   // Dark text on brand purple (CTA button, support section — bright green needs dark text for contrast)
-  { fg: "#16191c", bg: "#9fc628", largeText: false },
+  { fg: "#16191c", bg: "#99bb2b", largeText: false },
   // Dark text on brand purple (large headings in support section)
-  { fg: "#16191c", bg: "#9fc628", largeText: true },
+  { fg: "#16191c", bg: "#99bb2b", largeText: true },
   // Brand purple on white (metric numbers, active nav links — large bold)
-  { fg: "#9fc628", bg: "#ffffff", largeText: true },
+  { fg: "#99bb2b", bg: "#ffffff", largeText: true },
   // Muted gray on dark background (search modal suggestions, footer links — large text)
   { fg: "#9ca3af", bg: "#0f1b2c", largeText: true },
   // White text on black (footer headings, primary button text)

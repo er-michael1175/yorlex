@@ -5,83 +5,6 @@ import { ArrowRight, CheckCircle2, Award, X, Cpu, Landmark, Zap, Layers, Activit
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionWrapper, AnimatedHeading, PremiumButton } from "@/components/ui";
 
-// Interactive Case Ticker for Hero Right Side
-function HeroCaseTicker() {
-  const [activeCase, setActiveCase] = useState<number>(0);
-
-  const cases = [
-    { client: "Apex Manufacturing", metric: "+148% EBITDA", cagr: "+40% Rev", status: "AUTOMATED", color: "text-green-400" },
-    { client: "HealthSync Platforms", metric: "$45M Series B", cagr: "4.8x LTV/CAC", status: "FUNDED", color: "text-brand-purple" },
-    { client: "TechFlow Systems", metric: "99.9% SLA Met", cagr: "<12 Min Resp", status: "SCALED", color: "text-blue-400" },
-  ];
-
-  return (
-    <div className="w-full bg-slate-950 border border-brand-border-light/10 p-6 font-mono text-[10px] text-brand-purple relative overflow-hidden select-none shadow-2xl min-h-80 flex flex-col justify-between">
-      {/* Window Title Bar */}
-      <div className="flex items-center justify-between border-b border-brand-border-light/10 pb-3 mb-3">
-        <div className="flex gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-        </div>
-        <span className="text-[9px] text-gray-500 font-bold">
-          YORLEX // PERFORMANCE_TICKER
-        </span>
-      </div>
-
-      {/* Selectors */}
-      <div className="flex gap-1.5 border border-brand-border-light/5 bg-slate-900/40 p-1.5 mb-3 relative">
-        {cases.map((c, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveCase(idx)}
-            className="flex-1 py-1.5 text-[7px] font-bold transition-colors duration-150 rounded-full relative z-10 text-gray-555 hover:text-white"
-          >
-            <span className={activeCase === idx ? "text-white" : ""}>
-              Case 0{idx + 1}
-            </span>
-            {activeCase === idx && (
-              <motion.div
-                layoutId="activeCaseTab"
-                className="absolute inset-0 bg-brand-purple -z-10"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Details */}
-      <div className="flex-1 flex flex-col gap-2.5 justify-center">
-        <div className="text-[8px] text-gray-500 font-bold mb-1 flex justify-between">
-          <span>// CLIENT TRANSFORMATION PROFILE</span>
-          <span className={cases[activeCase].color}>● {cases[activeCase].status}</span>
-        </div>
-
-        <div className="bg-slate-900/40 border border-brand-border-light/5 p-3 flex flex-col gap-2 min-h-[100px] justify-center">
-          <div className="text-white font-bold text-[10px]">
-            {cases[activeCase].client}
-          </div>
-          <div className="grid grid-cols-2 gap-2 mt-1">
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-550">OUTCOME METRIC</span>
-              <span className={`font-bold mt-0.5 ${cases[activeCase].color}`}>{cases[activeCase].metric}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[7px] text-gray-550">CAGR PERFORMANCE</span>
-              <span className="font-bold text-white mt-0.5">{cases[activeCase].cagr}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="text-[7px] text-gray-450 border-t border-brand-border-light/10 pt-2">
-        SLA_BENCHMARK: AUDITED // SOURCE: FORWARD_PLANNING
-      </div>
-    </div>
-  );
-}
-
 export default function SuccessStories() {
   const [selectedCase, setSelectedCase] = useState<number | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>("all");
@@ -170,42 +93,57 @@ export default function SuccessStories() {
   return (
     <div className="flex-grow bg-brand-bg font-sans pt-0 pb-0">
       {/* Hero Section */}
-      <SectionWrapper background="grid" spacing="none" className="lg:min-h-[calc(100vh-80px)] flex flex-col justify-center pt-4 md:pt-6 pb-6 md:pb-8" animate>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col gap-3">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
-              <Award className="h-4 w-4 text-brand-purple shrink-0" />
-              <span className="font-inter font-bold text-[10px] text-gray-555">
-                Proof of Work
-              </span>
-            </div>
-            <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
-              Success Stories
-            </h1>
-            <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
-              Real enterprise results achieved through synchronized technology, finance, and marketing orchestration.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-1">
-              <PremiumButton
-                variant="gradient"
-                size="md"
-                href="/contact"
-                icon={<ArrowRight className="h-4 w-4" />}
-              >
-                Schedule Strategy Briefing
-              </PremiumButton>
-              <PremiumButton
-                variant="secondary"
-                size="md"
-                href="#stories-grid"
-              >
-                Request Case Studies
-              </PremiumButton>
-            </div>
-          </div>
+      <SectionWrapper
+        background="grid"
+        spacing="none"
+        className="relative overflow-hidden lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full pt-4 md:pt-6 pb-6 md:pb-8"
+        animate
+      >
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 42%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/success-stories/success-stories-hero-bg.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
 
-          <div className="lg:col-span-5 relative">
-            <HeroCaseTicker />
+        <div className="relative flex flex-col gap-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
+            <Award className="h-4 w-4 text-brand-purple shrink-0" />
+            <span className="font-inter font-bold text-[10px] text-gray-555">
+              Illustrative Scenarios
+            </span>
+          </div>
+          <h1 className="font-plus-jakarta text-3xl md:text-4xl lg:text-[42px] lg:leading-[1.1] font-black text-black tracking-tight">
+            Success Stories
+          </h1>
+          <p className="font-inter text-gray-650 text-sm leading-relaxed max-w-xl">
+            Illustrative outcomes based on typical engagement patterns across our technology, finance, and marketing services &mdash; not verified client results.
+          </p>
+          <div className="flex flex-wrap gap-4 mt-1">
+            <PremiumButton
+              variant="gradient"
+              size="md"
+              href="/contact"
+              icon={<ArrowRight className="h-4 w-4" />}
+            >
+              Schedule Strategy Briefing
+            </PremiumButton>
+            <PremiumButton
+              variant="secondary"
+              size="md"
+              href="#stories-grid"
+            >
+              Request Case Studies
+            </PremiumButton>
           </div>
         </div>
       </SectionWrapper>
@@ -256,15 +194,18 @@ export default function SuccessStories() {
                   className="bg-white border border-brand-border p-8 flex flex-col justify-between h-full hover:border-brand-purple transition-all duration-300 group relative rounded-2xl shadow-sm"
                 >
                   <div className="absolute top-0 left-0 right-0 h-1 bg-transparent group-hover:bg-brand-purple transition-colors duration-300" />
-                  
+
                   <div>
+                    <span className="inline-flex items-center bg-brand-bg border border-brand-border-light text-gray-450 text-[7px] font-bold font-inter uppercase tracking-wide px-2 py-1 rounded-full mb-4">
+                      Illustrative Example
+                    </span>
                     <div className="flex justify-between items-start mb-4">
                       <span className="text-brand-purple text-[8px] font-mono font-bold">
                         // {story.client}
                       </span>
                       <span className="text-[7px] font-mono text-gray-400">// {story.category}</span>
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-black mb-3 font-plus-jakarta tracking-wide group-hover:text-brand-purple transition-colors leading-tight">
                       {story.title}
                     </h3>
@@ -324,6 +265,9 @@ export default function SuccessStories() {
                   <X className="h-5 w-5" />
                 </button>
 
+                <span className="inline-flex items-center bg-brand-bg border border-brand-border-light text-gray-450 text-[7px] font-bold font-inter uppercase tracking-wide px-2 py-1 rounded-full mb-3">
+                  Illustrative Example
+                </span>
                 <span className="text-brand-purple text-[8px] font-mono font-bold block mb-3">
                   // {story.client} • Case Analysis
                 </span>
@@ -357,7 +301,7 @@ export default function SuccessStories() {
                   </div>
 
                   <div className="border-t border-brand-border-light/60 pt-6">
-                    <h4 className="text-xs font-bold text-black mb-2 font-mono">// Audit Verification & Results</h4>
+                    <h4 className="text-xs font-bold text-black mb-2 font-mono">// Expected Outcome</h4>
                     <p className="text-xs md:text-sm text-gray-655 leading-relaxed font-inter">
                       {story.details.results}
                     </p>

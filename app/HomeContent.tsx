@@ -82,7 +82,7 @@ function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)]">
       <div
-        className="absolute inset-y-0 right-0 w-full md:w-3/4 grayscale opacity-80 pointer-events-none"
+        className="absolute inset-y-0 right-0 w-full md:w-3/4 opacity-80 pointer-events-none"
         style={{
           maskImage: "linear-gradient(to right, transparent, black 40%)",
           WebkitMaskImage: "linear-gradient(to right, transparent, black 40%)",
@@ -216,7 +216,7 @@ function ServicesBento() {
       icon: Server,
       href: "/services/technology",
       size: "large",
-      image: "/images/services/technology.jpg",
+      image: "/images/services/technology-hero-bg.jpg",
     },
     {
       title: "Finance",
@@ -302,7 +302,7 @@ function ServicesBento() {
                     <img
                       src={svc.image}
                       alt=""
-                      className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div
                       className={`absolute inset-0 ${
@@ -317,17 +317,17 @@ function ServicesBento() {
                         isFeatured ? "bg-white/15" : "bg-yorlex-green-soft"
                       }`}
                     >
-                      <Icon className={`w-6 h-6 ${isFeatured ? "text-white" : "text-yorlex-green-dark"}`} />
+                      <Icon className={`w-6 h-6 ${isFeatured ? "text-yorlex-ink" : "text-yorlex-green-dark"}`} />
                     </div>
-                    <h3 className={`text-lg font-semibold mb-2 ${isFeatured ? "text-white" : "text-yorlex-ink"}`}>
+                    <h3 className="text-lg font-semibold mb-2 text-yorlex-ink">
                       {svc.title}
                     </h3>
-                    <p className={`text-sm leading-relaxed ${isFeatured ? "text-white/80" : "text-yorlex-body"}`}>
+                    <p className={`text-sm leading-relaxed ${isFeatured ? "text-yorlex-ink/70" : "text-yorlex-body"}`}>
                       {svc.description}
                     </p>
                     <span
                       className={`inline-flex items-center gap-1 text-sm font-semibold mt-5 ${
-                        isFeatured ? "text-white" : "text-yorlex-green"
+                        isFeatured ? "text-yorlex-ink" : "text-yorlex-green"
                       }`}
                     >
                       Learn more
@@ -436,7 +436,7 @@ function QuoteSection() {
 function FinalCta() {
   const points = [
     { icon: Gauge, label: "45% faster operational cycles" },
-    { icon: ShieldCheck, label: "Military-grade compliance" },
+    { icon: ShieldCheck, label: "NDA-backed data confidentiality" },
     { icon: Layers, label: "Scales from 50 to 50,000 seats" },
   ];
 

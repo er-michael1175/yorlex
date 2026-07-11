@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ArrowRight, MapPin, X, Briefcase } from "lucide-react";
 import { ICON_MAP } from "@/lib/content/iconMap";
 import type { CareersContent } from "@/lib/content/careers";
+import { SectionWrapper, PremiumButton } from "@/components/ui";
 
 export default function CareersClient({ content }: { content: CareersContent }) {
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
@@ -17,10 +18,27 @@ export default function CareersClient({ content }: { content: CareersContent }) 
       : jobs.filter((job) => job.dept.toLowerCase() === activeFilter.toLowerCase());
 
   return (
-    <div className="flex-1 bg-brand-bg pt-32 pb-24 font-sans">
+    <div className="flex-1 bg-brand-bg font-sans">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 mb-24 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-        <div className="md:col-span-8 flex flex-col items-start gap-6">
+      <SectionWrapper
+        background="grid"
+        spacing="none"
+        className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20 lg:min-h-[calc(100vh-80px)] flex flex-col justify-center [&>div]:w-full"
+        animate
+      >
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-4/5 lg:w-3/4 opacity-90 pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 42%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={content.heroImage} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-brand-bg opacity-50 md:opacity-20 pointer-events-none" />
+
+        <div className="relative flex flex-col items-start gap-6 max-w-2xl">
           <div className="inline-flex items-center gap-2 bg-white px-4 py-1.5 border border-brand-border w-max">
             <Briefcase className="h-4 w-4 text-brand-purple shrink-0" />
             <span className="font-inter font-bold text-[10px] text-gray-500">
@@ -33,20 +51,20 @@ export default function CareersClient({ content }: { content: CareersContent }) 
           <p className="font-inter text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl">
             {content.heroSubheading}
           </p>
-          <a
-            href="#positions"
-            className="inline-flex items-center justify-center font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple hover:text-brand-text px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple mt-2"
-          >
-            Explore Opportunities
-          </a>
+          <div className="flex flex-wrap gap-4 mt-2">
+            <a
+              href="#positions"
+              className="inline-flex items-center justify-center gap-2 font-inter font-bold text-xs bg-black text-white hover:bg-brand-purple hover:text-brand-text px-8 py-4 rounded-2xl transition-colors border border-black hover:border-brand-purple"
+            >
+              Explore Opportunities
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <PremiumButton variant="secondary" size="md" href="/contact" className="rounded-2xl">
+              Talk to Our Team
+            </PremiumButton>
+          </div>
         </div>
-        <div className="md:col-span-4 h-64 md:h-[350px] w-full border border-brand-border bg-gray-100 overflow-hidden relative">
-          <div
-            className="bg-cover bg-center w-full h-full grayscale mix-blend-multiply opacity-90"
-            style={{ backgroundImage: `url('${content.heroImage}')` }}
-          />
-        </div>
-      </section>
+      </SectionWrapper>
 
       {/* Employee Value Proposition (Bento Grid) */}
       <section className="bg-brand-border-light/40 py-20 border-y border-brand-border">
@@ -73,8 +91,8 @@ export default function CareersClient({ content }: { content: CareersContent }) 
                   className={`flex flex-col justify-between border rounded-2xl overflow-hidden group transition-all duration-300 ${spanClass} ${colorClass}`}
                 >
                   <div className="relative h-32 overflow-hidden shrink-0">
-                    <img src={perk.image} alt="" className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105" />
-                    <div className={`absolute inset-0 ${perk.featured ? "bg-yorlex-green/60" : "bg-yorlex-navy/25"}`} />
+                    <img src={perk.image} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className={`absolute inset-0 ${perk.featured ? "bg-yorlex-green/25" : "bg-yorlex-navy/15"}`} />
                   </div>
                   <div className="p-8 flex-1 flex flex-col justify-between">
                     <div>
@@ -97,36 +115,31 @@ export default function CareersClient({ content }: { content: CareersContent }) 
               );
             })}
 
-            {/* Telemetry Matrix Tile */}
-            <div className="md:col-span-8 border border-brand-border bg-black text-white p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between crosshair-grid select-none min-h-[280px]">
-              <div className="flex justify-between items-center text-[9px] font-mono text-white/50 border-b border-white/10 pb-2">
-                <span>TALENT_INFRASTRUCTURE: CAREER_TRACK_MATRIX</span>
-                <span className="text-[#77951e] flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-[#77951e] rounded-full inline-block animate-pulse"></span> SYSTEM STABLE
-                </span>
+            {/* Career Path Tile */}
+            <div className="md:col-span-8 border border-black bg-black text-white p-8 rounded-2xl relative overflow-hidden flex flex-col justify-between min-h-[280px]">
+              <div>
+                <h3 className="font-plus-jakarta text-lg font-bold mb-2">Clear Growth Ladder</h3>
+                <p className="font-inter text-xs text-gray-400 max-w-xl leading-relaxed">
+                  Structured progression with transparent milestones, from your first engagement to executive leadership.
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6 relative z-10">
-                <div className="border border-white/10 p-4 bg-white/5 relative group hover:border-brand-purple transition-colors">
-                  <span className="absolute top-2 right-2 font-mono text-[8px] text-brand-purple">LEVEL_01</span>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <div className="border border-white/10 p-4 bg-white/5 rounded-xl relative group hover:border-brand-purple transition-colors">
+                  <span className="absolute top-3 right-3 font-mono text-[8px] text-brand-purple">01</span>
                   <h4 className="font-plus-jakarta font-bold text-xs mb-1">Associate</h4>
                   <p className="font-inter text-[10px] text-gray-400 leading-normal">Collaborative engineering, technical compliance, risk auditing, B2B campaigns.</p>
                 </div>
-                <div className="border border-white/10 p-4 bg-white/5 relative group hover:border-brand-purple transition-colors">
-                  <span className="absolute top-2 right-2 font-mono text-[8px] text-brand-purple">LEVEL_02</span>
+                <div className="border border-white/10 p-4 bg-white/5 rounded-xl relative group hover:border-brand-purple transition-colors">
+                  <span className="absolute top-3 right-3 font-mono text-[8px] text-brand-purple">02</span>
                   <h4 className="font-plus-jakarta font-bold text-xs mb-1">Director</h4>
                   <p className="font-inter text-[10px] text-gray-400 leading-normal">Systems architecture, regulatory frameworks, regional P&L, resource orchestration.</p>
                 </div>
-                <div className="border border-white/10 p-4 bg-white/5 relative group hover:border-brand-purple transition-colors">
-                  <span className="absolute top-2 right-2 font-mono text-[8px] text-brand-purple">LEVEL_03</span>
+                <div className="border border-white/10 p-4 bg-white/5 rounded-xl relative group hover:border-brand-purple transition-colors">
+                  <span className="absolute top-3 right-3 font-mono text-[8px] text-brand-purple">03</span>
                   <h4 className="font-plus-jakarta font-bold text-xs mb-1">Managing Partner</h4>
-                  <p className="font-inter text-[10px] text-gray-400 leading-normal">Equity allocation, succession strategy, global node command, C-level governance.</p>
+                  <p className="font-inter text-[10px] text-gray-400 leading-normal">Equity allocation, succession strategy, regional leadership, C-level governance.</p>
                 </div>
-              </div>
-
-              <div className="flex justify-between text-[7px] font-mono text-white/30 border-t border-white/10 pt-2">
-                <span>Succession Ratio: 1:3.4</span>
-                <span>Active Candidates Track: 142</span>
               </div>
             </div>
           </div>

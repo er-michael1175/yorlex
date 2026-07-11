@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
 
   const solutions = [
     { name: "Technology", href: "/services/technology" },
@@ -33,7 +33,10 @@ export default function Footer() {
   function handleSubscribe(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
-    setSubscribed(true);
+    const url = getWhatsAppUrl(`Hi Yorlex, I'd like to get in touch. My email: ${email}`);
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
     setEmail("");
   }
 
@@ -113,28 +116,24 @@ export default function Footer() {
             </ul>
 
             <div className="pt-1 text-center">
-              <p className="text-xs font-semibold text-white/80 mb-2">Get insights in your inbox</p>
-              {subscribed ? (
-                <p className="text-sm text-yorlex-green font-medium">Thanks — you&apos;re subscribed.</p>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex items-center justify-center gap-2">
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email address"
-                    className="w-full min-w-0 bg-white/10 rounded-full border border-white/15 text-white text-sm py-2 px-4 placeholder:text-white/40 focus:outline-none focus:border-yorlex-green transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    aria-label="Subscribe"
-                    className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-yorlex-green hover:bg-yorlex-green-dark transition-colors"
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </form>
-              )}
+              <p className="text-xs font-semibold text-white/80 mb-2">Chat with us on WhatsApp</p>
+              <form onSubmit={handleSubscribe} className="flex items-center justify-center gap-2">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email address"
+                  className="w-full min-w-0 bg-white/10 rounded-full border border-white/15 text-white text-sm py-2 px-4 placeholder:text-white/40 focus:outline-none focus:border-yorlex-green transition-colors"
+                />
+                <button
+                  type="submit"
+                  aria-label="Continue on WhatsApp"
+                  className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-yorlex-green hover:bg-yorlex-green-dark transition-colors"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </form>
             </div>
           </div>
         </div>

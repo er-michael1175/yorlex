@@ -97,7 +97,7 @@ function CircularFramework() {
               style={{ left: `${leftPct}%`, top: `${topPct}%` }}
               className={`absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full border flex items-center justify-center text-center p-1.5 sm:p-2 font-mono text-[8px] sm:text-[9px] font-bold transition-all duration-300 z-20 ${
                 activeNode === node.name
-                  ? "bg-brand-purple text-brand-text border-brand-purple shadow-[0_0_15px_rgba(159,198,40,0.3)] scale-110"
+                  ? "bg-brand-purple text-brand-text border-brand-purple shadow-[0_0_15px_rgba(153,187,43,0.3)] scale-110"
                   : "bg-white text-black border-brand-border-light hover:border-brand-purple hover:scale-105"
               }`}
             >
@@ -357,7 +357,7 @@ export default function ManagementSolutions() {
             return (
               <div
                 key={idx}
-                className="group relative block bg-white border border-brand-border-light p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(159,198,40,0.05)]"
+                className="group relative block bg-white border border-brand-border-light p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand-purple hover:shadow-[0_10px_30px_rgba(153,187,43,0.05)]"
               >
                 {/* Top accent line */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-purple origin-left scale-x-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />

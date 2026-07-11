@@ -78,8 +78,8 @@ export const slideInLeft: Variants = {
  * Use with `initial="rest"` and `whileHover="hover"`.
  */
 export const hoverLift: Variants = {
-  rest: { y: 0, boxShadow: "0 0 0 rgba(159,198,40,0)" },
-  hover: { y: -4, boxShadow: "0 20px 60px rgba(159,198,40,0.1)" },
+  rest: { y: 0, boxShadow: "0 0 0 rgba(153,187,43,0)" },
+  hover: { y: -4, boxShadow: "0 20px 60px rgba(153,187,43,0.1)" },
 };
 
 /**
@@ -87,9 +87,9 @@ export const hoverLift: Variants = {
  * Use with `initial="rest"` and `whileHover="hover"`.
  */
 export const hoverGlow: Variants = {
-  rest: { boxShadow: "0 0 0 rgba(159,198,40,0)" },
+  rest: { boxShadow: "0 0 0 rgba(153,187,43,0)" },
   hover: {
     boxShadow:
-      "0 0 40px rgba(159,198,40,0.15), 0 0 80px rgba(159,198,40,0.05)",
+      "0 0 40px rgba(153,187,43,0.15), 0 0 80px rgba(153,187,43,0.05)",
   },
 };

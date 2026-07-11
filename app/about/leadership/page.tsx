@@ -28,14 +28,14 @@ export default function ExecutiveLeadership() {
       name: "Sarah Jenkins",
       role: "Chief Executive Officer",
       bio: "Sarah Jenkins brings over two decades of transformative leadership in global operations and strategic growth. She is the architect behind Yorlex's high-contrast approach to multi-disciplinary expansion, ensuring unapologetic adherence to elite standards and absolute authority in every market segment.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCYl3i3zC34bemjHHTHreo8DePtU8M2U9_s3rH7Lz40SJJOuszRAlxLpsHHm-48oPlVdFHwBYsMEna7eEHaQ2GP4V4nwfYUAJ_asvnpaHuiyKO0iBytBzkRn6h8vreEUtlYAv9NxP0o_vB1K7OWBuy-MR8Y3tWzLsgRTqJmuGXDPYl9OOpl93KALGdGW-inXQ9yHG30yI2m2zfKK-L6KshjQJHANryNxOnvJG_ok8Dd2JJ1EgJe8ETxILLzGDtcn6VwCE43zBTyHM4",
+      image: "/images/about/leader-ceo.jpg",
       linkedin: "#",
     },
     {
       name: "Marcus Vance",
       role: "Chief Operating Officer",
       bio: "Tasked with operationalizing the firm's overarching vision, Marcus Vance champions paper-white precision in data-heavy enterprise workflows. His rigorous, systemic approach guarantees transparency and rock-solid stability for our global partners, cementing Yorlex as an immovable force.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWNNvlm8dUXCeKEfA3hBMTQBf7hbFCPdlKGU2dO3i0XbOFBC7fY9AJVSBlTo78LLxOZwOOB4-7ImHdkuJCEWlGTwIf11R8e5jSdaIwA3bRlL0I8QSprOLWvdaEaqnET1VKUNQG3AunJhy_hq89k9ygxP6CWns_pDLM-TzM9hzfpLEDAw3tMwGr2QbCf5KzH8VIZTIT5fOKqAeufTWJjh0dHhV4wrE08XojAm08XZw71RaRhELNCcQIBlpLkq8BGe_RkFG-dUYTUfU",
+      image: "/images/about/leader-coo.jpg",
       linkedin: "#",
     },
   ];
@@ -65,7 +65,7 @@ export default function ExecutiveLeadership() {
           <img
             src="/images/about/leadership-hero.jpg"
             alt=""
-            className="w-full h-full object-cover grayscale contrast-125"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-yorlex-navy/25" />
         </div>
@@ -82,8 +82,8 @@ export default function ExecutiveLeadership() {
             >
               <div className="relative w-full h-[450px] overflow-hidden bg-brand-bg border-b border-brand-border">
                 <img
-                  className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700 ease-in-out pointer-events-none"
-                  alt={`Monochromatic portrait of ${leader.name}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out pointer-events-none"
+                  alt={`Portrait of ${leader.name}`}
                   src={leader.image}
                 />
               </div>

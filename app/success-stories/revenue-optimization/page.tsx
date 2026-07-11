@@ -12,6 +12,9 @@ export default function RevenueOptimizationCaseStudy() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 mb-16">
         <div className="max-w-4xl">
+          <span className="inline-flex items-center bg-brand-bg border border-brand-border-light text-gray-450 text-[9px] font-bold font-inter uppercase tracking-wide px-2.5 py-1 rounded-full mb-4">
+            Illustrative Example
+          </span>
           <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">
             Case Study // Management
           </span>
@@ -19,7 +22,7 @@ export default function RevenueOptimizationCaseStudy() {
             Omni-Channel Revenue Optimization Protocol
           </h1>
           <p className="font-inter text-gray-600 text-lg leading-relaxed max-w-3xl">
-            Architecting a unified, data-driven revenue infrastructure for a global enterprise, resulting in unprecedented efficiency and market capture.
+            An illustrative scenario showing how a unified, data-driven revenue infrastructure could improve efficiency and market capture for a global enterprise &mdash; based on typical engagement patterns, not a verified client result.
           </p>
         </div>
 
@@ -47,10 +50,11 @@ export default function RevenueOptimizationCaseStudy() {
 
         {/* Hero Image */}
         <div className="mt-8 w-full h-[350px] md:h-[500px] border border-brand-border overflow-hidden rounded-2xl relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            className="w-full h-full object-cover grayscale opacity-95 mix-blend-multiply pointer-events-none"
-            alt="Digital installation art representing data optimization"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDv6mt1eCTz6LhtHsKEpL5n_8PmoxqxQV9rHnXP7OUJrYm0krNI_tewNuwHYQq-UPOMGY1RnDCnr33B6dA6JIkxOAqnJ4OunwfJgb49pNY0ZA44CQgOIdAPmeaC6lVkp9XJ0rHGJrjq-luFE_OnvJpe3BIeRbbfiFjACJ4kgl5OjD83BY98hnKQ_xL3cm2Fgk0j6PUehA3xDnmt6Vgu0BOHMj5knUleqV91TaDISntlYTNraaWbMWd3Vxqe0DWCHbLcSVA1OdXWZw"
+            className="w-full h-full object-cover pointer-events-none"
+            alt="Analyzing revenue and operations data"
+            src="/images/success-stories/revenue-optimization-hero.jpg"
           />
         </div>
       </section>
@@ -130,15 +134,16 @@ export default function RevenueOptimizationCaseStudy() {
                 We deployed our proprietary Omni-Channel Revenue Optimization Protocol, a multi-phased engineering and management framework. This involved a complete overhaul of their data infrastructure, moving away from disparate monolithic databases to a decentralized, event-driven architecture.
               </p>
 
-              {/* Diagram / Technical Visualization */}
+              {/* Illustrative Visualization */}
               <div className="w-full h-[350px] md:h-[450px] bg-black relative my-8 border border-brand-border flex items-center justify-center overflow-hidden rounded-2xl">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  className="object-cover w-full h-full opacity-80 mix-blend-screen pointer-events-none"
-                  alt="Decentralized data architecture wireframe blueprint"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa2eXm6hwOPyrbnYYkz5QZk0azVMyS1odse_dGKvXa2psEfxHIp6vnuLRvfBiQj4P4w7cZTxEZ9mvvtuiJLiPvwFttX1LzEoiXVVoTvwRzUv0iV0dBZGha0G1ixnxN4GZJWaQTheLnyLvgq4q9_sTStmKJX1CRHoOJgQC2twLaAodEZeVXNVF8NQk8cL9CAm_zzPohQ-R238DJe0htYAAGDXk3ApAWaiTkVhcreUZOSx6fn9BhwVDGSUxtXR85HmcZxAiR7LpYbyM"
+                  className="object-cover w-full h-full opacity-80 pointer-events-none"
+                  alt="Working with unified operational data"
+                  src="/images/success-stories/revenue-optimization-diagram.jpg"
                 />
                 <div className="absolute bottom-4 left-4 bg-white p-2 border border-brand-border rounded-2xl font-inter font-bold text-[10px] text-black">
-                  Fig 1. Event-Driven Architecture
+                  Fig 1. Illustrative Data Architecture
                 </div>
               </div>
 
@@ -173,7 +178,7 @@ export default function RevenueOptimizationCaseStudy() {
                 The implemented protocol did not merely optimize existing processes; it fundamentally redefined how Nexus Global Retail captures and realizes value. The unified infrastructure allowed for agile responses to market shifts, directly contributing to the top line.
               </p>
 
-              {/* Quote Block */}
+              {/* Illustrative Quote Block */}
               <div className="bg-black text-white p-8 md:p-10 border-l-4 border-brand-purple rounded-2xl relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent pointer-events-none"></div>
                 <Quote className="h-10 w-10 text-brand-purple mb-6 opacity-30" />
@@ -181,19 +186,15 @@ export default function RevenueOptimizationCaseStudy() {
                   "Yorlex didn't just provide a strategy; they re-architected our operational reality. Their precision and rigorous methodology delivered results that exceeded our most aggressive forecasts."
                 </blockquote>
                 <div className="relative z-10 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl overflow-hidden bg-gray-200 border border-gray-800">
-                    <img
-                      className="object-cover w-full h-full grayscale pointer-events-none"
-                      alt="Sarah Jenkins professional portrait"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC9HHAtYMF70NjI1C6fjPn50GHlF2dHKGPaqFgUXJ7c7-Knq6UgborMSgbY-_BcfxEp11TjhiBb_GH6h0oBplAb5-7PJnuMIo7Tu6ka8B4iXomHLUDArrA9yidB_6Xhag4Nf-8pc_9pINrykoztVR3M5EY74KE9f20FmrwbgFeLZgHKXqEPLDPXOMO5OEzFWk2IxsiS342FLjvzWKs52t88uGn2aol5RC0Sw77scXp7Mpa-Gn0WVpl0WSmU7CB4JT8OqJ03kt5jzk"
-                    />
+                  <div className="w-12 h-12 rounded-2xl overflow-hidden bg-brand-purple/20 border border-white/10 flex items-center justify-center text-brand-purple font-plus-jakarta font-bold text-sm shrink-0">
+                    COO
                   </div>
                   <div>
                     <div className="font-plus-jakarta font-bold text-xs tracking-wide text-white">
-                      Sarah Jenkins
+                      Representative Client Voice
                     </div>
                     <div className="font-inter text-[10px] text-brand-purple font-bold mt-0.5">
-                      Chief Operations Officer, Nexus Global
+                      Composite quote, illustrative
                     </div>
                   </div>
                 </div>

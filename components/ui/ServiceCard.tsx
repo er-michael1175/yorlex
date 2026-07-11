@@ -61,7 +61,7 @@ export function ServiceCard({
     <div className="flex flex-col gap-4">
       {/* Icon with animated border-glow container */}
       <motion.div variants={staggerItem}>
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-brand-border-light transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand-purple group-hover:shadow-[0_0_20px_rgba(159,198,40,0.15)]">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-brand-border-light transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand-purple group-hover:shadow-[0_0_20px_rgba(153,187,43,0.15)]">
           <Icon className="w-6 h-6" />
         </div>
       </motion.div>
