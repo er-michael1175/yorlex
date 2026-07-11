@@ -42,10 +42,10 @@ export default function Footer() {
 
   return (
     <footer className="w-full flex flex-col mt-auto">
-      <div className="w-full bg-yorlex-navy text-white pt-10 pb-6 px-6 flex flex-col items-center">
-        <div className="w-full max-w-7xl grid grid-cols-3 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-8 items-start pb-6">
+      <div className="w-full bg-yorlex-navy text-white border-t border-white/10 pt-8 pb-6 px-6 flex flex-col items-center">
+        <div className="w-full max-w-7xl grid grid-cols-3 lg:grid-cols-4 lg:auto-rows-min gap-x-4 sm:gap-x-6 gap-y-8 items-start pb-6">
           {/* Brand */}
-          <div className="col-span-3 lg:col-span-1 space-y-3">
+          <div className="col-span-3 lg:col-span-1 lg:row-span-2 space-y-3">
             <Logo variant="light" />
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
               Advancing global productivity through technology, finance, marketing, and management expertise.
@@ -67,7 +67,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-                <span className="max-w-55">
+                <span className="max-w-60">
                   First Floor, GDA Tower, Golghar, Gorakhpur - 273001, Uttar Pradesh
                 </span>
               </div>
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
 
           {/* Solutions */}
-          <div className="space-y-3">
+          <div className="lg:col-start-2 lg:row-start-1 space-y-3">
             <h4 className="text-sm font-semibold text-white">Solutions</h4>
             <ul className="space-y-2 text-sm text-white/60">
               {solutions.map((item) => (
@@ -89,7 +89,7 @@ export default function Footer() {
           </div>
 
           {/* Resources */}
-          <div className="space-y-3">
+          <div className="lg:col-start-3 lg:row-start-1 space-y-3">
             <h4 className="text-sm font-semibold text-white">Resources</h4>
             <ul className="space-y-2 text-sm text-white/60">
               {resources.map((item) => (
@@ -103,7 +103,7 @@ export default function Footer() {
           </div>
 
           {/* Company */}
-          <div className="space-y-3">
+          <div className="lg:col-start-4 lg:row-start-1 space-y-3">
             <h4 className="text-sm font-semibold text-white">Company</h4>
             <ul className="space-y-2 text-sm text-white/60">
               {company.map((item) => (
@@ -115,28 +115,28 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-        </div>
 
-        {/* Newsletter / WhatsApp handoff */}
-        <div className="w-full max-w-7xl pb-6 text-center">
-          <p className="text-xs font-semibold text-white/80 mb-2">Chat with us on WhatsApp</p>
-          <form onSubmit={handleSubscribe} className="flex items-center justify-center gap-2 max-w-xs mx-auto">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              className="w-full min-w-0 bg-white/10 rounded-full border border-white/15 text-white text-sm py-2 px-4 placeholder:text-white/40 focus:outline-none focus:border-yorlex-green transition-colors"
-            />
-            <button
-              type="submit"
-              aria-label="Continue on WhatsApp"
-              className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-yorlex-green hover:bg-yorlex-green-dark transition-colors"
-            >
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </form>
+          {/* Newsletter / WhatsApp handoff */}
+          <div className="col-span-3 lg:col-span-3 lg:col-start-2 lg:row-start-2 text-center lg:text-right lg:self-start">
+            <p className="text-xs font-semibold text-white/80 mb-2">Chat with us on WhatsApp</p>
+            <form onSubmit={handleSubscribe} className="flex items-center gap-2 max-w-xs mx-auto lg:ml-auto lg:mr-0">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                className="w-full min-w-0 bg-white/10 rounded-full border border-white/15 text-white text-sm py-2 px-4 placeholder:text-white/40 focus:outline-none focus:border-yorlex-green transition-colors"
+              />
+              <button
+                type="submit"
+                aria-label="Continue on WhatsApp"
+                className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-yorlex-green hover:bg-yorlex-green-dark transition-colors"
+              >
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </form>
+          </div>
         </div>
 
         {/* Bottom bar */}

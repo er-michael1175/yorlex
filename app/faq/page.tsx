@@ -331,13 +331,21 @@ export default function FAQ() {
       </SectionWrapper>
 
       {/* 3. Still Have Questions CTA */}
-      <SectionWrapper background="dark" spacing="compact" animate>
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-4">// CONVERSION GATEWAY</span>
-          <h2 className="font-plus-jakarta text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">
+      <SectionWrapper background="dark" spacing="none" className="relative overflow-hidden py-12 md:py-14" animate>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/faq/faq-cta-bg.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-yorlex-navy/90 pointer-events-none" />
+
+        <div className="relative text-center max-w-2xl mx-auto">
+          <span className="font-inter font-bold text-[10px] text-brand-purple block mb-3">// CONVERSION GATEWAY</span>
+          <h2 className="font-plus-jakarta text-2xl md:text-3xl lg:text-4xl font-black text-white mb-4 leading-tight">
             Still Have Questions?
           </h2>
-          <p className="font-inter text-text-on-dark-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="font-inter text-text-on-dark-muted text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-8">
             Can't find the answer you're looking for? Our experts are ready to help you with personalized guidance and business solutions.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
