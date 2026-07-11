@@ -43,9 +43,9 @@ export default function Footer() {
   return (
     <footer className="w-full flex flex-col mt-auto">
       <div className="w-full bg-yorlex-navy text-white pt-10 pb-6 px-6 flex flex-col items-center">
-        <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start pb-6">
+        <div className="w-full max-w-7xl grid grid-cols-3 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-8 items-start pb-6">
           {/* Brand */}
-          <div className="space-y-3">
+          <div className="col-span-3 lg:col-span-1 space-y-3">
             <Logo variant="light" />
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
               Advancing global productivity through technology, finance, marketing, and management expertise.
@@ -102,7 +102,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company + newsletter */}
+          {/* Company */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold text-white">Company</h4>
             <ul className="space-y-2 text-sm text-white/60">
@@ -114,28 +114,29 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-
-            <div className="pt-1 text-center">
-              <p className="text-xs font-semibold text-white/80 mb-2">Chat with us on WhatsApp</p>
-              <form onSubmit={handleSubscribe} className="flex items-center justify-center gap-2">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email address"
-                  className="w-full min-w-0 bg-white/10 rounded-full border border-white/15 text-white text-sm py-2 px-4 placeholder:text-white/40 focus:outline-none focus:border-yorlex-green transition-colors"
-                />
-                <button
-                  type="submit"
-                  aria-label="Continue on WhatsApp"
-                  className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-yorlex-green hover:bg-yorlex-green-dark transition-colors"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
-            </div>
           </div>
+        </div>
+
+        {/* Newsletter / WhatsApp handoff */}
+        <div className="w-full max-w-7xl pb-6 text-center">
+          <p className="text-xs font-semibold text-white/80 mb-2">Chat with us on WhatsApp</p>
+          <form onSubmit={handleSubscribe} className="flex items-center justify-center gap-2 max-w-xs mx-auto">
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email address"
+              className="w-full min-w-0 bg-white/10 rounded-full border border-white/15 text-white text-sm py-2 px-4 placeholder:text-white/40 focus:outline-none focus:border-yorlex-green transition-colors"
+            />
+            <button
+              type="submit"
+              aria-label="Continue on WhatsApp"
+              className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-yorlex-green hover:bg-yorlex-green-dark transition-colors"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </form>
         </div>
 
         {/* Bottom bar */}

@@ -13,6 +13,12 @@ import {
   ShieldCheck,
   Gauge,
   Layers,
+  TrendingDown,
+  Users,
+  Unplug,
+  Cpu,
+  FileWarning,
+  Expand,
 } from "lucide-react";
 import { StatsCounter } from "@/components/ui";
 import { staggerContainer, staggerItem, fadeUp } from "@/lib/animation-variants";
@@ -71,6 +77,7 @@ export default function HomeContent() {
         </div>
       </section>
 
+      <ChallengesSection />
       <ServicesBento />
       <QuoteSection />
       <FinalCta />
@@ -96,12 +103,12 @@ function HeroSection() {
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#f2f6ea_0%,var(--color-yorlex-canvas)_55%)] opacity-60 md:opacity-25 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 py-10 md:py-24 grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="space-y-7"
+          className="space-y-5 md:space-y-7"
         >
           <motion.span variants={staggerItem} className="yorlex-badge">
             Strategic Partnerships
@@ -109,7 +116,7 @@ function HeroSection() {
 
           <motion.h1
             variants={staggerItem}
-            className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.08] text-yorlex-ink"
+            className="text-3xl md:text-6xl font-bold tracking-tight leading-[1.08] text-yorlex-ink"
           >
             The Operating Partner Behind{" "}
             <span className="text-yorlex-green">2,000+</span> Enterprises
@@ -134,7 +141,7 @@ function HeroSection() {
             </Link>
           </motion.div>
 
-          <motion.div variants={staggerItem} className="flex items-center gap-3 pt-3">
+          <motion.div variants={staggerItem} className="flex items-center gap-3 pt-1 md:pt-3">
             <div className="flex -space-x-2.5">
               {["A", "B", "C", "D"].map((letter) => (
                 <div
@@ -155,7 +162,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative"
+          className="hidden md:block relative"
         >
           <div className="yorlex-card p-6 md:p-8 pb-14 md:pb-16 shadow-[0_30px_60px_-15px_rgba(15,27,44,0.3)]">
             <div className="flex items-center justify-between mb-6">
@@ -200,6 +207,89 @@ function HeroSection() {
             </p>
             <p className="text-2xl font-bold text-yorlex-green">98.4%</p>
           </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function ChallengesSection() {
+  const { ref, isInView } = useScrollReveal();
+
+  const challenges = [
+    {
+      title: "Rising Operational Costs",
+      description: "Manual processes and fragmented vendors quietly inflate overhead every quarter.",
+      icon: TrendingDown,
+    },
+    {
+      title: "Hiring & Retaining Talent",
+      description: "Building an in-house team across tech, finance, and marketing takes months you don't have.",
+      icon: Users,
+    },
+    {
+      title: "Disconnected Systems",
+      description: "Your CRM, accounting, and marketing tools don't talk to each other, so nothing adds up.",
+      icon: Unplug,
+    },
+    {
+      title: "Slow Technology Adoption",
+      description: "Legacy workflows and manual reporting slow down decisions that should take minutes.",
+      icon: Cpu,
+    },
+    {
+      title: "Compliance & Governance",
+      description: "Tax, data, and regulatory requirements shift constantly, and gaps are expensive to fix.",
+      icon: FileWarning,
+    },
+    {
+      title: "Scaling Operations",
+      description: "What works with 10 clients breaks at 100 without the right processes in place.",
+      icon: Expand,
+    },
+  ];
+
+  return (
+    <section className="py-16 md:py-20 bg-yorlex-canvas-alt border-b border-yorlex-border">
+      <div className="max-w-7xl mx-auto px-6 space-y-10">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto text-center space-y-4"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-yorlex-ink">
+            Every Growing Business Faces These Challenges
+          </h2>
+          <p className="text-base text-yorlex-body">
+            The problems don&apos;t announce themselves until they&apos;re expensive. We&apos;ve built Yorlex to close these gaps before they slow you down.
+          </p>
+        </motion.div>
+
+        <motion.div
+          ref={ref as React.RefObject<HTMLDivElement>}
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          {challenges.map((c) => {
+            const Icon = c.icon;
+            return (
+              <motion.div
+                key={c.title}
+                variants={staggerItem}
+                className="bg-white rounded-2xl border border-yorlex-border p-6 space-y-3"
+              >
+                <div className="w-10 h-10 rounded-full bg-yorlex-green-soft flex items-center justify-center text-yorlex-green-dark shrink-0">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-semibold text-yorlex-ink">{c.title}</h3>
+                <p className="text-sm text-yorlex-body leading-relaxed">{c.description}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
