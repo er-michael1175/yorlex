@@ -118,8 +118,9 @@ function HeroSection() {
             variants={staggerItem}
             className="text-3xl md:text-6xl font-bold tracking-tight leading-[1.08] text-yorlex-ink"
           >
-            The Operating Partner Behind{" "}
-            <span className="text-yorlex-green">2,000+</span> Enterprises
+            Run Your Business.
+            <br />
+            <span className="text-yorlex-green">We&apos;ll Run the Rest.</span>
           </motion.h1>
 
           <motion.p
