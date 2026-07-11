@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
+import OrganizationJsonLd from "../components/OrganizationJsonLd";
 import { SITE } from "../lib/seo";
 
 const inter = Inter({
@@ -27,9 +28,17 @@ export const metadata: Metadata = {
   description: SITE.defaultDescription,
   keywords:
     "Yorlex, Enterprise, Business Solutions, Technology, Consulting, Finance, Marketing",
+  authors: [{ name: "Yorlex" }],
+  alternates: {
+    canonical: SITE.baseUrl,
+  },
   openGraph: {
     title: SITE.defaultTitle,
     description: SITE.defaultDescription,
+    url: SITE.baseUrl,
+    siteName: "Yorlex",
+    locale: "en_US",
+    type: "website",
     images: [
       {
         url: SITE.defaultOgImage.url,
@@ -38,6 +47,12 @@ export const metadata: Metadata = {
         alt: SITE.defaultOgImage.alt,
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.defaultTitle,
+    description: SITE.defaultDescription,
+    images: [SITE.defaultOgImage.url],
   },
 };
 
@@ -52,6 +67,7 @@ export default function RootLayout({
       className={`${inter.variable} ${plusJakartaSans.variable}`}
     >
       <body className="min-h-screen bg-brand-bg text-brand-text font-sans antialiased flex flex-col overflow-x-hidden selection:bg-brand-purple selection:text-brand-text">
+        <OrganizationJsonLd />
         <Header />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />

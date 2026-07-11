@@ -32,6 +32,7 @@ export const PUBLIC_ROUTES: readonly PublicRoute[] = [
   { path: "/services/management", changeFrequency: "monthly", priority: 0.8 },
   { path: "/services/marketing", changeFrequency: "monthly", priority: 0.8 },
   { path: "/services/technology", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/services/support", changeFrequency: "monthly", priority: 0.7 },
   { path: "/success-stories", changeFrequency: "monthly", priority: 0.7 },
   { path: "/success-stories/revenue-optimization", changeFrequency: "monthly", priority: 0.6 },
   { path: "/terms", changeFrequency: "monthly", priority: 0.3 },

@@ -121,7 +121,7 @@ export function buildMetadata(page: PageSeo): Metadata {
   const ogImageUrl = absoluteUrl(SITE.baseUrl, ogImage.url);
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical,
@@ -130,6 +130,7 @@ export function buildMetadata(page: PageSeo): Metadata {
       title,
       description,
       url: canonical,
+      type: "website",
       images: [
         {
           url: ogImageUrl,
@@ -138,6 +139,12 @@ export function buildMetadata(page: PageSeo): Metadata {
           alt: ogImage.alt,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl],
     },
   };
 }
@@ -237,6 +244,12 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     title: "Technology Solutions — Yorlex",
     description:
       "Resilient technology solutions and platform engineering built for enterprise scale.",
+  },
+  "/services/support": {
+    path: "/services/support",
+    title: "Support Services — Yorlex",
+    description:
+      "Responsive, dependable support services that keep enterprise operations running smoothly.",
   },
   "/success-stories": {
     path: "/success-stories",
