@@ -14,26 +14,28 @@ export interface PublicRoute {
   path: string;
   changeFrequency?: "weekly" | "monthly";
   priority?: number; // 0..1
+  /** ISO date (YYYY-MM-DD) this route's content was last actually edited. Bump on real content changes. */
+  lastModified: string;
 }
 
 export const PUBLIC_ROUTES: readonly PublicRoute[] = [
-  { path: "/", changeFrequency: "weekly", priority: 1.0 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/about/leadership", changeFrequency: "monthly", priority: 0.6 },
-  { path: "/careers", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/engagement-models", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/faq", changeFrequency: "monthly", priority: 0.5 },
-  { path: "/industries", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/privacy", changeFrequency: "monthly", priority: 0.3 },
-  { path: "/process", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/services", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/services/finance", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/services/management", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/services/marketing", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/services/technology", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/services/support", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/success-stories", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/success-stories/revenue-optimization", changeFrequency: "monthly", priority: 0.6 },
-  { path: "/terms", changeFrequency: "monthly", priority: 0.3 },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-07-12" },
+  { path: "/about", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-07-11" },
+  { path: "/about/leadership", changeFrequency: "monthly", priority: 0.6, lastModified: "2026-07-11" },
+  { path: "/careers", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-07-12" },
+  { path: "/contact", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-07-12" },
+  { path: "/engagement-models", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-07-11" },
+  { path: "/faq", changeFrequency: "monthly", priority: 0.5, lastModified: "2026-07-12" },
+  { path: "/industries", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-07-11" },
+  { path: "/privacy", changeFrequency: "monthly", priority: 0.3, lastModified: "2026-07-12" },
+  { path: "/process", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-07-11" },
+  { path: "/services", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-07-11" },
+  { path: "/services/finance", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-07-11" },
+  { path: "/services/management", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-07-11" },
+  { path: "/services/marketing", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-07-11" },
+  { path: "/services/technology", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-07-11" },
+  { path: "/services/support", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-07-11" },
+  { path: "/success-stories", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-07-11" },
+  { path: "/success-stories/revenue-optimization", changeFrequency: "monthly", priority: 0.6, lastModified: "2026-07-11" },
+  { path: "/terms", changeFrequency: "monthly", priority: 0.3, lastModified: "2026-07-12" },
 ] as const;
